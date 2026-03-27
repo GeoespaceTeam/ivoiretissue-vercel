@@ -1,7 +1,25 @@
-// app/layout.tsx
+import type { Metadata } from "next";
+import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+});
+
+export const metadata: Metadata = {
+  title: "Ivoire Tissue Paper | Sustainable Bamboo Tissue Products",
+  description:
+    "Ivoire Tissue Paper is a pioneering Canadian company dedicated to producing high-quality tissue paper using sustainable bamboo resources.",
+  keywords: "bamboo tissue paper, sustainable paper, eco-friendly, Canadian paper manufacturer",
+};
 
 export default function RootLayout({
   children,
@@ -9,12 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh">
-      <body>
-        <Header />
-        {/* pt-20 是为了给 fixed 的 Header 留出位置 */}
-        <main className="pt-20 min-h-screen">{children}</main>
-        <Footer />
+    <html lang="en">
+      <body className={`${poppins.variable} ${playfair.variable} font-sans`}>
+        {children}
       </body>
     </html>
   );
