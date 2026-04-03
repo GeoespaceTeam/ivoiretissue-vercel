@@ -31,9 +31,10 @@
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  /* 新增：确保 html 高度为 100% */
 }
 
 body {
@@ -45,6 +46,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   line-height: 1.6;
+
+  /* ===== 新增：Sticky Footer 魔法 ===== */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* 保证 body 至少占满一个屏幕的高度 */
+}
+
+/* 新增：让 main 自动伸展，把 Footer 往下挤 */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* 让 main 内部的内容也能继承高度 */
 }
 
 a {
@@ -1144,4 +1159,119 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* ========================================
+   终极 Sticky Footer & 防遮挡方案
+   ======================================== */
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* 确保整个包裹器最小高度为屏幕高度 */
+}
+
+.main-content {
+  flex: 1 0 auto;
+  /* 保证主内容区自动伸展撑开页面 */
+  margin-top: var(--header-height);
+  /* 关键修复：把内容往下推，防止钻到固定 Header 的下面 */
+  width: 100%;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  /* 保证 Footer 在页面内容溢出时不会被错误压缩 */
+}
+
+/* ========================================
+   ABOUT US & CONTENT SECTION 页面排版
+   ======================================== */
+/* 限制最大宽度并居中，防止内容贴着屏幕边缘 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-header {
+  padding: 60px 20px;
+  background: var(--color-gray-50);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  font-size: 36px;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.content-section {
+  padding: 60px 0;
+}
+
+.content-section.bg-light {
+  background: var(--color-gray-50);
+}
+
+/* 左右分割排版核心 */
+.split-layout {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.content-section.reverse .split-layout {
+  flex-direction: row-reverse;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.text-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+  color: var(--color-gray-800);
+}
+
+.text-content p {
+  margin-bottom: 16px;
+  color: var(--color-gray-600);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.image-content {
+  flex: 1;
+}
+
+.section-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 350px;
+  background: var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--color-gray-500);
+  font-weight: 600;
+}
+
+/* 移动端自动变成上下堆叠 */
+@media (max-width: 768px) {
+  .split-layout {
+    flex-direction: column !important;
+    /* 强制取消左右布局 */
+    gap: 30px;
+  }
 }

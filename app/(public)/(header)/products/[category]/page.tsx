@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-// 模拟数据库数据 (根据你原站的截图提取)
+// 模拟数据库数据保持不变...
 const productsDatabase = {
   bamboo: [
     {
@@ -41,25 +41,24 @@ const productsDatabase = {
     },
   ],
   virgin: [
-    // TODO: 填入实际数据
     { id: "11", title: "Virgin Tissue Box", img: "/images/placeholder.jpg" },
   ],
   recycle: [
-    // TODO: 填入实际数据
     { id: "12", title: "Recycled Napkins", img: "/images/placeholder.jpg" },
   ],
   mixed: [
-    // TODO: 填入实际数据
     { id: "13", title: "Mixed Paper Roll", img: "/images/placeholder.jpg" },
   ],
 };
 
-export default function CategoryPage({
+// 修复点 1：将 params 的类型定义为 Promise，并在函数前加 async
+export default async function CategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const { category } = params;
+  // 修复点 2：使用 await 解构 params
+  const { category } = await params;
 
   // 如果输入的分类不合法，返回 404
   if (!Object.keys(productsDatabase).includes(category)) {
@@ -78,7 +77,6 @@ export default function CategoryPage({
           className="product-card"
         >
           <div className="product-image-wrapper">
-            {/* 请确保 public/images 文件夹下有图片，暂时可以用 placeholder 占位 */}
             <Image
               src={product.img}
               alt={product.title}

@@ -63,7 +63,8 @@ export default function Header() {
                 width={160}
                 height={42}
                 priority
-                style={{ height: 42, width: "auto" }}
+                // 修复点：确保传入 "auto" 字符串，保持宽高比不被拉伸
+                style={{ width: "auto", height: "42px" }}
               />
             </Link>
           </div>
@@ -99,9 +100,21 @@ export default function Header() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu Toggle"
           >
-            <span style={mobileOpen ? { transform: "rotate(45deg) translate(5px, 5px)" } : {}} />
+            <span
+              style={
+                mobileOpen
+                  ? { transform: "rotate(45deg) translate(5px, 5px)" }
+                  : {}
+              }
+            />
             <span style={mobileOpen ? { opacity: 0 } : {}} />
-            <span style={mobileOpen ? { transform: "rotate(-45deg) translate(5px, -5px)" } : {}} />
+            <span
+              style={
+                mobileOpen
+                  ? { transform: "rotate(-45deg) translate(5px, -5px)" }
+                  : {}
+              }
+            />
           </button>
         </div>
       </header>
@@ -115,7 +128,9 @@ export default function Header() {
                   <div
                     className="mobile-nav-trigger"
                     onClick={() =>
-                      setMobileSubOpen(mobileSubOpen === item.label ? null : item.label)
+                      setMobileSubOpen(
+                        mobileSubOpen === item.label ? null : item.label,
+                      )
                     }
                   >
                     <span>{item.label}</span>
@@ -124,7 +139,11 @@ export default function Header() {
                   {mobileSubOpen === item.label && (
                     <div className="mobile-sub-menu">
                       {item.children.map((child) => (
-                        <Link key={child.label} href={child.href} onClick={() => setMobileOpen(false)}>
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          onClick={() => setMobileOpen(false)}
+                        >
                           {child.label}
                         </Link>
                       ))}
