@@ -9,9 +9,7 @@ export default function PublicLayout({
   return (
     <>
       <Header />
-      <main id="content" className="site-main">
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </>
   );

@@ -2,39 +2,31 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-// TODO: 替换成你的实际视频路径，放在 public/videos/ 下
+// TODO: 替换成实际的banner图片/视频路径，放在 public/ 下
+// 原站视频CDN:
+// https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-video-preview-2.mp4
+// https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-video-preview.mp4
+// https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-video-preview-1.mp4
 const slides = [
-  { id: 1, video: "/videos/hero-1.mp4" },
-  { id: 2, video: "/videos/hero-2.mp4" },
-  { id: 3, video: "/videos/hero-3.mp4" },
+  { id: 1, type: "video" as const, src: "/videos/hero-1.mov" },
+  { id: 2, type: "video" as const, src: "/videos/hero-2.mov" },
+  { id: 3, type: "video" as const, src: "/videos/hero-3.mov" },
 ];
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
-  const [progress, setProgress] = useState(0);
 
   const goNext = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
-    setProgress(0);
   }, []);
 
   const goPrev = useCallback(() => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-    setProgress(0);
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          goNext();
-          return 0;
-        }
-        return prev + 2; // ~5 seconds per slide (100/2 * 100ms)
-      });
-    }, 100);
-
-    return () => clearInterval(interval);
+    const timer = setInterval(goNext, 5000);
+    return () => clearInterval(timer);
   }, [goNext]);
 
   return (
@@ -44,38 +36,33 @@ export default function HeroCarousel() {
           key={slide.id}
           className={`hero-slide ${index === current ? "active" : ""}`}
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            src={slide.video}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-          <div className="hero-overlay">
-            <div className="hero-content">
-              <h1>Ivoire Tissue Paper</h1>
-            </div>
-          </div>
+          {slide.type === "video" ? (
+            <video autoPlay muted loop playsInline src={slide.src} />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={slide.src} alt="Ivoire Tissue Paper" />
+          )}
         </div>
       ))}
 
-      {/* Arrows */}
       <div className="hero-arrows">
-        <button className="hero-arrow" onClick={goPrev} aria-label="Previous slide">
+        <button className="hero-arrow" onClick={goPrev} aria-label="Previous">
           ‹
         </button>
-        <button className="hero-arrow" onClick={goNext} aria-label="Next slide">
+        <button className="hero-arrow" onClick={goNext} aria-label="Next">
           ›
         </button>
       </div>
 
-      {/* Progress bar */}
-      <div className="hero-progress">
-        <div
-          className="hero-progress-bar"
-          style={{ width: `${((current + progress / 100) / slides.length) * 100}%` }}
-        />
+      <div className="hero-dots">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`hero-dot ${index === current ? "active" : ""}`}
+            onClick={() => { setCurrent(index); }}
+            aria-label={`Slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

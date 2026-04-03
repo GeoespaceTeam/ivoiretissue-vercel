@@ -38,170 +38,97 @@ const navItems = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (mobileOpen || searchOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [mobileOpen, searchOpen]);
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+  }, [mobileOpen]);
 
   return (
     <>
       <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-inner">
-          {/* Logo */}
-          <Link href="/" className="header-logo">
-            {/* TODO: 替换成你的logo图片路径 */}
-            <Image
-              src="/images/logo.png"
-              alt="Ivoire Tissue Paper"
-              width={160}
-              height={55}
-              priority
-              style={{ height: 55, width: "auto" }}
-            />
-          </Link>
+          <div className="header-logo">
+            <Link href="/">
+              <Image
+                src="/images/logo.png"
+                alt="Ivoire Tissue Paper"
+                width={160}
+                height={42}
+                priority
+                style={{ height: 42, width: "auto" }}
+              />
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
           <nav>
             <ul className="main-nav">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href}>
-                    {item.label}
-                    {item.children && (
-                      <span className="dropdown-arrow">▾</span>
-                    )}
-                  </Link>
-                  {item.children && (
-                    <ul className="nav-dropdown">
-                      {item.children.map((child) => (
-                        <li key={child.label}>
-                          <Link href={child.href}>{child.label}</Link>
-                        </li>
-                      ))}
-                    </ul>
+                  {item.children ? (
+                    <>
+                      <div className="nav-trigger">
+                        {item.label}
+                        <span className="nav-arrow">▾</span>
+                      </div>
+                      <ul className="nav-dropdown">
+                        {item.children.map((child) => (
+                          <li key={child.label}>
+                            <Link href={child.href}>{child.label}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link href={item.href}>{item.label}</Link>
                   )}
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Header Actions */}
-          <div className="header-actions">
-            <select className="lang-select" defaultValue="en">
-              <option value="en">English</option>
-              <option value="fr">French</option>
-              <option value="zh-CN">Chinese</option>
-            </select>
-
-            <button
-              className="search-toggle"
-              onClick={() => setSearchOpen(true)}
-              aria-label="Search"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
-              </svg>
-            </button>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              className="mobile-menu-toggle"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Menu Toggle"
-            >
-              <span
-                style={
-                  mobileOpen
-                    ? { transform: "rotate(45deg) translate(5px, 5px)" }
-                    : {}
-                }
-              />
-              <span style={mobileOpen ? { opacity: 0 } : {}} />
-              <span
-                style={
-                  mobileOpen
-                    ? { transform: "rotate(-45deg) translate(5px, -5px)" }
-                    : {}
-                }
-              />
-            </button>
-          </div>
+          <button
+            className="mobile-menu-toggle"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu Toggle"
+          >
+            <span style={mobileOpen ? { transform: "rotate(45deg) translate(5px, 5px)" } : {}} />
+            <span style={mobileOpen ? { opacity: 0 } : {}} />
+            <span style={mobileOpen ? { transform: "rotate(-45deg) translate(5px, -5px)" } : {}} />
+          </button>
         </div>
       </header>
 
-      {/* Search Overlay */}
-      <div className={`search-overlay ${searchOpen ? "active" : ""}`}>
-        <button
-          className="search-close"
-          onClick={() => setSearchOpen(false)}
-          aria-label="Close search"
-        >
-          ✕
-        </button>
-        <input
-          type="text"
-          placeholder="Search..."
-          autoFocus={searchOpen}
-          onKeyDown={(e) => e.key === "Escape" && setSearchOpen(false)}
-        />
-      </div>
-
-      {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${mobileOpen ? "active" : ""}`}>
         <ul className="mobile-nav">
           {navItems.map((item) => (
             <li key={item.label}>
               {item.children ? (
                 <>
-                  <a
+                  <div
+                    className="mobile-nav-trigger"
                     onClick={() =>
-                      setMobileSubOpen(
-                        mobileSubOpen === item.label ? null : item.label
-                      )
+                      setMobileSubOpen(mobileSubOpen === item.label ? null : item.label)
                     }
-                    style={{ cursor: "pointer" }}
                   >
-                    {item.label}{" "}
-                    <span style={{ float: "right" }}>
-                      {mobileSubOpen === item.label ? "−" : "+"}
-                    </span>
-                  </a>
+                    <span>{item.label}</span>
+                    <span>{mobileSubOpen === item.label ? "−" : "+"}</span>
+                  </div>
                   {mobileSubOpen === item.label && (
-                    <ul className="sub-menu">
+                    <div className="mobile-sub-menu">
                       {item.children.map((child) => (
-                        <li key={child.label}>
-                          <Link
-                            href={child.href}
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
+                        <Link key={child.label} href={child.href} onClick={() => setMobileOpen(false)}>
+                          {child.label}
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   )}
                 </>
               ) : (

@@ -31,7 +31,7 @@ export default function VideoPlayerClient({
             src={`${src}?autoplay=1`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            style={{ border: "none" }}
+            style={{ border: "none", width: "100%", aspectRatio: "16/9" }}
           />
         ) : null
       ) : (
@@ -41,13 +41,11 @@ export default function VideoPlayerClient({
           controls={playing}
           preload="metadata"
           controlsList="nodownload"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       )}
 
-      {/* Thumbnail overlay */}
       <div
-        className={`video-thumbnail-overlay ${playing ? "hidden" : ""}`}
+        className={`video-overlay ${playing ? "hidden" : ""}`}
         style={{ backgroundImage: `url(${thumbnail})` }}
         onClick={handlePlay}
         role="button"
@@ -55,7 +53,7 @@ export default function VideoPlayerClient({
         aria-label="Play Video"
         onKeyDown={(e) => e.key === "Enter" && handlePlay()}
       >
-        <div className="play-button">
+        <div className="play-btn">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <polygon points="5,3 19,12 5,21" />
           </svg>

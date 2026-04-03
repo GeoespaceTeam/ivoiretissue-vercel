@@ -18,10 +18,9 @@ export default function ContactForm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-
-    // TODO: 替换成你的实际表单提交逻辑（API route）
+    // TODO: 接入实际API
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((r) => setTimeout(r, 1000));
       setSubmitted(true);
       setFormData({ name: "", company: "", email: "", phone: "", message: "" });
     } catch {
@@ -34,24 +33,16 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div style={{ textAlign: "center", padding: "40px 0" }}>
-        <h3 style={{ color: "var(--color-primary)", marginBottom: 12 }}>
+        <h3 style={{ color: "var(--color-primary)", marginBottom: 12, fontSize: 18 }}>
           Thank you!
         </h3>
-        <p style={{ color: "var(--color-gray-600)" }}>
-          Your message has been sent successfully. We will get back to you soon.
+        <p style={{ color: "var(--color-gray-600)", fontSize: 14 }}>
+          Your message has been sent successfully.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          style={{
-            marginTop: 20,
-            padding: "10px 24px",
-            background: "var(--color-primary)",
-            color: "white",
-            border: "none",
-            borderRadius: 6,
-            cursor: "pointer",
-            fontFamily: "var(--font-body)",
-          }}
+          className="submit-btn"
+          style={{ marginTop: 20, width: "auto", padding: "10px 28px" }}
         >
           Send another message
         </button>
@@ -60,13 +51,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+    <form onSubmit={handleSubmit} noValidate>
       <div className="form-group">
-        <label htmlFor="contact-name">
-          Name <span className="required">*</span>
-        </label>
+        <label>Name <span className="required">*</span></label>
         <input
-          id="contact-name"
           type="text"
           placeholder="E.g. John"
           required
@@ -74,26 +62,18 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         />
       </div>
-
       <div className="form-group">
-        <label htmlFor="contact-company">Company Name</label>
+        <label>Company Name</label>
         <input
-          id="contact-company"
           type="text"
           placeholder="E.g. Apple"
           value={formData.company}
-          onChange={(e) =>
-            setFormData({ ...formData, company: e.target.value })
-          }
+          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
         />
       </div>
-
       <div className="form-group">
-        <label htmlFor="contact-email">
-          Email Address <span className="required">*</span>
-        </label>
+        <label>Email Address <span className="required">*</span></label>
         <input
-          id="contact-email"
           type="email"
           placeholder="E.g. john@doe.com"
           required
@@ -101,36 +81,29 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
       </div>
-
       <div className="form-group">
-        <label htmlFor="contact-phone">Phone Number</label>
+        <label>Phone Number</label>
         <input
-          id="contact-phone"
           type="tel"
           placeholder="E.g. +1 3004005000"
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
         />
       </div>
-
       <div className="form-group">
-        <label htmlFor="contact-message">Message</label>
+        <label>Message</label>
         <textarea
-          id="contact-message"
           placeholder="Enter your message..."
           maxLength={maxMessageLength}
-          rows={6}
+          rows={5}
           value={formData.message}
-          onChange={(e) =>
-            setFormData({ ...formData, message: e.target.value })
-          }
+          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
         />
         <div className="char-count">
           {formData.message.length} / {maxMessageLength}
         </div>
       </div>
-
-      <button type="submit" disabled={submitting}>
+      <button type="submit" className="submit-btn" disabled={submitting}>
         {submitting ? "Submitting..." : "Send Message"}
       </button>
     </form>

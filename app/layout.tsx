@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   title: "Ivoire Tissue Paper | Sustainable Bamboo Tissue Products",
   description:
     "Ivoire Tissue Paper is a pioneering Canadian company dedicated to producing high-quality tissue paper using sustainable bamboo resources.",
-  keywords: "bamboo tissue paper, sustainable paper, eco-friendly, Canadian paper manufacturer",
+  keywords:
+    "bamboo tissue paper, sustainable paper, eco-friendly, Canadian paper manufacturer",
 };
 
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${playfair.variable} font-sans`}>
+      <body className={`${poppins.variable} ${playfair.variable}`}>
         {children}
       </body>
     </html>
