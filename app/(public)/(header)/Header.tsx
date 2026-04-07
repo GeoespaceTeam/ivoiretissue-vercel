@@ -33,20 +33,20 @@ const navItems = [
     label: "Ivoire Family",
     href: "/brand-concept", // 点击主菜单默认去品牌理念
     children: [
-      { label: "Brand Concept", href: "/brand-concept" }, // 独立页面 1
+      { label: "Brand Concept", href: "/company-idea" }, // 独立页面 1
       { label: "Theme Customization", href: "/theme-customization" }, // 独立页面 2
     ],
   },
 
   // item2 — 东实外贸 (plain link)
-  { label: "Foreign Trade", href: "/customer-zone" },
+  { label: "Foreign Trade", href: "/foreign-trade" },
 
   // item3 — 线上商城 (plain link)
   // 目标网页的 header 里这只是一个点击跳转的单链接，不像 footer 拆了3个
-  { label: "Online Store", href: "/store" },
+  { label: "Online Store", href: "/products" },
 
   // item4 — 东实国际 (external link)
-  { label: "International", href: "https://ivoiretissue.com", external: true },
+  // { label: "International", href: "https://ivoiretissue.com", external: true },
 
   // item5 — 联系我们 (plain link)
   { label: "Contact Us", href: "/contact-us" },

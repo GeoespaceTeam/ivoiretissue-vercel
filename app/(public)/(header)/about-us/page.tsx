@@ -23,7 +23,7 @@ export default function AboutUsPage() {
       <ContentSection
         id="history"
         title="Our History"
-        // imageSrc="/images/about-history.jpg" // 准备好图片后取消注释
+        imageSrc="/images/about-history.jpg" // 准备好图片后取消注释
       >
         <p>
           Ivoire Tissue Paper is a Canadian family company founded on 12
@@ -43,7 +43,7 @@ export default function AboutUsPage() {
         id="mission"
         title="Our Mission"
         reverse={true}
-        // imageSrc="/images/about-mission.jpg"
+        imageSrc="/images/about-mission.jpg"
       >
         <p>
           Ivoire Tissue Paper is dedicated to promoting sustainability,
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
       <ContentSection
         id="vision"
         title="Our Location"
-        // imageSrc="/images/about-location.jpg"
+        imageSrc="/images/about-location.jpg"
       >
         <p>
           Located at 222 Rue Poirier in Saint-Eustache, Quebec, Canada, Ivoire

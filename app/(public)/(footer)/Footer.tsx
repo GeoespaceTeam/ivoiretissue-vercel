@@ -43,7 +43,7 @@ export default function Footer() {
         <ScrollReveal delay={100}>
           <div className={s.navCol}>
             <h2>Ivoire Family</h2>
-            <Link href="/brand-concept">Brand Concept</Link>
+            <Link href="/company-idea">Brand Concept</Link>
             <Link href="/theme-customization">Theme Customization</Link>
           </div>
         </ScrollReveal>
@@ -60,20 +60,20 @@ export default function Footer() {
         <ScrollReveal delay={300}>
           <div className={s.navCol}>
             <h2>Online Store</h2>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="/products" target="_blank" rel="noopener noreferrer">
               Official Store
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            {/* <a href="#" target="_blank" rel="noopener noreferrer">
               Amazon Store
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               Alibaba Store
-            </a>
+            </a> */}
           </div>
         </ScrollReveal>
 
         {/* Col 5 — 东实国际 → International */}
-        <ScrollReveal delay={400}>
+        {/* <ScrollReveal delay={400}>
           <div className={s.navCol}>
             <h2>International</h2>
             <a
@@ -84,7 +84,7 @@ export default function Footer() {
               International Website
             </a>
           </div>
-        </ScrollReveal>
+        </ScrollReveal> */}
 
         {/* Col 6 — ── Contact column (left-aligned) ── */}
         <ScrollReveal delay={500} direction="left">
