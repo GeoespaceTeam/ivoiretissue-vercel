@@ -19,12 +19,13 @@ export default function Footer() {
         className={s.main}
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(6, 1fr)", // 强制均分 6 份
-          maxWidth: "1200px", // 限制最大宽度，居中好看
+          // 核心修改：使用 minmax(0, 1fr) 绝对锁定 6 份均分，防止长文字破坏网格
+          gridTemplateColumns: "repeat(6, minmax(0, 1fr))",
+          maxWidth: "1200px", // 保持 1200px 居中好看
           margin: "0 auto",
-          gap: "20px", // 列与列之间的间距
+          gap: "20px",
           width: "100%",
-          padding: "60px 20px", // 根据需要微调上下内边距
+          padding: "60px 20px",
         }}
       >
         {/* Col 1 — 关于我们 → About Us */}
@@ -32,9 +33,9 @@ export default function Footer() {
           <div className={s.navCol}>
             <h2>About Us</h2>
             <Link href="/about-us">Company Profile</Link>
-            <Link href="#/progress">Development History</Link>
-            <Link href="#/culture">Our Culture</Link>
-            <Link href="#/certificate">Certifications</Link>
+            <Link href="/development-history">Development History</Link>
+            <Link href="/our-culture">Our Culture</Link>
+            <Link href="/certifications">Certifications</Link>
           </div>
         </ScrollReveal>
 
@@ -42,8 +43,8 @@ export default function Footer() {
         <ScrollReveal delay={100}>
           <div className={s.navCol}>
             <h2>Ivoire Family</h2>
-            <Link href="#/company_idea">Brand Concept</Link>
-            <Link href="#/customization">Theme Customization</Link>
+            <Link href="/brand-concept">Brand Concept</Link>
+            <Link href="/theme-customization">Theme Customization</Link>
           </div>
         </ScrollReveal>
 
@@ -51,7 +52,7 @@ export default function Footer() {
         <ScrollReveal delay={200}>
           <div className={s.navCol}>
             <h2>Foreign Trade</h2>
-            <Link href="#/foreign-trade">Foreign Trade Details</Link>
+            <Link href="/foreign-trade">Foreign Trade Details</Link>
           </div>
         </ScrollReveal>
 
@@ -85,44 +86,63 @@ export default function Footer() {
           </div>
         </ScrollReveal>
 
-        {/* Col 6 — ── Contact column (right-aligned) ── */}
+        {/* Col 6 — ── Contact column (left-aligned) ── */}
         <ScrollReveal delay={500} direction="left">
           <div
             className={s.contactCol}
-            style={{ textAlign: "right", color: "#fff" }}
+            style={{ textAlign: "left", color: "#fff" }} // 改为左对齐
           >
             {/* Slogan */}
             <div
               className={s.slogan}
-              style={{ fontSize: "16px", paddingBottom: "24px" }}
+              style={{
+                fontSize: "16px",
+                paddingBottom: "24px",
+                whiteSpace: "nowrap",
+                fontWeight: "bold",
+              }}
             >
-              Pure Nature,
-              <br />
-              Better Living
+              Pure Nature, Better Living {/* 删掉了换行符，保证一行 */}
             </div>
 
-            {/* 联系方式 - 严格复刻 dongshi 的间距和透明度 */}
+            {/* 联系方式：加上 whiteSpace: "nowrap" 杜绝换行，并精简前缀 */}
             <div
               className={s.contactLine}
-              style={{ paddingBottom: "24px", opacity: 0.8 }}
+              style={{
+                paddingBottom: "24px",
+                opacity: 0.8,
+                whiteSpace: "nowrap",
+              }}
             >
-              Company Phone: +1 (514) 971-8238
+              Tel: +1 (514) 971-8238
             </div>
             <div
               className={s.contactLine}
-              style={{ paddingBottom: "24px", opacity: 0.8 }}
+              style={{
+                paddingBottom: "24px",
+                opacity: 0.8,
+                whiteSpace: "nowrap",
+              }}
             >
               Hotline: +1 (514) 291-8063
             </div>
             <div
               className={s.contactLine}
-              style={{ paddingBottom: "24px", opacity: 0.8 }}
+              style={{
+                paddingBottom: "24px",
+                opacity: 0.8,
+                whiteSpace: "nowrap",
+              }}
             >
               Toll-free: 1-800-000-0000
             </div>
             <div
               className={s.contactLine}
-              style={{ paddingBottom: "24px", opacity: 0.8 }}
+              style={{
+                paddingBottom: "24px",
+                opacity: 0.8,
+                whiteSpace: "nowrap",
+              }}
             >
               Email:{" "}
               <a
@@ -139,7 +159,7 @@ export default function Footer() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
+                alignItems: "flex-start", // 让二维码和文字一起左对齐
               }}
             >
               <img
@@ -162,7 +182,6 @@ export default function Footer() {
 
       {/* ════════════════════════════════════════
           COPYRIGHT BAR — darker teal strip
-          Left: company + legal  |  Right: address
           ════════════════════════════════════════ */}
       <div className={s.copyrightWrapper}>
         <div

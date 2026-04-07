@@ -432,35 +432,39 @@ const STATS = [
   },
 ] as const;
 
-/* Main Markets — dongshi: market1~5.png, 国内/北美/西欧/东南亚/南美洲 */
+/* Main Markets — 贴合加拿大本土企业的商业逻辑划分 */
 const MARKETS = [
   {
-    title: "North America",
-    img: "/images/product-bamboo.jpg",
-    href: "/products",
+    title: "Domestic (Canada)",
+    // 建议：放一张蒙特利尔或多伦多的城市风景图
+    img: "/images/market-canada.jpg", 
+    href: "/foreign-trade",
   },
   {
     title: "United States",
-    img: "/images/product-virgin.jpg",
-    href: "/products",
+    // 建议：放一张美国国会大厦或纽约的风景图（原网页也是国会大厦）
+    img: "/images/market-us.jpg", 
+    href: "/foreign-trade",
   },
   {
-    title: "Europe",
-    img: "/images/product-recycle.jpg",
-    href: "/products",
+    title: "Western Europe",
+    // 建议：放一张欧洲城堡或标志性建筑
+    img: "/images/market-europe.jpg", 
+    href: "/foreign-trade",
   },
   {
-    title: "Africa",
-    img: "/images/product-mixed.jpg",
-    href: "/products",
+    title: "Asia-Pacific",
+    // 替换原版的“东南亚”，亚太地区对加拿大纸业出口更具包容性
+    img: "/images/market-asia.jpg", 
+    href: "/foreign-trade",
   },
   {
-    title: "Caribbean",
-    img: "/images/about.png",
-    href: "/products",
+    title: "Latin America",
+    // 替换原版的“南美洲”，包含中美洲和南美洲，放一张里约热内卢的图即可
+    img: "/images/market-latam.jpg", 
+    href: "/foreign-trade",
   },
 ] as const;
-
 /* Core Capabilities — dongshi: ability1~6.png
    Images: use dongshi CDN as placeholder until own assets are ready */
 const CAPABILITIES = [

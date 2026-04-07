@@ -19,9 +19,9 @@ const CUSTOMIZATION_SERIES = [
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/customization1.png",
   },
   {
-    title: "Essential Business Series", // 原文是“低端商务”，英文用 Essential 更符合商业礼仪
+    title: "Essential Business Series",
     subtitle: "Love is all around us",
-    desc: "More flexible, unbleached, and fluorescent-free.",
+    desc: "More flexible, unbleached and fluorescent-free.",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/customization2.png",
   },
   {
@@ -33,7 +33,7 @@ const CUSTOMIZATION_SERIES = [
   {
     title: "Ivoire Tissue — Custom Solutions",
     subtitle: "Customize love, Spread love",
-    desc: "Eco-friendly, Technology, Fashion.", // 去掉了原网页测试遗留的“备份”二字
+    desc: "Eco-friendly, Technology, Fashion.",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/customization4.png",
   },
 ];
@@ -48,7 +48,7 @@ export default function ThemeCustomizationPage() {
         style={{
           height: 580,
           backgroundImage:
-            'url("https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner2.png")', // 建议后期替换为 /images/banner2.png
+            'url("https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner2.png")',
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -71,14 +71,13 @@ export default function ThemeCustomizationPage() {
         }}
       >
         {CUSTOMIZATION_SERIES.map((item, index) => {
-          // 判断奇偶行，决定图片在左边还是右边
+          // 目标网页的规律是：偶数索引（0,2,4）图片在左，文字在右；奇数索引（1,3）文字在左，图片在右
           const isImageLeft = index % 2 === 0;
 
           return (
             <ScrollReveal
               key={index}
               delay={100}
-              // 图片在左，文字从右滑入；图片在右，文字从左滑入
               direction={isImageLeft ? "left" : "right"}
             >
               <div
@@ -86,42 +85,28 @@ export default function ThemeCustomizationPage() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  // 如果是偶数行则反转排列，同时利用 wrap 保证小屏幕下垂直折叠
+                  // 利用 React 的 flex-direction 完美还原原网页写死的左右交错 DOM
                   flexDirection: isImageLeft ? "row" : "row-reverse",
                   flexWrap: "wrap",
-                  marginBottom: "80px",
+                  marginBottom: "64px",
                   gap: "40px",
                 }}
               >
-                {/* ── Image Box ── */}
-                <div
-                  style={{
-                    flex: "1 1 400px",
-                    textAlign: isImageLeft ? "left" : "right",
-                  }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      display: "inline-block",
-                    }}
-                  />
-                </div>
+                {/* ── 侧边图片 ── */}
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  style={{ maxWidth: "100%", height: "auto", flex: "0 0 auto" }}
+                />
 
-                {/* ── Text Box ── */}
+                {/* ── 侧边文字区 ── */}
                 <div
                   style={{
-                    flex: "1 1 400px",
                     color: "rgb(109, 109, 109)",
                     fontSize: "16px",
-                    // 确保短内容在反转时也能对齐好看
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
+                    flex: "1 1 400px",
+                    // 为了完美复刻原网页，不强制靠左/靠右，统一使用左对齐
+                    textAlign: "left",
                   }}
                 >
                   <h2
@@ -142,13 +127,13 @@ export default function ThemeCustomizationPage() {
                   >
                     {item.subtitle}
                   </div>
-                  {/* 品牌青色小横条 */}
+                  {/* 青色分隔线：高度 3px, 宽度 70px */}
                   <div
                     style={{
                       height: "3px",
                       width: "70px",
                       backgroundColor: "rgb(0, 166, 152)",
-                      margin: "15px 0",
+                      margin: "10px 0px 20px",
                     }}
                   ></div>
                   <span style={{ fontWeight: 500, lineHeight: 1.6 }}>

@@ -22,19 +22,19 @@ const navItems = [
     href: "/about-us",
     children: [
       { label: "Company Profile", href: "/about-us" },
-      { label: "Development History", href: "/about-us#progress" },
-      { label: "Our Culture", href: "/about-us#culture" },
-      { label: "Certifications", href: "/about-us#certificate" },
+      { label: "Development History", href: "/development-history" },
+      { label: "Our Culture", href: "/our-culture" },
+      { label: "Certifications", href: "/certifications" }, // 之前是 /about-us#certificate
     ],
   },
 
-  // item1 — 东实家族 (submenu) - 替换为您品牌的名称
+  // item1 — 东实家族 (submenu)
   {
     label: "Ivoire Family",
-    href: "/ivoire-family", // 假设你将来会建这个路由，或者用 /products
+    href: "/brand-concept", // 点击主菜单默认去品牌理念
     children: [
-      { label: "Brand Concept", href: "/ivoire-family#company_idea" },
-      { label: "Theme Customization", href: "/ivoire-family#customization" },
+      { label: "Brand Concept", href: "/brand-concept" }, // 独立页面 1
+      { label: "Theme Customization", href: "/theme-customization" }, // 独立页面 2
     ],
   },
 
