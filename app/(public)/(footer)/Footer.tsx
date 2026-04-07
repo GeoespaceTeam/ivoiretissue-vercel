@@ -124,7 +124,7 @@ export default function Footer() {
                 whiteSpace: "nowrap",
               }}
             >
-              Hotline: +1 (514) 291-8063
+              Hotline 1: +1 (514) 291-8063
             </div>
             <div
               className={s.contactLine}
@@ -134,7 +134,7 @@ export default function Footer() {
                 whiteSpace: "nowrap",
               }}
             >
-              Toll-free: 1-800-000-0000
+              Hotline 2: +1 (514) 971-8238
             </div>
             <div
               className={s.contactLine}

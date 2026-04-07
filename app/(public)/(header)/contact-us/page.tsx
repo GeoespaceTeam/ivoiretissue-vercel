@@ -74,8 +74,8 @@ export default function ContactUsPage() {
             </span>
             <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
               <div>Company Phone: +1 (514) 971-8238</div>
-              <div>Hotline: +1 (514) 291-8063</div>
-              <div>Toll-free: 1-800-000-0000</div>
+              <div>Hotline 1: +1 (514) 291-8063</div>
+              <div>Hotline 2: +1 (514) 971-8238</div>
             </div>
           </div>
         </ScrollReveal>

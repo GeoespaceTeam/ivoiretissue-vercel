@@ -142,7 +142,7 @@ export default function DevelopmentHistoryPage() {
             {/* Left: Image */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/regards1.png"
+              src="/images/culture_bg.png"
               style={{
                 height: "400px",
                 maxWidth: "100%",
