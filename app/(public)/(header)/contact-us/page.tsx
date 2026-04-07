@@ -1,268 +1,215 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import ScrollReveal from "../../../components/ScrollReveal"; // 请确保路径指向你的 ScrollReveal 组件位置
 
 export default function ContactUsPage() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: 接入你的表单提交逻辑 (例如 Resend, EmailJS, 或你的后端 API)
-    alert("Message sent!");
-  };
-
   return (
-    <div className="bg-white pb-20">
-      {/* 页面标题区 */}
-      <section className="bg-gray-50 py-16 text-center">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <h1 className="text-4xl md:text-5xl font-serif text-[#00a698] tracking-wide animate-fade-in-left">
-            CONTACT US
-          </h1>
-        </div>
-      </section>
+    <main>
+      {/* ════════════════════════════════════════
+          1. HERO BANNER
+          ════════════════════════════════════════ */}
+      <div
+        style={{
+          height: 580,
+          backgroundImage: 'url("/images/contact_bg.png")', // 记得在 public/images 放一张 contact_bg.png
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover", // 原网页是 100% 580px，用 cover 响应式更好看
+          backgroundPosition: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        {/* 如果 banner 上需要写字，可以放在这个空 div 里 */}
+        <div></div>
+      </div>
 
-      {/* 主体内容区：左右网格布局 */}
-      <section className="container mx-auto px-6 max-w-6xl mt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* 左侧：留言表单 (对应原站的 Forminator 表单) */}
-          <div className="form-wrapper bg-white p-8 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* First Name */}
-                <div className="form-group">
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    First Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    placeholder="E.g. John"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#00a698] focus:ring-1 focus:ring-[#00a698] transition-colors"
-                  />
-                </div>
+      {/* ════════════════════════════════════════
+          2. CONTACT INFORMATION CONTENT
+          ════════════════════════════════════════ */}
+      <div
+        className="content"
+        style={{
+          maxWidth: 1000,
+          margin: "0 auto",
+          padding: "60px 20px",
+        }}
+      >
+        <ScrollReveal direction="up">
+          <h2
+            style={{
+              textAlign: "center",
+              paddingBottom: 40,
+              fontSize: "32px",
+              color: "#111",
+            }}
+          >
+            Contact Information
+          </h2>
+        </ScrollReveal>
 
-                {/* Email Address */}
-                <div className="form-group">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="E.g. john@doe.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#00a698] focus:ring-1 focus:ring-[#00a698] transition-colors"
-                  />
-                </div>
-              </div>
-
-              {/* Subject */}
-              <div className="form-group">
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="E.g. Subject here"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#00a698] focus:ring-1 focus:ring-[#00a698] transition-colors"
-                />
-              </div>
-
-              {/* Message */}
-              <div className="form-group">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  maxLength={180}
-                  placeholder="Enter your message..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#00a698] focus:ring-1 focus:ring-[#00a698] transition-colors resize-y"
-                ></textarea>
-                <div className="text-right text-xs text-gray-400 mt-1">
-                  {formData.message.length} / 180
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full bg-[#00a698] hover:bg-[#008f83] text-white font-semibold py-3 px-6 rounded transition-colors duration-300 shadow-md"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-
-          {/* 右侧：联系方式信息 (提取自你提供的文本 block) */}
-          <div className="contact-info flex flex-col justify-center space-y-8 text-gray-700">
-            {/* Hours */}
-            <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3 border-b-2 border-[#00a698] inline-block pb-1">
-                HOURS
-              </h3>
-              <p className="text-md">Monday – Friday</p>
-              <p className="text-md">8:30 AM to 05:00 PM</p>
-            </div>
-
-            {/* Address */}
-            <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3 border-b-2 border-[#00a698] inline-block pb-1">
-                OUR ADDRESS
-              </h3>
-              <p className="text-md mb-4 leading-relaxed">
-                222 Rue Poirier, Saint-Eustache, #32, <br />
-                Quebec, Canada, J7R 6B1
-              </p>
-
-              <table className="w-full text-left text-md">
-                <tbody>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-3 font-semibold w-24 align-top">Email</td>
-                    <td className="py-3">
-                      <a
-                        href="mailto:sales@ivoiretissue.com"
-                        className="hover:text-[#00a698] transition-colors"
-                      >
-                        sales@ivoiretissue.com
-                      </a>
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-3 font-semibold align-top">Tel</td>
-                    <td className="py-3">
-                      <a
-                        href="tel:514-971-8238"
-                        className="block hover:text-[#00a698] transition-colors mb-1"
-                      >
-                        514-971-8238
-                      </a>
-                      <a
-                        href="tel:514-291-8063"
-                        className="block hover:text-[#00a698] transition-colors"
-                      >
-                        514-291-8063
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 font-semibold align-top">Website</td>
-                    <td className="py-3">
-                      <a
-                        href="https://www.ivoiretissue.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[#00a698] transition-colors"
-                      >
-                        www.ivoiretissue.com
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Social Icons (使用 SVG 完美复刻) */}
-            <div className="pt-4 flex items-center space-x-4">
-              {/* Facebook */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-[#00a698] hover:text-white transition-all transform hover:-translate-y-1"
-              >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 512 512">
-                  <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
-                </svg>
-              </a>
-              {/* Twitter (X) */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-[#00a698] hover:text-white transition-all transform hover:-translate-y-1"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 512 512">
-                  <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-                </svg>
-              </a>
-              {/* YouTube */}
-              <a
-                href="https://www.youtube.com/watch?v=Cw_H_hXJ3SA&t=15s"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-[#00a698] hover:text-white transition-all transform hover:-translate-y-1"
-              >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 576 512">
-                  <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
-                </svg>
-              </a>
-              {/* LinkedIn */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-[#00a698] hover:text-white transition-all transform hover:-translate-y-1"
-              >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 448 512">
-                  <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-                </svg>
-              </a>
-              {/* Instagram */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-[#00a698] hover:text-white transition-all transform hover:-translate-y-1"
-              >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 448 512">
-                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                </svg>
-              </a>
+        {/* --- Block 1: Phone --- */}
+        <ScrollReveal delay={100} direction="up">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "rgb(250, 250, 250)",
+              borderRadius: 6,
+              padding: "20px 60px",
+              fontSize: 16,
+              fontWeight: 500,
+              color: "rgb(131, 131, 131)",
+              marginBottom: 20,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 36,
+                color: "#00a896" /* 换成了你们品牌的青色 */,
+              }}
+            >
+              <PhoneIcon />
+            </span>
+            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+              <div>Company Phone: +1 (514) 971-8238</div>
+              <div>Hotline: +1 (514) 291-8063</div>
+              <div>Toll-free: 1-800-000-0000</div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </ScrollReveal>
+
+        {/* --- Block 2: Address --- */}
+        <ScrollReveal delay={200} direction="up">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "rgb(250, 250, 250)",
+              borderRadius: 6,
+              padding: "20px 60px",
+              fontSize: 16,
+              fontWeight: 500,
+              color: "rgb(131, 131, 131)",
+              marginBottom: 20,
+            }}
+          >
+            <span style={{ fontSize: 36, color: "#00a896" }}>
+              <BankIcon />
+            </span>
+            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+              <div>
+                Address: 222 Rue Poirier, #30, St-Eustache, QC J7R 6B1, Canada
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* --- Block 3: Email --- */}
+        <ScrollReveal delay={300} direction="up">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "rgb(250, 250, 250)",
+              borderRadius: 6,
+              padding: "20px 60px",
+              fontSize: 16,
+              fontWeight: 500,
+              color: "rgb(131, 131, 131)",
+              marginBottom: 20,
+            }}
+          >
+            <span style={{ fontSize: 36, color: "#00a896" }}>
+              <MailIcon />
+            </span>
+            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+              <div>
+                Email:{" "}
+                <a
+                  href="mailto:sales@ivoiretissue.com"
+                  style={{ color: "rgb(0, 167, 152)", textDecoration: "none" }}
+                >
+                  sales@ivoiretissue.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* --- Block 4: Website --- */}
+        <ScrollReveal delay={400} direction="up">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "rgb(250, 250, 250)",
+              borderRadius: 6,
+              padding: "20px 60px",
+              fontSize: 16,
+              fontWeight: 500,
+              color: "rgb(131, 131, 131)",
+              marginBottom: 20,
+            }}
+          >
+            <span style={{ fontSize: 36, color: "#00a896" }}>
+              <GlobalIcon />
+            </span>
+            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+              <div>
+                Official Website:{" "}
+                <a
+                  href="https://ivoiretissue.com"
+                  style={{
+                    color: "rgb(0, 167, 152)",
+                    textDecoration: "none",
+                    paddingLeft: 5,
+                  }}
+                >
+                  https://ivoiretissue.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </main>
+  );
+}
+
+// ============================================================
+// SVG ICONS (Extracted from Dongshi HTML)
+// ============================================================
+
+function PhoneIcon() {
+  return (
+    <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor">
+      <path d="M877.1 238.7L770.6 132.3c-13-13-30.4-20.3-48.8-20.3s-35.8 7.2-48.8 20.3L558.3 246.8c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l89.6 89.7a405.46 405.46 0 01-86.4 127.3c-36.7 36.9-79.6 66-127.2 86.6l-89.6-89.7c-13-13-30.4-20.3-48.8-20.3a68.2 68.2 0 00-48.8 20.3L132.3 673c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l106.4 106.4c22.2 22.2 52.8 34.9 84.2 34.9 6.5 0 12.8-.5 19.2-1.6 132.4-21.8 263.8-92.3 369.9-198.3C818 606 888.4 474.6 910.4 342.1c6.3-37.6-6.3-76.3-33.3-103.4zm-37.6 91.5c-19.5 117.9-82.9 235.5-178.4 331s-213 158.9-330.9 178.4c-14.8 2.5-30-2.5-40.8-13.2L184.9 721.9 295.7 611l119.8 120 .9.9 21.6-8a481.29 481.29 0 00285.7-285.8l8-21.6-120.8-120.7 110.8-110.9 104.5 104.5c10.8 10.8 15.8 26 13.3 40.8z"></path>
+    </svg>
+  );
+}
+
+function BankIcon() {
+  return (
+    <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor">
+      <path d="M894 462c30.9 0 43.8-39.7 18.7-58L530.8 126.2a31.81 31.81 0 00-37.6 0L111.3 404c-25.1 18.2-12.2 58 18.8 58H192v374h-72c-4.4 0-8 3.6-8 8v52c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-52c0-4.4-3.6-8-8-8h-72V462h62zM512 196.7l271.1 197.2H240.9L512 196.7zM264 462h117v374H264V462zm189 0h117v374H453V462zm307 374H642V462h118v374z"></path>
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor">
+      <path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path>
+    </svg>
+  );
+}
+
+function GlobalIcon() {
+  return (
+    <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor">
+      <path d="M854.4 800.9c.2-.3.5-.6.7-.9C920.6 722.1 960 621.7 960 512s-39.4-210.1-104.8-288c-.2-.3-.5-.5-.7-.8-1.1-1.3-2.1-2.5-3.2-3.7-.4-.5-.8-.9-1.2-1.4l-4.1-4.7-.1-.1c-1.5-1.7-3.1-3.4-4.6-5.1l-.1-.1c-3.2-3.4-6.4-6.8-9.7-10.1l-.1-.1-4.8-4.8-.3-.3c-1.5-1.5-3-2.9-4.5-4.3-.5-.5-1-1-1.6-1.5-1-1-2-1.9-3-2.8-.3-.3-.7-.6-1-1C736.4 109.2 629.5 64 512 64s-224.4 45.2-304.3 119.2c-.3.3-.7.6-1 1-1 .9-2 1.9-3 2.9-.5.5-1 1-1.6 1.5-1.5 1.4-3 2.9-4.5 4.3l-.3.3-4.8 4.8-.1.1c-3.3 3.3-6.5 6.7-9.7 10.1l-.1.1c-1.6 1.7-3.1 3.4-4.6 5.1l-.1.1c-1.4 1.5-2.8 3.1-4.1 4.7-.4.5-.8.9-1.2 1.4-1.1 1.2-2.1 2.5-3.2 3.7-.2.3-.5.5-.7.8C103.4 301.9 64 402.3 64 512s39.4 210.1 104.8 288c.2.3.5.6.7.9l3.1 3.7c.4.5.8.9 1.2 1.4l4.1 4.7c0 .1.1.1.1.2 1.5 1.7 3 3.4 4.6 5l.1.1c3.2 3.4 6.4 6.8 9.6 10.1l.1.1c1.6 1.6 3.1 3.2 4.7 4.7l.3.3c3.3 3.3 6.7 6.5 10.1 9.6 80.1 74 187 119.2 304.5 119.2s224.4-45.2 304.3-119.2a300 300 0 0010-9.6l.3-.3c1.6-1.6 3.2-3.1 4.7-4.7l.1-.1c3.3-3.3 6.5-6.7 9.6-10.1l.1-.1c1.5-1.7 3.1-3.3 4.6-5 0-.1.1-.1.1-.2 1.4-1.5 2.8-3.1 4.1-4.7.4-.5.8-.9 1.2-1.4a99 99 0 003.3-3.7zm4.1-142.6c-13.8 32.6-32 62.8-54.2 90.2a444.07 444.07 0 00-81.5-55.9c11.6-46.9 18.8-98.4 20.7-152.6H887c-3 40.9-12.6 80.6-28.5 118.3zM887 484H743.5c-1.9-54.2-9.1-105.7-20.7-152.6 29.3-15.6 56.6-34.4 81.5-55.9A373.86 373.86 0 01887 484zM658.3 165.5c39.7 16.8 75.8 40 107.6 69.2a394.72 394.72 0 01-59.4 41.8c-15.7-45-35.8-84.1-59.2-115.4 3.7 1.4 7.4 2.9 11 4.4zm-90.6 700.6c-9.2 7.2-18.4 12.7-27.7 16.4V697a389.1 389.1 0 01115.7 26.2c-8.3 24.6-17.9 47.3-29 67.8-17.4 32.4-37.8 58.3-59 75.1zm59-633.1c11 20.6 20.7 43.3 29 67.8A389.1 389.1 0 01540 327V141.6c9.2 3.7 18.5 9.1 27.7 16.4 21.2 16.7 41.6 42.6 59 75zM540 640.9V540h147.5c-1.6 44.2-7.1 87.1-16.3 127.8l-.3 1.2A445.02 445.02 0 00540 640.9zm0-156.9V383.1c45.8-2.8 89.8-12.5 130.9-28.1l.3 1.2c9.2 40.7 14.7 83.5 16.3 127.8H540zm-56 56v100.9c-45.8 2.8-89.8 12.5-130.9 28.1l-.3-1.2c-9.2-40.7-14.7-83.5-16.3-127.8H484zm-147.5-56c1.6-44.2 7.1-87.1 16.3-127.8l.3-1.2c41.1 15.6 85 25.3 130.9 28.1V484H336.5zM484 697v185.4c-9.2-3.7-18.5-9.1-27.7-16.4-21.2-16.7-41.7-42.7-59.1-75.1-11-20.6-20.7-43.3-29-67.8 37.2-14.6 75.9-23.3 115.8-26.1zm0-370a389.1 389.1 0 01-115.7-26.2c8.3-24.6 17.9-47.3 29-67.8 17.4-32.4 37.8-58.4 59.1-75.1 9.2-7.2 18.4-12.7 27.7-16.4V327zM365.7 165.5c3.7-1.5 7.3-3 11-4.4-23.4 31.3-43.5 70.4-59.2 115.4-21-12-40.9-26-59.4-41.8 31.8-29.2 67.9-52.4 107.6-69.2zM165.5 365.7c13.8-32.6 32-62.8 54.2-90.2 24.9 21.5 52.2 40.3 81.5 55.9-11.6 46.9-18.8 98.4-20.7 152.6H137c3-40.9 12.6-80.6 28.5-118.3zM137 540h143.5c1.9 54.2 9.1 105.7 20.7 152.6a444.07 444.07 0 00-81.5 55.9A373.86 373.86 0 01137 540zm228.7 318.5c-39.7-16.8-75.8-40-107.6-69.2 18.5-15.8 38.4-29.7 59.4-41.8 15.7 45 35.8 84.1 59.2 115.4-3.7-1.4-7.4-2.9-11-4.4zm292.6 0c-3.7 1.5-7.3 3-11 4.4 23.4-31.3 43.5-70.4 59.2-115.4 21 12 40.9 26 59.4 41.8a373.81 373.81 0 01-107.6 69.2z"></path>
+    </svg>
   );
 }

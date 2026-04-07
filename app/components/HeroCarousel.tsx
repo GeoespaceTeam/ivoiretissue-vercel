@@ -1,16 +1,34 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import s from "./HeroCarousel.module.css";
 
-// TODO: 替换成实际的banner图片/视频路径，放在 public/ 下
-// 原站视频CDN:
-// https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-video-preview-2.mp4
-// https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-video-preview.mp4
-// https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-video-preview-1.mp4
-const slides = [
-  { id: 1, type: "video" as const, src: "/videos/hero-1.mov" },
-  { id: 2, type: "video" as const, src: "/videos/hero-2.mov" },
-  { id: 3, type: "video" as const, src: "/videos/hero-3.mov" },
+// ============================================================
+// HERO CAROUSEL — dongshi Banner0_1 replication
+//
+// Dongshi structure:
+//   - 80vh height, no margin-top (layout handles pt-[64px])
+//   - Slides: full-width images (or videos for Ivoire Tissue)
+//   - Left arrow:  position absolute, left: 100px,  top: 50%
+//   - Right arrow: position absolute, right: 100px, top: 50%
+//   - Dots: bottom center, slick-dots style
+//   - Auto-advance every 5s
+//
+// Slide type supports both "image" and "video":
+//   { type: "image", src: "/images/banner1.jpg" }
+//   { type: "video", src: "/videos/hero-1.mov"  }
+// ============================================================
+
+type Slide =
+  | { id: number; type: "image"; src: string; alt?: string }
+  | { id: number; type: "video"; src: string };
+
+// TODO: Replace with actual assets in /public/
+// Use images to match dongshi exactly, or videos for Ivoire Tissue content
+const slides: Slide[] = [
+  { id: 1, type: "video", src: "/videos/hero-1.mov" },
+  { id: 2, type: "video", src: "/videos/hero-2.mov" },
+  { id: 3, type: "video", src: "/videos/hero-3.mov" },
 ];
 
 export default function HeroCarousel() {
@@ -24,46 +42,61 @@ export default function HeroCarousel() {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
   }, []);
 
+  // Auto-advance — dongshi: slick autoplay
   useEffect(() => {
     const timer = setInterval(goNext, 5000);
     return () => clearInterval(timer);
   }, [goNext]);
 
   return (
-    <section className="hero-section">
+    <section className={s.heroSection}>
+      {/* ── Slides ── */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`hero-slide ${index === current ? "active" : ""}`}
+          className={`${s.slide} ${index === current ? s.active : ""}`}
+          aria-hidden={index !== current}
         >
           {slide.type === "video" ? (
             <video autoPlay muted loop playsInline src={slide.src} />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={slide.src} alt="Ivoire Tissue Paper" />
+            <img src={slide.src} alt={slide.alt ?? `Slide ${slide.id}`} />
           )}
         </div>
       ))}
 
-      <div className="hero-arrows">
-        <button className="hero-arrow" onClick={goPrev} aria-label="Previous">
-          ‹
-        </button>
-        <button className="hero-arrow" onClick={goNext} aria-label="Next">
-          ›
-        </button>
-      </div>
+      {/* ── Left arrow ── */}
+      {/* dongshi: position absolute, left: 100px, top: 50% */}
+      <button
+        className={s.arrowLeft}
+        onClick={goPrev}
+        aria-label="Previous slide"
+      >
+        ‹
+      </button>
 
-      <div className="hero-dots">
+      {/* ── Right arrow ── */}
+      {/* dongshi: position absolute, right: 100px, top: 50% */}
+      <button className={s.arrowRight} onClick={goNext} aria-label="Next slide">
+        ›
+      </button>
+
+      {/* ── Dots ── */}
+      {/* dongshi: slick-dots-bottom, display: block */}
+      <ul className={s.dots} role="tablist" aria-label="Carousel navigation">
         {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`hero-dot ${index === current ? "active" : ""}`}
-            onClick={() => { setCurrent(index); }}
-            aria-label={`Slide ${index + 1}`}
-          />
+          <li key={index} role="presentation">
+            <button
+              className={`${s.dot} ${index === current ? s.active : ""}`}
+              onClick={() => setCurrent(index)}
+              role="tab"
+              aria-selected={index === current}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

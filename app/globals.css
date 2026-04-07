@@ -271,15 +271,6 @@ ul {
 /* ========================================
    HERO CAROUSEL (dongshi style - image slides)
    ======================================== */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  min-height: 400px;
-  margin-top: var(--header-height);
-  overflow: hidden;
-  background: #e0e0e0;
-}
 
 .hero-slide {
   position: absolute;

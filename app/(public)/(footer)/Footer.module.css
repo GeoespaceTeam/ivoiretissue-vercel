@@ -1,0 +1,215 @@
+/* ============================================================
+   Footer.module.css
+   Pixel-perfect dongshi replication:
+   - Teal background (#00A698), NOT dark
+   - 5 nav cols (left) + 1 contact col (right-aligned)
+   - Darker teal bottom bar
+   ============================================================ */
+
+/* ── Root wrapper — teal background ── */
+.footer {
+    background: var(--color-primary, #00a698);
+    color: #fff;
+}
+
+/* ── Main section ── */
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 24px 48px;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* ── Nav columns group (left) ── */
+/* dongshi: 5 ant-col-md-4 blocks (each ~16.67%) */
+.navGroup {
+    flex: 1;
+    display: flex;
+    gap: 0;
+}
+
+/* ── Single nav column ── */
+.navCol {
+    flex: 1;
+    padding-right: 12px;
+}
+
+/* Column header — dongshi: font-size implicit ~16px, white, bold */
+.navCol h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+}
+
+/* Nav links — dongshi: plain anchors, no prefix, normal weight */
+.navCol a {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 14px;
+    transition: color 0.2s, padding-left 0.2s;
+    line-height: 1.4;
+}
+
+.navCol a:hover {
+    color: #fff;
+    padding-left: 4px;
+}
+
+/* ── Contact column (right-aligned) ── */
+/* dongshi: text-align right, slogan + phones + email + QR + label */
+.contactCol {
+    flex: 0 0 200px;
+    text-align: right;
+    padding-left: 24px;
+}
+
+/* Slogan — dongshi: "一张纸 一颗心 让世界更美丽", 16px */
+.slogan {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    padding-bottom: 24px;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* Contact info lines — dongshi: each has padding-bottom: 24px, opacity: 0.8 */
+.contactLine {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    padding-bottom: 24px;
+    line-height: 1.4;
+}
+
+.contactLine a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s;
+}
+
+.contactLine a:hover {
+    color: #fff;
+}
+
+/* QR / social block — dongshi: 100×100 image, right-aligned */
+.qrBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+}
+
+/* Social icons container replaces QR image */
+.socialGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 34px);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.socialIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.85);
+    transition: background 0.2s, color 0.2s;
+}
+
+.socialIcon:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+/* Label under QR — dongshi: "微信公众号", opacity 0.8 */
+.qrLabel {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    padding-top: 5px;
+    text-align: right;
+}
+
+/* ── Bottom copyright bar ── */
+/* dongshi: slightly darker strip, flex space-between, font-size 12px */
+.copyrightWrapper {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.copyrightInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.copyrightInner a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s;
+}
+
+.copyrightInner a:hover {
+    color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .navGroup {
+        flex-wrap: wrap;
+    }
+
+    .navCol {
+        flex: 0 0 50%;
+        margin-bottom: 32px;
+    }
+
+    .contactCol {
+        flex: 0 0 100%;
+        text-align: left;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 32px;
+    }
+
+    .qrBlock {
+        align-items: flex-start;
+    }
+
+    .socialGrid {
+        grid-template-columns: repeat(4, 34px);
+    }
+
+    .qrLabel {
+        text-align: left;
+    }
+
+    .main {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 640px) {
+    .navCol {
+        flex: 0 0 100%;
+        padding-right: 0;
+        margin-bottom: 24px;
+    }
+
+    .copyrightInner {
+        flex-direction: column;
+        text-align: center;
+        gap: 4px;
+    }
+}
