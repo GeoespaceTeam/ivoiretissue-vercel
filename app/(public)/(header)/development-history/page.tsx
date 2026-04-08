@@ -1,59 +1,69 @@
 "use client";
 
-import { useState } from "react";
-import ScrollReveal from "../../../components/ScrollReveal";
+import React, { useState, useEffect, useRef, ReactNode } from "react";
 
 // ============================================================
-// DATA: Company History Timeline
+// DEVELOPMENT HISTORY PAGE
+// app/(public)/(header)/development-history/page.tsx
+//
+// Timeline nav approach:
+//   - Each item is ITEM_WIDTH=260px wide (60px icon + 2×100px margin)
+//   - Active item is always centered via translateX:
+//       offset = containerWidth/2 - activeIndex*ITEM_WIDTH - ITEM_WIDTH/2
+//   - overflow:hidden with paddingBottom:90px → dots visible, no scrollbar
+//   - Gradient line is a separate absolute div spanning full width
 // ============================================================
+
+const ITEM_WIDTH = 260; // 60px content + 100px left margin + 100px right margin
+
 const TIMELINE_DATA = [
   {
     year: "2001",
-    desc: "Ivoire Tissue was founded, starting the journey of paper manufacturing.",
+    desc: "Founder Ms. Jiao Cuiyun established Yunteng Paper in Longxing Industrial Park, Yubei District, Chongqing.",
   },
   {
     year: "2006",
-    desc: "Established the Ivoire Tissue brand, launching premium commercial and household series.",
+    desc: 'Established Dongshi Paper, and in the same year created the "Baiyian" and "Lanrui" series of commercial and household brands.',
   },
   {
     year: "2007",
-    desc: "Became a member of the National Paper Industry Association.",
+    desc: "Became a member unit of the China Paper Association for household paper.",
   },
   {
     year: "2009",
-    desc: "Joined the Professional Tissue Paper Committee and Technical Center.",
+    desc: "Became a member of the China Tissue Paper Professional Committee and Sinolight Group Tissue Paper Technical Center.",
   },
   {
     year: "2012",
-    desc: "Established the sanitary products division to expand product lines.",
+    desc: "Established Chongqing Anbeimei Sanitary Products Co., Ltd. and created the Anbeimei brand.",
   },
   {
     year: "2013",
-    desc: "Upgraded the industrial structure and integrated sanitary product lines.",
+    desc: "Integrated Anbeimei Sanitary Products Company and upgraded the industrial structure.",
   },
   {
     year: "2014",
-    desc: "Upgraded core brands, expanded overseas markets, established the Foreign Trade Department, and launched the online flagship store.",
+    desc: "Upgraded the three major brands of Baiyian, Anbeimei, and Lanrui, expanded overseas markets, established the Foreign Trade Department, and launched the Dongshi Tmall flagship store.",
   },
   {
     year: "2015",
-    desc: "Launched the eco-friendly unbleached series, obtained EU AP and US FDA certifications, and passed the FSC forest management system.",
+    desc: "Launched the natural color eco-friendly paper series, obtained EU AP and US FDA product certifications, and passed the FSC forest management system.",
   },
   {
     year: "2016",
-    desc: "Expanded production capacity and achieved omni-channel expansion for tissue paper.",
+    desc: "Established Yikang Paper, expanded production capacity, and achieved omni-channel expansion for tissue paper.",
   },
   {
     year: "2017",
-    desc: "Bamboo pulp tissue sold to the UK, Germany, US, Singapore, and Australia. The first year of enterprise innovation and transformation.",
+    desc: "Bamboo pulp tissue paper was sold to the UK, Germany, US, Singapore, and Australia. It was also the first year of DONSEA's innovation and enterprise transformation.",
   },
   {
     year: "2018",
-    desc: '"Return to the original intention, Rebuild Ivoire." Accelerated innovation and formulated a strategic business plan.',
+    desc: '"Return to the original intention, Rebuild DONSEA." Accelerated innovation and formulated the "2019 DONSEA Business Plan".',
   },
   {
     year: "2019",
-    desc: "Fully implemented the business plan, adjusted the business structure, and built a 3.0 modern enterprise.",
+    desc: 'Fully implemented and improved the "2019 DONSEA Business Plan", adjusted the business structure, and built a 3.0 enterprise.',
   },
   {
     year: "2020",
@@ -63,73 +73,178 @@ const TIMELINE_DATA = [
     year: "2021",
     desc: "Started the first year of IT construction, keeping the original intention to cast the dream.",
   },
-  {
-    year: "2022",
-    desc: "Strategic focus, starting from the heart. Embracing a green future.",
-  },
+  { year: "2022", desc: "Strategic focus, starting from the heart." },
 ];
 
+// ── CharReveal: dongshi .texty.top per-character animation ──
+function CharReveal({
+  text,
+  style,
+  as: Tag = "span",
+  baseDelay = 0,
+  charDelay = 40,
+}: {
+  text: string;
+  style?: React.CSSProperties;
+  as?: React.ElementType;
+  baseDelay?: number;
+  charDelay?: number;
+}) {
+  const ref = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.unobserve(el);
+        }
+      },
+      { threshold: 0.1 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <Tag ref={ref} style={style}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          style={{
+            display: "inline-block",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translate(0px, 0px)" : "translateY(-20px)",
+            transition: `opacity 0.4s ease ${baseDelay + i * charDelay}ms, transform 0.4s ease ${baseDelay + i * charDelay}ms`,
+          }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </Tag>
+  );
+}
+
+// ── FadeReveal: block-level fade + slide ──
+function FadeReveal({
+  children,
+  delay = 0,
+  style,
+}: {
+  children: ReactNode;
+  delay?: number;
+  style?: React.CSSProperties;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.unobserve(el);
+        }
+      },
+      { threshold: 0.1 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translate(0px, 0px)" : "translate(0px, 30px)",
+        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+// ============================================================
+// PAGE
+// ============================================================
 export default function DevelopmentHistoryPage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handlePrev = () => {
-    setActiveIndex((prev) =>
-      prev === 0 ? TIMELINE_DATA.length - 1 : prev - 1,
-    );
-  };
+  // For centering active dot
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
-  const handleNext = () => {
-    setActiveIndex((prev) =>
-      prev === TIMELINE_DATA.length - 1 ? 0 : prev + 1,
-    );
-  };
+  useEffect(() => {
+    const update = () => {
+      if (containerRef.current)
+        setContainerWidth(containerRef.current.offsetWidth);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // translateX so active item sits at container center
+  const offset = containerWidth / 2 - activeIndex * ITEM_WIDTH - ITEM_WIDTH / 2;
+
+  const handlePrev = () =>
+    setActiveIndex((p) => (p === 0 ? TIMELINE_DATA.length - 1 : p - 1));
+  const handleNext = () =>
+    setActiveIndex((p) => (p === TIMELINE_DATA.length - 1 ? 0 : p + 1));
 
   return (
     <main>
-      {/* ════════════════════════════════════════
+      {/* ════════════════════════════════════════════════
           1. HERO BANNER
-          ════════════════════════════════════════ */}
+          ════════════════════════════════════════════════ */}
       <div
         style={{
           height: 580,
           backgroundImage:
             'url("https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/culture_bg.png")',
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: "100% 580px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
         }}
       >
-        <ScrollReveal direction="up">
-          <div style={{ color: "rgb(255, 255, 255)" }}>
-            <h1 style={{ fontSize: "34px", margin: 0, letterSpacing: "2px" }}>
-              About Ivoire
-            </h1>
-            <p
-              style={{ paddingTop: "30px", fontSize: "26px", fontWeight: 300 }}
-            >
-              An innovative enterprise integrating production,
-              <br /> sales, and brand operations.
-            </p>
-          </div>
-        </ScrollReveal>
+        <div style={{ color: "rgb(255, 255, 255)" }}>
+          <CharReveal
+            text="About DONSEA"
+            as="h1"
+            style={{
+              color: "rgb(255, 255, 255)",
+              fontSize: "34px",
+              margin: 0,
+              letterSpacing: "2px",
+            }}
+            charDelay={50}
+          />
+          <CharReveal
+            text="An innovative enterprise integrating production, sales, and brand operations."
+            as="p"
+            style={{ paddingTop: "30px", fontSize: "26px", fontWeight: 300 }}
+            baseDelay={300}
+            charDelay={30}
+          />
+        </div>
       </div>
 
-      {/* ════════════════════════════════════════
-          2. COMPANY INTRO (Text + Image)
-          ════════════════════════════════════════ */}
-      <div
-        className="content"
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "80px 20px",
-        }}
-      >
-        <ScrollReveal direction="up">
+      {/* ════════════════════════════════════════════════
+          2. COMPANY INTRO
+          ════════════════════════════════════════════════ */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 20px" }}>
+        <FadeReveal>
           <div
             style={{
               display: "flex",
@@ -139,22 +254,19 @@ export default function DevelopmentHistoryPage() {
               gap: "60px",
             }}
           >
-            {/* Left: Image */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/culture_bg.png"
+              src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/regards1.png"
               style={{
                 height: "400px",
                 maxWidth: "100%",
                 objectFit: "contain",
               }}
-              alt="Ivoire Tissue Building"
+              alt="DONSEA Paper Building"
             />
-
-            {/* Right: Text */}
             <div style={{ flex: "1 1 500px" }}>
               <h2 style={{ fontSize: "28px", color: "#111", margin: 0 }}>
-                IVOIRE TISSUE PAPER
+                DONSEA PAPER
               </h2>
               <h2
                 style={{
@@ -163,47 +275,34 @@ export default function DevelopmentHistoryPage() {
                   color: "#00a896",
                 }}
               >
-                Quality & Innovation
+                Dongshi Paper
               </h2>
-              <div
+              <CharReveal
+                as="div"
+                text={
+                  "Dongshi Paper was founded in 2001. With 21 years of professional quality and innovative development, it has now grown into a comprehensive tissue paper enterprise integrating R&D, innovation, production, sales, and service.\n" +
+                  "Dongshi Paper focuses on eco-friendly and healthy tissue paper. The company insists on independent R&D, continuously expanding domestic and international markets, perfecting integrated system solutions, and establishing a fast-response customized product workflow. By combining online and offline channels, we have built an integrated platform for tissue customization, sales, and service."
+                }
                 style={{
                   fontWeight: 500,
                   fontSize: "15px",
                   color: "rgb(85, 85, 85)",
                   lineHeight: 1.8,
                 }}
-              >
-                Ivoire Tissue was founded with a commitment to excellence. With
-                years of professional quality and innovative development, we
-                have grown into a comprehensive tissue paper enterprise
-                integrating R&D, innovation, production, sales, and service.
-                <br />
-                <br />
-                We focus on eco-friendly and healthy tissue paper. The company
-                insists on independent R&D, continuously expanding domestic and
-                international markets, perfecting integrated system solutions,
-                and establishing a fast-response customized product workflow. By
-                combining online and offline channels, we have built an
-                integrated platform for tissue customization, sales, and
-                service.
-              </div>
+                charDelay={8}
+                baseDelay={200}
+              />
             </div>
           </div>
-        </ScrollReveal>
+        </FadeReveal>
       </div>
 
-      {/* ════════════════════════════════════════
-          3. TIMELINE CAROUSEL SECTION
-          ════════════════════════════════════════ */}
-      <ScrollReveal direction="up" delay={200}>
-        <div
-          style={{
-            position: "relative",
-            overflow: "hidden",
-            paddingBottom: "100px",
-          }}
-        >
-          {/* Main Slide Track */}
+      {/* ════════════════════════════════════════════════
+          3. TIMELINE CAROUSEL
+          ════════════════════════════════════════════════ */}
+      <FadeReveal delay={200}>
+        {/* ── Slide area: overflow:hidden so only active slide shows ── */}
+        <div style={{ position: "relative", overflow: "hidden" }}>
           <div
             style={{
               display: "flex",
@@ -212,24 +311,18 @@ export default function DevelopmentHistoryPage() {
             }}
           >
             {TIMELINE_DATA.map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  flex: "0 0 100%",
-                  width: "100%",
-                }}
-              >
+              <div key={index} style={{ flex: "0 0 100%", width: "100%" }}>
+                {/* dongshi: exact bg + dimensions */}
                 <div
                   style={{
                     backgroundImage:
                       'url("https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/progress_bg.png")',
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundSize: "100% 400px",
                     paddingTop: "40px",
                     height: "400px",
-                    maxWidth: "1000px",
-                    margin: "0 auto",
+                    width: "1000px",
+                    margin: "0px auto",
                     textAlign: "center",
                     position: "relative",
                   }}
@@ -237,20 +330,20 @@ export default function DevelopmentHistoryPage() {
                   <h2 style={{ fontSize: "28px", color: "#111" }}>
                     Development History
                   </h2>
+                  {/* dongshi: padding 80px 0 20px, teal, font-size 26px */}
                   <h2
                     style={{
-                      padding: "60px 0px 20px",
+                      padding: "80px 0px 20px",
                       color: "rgb(0, 166, 152)",
-                      fontSize: "36px",
+                      fontSize: "26px",
                     }}
                   >
                     {item.year}
                   </h2>
                   <p
                     style={{
-                      width: "100%",
-                      maxWidth: "500px",
-                      margin: "0 auto",
+                      width: "500px",
+                      margin: "0px auto",
                       lineHeight: "30px",
                       fontSize: "16px",
                       color: "#333",
@@ -263,18 +356,19 @@ export default function DevelopmentHistoryPage() {
             ))}
           </div>
 
-          {/* Left Arrow */}
+          {/* Left arrow — dongshi: absolute left 100px, top 42% */}
           <button
             onClick={handlePrev}
             style={{
               position: "absolute",
-              left: "5%",
-              top: "200px",
+              left: "100px",
+              top: "42%",
+              transform: "translateY(-50%)",
               background: "none",
               border: "none",
               cursor: "pointer",
-              transform: "translateY(-50%)",
               zIndex: 10,
+              padding: 0,
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -285,18 +379,19 @@ export default function DevelopmentHistoryPage() {
             />
           </button>
 
-          {/* Right Arrow */}
+          {/* Right arrow — dongshi: absolute right 100px, top 42% */}
           <button
             onClick={handleNext}
             style={{
               position: "absolute",
-              right: "5%",
-              top: "200px",
+              right: "100px",
+              top: "42%",
+              transform: "translateY(-50%)",
               background: "none",
               border: "none",
               cursor: "pointer",
-              transform: "translateY(-50%)",
               zIndex: 10,
+              padding: 0,
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -306,40 +401,60 @@ export default function DevelopmentHistoryPage() {
               alt="Next"
             />
           </button>
+        </div>
+        {/* ↑ end slide overflow:hidden */}
 
-          {/* ── Bottom Gradient Timeline Nav ── */}
+        {/* ════════════════════════════════════════════════
+            TIMELINE NAV
+            Structure:
+              [position:relative wrapper]
+                [gradient line — absolute, full width]
+                [dots container — overflow:hidden + paddingBottom:90px]
+                  [dots flex row — translateX to center active]
+        ════════════════════════════════════════════════ */}
+        <div
+          style={{
+            position: "relative",
+            marginTop: "40px",
+            marginBottom: "100px",
+          }}
+        >
+          {/* Gradient line — dongshi: border-image gradient, 4px thick */}
+          {/* Absolute so it spans full width regardless of dots transform */}
           <div
             style={{
-              maxWidth: "1000px",
-              margin: "40px auto 0",
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: "15px" /* center on the inactive dot (30px/2 = 15px) */,
+              height: "4px",
+              background:
+                "linear-gradient(135deg, rgb(204, 255, 250), rgb(0, 192, 177), rgb(204, 255, 250))",
+              zIndex: 0,
+            }}
+          />
+
+          {/* Dots overflow container
+              overflow:hidden clips left/right (no scrollbar)
+              paddingBottom:90px = keeps active icon (60px) + label (20px) + gap (10px) visible
+              because overflow:hidden clips at the padding edge, not the content edge */}
+          <div
+            ref={containerRef}
+            style={{
+              overflow: "hidden",
+              paddingBottom: "90px",
               position: "relative",
+              zIndex: 1,
             }}
           >
-            {/* Gradient Line */}
-            <div
-              style={{
-                position: "absolute",
-                top: "15px",
-                left: 0,
-                right: 0,
-                height: "4px",
-                background:
-                  "linear-gradient(135deg, rgb(204, 255, 250), rgb(0, 192, 177), rgb(204, 255, 250))",
-                zIndex: 1,
-              }}
-            ></div>
-
-            {/* Timeline Dots (Scrollable if too many) */}
+            {/* Sliding flex row */}
             <div
               style={{
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                position: "relative",
-                zIndex: 2,
-                overflowX: "auto",
-                scrollbarWidth: "none", // Hide scrollbar Firefox
-                msOverflowStyle: "none", // Hide scrollbar IE/Edge
+                alignItems: "flex-start",
+                transition: "transform 0.5s ease",
+                transform: `translateX(${offset}px)`,
+                willChange: "transform",
               }}
             >
               {TIMELINE_DATA.map((item, index) => (
@@ -347,22 +462,28 @@ export default function DevelopmentHistoryPage() {
                   key={index}
                   onClick={() => setActiveIndex(index)}
                   style={{
-                    cursor: "pointer",
+                    flex: "0 0 auto",
+                    width: `${ITEM_WIDTH}px`,
                     textAlign: "center",
-                    minWidth: "60px",
-                    padding: "0 10px",
+                    cursor: "pointer",
+                    padding: "0 100px" /* matches dongshi margin: 0px 100px */,
                   }}
                 >
+                  {/* dongshi: active=progress_line 60px, inactive=progress_icon 30px */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={
                       activeIndex === index
-                        ? "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/progress_line.png" // Active icon
-                        : "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/progress_icon.png" // Inactive icon
+                        ? "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/progress_line.png"
+                        : "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/progress_icon.png"
                     }
-                    width={activeIndex === index ? "60px" : "30px"}
-                    alt="Timeline Dot"
-                    style={{ transition: "all 0.3s ease" }}
+                    width={activeIndex === index ? 60 : 30}
+                    alt={item.year}
+                    style={{
+                      transition: "all 0.3s ease",
+                      display: "block",
+                      margin: "0 auto",
+                    }}
                   />
                   <div
                     style={{
@@ -380,7 +501,7 @@ export default function DevelopmentHistoryPage() {
             </div>
           </div>
         </div>
-      </ScrollReveal>
+      </FadeReveal>
     </main>
   );
 }

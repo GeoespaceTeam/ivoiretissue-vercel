@@ -77,7 +77,7 @@ export default function OurCulturePage() {
       ></div>
 
       {/* ════════════════════════════════════════
-          2. CONTENT SECTION
+          2. CONTENT SECTION (100% 还原东实排版)
           ════════════════════════════════════════ */}
       <div
         className="content"
@@ -95,39 +95,32 @@ export default function OurCulturePage() {
               justifyContent: "space-between",
               alignItems: "center",
               flexWrap: "wrap",
-              gap: "40px",
-              marginBottom: "80px",
             }}
           >
             {/* Left: Text Block */}
-            <div style={{ flex: "1 1 500px" }}>
-              <h2
+            <div style={{ flex: "1 1 400px", paddingRight: "40px" }}>
+              <div
                 style={{
-                  fontSize: "32px",
+                  fontSize: "24px",
                   color: "#111",
-                  marginBottom: "30px",
+                  fontWeight: "bold",
+                  marginBottom: "10px",
                 }}
               >
-                Our Culture & Practices
-              </h2>
+                DONSEA Cultural Practice
+              </div>
 
               {CORE_CULTURE.map((item, index) => (
                 <div
                   key={index}
-                  style={{ paddingTop: "15px", fontSize: "16px" }}
+                  style={{
+                    paddingTop: "10px",
+                    fontSize: "16px",
+                    color: "#111",
+                  }}
                 >
-                  <span
-                    style={{
-                      color: "#00a896",
-                      fontWeight: "bold",
-                      marginRight: "8px",
-                    }}
-                  >
-                    {item.label}
-                  </span>
-                  <span
-                    style={{ fontWeight: 500, color: "#333", lineHeight: 1.6 }}
-                  >
+                  <span style={{ fontWeight: "bold" }}>{item.label}</span>
+                  <span style={{ fontWeight: 500, marginLeft: "5px" }}>
                     {item.text}
                   </span>
                 </div>
@@ -135,87 +128,58 @@ export default function OurCulturePage() {
             </div>
 
             {/* Right: Image */}
-            <div style={{ flex: "0 0 auto", textAlign: "center" }}>
+            <div
+              style={{
+                flex: "0 0 auto",
+                textAlign: "center",
+                marginTop: "20px",
+              }}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/culture.png"
-                alt="Our Culture"
+                alt="DONSEA Culture"
+                width="600"
+                height="300"
                 style={{
                   maxWidth: "100%",
                   height: "auto",
-                  borderRadius: "8px",
+                  display: "block",
                 }}
               />
             </div>
           </div>
         </ScrollReveal>
 
-        {/* ── Bottom Section: Department Policies ── */}
-        <div
-          style={{
-            marginTop: "60px",
-            paddingTop: "40px",
-            borderTop: "1px solid #eaeaea",
-          }}
-        >
-          <ScrollReveal direction="up">
-            <h3
-              style={{
-                fontSize: "28px",
-                color: "#111",
-                marginBottom: "40px",
-                textAlign: "center",
-              }}
-            >
-              Department Guidelines
-            </h3>
-          </ScrollReveal>
-
-          <div
-            style={{
-              display: "grid",
-              // 响应式网格布局：屏幕够宽就并排，不够宽就自动折行
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "30px",
-            }}
-          >
+        {/* ── Bottom Section: Department Policies (还原为简单的垂直列表) ── */}
+        <ScrollReveal direction="up" delay={200}>
+          <div style={{ marginTop: "40px" }}>
             {DEPARTMENT_POLICIES.map((policy, index) => (
-              <ScrollReveal key={index} delay={index * 100} direction="up">
-                <div
+              <div key={index} style={{ marginBottom: "15px" }}>
+                <span
                   style={{
-                    backgroundColor: "#f9f9f9",
-                    padding: "30px",
-                    borderRadius: "8px",
-                    height: "100%",
-                    boxShadow: "0 4px 6px rgba(0,0,0,0.02)",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    color: "#111",
                   }}
                 >
-                  <span
-                    style={{
-                      display: "block",
-                      color: "#00a896",
-                      fontWeight: "bold",
-                      fontSize: "18px",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    {policy.dept}
-                  </span>
-                  <div
-                    style={{
-                      fontWeight: 500,
-                      color: "#555",
-                      lineHeight: 1.6,
-                      fontSize: "15px",
-                    }}
-                  >
-                    {policy.desc}
-                  </div>
+                  {policy.dept}:
+                </span>
+                <div
+                  style={{
+                    fontWeight: 500,
+                    padding: "10px 0px",
+                    color: "#555",
+                    fontSize: "15px",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {policy.desc}
                 </div>
-              </ScrollReveal>
+              </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </main>
   );

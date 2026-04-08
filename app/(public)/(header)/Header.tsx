@@ -21,7 +21,7 @@ const navItems = [
     label: "About Us",
     href: "/about-us",
     children: [
-      { label: "Company Profile", href: "/about-us" },
+      { label: "Company Profile", href: "#" },
       { label: "Development History", href: "/development-history" },
       { label: "Our Culture", href: "/our-culture" },
       { label: "Certifications", href: "/certifications" }, // 之前是 /about-us#certificate
@@ -39,14 +39,18 @@ const navItems = [
   },
 
   // item2 — 东实外贸 (plain link)
-  { label: "Foreign Trade", href: "/foreign-trade" },
+  { label: "Foreign Trade", href: "#" },
 
   // item3 — 线上商城 (plain link)
   // 目标网页的 header 里这只是一个点击跳转的单链接，不像 footer 拆了3个
-  { label: "Online Store", href: "/products" },
+  { label: "Online Store", href: "#" },
 
   // item4 — 东实国际 (external link)
-  // { label: "International", href: "https://ivoiretissue.com", external: true },
+  {
+    label: "International",
+    href: "https://www.cndonseapaper.com/",
+    external: true,
+  },
 
   // item5 — 联系我们 (plain link)
   { label: "Contact Us", href: "/contact-us" },

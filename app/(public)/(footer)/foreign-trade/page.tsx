@@ -33,11 +33,9 @@ export default function ForeignTradePage() {
         <ScrollReveal direction="up">
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <h2 style={{ fontSize: "32px", color: "#111", margin: "0 0 10px" }}>
-              Foreign Trade History
+              Development history of foreign trade
             </h2>
-            <p style={{ fontWeight: 500, color: "#666", fontSize: "16px" }}>
-              Development history of international business
-            </p>
+            {/* 原版这里没有副标题，或者为空，我们保持简洁 */}
           </div>
         </ScrollReveal>
 
@@ -55,21 +53,22 @@ export default function ForeignTradePage() {
               >
                 Initial Stage
               </h3>
+              {/* ⚠️ 这里去掉了你的绿色，换成了东实原版的灰色副标题 */}
               <p
                 style={{
-                  color: "#00a896",
-                  fontWeight: 600,
+                  color: "rgb(101, 101, 101)",
+                  fontWeight: 500,
                   marginBottom: "15px",
+                  textTransform: "lowercase",
                 }}
               >
-                2014 - 2018
+                initial stage
               </p>
+              {/* 采用了原版 HTML 里的英文 */}
               <p style={{ fontWeight: 500, color: "#444", lineHeight: 1.8 }}>
-                In 2014, our Foreign Trade Department was officially
-                established, launching international paper trade on B2B
-                platforms. In that first year, we expanded into the European
-                market, successfully securing our first international
-                partnerships and laying a solid foundation for global export.
+                In 2014, the Foreign Trade Department was established, expanded
+                the European market, with 9 million transactions and 22
+                customers.
               </p>
             </div>
           </ScrollReveal>
@@ -89,20 +88,19 @@ export default function ForeignTradePage() {
               </h3>
               <p
                 style={{
-                  color: "#00a896",
-                  fontWeight: 600,
+                  color: "rgb(101, 101, 101)",
+                  fontWeight: 500,
                   marginBottom: "15px",
                 }}
               >
-                2019
+                Progressive stage
               </p>
               <p style={{ fontWeight: 500, color: "#444", lineHeight: 1.8 }}>
-                In 2019, with the deepening awareness of environmental
-                protection at home and abroad, bamboo pulp paper made from
-                renewable bamboo became highly favored. Growing together with
-                our clients, our major accounts expanded rapidly, achieving
-                significant transaction milestones and reaching dozens of
-                international clients.
+                In 2019, with the in-depth awareness of environmental protection
+                at home and abroad, bamboo pulp paper with renewable bamboo as
+                raw material is very popular. During the years of growing
+                together with customers, major customers have grown rapidly,
+                with 30 million transactions and 28 customers.
               </p>
             </div>
           </ScrollReveal>
@@ -122,12 +120,12 @@ export default function ForeignTradePage() {
               </h3>
               <p
                 style={{
-                  color: "#00a896",
-                  fontWeight: 600,
+                  color: "rgb(101, 101, 101)",
+                  fontWeight: 500,
                   marginBottom: "15px",
                 }}
               >
-                2020 - Present
+                expansion stage
               </p>
               <div
                 style={{
@@ -158,19 +156,22 @@ export default function ForeignTradePage() {
                   marginBottom: "15px",
                 }}
               >
-                From 2020 to 2022, the foreign trade team was upgraded,
-                expanding new customer resources. Major clients continued to
-                grow, production capacity was increased, and we generated
-                immense customer value, achieving outstanding export volumes.
+                From 2020 to 2022, the foreign trade team will be upgraded, new
+                customer resources will be expanded, major customers will
+                continue to grow, planned production capacity will be increased,
+                customer value will be created, and 100 million yuan of
+                transactions will be achieved, with 35 customers.
               </p>
+              {/* ⚠️ 换成了东实的渝北、永川工厂真实数据 */}
               <p style={{ fontWeight: 500, color: "#444", lineHeight: 1.8 }}>
-                Ivoire Tissue currently operates state-of-the-art manufacturing
-                facilities covering over 35,000 square meters. We are committed
-                to customer and social service, constantly producing
-                high-quality products, and driving company development through
-                collaborative innovation. We have won the international market
-                by providing exceptional OEM/ODM business for numerous global
-                brands.
+                The company currently has two factories, Yubei Donsea and
+                Yongchuan ECO, covering an area of 35,200 square meters, with
+                about 260 employees, with a monthly output of 2,380 tons and a
+                monthly output of about 2.38 million US dollars. We are
+                committed to customer and social services, constantly producing
+                high-quality products, and cooperating and innovating to promote
+                the company's development, and have won the international market
+                with the OEM business of many OEM brands.
               </p>
             </div>
           </ScrollReveal>
@@ -241,7 +242,6 @@ export default function ForeignTradePage() {
           </ScrollReveal>
         </div>
       </div>
-
       {/* ════════════════════════════════════════
           4. MAIN MARKETS & SHIPPING
           ════════════════════════════════════════ */}
@@ -258,24 +258,18 @@ export default function ForeignTradePage() {
           >
             Main International Markets
           </h2>
-          <p
-            style={{
-              fontWeight: 500,
-              color: "#666",
-              textAlign: "center",
-              paddingBottom: "50px",
-            }}
-          >
-            Global export distribution
-          </p>
           <div style={{ textAlign: "center" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/maps.png"
-              style={{ maxWidth: "100%", height: "auto" }}
+              style={{ maxWidth: "100%", height: "auto", padding: "50px 0" }}
               alt="Global Markets"
             />
           </div>
+          <h3 style={{ fontWeight: 700, textAlign: "center", color: "#111" }}>
+            Our foreign trade customers have covered 20 countries including the
+            United States, Canada, Australia, the United Kingdom, and Germany.
+          </h3>
         </ScrollReveal>
 
         {/* Shipping Partners */}
@@ -299,36 +293,36 @@ export default function ForeignTradePage() {
                 paddingBottom: "50px",
               }}
             >
-              Efficient global logistics network
+              Our latest works {/* ⚠️ 原版就是这句奇怪的英文，尊重原版保留 */}
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={100} direction="up">
-            {/* Block 1 */}
+            {/* Block 1: Corporate Name */}
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
                 alignItems: "center",
-                padding: "30px 40px",
-                backgroundColor: "#f9f9f9",
-                borderRadius: "8px",
-                marginBottom: "20px",
+                padding: "30px 80px", // 加大了 padding 匹配原版
+                backgroundColor: "#fafafa",
+                borderRadius: "6px",
+                marginBottom: "16px",
               }}
             >
               <div style={{ width: "200px" }}>
                 <h4
                   style={{
                     fontWeight: 700,
-                    fontSize: "18px",
+                    fontSize: "16px",
                     margin: 0,
                     color: "#111",
                   }}
                 >
-                  Shipping Lines
+                  Corporate Name
                 </h4>
-                <span style={{ color: "#666", fontSize: "14px" }}>
-                  Global Partners
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                  corporate name
                 </span>
               </div>
               <div
@@ -337,38 +331,38 @@ export default function ForeignTradePage() {
                   fontWeight: 500,
                   color: "#333",
                   fontSize: "16px",
-                  minWidth: "250px",
+                  paddingLeft: "60px",
                 }}
               >
-                MSK, CMA, MSC, HMM, ONE, PIL, YML, OCL, SNL, APL
+                MSK、CMA、MSC、HMM、ONE、PIL、YML、OCL、SNL、APL
               </div>
             </div>
 
-            {/* Block 2 */}
+            {/* Block 2: River-sea combined */}
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
                 alignItems: "center",
-                padding: "30px 40px",
-                backgroundColor: "#f9f9f9",
-                borderRadius: "8px",
-                marginBottom: "20px",
+                padding: "30px 80px",
+                backgroundColor: "#fafafa",
+                borderRadius: "6px",
+                marginBottom: "16px",
               }}
             >
               <div style={{ width: "200px" }}>
                 <h4
                   style={{
                     fontWeight: 700,
-                    fontSize: "18px",
+                    fontSize: "16px",
                     margin: 0,
                     color: "#111",
                   }}
                 >
-                  River-Sea Intermodal
+                  River Sea Intermodal
                 </h4>
-                <span style={{ color: "#666", fontSize: "14px" }}>
-                  Combined Transport
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                  River sea combined transportation
                 </span>
               </div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -376,50 +370,46 @@ export default function ForeignTradePage() {
                 src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/teamwork_icon.png"
                 alt=""
                 width="40"
-                style={{ margin: "0 40px 0 0" }}
+                style={{ margin: "0 40px" }}
               />
               <div
                 style={{
                   flex: 1,
                   lineHeight: "30px",
                   color: "#333",
-                  minWidth: "250px",
                 }}
               >
                 <div style={{ fontWeight: "bold" }}>
-                  Montreal - Global Ports - The World
-                </div>
-                <div style={{ fontSize: "14px", color: "#666" }}>
-                  Seamless waterway to ocean transit
+                  Chongqing - Shanghai Port - the world
                 </div>
               </div>
             </div>
 
-            {/* Block 3 */}
+            {/* Block 3: Railway-sea combined */}
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
                 alignItems: "center",
-                padding: "30px 40px",
-                backgroundColor: "#f9f9f9",
-                borderRadius: "8px",
-                marginBottom: "20px",
+                padding: "30px 80px",
+                backgroundColor: "#fafafa",
+                borderRadius: "6px",
+                marginBottom: "16px",
               }}
             >
               <div style={{ width: "200px" }}>
                 <h4
                   style={{
                     fontWeight: 700,
-                    fontSize: "18px",
+                    fontSize: "16px",
                     margin: 0,
                     color: "#111",
                   }}
                 >
-                  Rail-Sea Intermodal
+                  Railway Sea Intermodal
                 </h4>
-                <span style={{ color: "#666", fontSize: "14px" }}>
-                  Combined Transport
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                  Railway sea combined transportation
                 </span>
               </div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -427,21 +417,106 @@ export default function ForeignTradePage() {
                 src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/teamwork_icon1.png"
                 alt=""
                 width="40"
-                style={{ margin: "0 40px 0 0" }}
+                style={{ margin: "0 40px" }}
               />
               <div
                 style={{
                   flex: 1,
                   lineHeight: "30px",
                   color: "#333",
-                  minWidth: "250px",
                 }}
               >
                 <div style={{ fontWeight: "bold" }}>
-                  North American Rail - Seaports - The World
+                  <span
+                    style={{ display: "inline-block", paddingRight: "30px" }}
+                  >
+                    Chongqing Xinjiang Europe
+                  </span>
+                  Chongqing Central Asia Europe
                 </div>
-                <div style={{ fontSize: "14px", color: "#666" }}>
-                  Fast and reliable freight corridors
+                <div style={{ fontWeight: "bold" }}>
+                  <span
+                    style={{ display: "inline-block", paddingRight: "30px" }}
+                  >
+                    Yu Yong
+                  </span>
+                  Chongqing Ningbo the world
+                </div>
+                <div style={{ fontWeight: "bold" }}>
+                  <span
+                    style={{ display: "inline-block", paddingRight: "30px" }}
+                  >
+                    Yuguixin
+                  </span>
+                  Chongqing Qinzhou the world
+                </div>
+              </div>
+            </div>
+
+            {/* Block 4: Land-sea combined */}
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                padding: "30px 80px",
+                backgroundColor: "#fafafa",
+                borderRadius: "6px",
+                marginBottom: "16px",
+              }}
+            >
+              <div style={{ width: "200px" }}>
+                <h4
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "16px",
+                    margin: 0,
+                    color: "#111",
+                  }}
+                >
+                  Land Sea Intermodal
+                </h4>
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                  Land sea combined transport
+                </span>
+              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/teamwork_icon2.png" // 这里你的原版代码可能漏了icon2，我按规律补上
+                alt=""
+                width="40"
+                style={{ margin: "0 40px" }}
+              />
+              <div
+                style={{
+                  flex: 1,
+                  lineHeight: "30px",
+                  color: "#333",
+                }}
+              >
+                <div style={{ fontWeight: "bold" }}>
+                  <span
+                    style={{ display: "inline-block", paddingRight: "30px" }}
+                  >
+                    ASEAN shuttle bus
+                  </span>
+                  Chongqing Yunnan Vietnam Laos Bangkok
+                </div>
+                <div style={{ fontWeight: "bold" }}>
+                  <span
+                    style={{ display: "inline-block", paddingRight: "30px" }}
+                  >
+                    Central Asia shuttle
+                  </span>
+                  Chongqing - Horgos - Central Asia
+                </div>
+                <div style={{ fontWeight: "bold" }}>
+                  India Pakistan cross border highway Chongqing Pakistan cross
+                  border highway
+                </div>
+                <div style={{ fontWeight: "bold" }}>
+                  Far east cross border highway Chongqing Mongolia Russia Far
+                  East Highway
                 </div>
               </div>
             </div>

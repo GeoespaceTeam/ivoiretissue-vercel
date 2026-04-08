@@ -32,7 +32,7 @@ export default function Footer() {
         <ScrollReveal delay={0}>
           <div className={s.navCol}>
             <h2>About Us</h2>
-            <Link href="/about-us">Company Profile</Link>
+            <Link href="/#">Company Profile</Link>
             <Link href="/development-history">Development History</Link>
             <Link href="/our-culture">Our Culture</Link>
             <Link href="/certifications">Certifications</Link>
@@ -42,7 +42,7 @@ export default function Footer() {
         {/* Col 2 — 东实家族 → Ivoire Family */}
         <ScrollReveal delay={100}>
           <div className={s.navCol}>
-            <h2>Ivoire Family</h2>
+            <h2>DONSEA Family</h2>
             <Link href="/company-idea">Brand Concept</Link>
             <Link href="/theme-customization">Theme Customization</Link>
           </div>
@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Col 3 — 东实外贸 → Foreign Trade */}
         <ScrollReveal delay={200}>
           <div className={s.navCol}>
-            <h2>Foreign Trade</h2>
+            <h2>DONSEA Foreign Trade</h2>
             <Link href="/foreign-trade">Foreign Trade Details</Link>
           </div>
         </ScrollReveal>
@@ -60,31 +60,43 @@ export default function Footer() {
         <ScrollReveal delay={300}>
           <div className={s.navCol}>
             <h2>Online Store</h2>
-            <a href="/products" target="_blank" rel="noopener noreferrer">
-              Official Store
+            <a
+              href="https://detail.tmall.com/item.htm?spm=a220o.1000855.0.da321h.4cd34229xnvjeM&id=642639918404&skuId=5038067483866"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chanjuan Store
             </a>
-            {/* <a href="#" target="_blank" rel="noopener noreferrer">
-              Amazon Store
+            <a
+              href="https://dongshijiaju.world.tmall.com/shop/view_shop.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tmall Store
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.cndonseapaper.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Alibaba Store
-            </a> */}
+            </a>
           </div>
         </ScrollReveal>
 
         {/* Col 5 — 东实国际 → International */}
-        {/* <ScrollReveal delay={400}>
+        <ScrollReveal delay={400}>
           <div className={s.navCol}>
-            <h2>International</h2>
+            <h2>DONSEA International</h2>
             <a
-              href="https://ivoiretissue.com"
+              href="https://www.cndonseapaper.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               International Website
             </a>
           </div>
-        </ScrollReveal> */}
+        </ScrollReveal>
 
         {/* Col 6 — ── Contact column (left-aligned) ── */}
         <ScrollReveal delay={500} direction="left">
@@ -124,7 +136,7 @@ export default function Footer() {
                 whiteSpace: "nowrap",
               }}
             >
-              Hotline 1: +1 (514) 291-8063
+              Hotline: +1 (514) 291-8063
             </div>
             <div
               className={s.contactLine}
@@ -134,7 +146,7 @@ export default function Footer() {
                 whiteSpace: "nowrap",
               }}
             >
-              Hotline 2: +1 (514) 971-8238
+              National Hotline: +1 (514) 971-8238
             </div>
             <div
               className={s.contactLine}
@@ -197,7 +209,7 @@ export default function Footer() {
         >
           {/* Left — 对应目标网站左下角版权信息 */}
           <span>
-            Ivoire Tissue Paper Inc. 2023 All Rights Reserved. Powered by IVOIRE
+            Ivoire Tissue Paper Inc. 2026 All Rights Reserved. Powered by IVOIRE
             TISSUE&nbsp;·&nbsp;
             <Link href="/policy" style={{ color: "#fff", opacity: 0.8 }}>
               Privacy Policy

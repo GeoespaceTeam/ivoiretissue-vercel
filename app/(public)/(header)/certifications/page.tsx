@@ -110,7 +110,7 @@ export default function CertificationsPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gridTemplateColumns: "repeat(4, 1fr)",
                 gap: "40px",
                 justifyItems: "center",
               }}
@@ -147,7 +147,7 @@ export default function CertificationsPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gridTemplateColumns: "repeat(4, 1fr)",
                 gap: "40px",
                 justifyItems: "center",
               }}
@@ -181,7 +181,7 @@ export default function CertificationsPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gridTemplateColumns: "repeat(4, 1fr)",
                 gap: "40px",
                 justifyItems: "center",
               }}
