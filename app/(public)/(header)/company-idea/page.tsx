@@ -5,26 +5,49 @@ import ScrollReveal from "../../../components/ScrollReveal";
 // ============================================================
 // DATA: Brand Ideas
 // ============================================================
+// const BRAND_IDEAS = [
+//   {
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea.png", // 建议替换为 /images/idea.png
+//     text: "Peace in the present, Love is action",
+//   },
+//   {
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea1.png",
+//     text: "Love family, Love life",
+//   },
+//   {
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea2.png",
+//     text: "Love is all around us",
+//   },
+//   {
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea3.png",
+//     text: "Customize love, Spread love",
+//   },
+//   {
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea4.png",
+//     text: "Great eco-love starts with a single piece of paper",
+//   },
+// ];
+
 const BRAND_IDEAS = [
   {
-    img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea.png", // 建议替换为 /images/idea.png
-    text: "Peace in the present, Love is action",
+    img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea.png",
+    text: "From Africa to Canada: A legacy of entrepreneurship and resilience.",
   },
   {
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea1.png",
-    text: "Love family, Love life",
+    text: "100% Tree-Free: Protecting our forests through sustainable bamboo resources.",
   },
   {
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea2.png",
-    text: "Love is all around us",
+    text: "Family-Owned Values: Ensuring safety and quality in every roll we produce.",
   },
   {
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea3.png",
-    text: "Customize love, Spread love",
+    text: "Green Manufacturing: Powered by over 1,600 GWh of renewable energy annually.",
   },
   {
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/idea4.png",
-    text: "Great eco-love starts with a single piece of paper",
+    text: "Community Impact: Growing together with our partners and local regions.",
   },
 ];
 
@@ -73,7 +96,7 @@ export default function IvoireFamilyPage() {
             }}
           >
             <div style={{ flex: "1 1 500px", paddingRight: "40px" }}>
-              <h2
+              {/* <h2
                 style={{
                   fontSize: "40px",
                   color: "#111",
@@ -81,8 +104,17 @@ export default function IvoireFamilyPage() {
                 }}
               >
                 Bamboo Instead of Wood, Eco-Friendly
+              </h2> */}
+              <h2
+                style={{
+                  fontSize: "40px",
+                  color: "#111",
+                  marginBottom: "20px",
+                }}
+              >
+                Redefining Excellence, Sustaining the Future.
               </h2>
-              <p
+              {/* <p
                 style={{
                   fontWeight: 500,
                   color: "rgb(34, 34, 33)",
@@ -96,6 +128,21 @@ export default function IvoireFamilyPage() {
                 meters, but only 60 days for a bamboo shoot to reach the same
                 height. By embracing bamboo, we preserve a green and sustainable
                 environment for future generations.
+              </p> */}
+              <p
+                style={{
+                  fontWeight: 500,
+                  color: "rgb(34, 34, 33)",
+                  opacity: 0.8,
+                  lineHeight: 1.8,
+                  fontSize: "18px",
+                }}
+              >
+                Established in 2022 in Montreal, Ivoire Tissue Paper was founded
+                with a vision to offer eco-friendly alternatives to traditional
+                paper products. By utilizing bamboo, a rapidly renewable
+                resource, we minimize our environmental footprint while ensuring
+                top-notch quality and performance for our customers.
               </p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -115,32 +162,42 @@ export default function IvoireFamilyPage() {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "flex-start", // 改为靠左对齐
                   marginTop: "60px",
-                  flexWrap: "wrap",
-                  gap: "20px",
+                  width: "100%", // 占满宽度
                 }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={idea.img} width="180px" alt="Idea Icon" />
+                {/* --- 左侧 Logo 区域：固定宽度，防止文字把 Logo 挤扁 --- */}
+                <div style={{ flex: "0 0 180px", textAlign: "center" }}>
+                  <img
+                    src={idea.img}
+                    style={{ width: "100%", height: "auto" }}
+                    alt="Idea Icon"
+                  />
+                </div>
 
+                {/* --- 中间箭头区域：固定宽度，不参与挤压 --- */}
                 <span
                   style={{
-                    margin: "0 10vw", // 用 vw 代替死板的 200px，让中间的箭头间距能在小屏幕自适应
-                    color: "rgb(200, 200, 200)", // 给箭头加点颜色，不会太突兀
+                    flex: "0 0 auto",
+                    margin: "0 60px", // 调整这个值控制 Logo 到文字的距离
+                    color: "rgb(200, 200, 200)",
                     fontSize: "48px",
                   }}
                 >
                   <SwapRightIcon />
                 </span>
 
+                {/* --- 右侧文字区域：核心修改，flex: 1 保证它形成一个独立的文字块 --- */}
                 <p
                   style={{
+                    flex: 1, // 自动占据右侧剩余所有空间
                     fontSize: "24px",
-                    fontWeight: "bold",
+               
                     color: "#333",
                     margin: 0,
-                    minWidth: "300px", // 保证文字不会太挤
+                    textAlign: "left", // 文字在自己的区域内左对齐
+                    lineHeight: "1.4", // 增加行高，换行后更美观
                   }}
                 >
                   {idea.text}

@@ -24,7 +24,67 @@ export default function ContactUsPage() {
         {/* 如果 banner 上需要写字，可以放在这个空 div 里 */}
         <div></div>
       </div>
-
+      {/* --- FAQ SECTION (New from Business Logic) --- */}
+      <ScrollReveal direction="up">
+        <div style={{ marginBottom: "80px" }}>
+          <h2
+            style={{
+              textAlign: "center",
+              fontSize: "32px",
+              fontWeight: 400,
+              color: "#111",
+              marginBottom: "40px",
+            }}
+          >
+            Frequently Asked Questions
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "30px",
+            }}
+          >
+            {[
+              {
+                q: "Where is Ivoire Tissue located?",
+                a: "Our main manufacturing facility is located at 222 Rue Poirier, Saint-Eustache, QC, just 45km from Montreal.",
+              },
+              {
+                q: "Do you offer private label (OEM) services?",
+                a: "Yes, we specialize in customized bamboo tissue products for hotels, restaurants, and corporate clients.",
+              },
+              {
+                q: "What are your shipping areas?",
+                a: "We primarily serve the Quebec and Ontario markets, with capabilities to ship across North America.",
+              },
+              {
+                q: "Why choose bamboo over wood pulp?",
+                a: "Bamboo is highly renewable, growing 60 times faster than trees, and offers superior natural softness and strength.",
+              },
+            ].map((faq, i) => (
+              <div
+                key={i}
+                style={{ padding: "20px", borderBottom: "1px solid #eee" }}
+              >
+                <h4
+                  style={{
+                    color: "#00a698",
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    marginBottom: "10px",
+                  }}
+                >
+                  Q: {faq.q}
+                </h4>
+                <p style={{ color: "#666", fontSize: "15px", lineHeight: 1.6 }}>
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </ScrollReveal>
       {/* ════════════════════════════════════════
           2. CONTACT INFORMATION CONTENT
           ════════════════════════════════════════ */}
@@ -42,7 +102,7 @@ export default function ContactUsPage() {
               textAlign: "center",
               paddingBottom: 40,
               fontSize: "48px",
-              
+
               color: "#111",
             }}
           >
@@ -65,18 +125,13 @@ export default function ContactUsPage() {
               marginBottom: 20,
             }}
           >
-            <span
-              style={{
-                fontSize: 56,
-                color: "#00a896" /* 换成了你们品牌的青色 */,
-              }}
-            >
+            <span style={{ fontSize: 56, color: "#00a896" }}>
               <PhoneIcon />
             </span>
             <div style={{ paddingLeft: 40, lineHeight: 1.8 }}>
-              <div>Company Phone: +1 (514) 971-8238</div>
-              <div>Hotline 1: +1 (514) 291-8063</div>
-              <div>Hotline 2: +1 (514) 971-8238</div>
+              {/* 对齐原版双热线 */}
+              <div>General Inquiry: +1 (514) 971-8238</div>
+              <div>Sales & Support: +1 (514) 291-8063</div>
             </div>
           </div>
         </ScrollReveal>
@@ -171,6 +226,43 @@ export default function ContactUsPage() {
                   https://ivoiretissue.com
                 </a>
               </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* --- Block 5: Operating Hours (New from Original) --- */}
+        <ScrollReveal delay={500} direction="up">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "rgb(250, 250, 250)",
+              borderRadius: 6,
+              padding: "20px 60px",
+              fontSize: 20,
+              fontWeight: 500,
+              color: "rgb(131, 131, 131)",
+              marginBottom: 20,
+            }}
+          >
+            <span style={{ fontSize: 56, color: "#00a896" }}>
+              {/* 这里借用一个时钟图标，我直接用简单的 SVG 帮你写好 */}
+              <svg
+                viewBox="0 0 1024 1024"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+              >
+                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+                <path d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l167.4 121.3c3.6 2.6 8.6 1.8 11.2-1.8l28.6-39c2.6-3.6 1.8-8.6-1.8-11.2z"></path>
+              </svg>
+            </span>
+            <div style={{ paddingLeft: 40, lineHeight: 1.8 }}>
+              <div style={{ fontWeight: 700, color: "#333" }}>
+                Operating Hours:
+              </div>
+              <div>Monday - Friday: 8:30 AM - 5:00 PM</div>
+              <div>Saturday - Sunday: Closed</div>
             </div>
           </div>
         </ScrollReveal>

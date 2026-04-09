@@ -21,7 +21,7 @@ const navItems = [
     label: "Home",
     href: "/about-us",
     children: [
-      { label: "Company Profile", href: "#" },
+      { label: "Company Profile", href: "/about-us" },
       { label: "Development History", href: "/development-history" },
       { label: "Our Culture", href: "/our-culture" },
       { label: "Certifications", href: "/certifications" }, // 之前是 /about-us#certificate
@@ -39,21 +39,37 @@ const navItems = [
   },
 
   // item2 — 东实外贸 (plain link)
-  { label: "Foreign Trade", href: "#" },
+  { label: "Foreign Trade", href: "foreign-trade" },
 
   // item3 — 线上商城 (plain link)
   // 目标网页的 header 里这只是一个点击跳转的单链接，不像 footer 拆了3个
-  { label: "Online Store", href: "#" },
+  {
+    label: "Our Products",
+    href: "/products",
+    children: [
+      { label: "Bamboo Products", href: "/products/bamboo" },
+      { label: "Virgin Products", href: "/products/virgin" },
+      { label: "Recycle Products", href: "/products/recycle" },
+      { label: "Mixed Products", href: "/products/mixed" },
+    ],
+  },
 
   // item4 — 东实国际 (external link)
+  // {
+  //   label: "International",
+  //   href: "https://www.cndonseapaper.com/",
+  //   external: true,
+  // },
+
+  // item4 — career
   {
-    label: "International",
-    href: "https://www.cndonseapaper.com/",
-    external: true,
+    label: "Careers",
+    href: "/career",
+    
   },
 
   // item5 — 联系我们 (plain link)
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Contact Us & FAQs", href: "/contact-us" },
 ] as const;
 // ============================================================
 // COMPONENT

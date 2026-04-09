@@ -26,15 +26,24 @@ export default function AboutUsPage() {
         imageSrc="/images/about-history.jpg" // 准备好图片后取消注释
       >
         <p>
-          Ivoire Tissue Paper is a Canadian family company founded on 12
-          December 2022 in Montreal, Québec (Canada). Ivoire Tissue was
-          preoccupied with the environment and given climate change and the
-          destruction of our forest systems, Ivoire Tissue has decided to help
-          protect our planet by providing solutions such as the use of bamboo
-          paper products to replace traditional paper products. In 2022, Yves
-          Andoh Chairman of Ivoire Tissue, and Cynthia Kadjo VP of Ivoire Tissue
-          decided to implant a factory at Saint-Eustache 37min or 45km to
-          Montréal at 222 Rue Poirier.
+          <strong>Ivoire Tissue Paper</strong> is a family-owned Canadian
+          enterprise born from a vision of resilience and sustainability. Our
+          story began with our founders,
+          <strong>Yves Andoh</strong> (Chairman) and{" "}
+          <strong>Cynthia Kadjo</strong> (VP), who brought their passionate
+          entrepreneurial spirit from Africa to the heart of Quebec.
+        </p>
+        <p>
+          Founded on December 12, 2022, in Montreal, Ivoire Tissue was
+          established to address the urgent challenges of climate change and
+          deforestation. By merging African entrepreneurial heritage with
+          Canadian technological excellence, the founders chose to specialize in
+          100% bamboo-based products—a rapidly renewable alternative to
+          traditional wood pulp. To turn this dream into reality, they
+          established our primary manufacturing facility in{" "}
+          <strong>Saint-Eustache</strong>, strategically located just 45km from
+          Montreal, marking the beginning of a new era in eco-friendly paper
+          production.
         </p>
       </ContentSection>
 

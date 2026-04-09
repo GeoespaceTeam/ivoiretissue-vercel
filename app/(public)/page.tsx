@@ -2,6 +2,9 @@ import Link from "next/link";
 import HeroCarousel from "../components/HeroCarousel";
 import AnimatedCounter from "../components/AnimatedCounter";
 import ScrollReveal from "../components/ScrollReveal";
+// import PartnerLogos from "../components/PartnerLogos"; // 引入路径根据你的目录调整
+
+
 
 // ============================================================
 // IVOIRE TISSUE — HOME PAGE
@@ -196,10 +199,15 @@ export default function HomePage() {
               className="section-title-desc"
               style={{ fontSize: "18px", lineHeight: "1.8" }}
             >
-              Dongshi Paper was founded in 2001. With 21 years of professional
+              {/* Dongshi Paper was founded in 2001. With 21 years of professional
               quality and 21 years of innovative development, it has now grown
               into a comprehensive household paper enterprise integrating R&D,
-              innovation, production, sales, and service.
+              innovation, production, sales, and service. */}
+              Established in 2022 in Montreal, Ivoire Tissue Paper is a
+              pioneering Canadian company dedicated to producing high-quality
+              tissue paper using sustainable bamboo resources. We offer
+              eco-friendly alternatives to traditional paper products while
+              ensuring top-notch quality and performance.
             </p>
           </ScrollReveal>
 
@@ -216,16 +224,16 @@ export default function HomePage() {
               style={{ flex: "0 0 58.33%", maxWidth: "58.33%" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              {/* <img
+              <img
                 src="/images/about.png"
                 alt="About Ivoire Tissue"
                 style={{ width: "80%", height: "auto", display: "block" }}
-              /> */}
-              <img
+              />
+              {/* <img
                 src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/regards1.png"
                 alt="DONSEA Paper"
                 style={{ width: "80%", height: "auto", display: "block" }}
-              />
+              /> */}
             </ScrollReveal>
 
             {/* ── Right: stats + button — ant-col-md-10 (41.67%) ── */}
@@ -251,7 +259,7 @@ export default function HomePage() {
                 >
                   Factory Area&nbsp;
                   {/* dongshi: span with color: red → brand teal for Ivoire */}
-                  <span style={{ color: "rgb(0, 168, 150)" }}>3,000 ㎡</span>
+                  <span style={{ color: "rgb(0, 168, 150)" }}>2,000 ㎡</span>
                 </div>
 
                 {/* dongshi: "建筑面积" sub-label */}
@@ -277,7 +285,7 @@ export default function HomePage() {
                       fontWeight: 600,
                     }}
                   >
-                    120+<span style={{ fontSize: 20, fontWeight: 400 }}>+</span>
+                    20+<span style={{ fontSize: 20, fontWeight: 400 }}>+</span>
                   </div>
 
                   {/* dongshi: "企业员工" sub-label */}
@@ -436,6 +444,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* <PartnerLogos /> */}
     </>
   );
 }
@@ -469,131 +479,194 @@ export default function HomePage() {
 // ] as const;
 
 // /* Main Markets — 贴合加拿大本土企业的商业逻辑划分 */
-// const MARKETS = [
-//   {
-//     title: "Domestic",
-//     // 建议：放一张蒙特利尔或多伦多的城市风景图
-//     img: "/images/market-canada.jpg", 
-//     href: "/foreign-trade",
-//   },
-//   {
-//     title: "North America",
-//     // 建议：放一张美国国会大厦或纽约的风景图（原网页也是国会大厦）
-//     img: "/images/market-us.jpg", 
-//     href: "/foreign-trade",
-//   },
-//   {
-//     title: "Western Europe",
-//     // 建议：放一张欧洲城堡或标志性建筑
-//     img: "/images/market-europe.jpg", 
-//     href: "/foreign-trade",
-//   },
-//   {
-//     title: "Southeastern Asia",
-//     // 替换原版的“东南亚”，亚太地区对加拿大纸业出口更具包容性
-//     img: "/images/market-asia.jpg", 
-//     href: "/foreign-trade",
-//   },
-//   {
-//     title: "South America",
-//     // 替换原版的“南美洲”，包含中美洲和南美洲，放一张里约热内卢的图即可
-//     img: "/images/market-latam.jpg", 
-//     href: "/foreign-trade",
-//   },
-// ] as const;
+const MARKETS = [
+  {
+    title: "Canada",
+    // 建议：放一张蒙特利尔或多伦多的城市风景图
+    img: "/images/market-canada.jpg", 
+    href: "/foreign-trade",
+  },
+  {
+    title: "United States",
+    // 建议：放一张美国国会大厦或纽约的风景图（原网页也是国会大厦）
+    img: "/images/market-us.jpg", 
+    href: "/foreign-trade",
+  },
+  {
+    title: "Western Europe",
+    // 建议：放一张欧洲城堡或标志性建筑
+    img: "/images/market-europe.jpg", 
+    href: "/foreign-trade",
+  },
+  {
+    title: "Southeastern Asia",
+    // 替换原版的“东南亚”，亚太地区对加拿大纸业出口更具包容性
+    img: "/images/market-asia.jpg", 
+    href: "/foreign-trade",
+  },
+  {
+    title: "South America",
+    // 替换原版的“南美洲”，包含中美洲和南美洲，放一张里约热内卢的图即可
+    img: "/images/market-latam.jpg", 
+    href: "/foreign-trade",
+  },
+] as const;
 // ============================================================
 // DATA
 // ============================================================
 
 /* Stats bar — 100% 还原东实文案 */
+// const STATS = [
+//   {
+//     number: 2001,
+//     suffix: "Est.", // 对应：成立
+//     desc: "Dongshi is a diversified group company integrating R&D, production, and sales.",
+//   },
+//   {
+//     number: 5000,
+//     suffix: "+",
+//     desc: "Over 5,000 cooperative customers, our professional team provides you with premium products.",
+//   },
+//   {
+//     number: 22,
+//     suffix: "Years", // 对应：年
+//     desc: "22 years of growth spur Dongshi people to provide consumers with higher-quality household paper with a stronger sense of mission and responsibility.",
+//   },
+//   {
+//     number: 1500,
+//     suffix: "Cities", // 对应：城镇
+//     desc: "To meet the growing product demand, our products cover more than 1,500 cities nationwide.",
+//   },
+// ] as const;
 const STATS = [
   {
-    number: 2001,
-    suffix: "Est.", // 对应：成立
-    desc: "Dongshi is a diversified group company integrating R&D, production, and sales.",
+    number: 2022,
+    suffix: "Est.",
+    desc: "Established in Montreal, Canada — a pioneering bamboo tissue paper manufacturer.",
   },
   {
     number: 5000,
     suffix: "+",
-    desc: "Over 5,000 cooperative customers, our professional team provides you with premium products.",
+    desc: "Over 5,000 satisfied customers served by our professional team with premium products.",
   },
   {
-    number: 22,
-    suffix: "Years", // 对应：年
-    desc: "22 years of growth spur Dongshi people to provide consumers with higher-quality household paper with a stronger sense of mission and responsibility.",
+    number: 1600,
+    suffix: "GWh",
+    desc: "Annual renewable energy production from our power plants to drive eco-friendly manufacturing.",
   },
   {
-    number: 1500,
-    suffix: "Cities", // 对应：城镇
-    desc: "To meet the growing product demand, our products cover more than 1,500 cities nationwide.",
+    number: 1,
+    suffix: "Unit",
+    desc: "Leading-edge production and distribution hub located in Saint-Eustache, Quebec.",
   },
 ] as const;
 
 /* Main Markets — 100% 还原东实的五个市场及图片 */
-const MARKETS = [
-  {
-    title: "Domestic Market", // 国内市场
-    img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market1.png", 
-    href: "/foreign-trade",
-  },
-  {
-    title: "North America", // 北美
-    img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market2.png", 
-    href: "/foreign-trade",
-  },
-  {
-    title: "Western Europe", // 西欧
-    img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market3.png", 
-    href: "/foreign-trade",
-  },
-  {
-    title: "Southeast Asia", // 东南亚
-    img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market4.png", 
-    href: "/foreign-trade",
-  },
-  {
-    title: "South America", // 南美洲
-    img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market5.png", 
-    href: "/foreign-trade",
-  },
-] as const;
+// const MARKETS = [
+//   {
+//     title: "Domestic Market", // 国内市场
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market1.png", 
+//     href: "/foreign-trade",
+//   },
+//   {
+//     title: "North America", // 北美
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market2.png", 
+//     href: "/foreign-trade",
+//   },
+//   {
+//     title: "Western Europe", // 西欧
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market3.png", 
+//     href: "/foreign-trade",
+//   },
+//   {
+//     title: "Southeast Asia", // 东南亚
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market4.png", 
+//     href: "/foreign-trade",
+//   },
+//   {
+//     title: "South America", // 南美洲
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/market5.png", 
+//     href: "/foreign-trade",
+//   },
+// ] as const;
 
 /* Core Capabilities — 1:1 还原东实真实数据 */
+// const CAPABILITIES = [
+//   {
+//     title: "R&D Capability", // 研发能力
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability1.png",
+//     line1: "ODM Service: Yes",
+//     line2: "R&D Staff: 5-10",
+//   },
+//   {
+//     title: "Certifications", // 认证
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability2.png",
+//     line1: "Certificates: 7",
+//     line2: "",
+//   },
+//   {
+//     title: "Trade Capability", // 贸易能力
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability3.png",
+//     line1: "Export Experience: 8 Years",
+//     line2: "Trade Staff: 11-20",
+//   },
+//   {
+//     title: "Production Capability", // 生产能力
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability4.png",
+//     line1: "Production Lines: >10", // 10以上
+//     line2: "Output Value: >$100M", // 超过1亿美元
+//   },
+//   {
+//     title: "ODM Capability", // ODM功能
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability5.png",
+//     line1: "OEM Service: Yes",
+//     line2: "OEM Experience: 21 Years",
+//   },
+//   {
+//     title: "Quality Control", // 质量控制
+//     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability6.png",
+//     line1: "QC Staff: 11-20",
+//     line2: "",
+//   },
+// ] as const;
+
+
+//ivoire data
 const CAPABILITIES = [
   {
-    title: "R&D Capability", // 研发能力
+    title: "Eco-Innovation",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability1.png",
-    line1: "ODM Service: Yes",
-    line2: "R&D Staff: 5-10",
+    line1: "Focus: Bamboo-Fiber",
+    line2: "100% Biodegradable",
   },
   {
-    title: "Certifications", // 认证
+    title: "Certifications",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability2.png",
-    line1: "Certificates: 7",
-    line2: "",
+    line1: "FSC Certified Source",
+    line2: "ISO Standards",
   },
   {
-    title: "Trade Capability", // 贸易能力
+    title: "Global Logistics",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability3.png",
-    line1: "Export Experience: 8 Years",
-    line2: "Trade Staff: 11-20",
+    line1: "Port of Montreal Hub",
+    line2: "Fast NA Delivery",
   },
   {
-    title: "Production Capability", // 生产能力
+    title: "Custom Solutions",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability4.png",
-    line1: "Production Lines: >10", // 10以上
-    line2: "Output Value: >$100M", // 超过1亿美元
+    line1: "B2B Private Label",
+    line2: "Wholesale Support",
   },
   {
-    title: "ODM Capability", // ODM功能
+    title: "Green Energy",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability5.png",
-    line1: "OEM Service: Yes",
-    line2: "OEM Experience: 21 Years",
+    line1: "1,600 GWh Annual",
+    line2: "Renewable Powered",
   },
   {
-    title: "Quality Control", // 质量控制
+    title: "Community",
     img: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/ability6.png",
-    line1: "QC Staff: 11-20",
-    line2: "",
+    line1: "Quebec Local Impact",
+    line2: "Eco-Awareness",
   },
 ] as const;

@@ -32,7 +32,7 @@ export default function Footer() {
         <ScrollReveal delay={0}>
           <div className={s.navCol}>
             <h2>About Us</h2>
-            <Link href="/#">Company Profile</Link>
+            <Link href="/about-us">Company Profile</Link>
             <Link href="/development-history">Development History</Link>
             <Link href="/our-culture">Our Culture</Link>
             <Link href="/certifications">Certifications</Link>
@@ -42,7 +42,7 @@ export default function Footer() {
         {/* Col 2 — 东实家族 → Ivoire Family */}
         <ScrollReveal delay={100}>
           <div className={s.navCol}>
-            <h2>DONSEA Family</h2>
+            <h2>IVOIRE Family</h2>
             <Link href="/company-idea">Brand Concept</Link>
             <Link href="/theme-customization">Theme Customization</Link>
           </div>
@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Col 3 — 东实外贸 → Foreign Trade */}
         <ScrollReveal delay={200}>
           <div className={s.navCol}>
-            <h2>DONSEA Foreign Trade</h2>
+            <h2>IVOIRE Foreign Trade</h2>
             <Link href="/foreign-trade">Foreign Trade Details</Link>
           </div>
         </ScrollReveal>
@@ -59,42 +59,21 @@ export default function Footer() {
         {/* Col 4 — 线上商城 → Online Store */}
         <ScrollReveal delay={300}>
           <div className={s.navCol}>
-            <h2>Online Store</h2>
-            <a
-              href="https://detail.tmall.com/item.htm?spm=a220o.1000855.0.da321h.4cd34229xnvjeM&id=642639918404&skuId=5038067483866"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Chanjuan Store
-            </a>
-            <a
-              href="https://dongshijiaju.world.tmall.com/shop/view_shop.htm"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tmall Store
-            </a>
-            <a
-              href="https://www.cndonseapaper.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Alibaba Store
-            </a>
+            <h2>Our Products</h2>
+            <Link href="/products/bamboo">Bamboo Products</Link>
+            <Link href="/products/virgin">Virgin Products</Link>
+            <Link href="/products/recycle">Recycle Products</Link>
+            <Link href="/products/mixed">Mixed Products</Link>
           </div>
         </ScrollReveal>
 
         {/* Col 5 — 东实国际 → International */}
         <ScrollReveal delay={400}>
           <div className={s.navCol}>
-            <h2>DONSEA International</h2>
-            <a
-              href="https://www.cndonseapaper.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              International Website
-            </a>
+            <h2>Quick Access</h2>
+            {/* <Link href="/career">Working at Ivoire</Link> */}
+            {/* <Link href="/career">Open Positions</Link> */}
+            <Link href="/career">Open Positions</Link>
           </div>
         </ScrollReveal>
 
@@ -118,36 +97,43 @@ export default function Footer() {
             </div>
 
             {/* 联系方式：加上 whiteSpace: "nowrap" 杜绝换行，并精简前缀 */}
+            {/* 第一个号码 */}
             <div
               className={s.contactLine}
               style={{
-                paddingBottom: "24px",
+                paddingBottom: "12px",
                 opacity: 0.8,
                 whiteSpace: "nowrap",
               }}
             >
               Tel: +1 (514) 971-8238
             </div>
+
+            {/* 第二个号码 (Hotline) */}
             <div
               className={s.contactLine}
               style={{
-                paddingBottom: "24px",
+                paddingBottom: "12px",
                 opacity: 0.8,
                 whiteSpace: "nowrap",
               }}
             >
               Hotline: +1 (514) 291-8063
             </div>
+
+            {/* 把原来的重复号码位置改为营业时间 */}
             <div
               className={s.contactLine}
               style={{
-                paddingBottom: "24px",
+                paddingBottom: "12px",
                 opacity: 0.8,
                 whiteSpace: "nowrap",
               }}
             >
-              National Hotline: +1 (514) 971-8238
+              Hours: Mon - Fri 8:30AM - 5:00PM
             </div>
+
+            {/* 邮箱保持不变 */}
             <div
               className={s.contactLine}
               style={{
@@ -164,7 +150,6 @@ export default function Footer() {
                 sales@ivoiretissue.com
               </a>
             </div>
-
             {/* QR Code */}
             <div
               className={s.qrBlock}
@@ -204,21 +189,35 @@ export default function Footer() {
           className={s.copyrightInner}
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            fontSize: "16px" /* 👈 把原来写死的 12px 直接改成 16px！ */,
+            justifyContent: "space-between", // 确保左右撑开
+            alignItems: "center", // 垂直居中
+            flexWrap: "wrap", // 关键：宽度不够时自动换行，不至于挤出屏幕
+            fontSize: "14px", // 稍微调小一点点（16改14），防止在平板电脑上就早早换行
             maxWidth: "1200px",
             margin: "0 auto",
-            padding:
-              "20px 24px" /* 👈 字变大了，上下 padding 从 15px 改到 20px 看着更透气 */,
+            padding: "20px 24px",
+            gap: "15px", // 换行后的上下间距
           }}
         >
           {/* Left — 对应目标网站左下角版权信息 */}
           <span>
-            Ivoire Tissue Paper Inc. 2026 All Rights Reserved. Powered by IVOIRE
-            TISSUE&nbsp;·&nbsp;
+            © 2026 Ivoire Tissue Paper Inc. All Rights Reserved.&nbsp;·&nbsp;
             <Link href="/policy" style={{ color: "#fff", opacity: 0.8 }}>
               Privacy Policy
-            </Link>
+            </Link>{" "}
+            |
+            <Link href="/terms-of-use" style={{ color: "#fff", opacity: 0.8 }}>
+              {" "}
+              Terms of Use
+            </Link>{" "}
+            {/* | */}
+            {/* <Link
+              href="/certifications"
+              style={{ color: "#fff", opacity: 0.8 }}
+            >
+              {" "}
+              FSC Certifications
+            </Link> */}
           </span>
 
           {/* Right — 对应目标网站右下角地址 */}
