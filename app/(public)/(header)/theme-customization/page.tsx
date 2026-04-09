@@ -65,7 +65,7 @@ export default function ThemeCustomizationPage() {
       <div
         className="content"
         style={{
-          maxWidth: 1000,
+          maxWidth: 1200,
           margin: "0 auto",
           padding: "80px 20px",
         }}
@@ -88,8 +88,8 @@ export default function ThemeCustomizationPage() {
                   // 利用 React 的 flex-direction 完美还原原网页写死的左右交错 DOM
                   flexDirection: isImageLeft ? "row" : "row-reverse",
                   flexWrap: "wrap",
-                  marginBottom: "64px",
-                  gap: "40px",
+                  marginBottom: "80px",
+                  gap: "60px",
                 }}
               >
                 {/* ── 侧边图片 ── */}
@@ -103,7 +103,7 @@ export default function ThemeCustomizationPage() {
                 <div
                   style={{
                     color: "rgb(109, 109, 109)",
-                    fontSize: "16px",
+                    fontSize: "18px",
                     flex: "1 1 400px",
                     // 为了完美复刻原网页，不强制靠左/靠右，统一使用左对齐
                     textAlign: "left",
@@ -113,7 +113,7 @@ export default function ThemeCustomizationPage() {
                     style={{
                       color: "rgb(0, 166, 152)",
                       margin: 0,
-                      fontSize: "28px",
+                      fontSize: "36px",
                     }}
                   >
                     {item.title}
@@ -123,6 +123,7 @@ export default function ThemeCustomizationPage() {
                       fontWeight: 600,
                       paddingTop: "6px",
                       color: "#333",
+                      fontSize: "22px" /* 👈 给副标题明确加上 22px 的大字号 */,
                     }}
                   >
                     {item.subtitle}
@@ -130,13 +131,13 @@ export default function ThemeCustomizationPage() {
                   {/* 青色分隔线：高度 3px, 宽度 70px */}
                   <div
                     style={{
-                      height: "3px",
-                      width: "70px",
+                      height: "4px",
+                      width: "80px",
                       backgroundColor: "rgb(0, 166, 152)",
                       margin: "10px 0px 20px",
                     }}
                   ></div>
-                  <span style={{ fontWeight: 500, lineHeight: 1.6 }}>
+                  <span style={{ fontWeight: 500, lineHeight: 1.8 }}>
                     {item.desc}
                   </span>
                 </div>

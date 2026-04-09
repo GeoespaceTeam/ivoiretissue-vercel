@@ -101,10 +101,10 @@ export default function OurCulturePage() {
             <div style={{ flex: "1 1 400px", paddingRight: "40px" }}>
               <div
                 style={{
-                  fontSize: "24px",
+                  fontSize: "40px",
                   color: "#111",
                   fontWeight: "bold",
-                  marginBottom: "10px",
+                  marginBottom: "24px",
                 }}
               >
                 DONSEA Cultural Practice
@@ -114,9 +114,10 @@ export default function OurCulturePage() {
                 <div
                   key={index}
                   style={{
-                    paddingTop: "10px",
-                    fontSize: "16px",
+                    paddingTop: "12px",
+                    fontSize: "18px",
                     color: "#111",
+                    lineHeight: 1.8,
                   }}
                 >
                   <span style={{ fontWeight: "bold" }}>{item.label}</span>
@@ -153,12 +154,16 @@ export default function OurCulturePage() {
 
         {/* ── Bottom Section: Department Policies (还原为简单的垂直列表) ── */}
         <ScrollReveal direction="up" delay={200}>
-          <div style={{ marginTop: "40px" }}>
+          <div style={{ marginTop: "60px" }}>
+            {" "}
+            {/* 👈 距离上面的图文再拉开一点，从 40px 到 60px */}
             {DEPARTMENT_POLICIES.map((policy, index) => (
-              <div key={index} style={{ marginBottom: "15px" }}>
+              <div key={index} style={{ marginBottom: "24px" }}>
+                {" "}
+                {/* 👈 每一项之间的间距从 15px 加大到 24px */}
                 <span
                   style={{
-                    fontSize: "16px",
+                    fontSize: "22px" /* 👈 部门名称从 16px 放大到 22px */,
                     fontWeight: "bold",
                     color: "#111",
                   }}
@@ -170,8 +175,8 @@ export default function OurCulturePage() {
                     fontWeight: 500,
                     padding: "10px 0px",
                     color: "#555",
-                    fontSize: "15px",
-                    lineHeight: 1.6,
+                    fontSize: "18px" /* 👈 方针描述从 15px 放大到 18px */,
+                    lineHeight: 1.8 /* 👈 行高调到 1.8 */,
                   }}
                 >
                   {policy.desc}

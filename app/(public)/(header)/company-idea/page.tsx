@@ -75,7 +75,7 @@ export default function IvoireFamilyPage() {
             <div style={{ flex: "1 1 500px", paddingRight: "40px" }}>
               <h2
                 style={{
-                  fontSize: "32px",
+                  fontSize: "40px",
                   color: "#111",
                   marginBottom: "20px",
                 }}
@@ -88,7 +88,7 @@ export default function IvoireFamilyPage() {
                   color: "rgb(34, 34, 33)",
                   opacity: 0.8,
                   lineHeight: 1.8,
-                  fontSize: "16px",
+                  fontSize: "18px",
                 }}
               >
                 Bamboo is one of the most vital plants on Earth, growing at an
@@ -122,13 +122,13 @@ export default function IvoireFamilyPage() {
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={idea.img} width="150px" alt="Idea Icon" />
+                <img src={idea.img} width="180px" alt="Idea Icon" />
 
                 <span
                   style={{
                     margin: "0 10vw", // 用 vw 代替死板的 200px，让中间的箭头间距能在小屏幕自适应
                     color: "rgb(200, 200, 200)", // 给箭头加点颜色，不会太突兀
-                    fontSize: "32px",
+                    fontSize: "48px",
                   }}
                 >
                   <SwapRightIcon />
@@ -136,11 +136,11 @@ export default function IvoireFamilyPage() {
 
                 <p
                   style={{
-                    fontSize: "20px",
+                    fontSize: "24px",
                     fontWeight: "bold",
                     color: "#333",
                     margin: 0,
-                    minWidth: "250px", // 保证文字不会太挤
+                    minWidth: "300px", // 保证文字不会太挤
                   }}
                 >
                   {idea.text}

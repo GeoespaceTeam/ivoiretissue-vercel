@@ -41,7 +41,8 @@ export default function ContactUsPage() {
             style={{
               textAlign: "center",
               paddingBottom: 40,
-              fontSize: "32px",
+              fontSize: "48px",
+              
               color: "#111",
             }}
           >
@@ -58,7 +59,7 @@ export default function ContactUsPage() {
               backgroundColor: "rgb(250, 250, 250)",
               borderRadius: 6,
               padding: "20px 60px",
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: 500,
               color: "rgb(131, 131, 131)",
               marginBottom: 20,
@@ -66,13 +67,13 @@ export default function ContactUsPage() {
           >
             <span
               style={{
-                fontSize: 36,
+                fontSize: 56,
                 color: "#00a896" /* 换成了你们品牌的青色 */,
               }}
             >
               <PhoneIcon />
             </span>
-            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+            <div style={{ paddingLeft: 40, lineHeight: 1.8 }}>
               <div>Company Phone: +1 (514) 971-8238</div>
               <div>Hotline 1: +1 (514) 291-8063</div>
               <div>Hotline 2: +1 (514) 971-8238</div>
@@ -89,16 +90,16 @@ export default function ContactUsPage() {
               backgroundColor: "rgb(250, 250, 250)",
               borderRadius: 6,
               padding: "20px 60px",
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: 500,
               color: "rgb(131, 131, 131)",
               marginBottom: 20,
             }}
           >
-            <span style={{ fontSize: 36, color: "#00a896" }}>
+            <span style={{ fontSize: 56, color: "#00a896" }}>
               <BankIcon />
             </span>
-            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+            <div style={{ paddingLeft: 40, lineHeight: 1.8 }}>
               <div>
                 Address: 222 Rue Poirier, #30, St-Eustache, QC J7R 6B1, Canada
               </div>
@@ -115,16 +116,16 @@ export default function ContactUsPage() {
               backgroundColor: "rgb(250, 250, 250)",
               borderRadius: 6,
               padding: "20px 60px",
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: 500,
               color: "rgb(131, 131, 131)",
               marginBottom: 20,
             }}
           >
-            <span style={{ fontSize: 36, color: "#00a896" }}>
+            <span style={{ fontSize: 56, color: "#00a896" }}>
               <MailIcon />
             </span>
-            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+            <div style={{ paddingLeft: 40, lineHeight: 1.8 }}>
               <div>
                 Email:{" "}
                 <a
@@ -147,16 +148,16 @@ export default function ContactUsPage() {
               backgroundColor: "rgb(250, 250, 250)",
               borderRadius: 6,
               padding: "20px 60px",
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: 500,
               color: "rgb(131, 131, 131)",
               marginBottom: 20,
             }}
           >
-            <span style={{ fontSize: 36, color: "#00a896" }}>
+            <span style={{ fontSize: 56, color: "#00a896" }}>
               <GlobalIcon />
             </span>
-            <div style={{ paddingLeft: 30, lineHeight: 1.8 }}>
+            <div style={{ paddingLeft: 40, lineHeight: 1.8 }}>
               <div>
                 Official Website:{" "}
                 <a

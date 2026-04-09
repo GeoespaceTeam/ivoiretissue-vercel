@@ -48,15 +48,16 @@ const CSS = `
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
   }
 
-  /* ── Learn More button ── */
+ /* ── Learn More button ── */
   .ivt-learn-btn {
     display: inline-block;
     margin-top: 30px;
-    padding: 8px 22px;
+    padding: 10px 28px; /* 👈 从 8px 22px 改大，让按钮变得更饱满 */
     background: rgb(0, 168, 150);
     border-color: rgb(0, 168, 150);
     color: #fff;
-    font-size: 14px;
+    font-size: 18px; /* 👈 从 14px 直接干到 18px */
+    font-weight: 500; /* 👈 顺便加粗一点点 */
     border: 1px solid transparent;
     cursor: pointer;
     transition: background 0.25s, border-color 0.25s;
@@ -105,10 +106,11 @@ export default function HomePage() {
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
-            maxWidth: 1200,
+            justifyContent: "space-between", // 改为两端对齐，撑满空间
+            maxWidth: "1600px", // 这里的 1600 让它变 Wide
             margin: "0 auto",
             flexWrap: "wrap",
+            padding: "0 40px", // 增加侧边距，防止贴边
           }}
         >
           {STATS.map((stat, i) => (
@@ -117,8 +119,8 @@ export default function HomePage() {
               <div
                 style={{
                   borderLeft: "1px solid rgba(255, 255, 255, 0.52)",
-                  padding: "30px 40px 30px 20px",
-                  width: 220,
+                  padding: "40px 20px", // 增加上下内边距，让整体看起来更厚实
+                  width: 320, // 显著增加宽度
                   textAlign: "left",
                   position: "relative",
                 }}
@@ -127,7 +129,7 @@ export default function HomePage() {
                 <div
                   style={{
                     width: 3,
-                    height: 24,
+                    height: 36,
                     backgroundColor: "rgb(255, 255, 255)",
                     position: "absolute",
                     left: 0,
@@ -135,9 +137,25 @@ export default function HomePage() {
                   }}
                 />
                 {/* dongshi: font-size 32px, font-weight 600 */}
-                <div>
-                  <AnimatedCounter target={stat.number} />
-                  <span style={{ fontSize: 14, marginLeft: 4 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    marginBottom: 12,
+                  }}
+                >
+                  <span
+                    style={{ fontSize: 56, fontWeight: 800, lineHeight: 1 }}
+                  >
+                    {" "}
+                    {/* 56px 巨型数字 */}
+                    <AnimatedCounter target={stat.number} />
+                  </span>
+                  <span
+                    style={{ fontSize: 22, marginLeft: 8, fontWeight: 600 }}
+                  >
+                    {" "}
+                    {/* 22px 后缀 */}
                     {stat.suffix}
                   </span>
                 </div>
@@ -145,10 +163,10 @@ export default function HomePage() {
                 <div
                   style={{
                     color: "rgb(255, 255, 255)",
-                    lineHeight: "26px",
-                    opacity: 0.8,
-                    fontSize: 13,
-                    marginTop: 4,
+                    lineHeight: "1.6", // 适当的行高
+                    opacity: 0.95,
+                    fontSize: 18, // 调到 18px，老板一定能看清了
+                    marginTop: 8,
                   }}
                 >
                   {stat.desc}
@@ -170,9 +188,14 @@ export default function HomePage() {
           {/* Title block */}
           <ScrollReveal direction="up">
             <div className="section-title">
-              <h1>About Us</h1>
+              <h1 style={{ fontSize: "40px", marginBottom: "16px" }}>
+                About Us
+              </h1>
             </div>
-            <p className="section-title-desc">
+            <p
+              className="section-title-desc"
+              style={{ fontSize: "18px", lineHeight: "1.8" }}
+            >
               Dongshi Paper was founded in 2001. With 21 years of professional
               quality and 21 years of innovative development, it has now grown
               into a comprehensive household paper enterprise integrating R&D,
@@ -221,7 +244,7 @@ export default function HomePage() {
                 {/* dongshi: "企业总面积 3000㎡" — font-size 30px, weight 600 */}
                 <div
                   style={{
-                    fontSize: 30,
+                    fontSize: 40,
                     fontWeight: 600,
                     color: "rgb(17, 17, 17)",
                   }}
@@ -233,7 +256,7 @@ export default function HomePage() {
 
                 {/* dongshi: "建筑面积" sub-label */}
                 <div>
-                  <span style={{ fontSize: 14, color: "#666" }}>
+                  <span style={{ fontSize: 20, color: "#666" }}>
                     Production Facility
                   </span>
 
@@ -249,16 +272,16 @@ export default function HomePage() {
                   {/* dongshi: "120人+" — font-size 30px, weight 600 */}
                   <div
                     style={{
-                      fontSize: 30,
+                      fontSize: 40,
                       color: "rgb(17, 17, 17)",
                       fontWeight: 600,
                     }}
                   >
-                    120+<span style={{ fontSize: 18, fontWeight: 400 }}>+</span>
+                    120+<span style={{ fontSize: 20, fontWeight: 400 }}>+</span>
                   </div>
 
                   {/* dongshi: "企业员工" sub-label */}
-                  <span style={{ fontSize: 14, color: "#666" }}>
+                  <span style={{ fontSize: 20, color: "#666" }}>
                     Team Members
                   </span>
                 </div>
@@ -283,7 +306,7 @@ export default function HomePage() {
         <div className="section-wrapper">
           <ScrollReveal direction="up">
             <div className="section-title">
-              <h1>Main Markets</h1>
+              <h1 style={{ fontSize: "40px" }}>Main Markets</h1>
             </div>
           </ScrollReveal>
 
@@ -312,7 +335,7 @@ export default function HomePage() {
                     style={{
                       textAlign: "center",
                       padding: "12px 0 6px",
-                      fontSize: 16,
+                      fontSize: 24,
                       fontWeight: 500,
                       color: "#111",
                     }}
@@ -336,7 +359,7 @@ export default function HomePage() {
         <div className="section-wrapper">
           <ScrollReveal direction="up">
             <div className="section-title">
-              <h1>Core Capabilities</h1>
+              <h1 style={{ fontSize: "40px" }}>Core Capabilities</h1>
             </div>
           </ScrollReveal>
 
@@ -378,7 +401,7 @@ export default function HomePage() {
                     {/* dongshi: content3-title — font-size 12px, font-weight bold, color #111 */}
                     <h2
                       style={{
-                        fontSize: 12,
+                        fontSize: 18,
                         fontWeight: "bold",
                         color: "rgb(17, 17, 17)",
                         marginBottom: 6,
@@ -390,7 +413,7 @@ export default function HomePage() {
                     {/* dongshi: content3-content — two lines, 12px bold */}
                     <div
                       style={{
-                        fontSize: 12,
+                        fontSize: 14,
                         fontWeight: "bold",
                         color: "rgb(17, 17, 17)",
                       }}
@@ -399,7 +422,7 @@ export default function HomePage() {
                     </div>
                     <div
                       style={{
-                        fontSize: 12,
+                        fontSize: 14,
                         fontWeight: "bold",
                         color: "rgb(17, 17, 17)",
                       }}

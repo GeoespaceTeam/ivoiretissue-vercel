@@ -224,7 +224,7 @@ export default function DevelopmentHistoryPage() {
             as="h1"
             style={{
               color: "rgb(255, 255, 255)",
-              fontSize: "34px",
+              fontSize: "48px",
               margin: 0,
               letterSpacing: "2px",
             }}
@@ -233,7 +233,11 @@ export default function DevelopmentHistoryPage() {
           <CharReveal
             text="An innovative enterprise integrating production, sales, and brand operations."
             as="p"
-            style={{ paddingTop: "30px", fontSize: "26px", fontWeight: 300 }}
+            style={{
+              paddingTop: "30px",
+              fontSize: "32px" /* 👈 从 26px 放大到 32px */,
+              fontWeight: 300 /* 👈 字重从 300 提高到 400，防止在大屏太细 */,
+            }}
             baseDelay={300}
             charDelay={30}
           />
@@ -265,13 +269,13 @@ export default function DevelopmentHistoryPage() {
               alt="DONSEA Paper Building"
             />
             <div style={{ flex: "1 1 500px" }}>
-              <h2 style={{ fontSize: "28px", color: "#111", margin: 0 }}>
+              <h2 style={{ fontSize: "36px", color: "#111", margin: 0 }}>
                 DONSEA PAPER
               </h2>
               <h2
                 style={{
-                  padding: "10px 0px 20px",
-                  fontSize: "24px",
+                  padding: "10px 0px 24px",
+                  fontSize: "28px",
                   color: "#00a896",
                 }}
               >
@@ -285,7 +289,7 @@ export default function DevelopmentHistoryPage() {
                 }
                 style={{
                   fontWeight: 500,
-                  fontSize: "15px",
+                  fontSize: "18px",
                   color: "rgb(85, 85, 85)",
                   lineHeight: 1.8,
                 }}
@@ -333,19 +337,19 @@ export default function DevelopmentHistoryPage() {
                   {/* dongshi: padding 80px 0 20px, teal, font-size 26px */}
                   <h2
                     style={{
-                      padding: "80px 0px 20px",
+                      padding: "70px 0px 20px",
                       color: "rgb(0, 166, 152)",
-                      fontSize: "26px",
+                      fontSize: "36px",
                     }}
                   >
                     {item.year}
                   </h2>
                   <p
                     style={{
-                      width: "500px",
+                      width: "650px",
                       margin: "0px auto",
-                      lineHeight: "30px",
-                      fontSize: "16px",
+                      lineHeight: "1.8",
+                      fontSize: "20px",
                       color: "#333",
                     }}
                   >
@@ -487,8 +491,8 @@ export default function DevelopmentHistoryPage() {
                   />
                   <div
                     style={{
-                      marginTop: "10px",
-                      fontSize: "14px",
+                      marginTop: "12px",
+                      fontSize: "20px",
                       fontWeight: activeIndex === index ? "bold" : "normal",
                       color:
                         activeIndex === index ? "rgb(0, 166, 152)" : "#999",

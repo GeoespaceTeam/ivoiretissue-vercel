@@ -18,7 +18,7 @@ import s from "./Header.module.css";
 const navItems = [
   // item0 — 关于我们 (submenu)
   {
-    label: "About Us",
+    label: "Home",
     href: "/about-us",
     children: [
       { label: "Company Profile", href: "#" },

@@ -32,7 +32,7 @@ export default function ForeignTradePage() {
       >
         <ScrollReveal direction="up">
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <h2 style={{ fontSize: "32px", color: "#111", margin: "0 0 10px" }}>
+            <h2 style={{ fontSize: "40px", color: "#111", margin: "0 0 10px" }}>
               Development history of foreign trade
             </h2>
             {/* 原版这里没有副标题，或者为空，我们保持简洁 */}
@@ -46,7 +46,7 @@ export default function ForeignTradePage() {
               <h3
                 style={{
                   fontWeight: 700,
-                  fontSize: "24px",
+                  fontSize: "32px",
                   color: "#111",
                   margin: 0,
                 }}
@@ -57,6 +57,7 @@ export default function ForeignTradePage() {
               <p
                 style={{
                   color: "rgb(101, 101, 101)",
+                  fontSize: "18px",
                   fontWeight: 500,
                   marginBottom: "15px",
                   textTransform: "lowercase",
@@ -65,7 +66,14 @@ export default function ForeignTradePage() {
                 initial stage
               </p>
               {/* 采用了原版 HTML 里的英文 */}
-              <p style={{ fontWeight: 500, color: "#444", lineHeight: 1.8 }}>
+              <p
+                style={{
+                  fontWeight: 500,
+                  color: "#444",
+                  fontSize: "18px",
+                  lineHeight: 1.8,
+                }}
+              >
                 In 2014, the Foreign Trade Department was established, expanded
                 the European market, with 9 million transactions and 22
                 customers.
@@ -79,7 +87,7 @@ export default function ForeignTradePage() {
               <h3
                 style={{
                   fontWeight: 700,
-                  fontSize: "24px",
+                  fontSize: "32px",
                   color: "#111",
                   margin: 0,
                 }}
@@ -89,13 +97,21 @@ export default function ForeignTradePage() {
               <p
                 style={{
                   color: "rgb(101, 101, 101)",
+                  fontSize: "18px",
                   fontWeight: 500,
                   marginBottom: "15px",
                 }}
               >
                 Progressive stage
               </p>
-              <p style={{ fontWeight: 500, color: "#444", lineHeight: 1.8 }}>
+              <p
+                style={{
+                  fontWeight: 500,
+                  color: "#444",
+                  fontSize: "18px",
+                  lineHeight: 1.8,
+                }}
+              >
                 In 2019, with the in-depth awareness of environmental protection
                 at home and abroad, bamboo pulp paper with renewable bamboo as
                 raw material is very popular. During the years of growing
@@ -111,7 +127,7 @@ export default function ForeignTradePage() {
               <h3
                 style={{
                   fontWeight: 700,
-                  fontSize: "24px",
+                  fontSize: "32px",
                   color: "#111",
                   margin: 0,
                 }}
@@ -121,6 +137,7 @@ export default function ForeignTradePage() {
               <p
                 style={{
                   color: "rgb(101, 101, 101)",
+                  fontSize: "18px",
                   fontWeight: 500,
                   marginBottom: "15px",
                 }}
@@ -163,7 +180,14 @@ export default function ForeignTradePage() {
                 transactions will be achieved, with 35 customers.
               </p>
               {/* ⚠️ 换成了东实的渝北、永川工厂真实数据 */}
-              <p style={{ fontWeight: 500, color: "#444", lineHeight: 1.8 }}>
+              <p
+                style={{
+                  fontWeight: 500,
+                  color: "#444",
+                  fontSize: "18px",
+                  lineHeight: 1.8,
+                }}
+              >
                 The company currently has two factories, Yubei Donsea and
                 Yongchuan ECO, covering an area of 35,200 square meters, with
                 about 260 employees, with a monthly output of 2,380 tons and a
@@ -187,7 +211,7 @@ export default function ForeignTradePage() {
             <h2
               style={{
                 textAlign: "center",
-                fontSize: "32px",
+                fontSize: "40px",
                 color: "#111",
                 margin: "0 0 10px",
               }}
@@ -200,6 +224,7 @@ export default function ForeignTradePage() {
                 color: "#666",
                 textAlign: "center",
                 paddingBottom: "50px",
+                fontSize: "18px",
               }}
             >
               Advanced manufacturing & quality control
@@ -251,7 +276,7 @@ export default function ForeignTradePage() {
           <h2
             style={{
               textAlign: "center",
-              fontSize: "32px",
+              fontSize: "40px",
               color: "#111",
               margin: "0 0 10px",
             }}
@@ -266,7 +291,15 @@ export default function ForeignTradePage() {
               alt="Global Markets"
             />
           </div>
-          <h3 style={{ fontWeight: 700, textAlign: "center", color: "#111" }}>
+          <h3
+            style={{
+              fontWeight: 700,
+              textAlign: "center",
+              color: "#111",
+              fontSize: "22px",
+              marginTop: "20px",
+            }}
+          >
             Our foreign trade customers have covered 20 countries including the
             United States, Canada, Australia, the United Kingdom, and Germany.
           </h3>
@@ -278,7 +311,7 @@ export default function ForeignTradePage() {
             <h2
               style={{
                 textAlign: "center",
-                fontSize: "32px",
+                fontSize: "40px",
                 color: "#111",
                 margin: "0 0 10px",
               }}
@@ -291,6 +324,7 @@ export default function ForeignTradePage() {
                 color: "#666",
                 textAlign: "center",
                 paddingBottom: "50px",
+                fontSize: "18px",
               }}
             >
               Our latest works {/* ⚠️ 原版就是这句奇怪的英文，尊重原版保留 */}
@@ -314,14 +348,14 @@ export default function ForeignTradePage() {
                 <h4
                   style={{
                     fontWeight: 700,
-                    fontSize: "16px",
+                    fontSize: "22px",
                     margin: 0,
                     color: "#111",
                   }}
                 >
                   Corporate Name
                 </h4>
-                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500, fontSize: "16px" }}> {/* 👈 4 个 Block 都要加上 16px */}
                   corporate name
                 </span>
               </div>
@@ -330,7 +364,7 @@ export default function ForeignTradePage() {
                   flex: 1,
                   fontWeight: 500,
                   color: "#333",
-                  fontSize: "16px",
+                  fontSize: "18px",
                   paddingLeft: "60px",
                 }}
               >
@@ -354,14 +388,14 @@ export default function ForeignTradePage() {
                 <h4
                   style={{
                     fontWeight: 700,
-                    fontSize: "16px",
+                    fontSize: "22px",
                     margin: 0,
                     color: "#111",
                   }}
                 >
                   River Sea Intermodal
                 </h4>
-                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500, fontSize: "16px" }}> {/* 👈 4 个 Block 都要加上 16px */}
                   River sea combined transportation
                 </span>
               </div>
@@ -377,6 +411,7 @@ export default function ForeignTradePage() {
                   flex: 1,
                   lineHeight: "30px",
                   color: "#333",
+                  fontSize: "18px",
                 }}
               >
                 <div style={{ fontWeight: "bold" }}>
@@ -401,14 +436,14 @@ export default function ForeignTradePage() {
                 <h4
                   style={{
                     fontWeight: 700,
-                    fontSize: "16px",
+                    fontSize: "22px",
                     margin: 0,
                     color: "#111",
                   }}
                 >
                   Railway Sea Intermodal
                 </h4>
-                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500, fontSize: "16px" }}> {/* 👈 4 个 Block 都要加上 16px */}
                   Railway sea combined transportation
                 </span>
               </div>
@@ -424,6 +459,7 @@ export default function ForeignTradePage() {
                   flex: 1,
                   lineHeight: "30px",
                   color: "#333",
+                  fontSize: "18px",
                 }}
               >
                 <div style={{ fontWeight: "bold" }}>
@@ -469,14 +505,14 @@ export default function ForeignTradePage() {
                 <h4
                   style={{
                     fontWeight: 700,
-                    fontSize: "16px",
+                    fontSize: "22px",
                     margin: 0,
                     color: "#111",
                   }}
                 >
                   Land Sea Intermodal
                 </h4>
-                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500 }}>
+                <span style={{ color: "rgb(101, 101, 101)", fontWeight: 500, fontSize: "16px" }}> {/* 👈 4 个 Block 都要加上 16px */}
                   Land sea combined transport
                 </span>
               </div>
@@ -492,6 +528,7 @@ export default function ForeignTradePage() {
                   flex: 1,
                   lineHeight: "30px",
                   color: "#333",
+                  fontSize: "18px",
                 }}
               >
                 <div style={{ fontWeight: "bold" }}>
@@ -530,11 +567,11 @@ export default function ForeignTradePage() {
       <div style={{ backgroundColor: "#fafafa", padding: "80px 20px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
           <ScrollReveal direction="up">
-            <h2 style={{ fontSize: "32px", color: "#111", margin: "0 0 10px" }}>
+            <h2 style={{ fontSize: "40px", color: "#111", margin: "0 0 10px" }}>
               Production Workflow
             </h2>
             <p
-              style={{ fontWeight: 500, color: "#666", paddingBottom: "50px" }}
+              style={{ fontWeight: 500, color: "#666", paddingBottom: "50px",fontSize: "18px" }}
             >
               Strict quality control process
             </p>
@@ -558,7 +595,7 @@ export default function ForeignTradePage() {
           <h2
             style={{
               textAlign: "center",
-              fontSize: "32px",
+              fontSize: "40px",
               color: "#111",
               margin: "0 0 10px",
             }}
@@ -571,6 +608,7 @@ export default function ForeignTradePage() {
               color: "#666",
               textAlign: "center",
               paddingBottom: "50px",
+              fontSize: "18px",
             }}
           >
             Comprehensive paper solutions
@@ -599,8 +637,8 @@ export default function ForeignTradePage() {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <div
                   style={{
-                    width: 25,
-                    height: 25,
+                    width: 30,
+                    height: 30,
                     borderRadius: "50%",
                     backgroundColor: "#000",
                     marginRight: 15,
@@ -611,7 +649,7 @@ export default function ForeignTradePage() {
                   <div
                     style={{
                       fontWeight: "bold",
-                      fontSize: "18px",
+                      fontSize: "22px",
                       color: "#111",
                     }}
                   >
@@ -619,7 +657,7 @@ export default function ForeignTradePage() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "16px",
                       color: "#7c8796",
                       fontWeight: 500,
                     }}
@@ -631,8 +669,8 @@ export default function ForeignTradePage() {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <div
                   style={{
-                    width: 25,
-                    height: 25,
+                    width: 30,
+                    height: 30,
                     borderRadius: "50%",
                     backgroundColor: "#ffc000",
                     marginRight: 15,
@@ -643,7 +681,7 @@ export default function ForeignTradePage() {
                   <div
                     style={{
                       fontWeight: "bold",
-                      fontSize: "18px",
+                      fontSize: "22px",
                       color: "#111",
                     }}
                   >
@@ -651,7 +689,7 @@ export default function ForeignTradePage() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "16px",
                       color: "#7c8796",
                       fontWeight: 500,
                     }}
@@ -663,8 +701,8 @@ export default function ForeignTradePage() {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <div
                   style={{
-                    width: 25,
-                    height: 25,
+                    width: 30,
+                    height: 30,
                     borderRadius: "50%",
                     backgroundColor: "#91969b",
                     marginRight: 15,
@@ -675,7 +713,7 @@ export default function ForeignTradePage() {
                   <div
                     style={{
                       fontWeight: "bold",
-                      fontSize: "18px",
+                      fontSize: "22px",
                       color: "#111",
                     }}
                   >
@@ -683,7 +721,7 @@ export default function ForeignTradePage() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "16px",
                       color: "#7c8796",
                       fontWeight: 500,
                     }}
@@ -725,7 +763,7 @@ export default function ForeignTradePage() {
                   <div
                     style={{
                       fontWeight: "bold",
-                      fontSize: "18px",
+                      fontSize: "22px",
                       color: "#111",
                     }}
                   >
@@ -733,7 +771,7 @@ export default function ForeignTradePage() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "16px",
                       color: "#7c8796",
                       fontWeight: 500,
                     }}
@@ -743,8 +781,8 @@ export default function ForeignTradePage() {
                 </div>
                 <div
                   style={{
-                    width: 25,
-                    height: 25,
+                    width: 30,
+                    height: 30,
                     borderRadius: "50%",
                     backgroundColor: "#000",
                     marginLeft: 15,
@@ -764,7 +802,7 @@ export default function ForeignTradePage() {
                   <div
                     style={{
                       fontWeight: "bold",
-                      fontSize: "18px",
+                      fontSize: "22px",
                       color: "#111",
                     }}
                   >
@@ -772,7 +810,7 @@ export default function ForeignTradePage() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "16px",
                       color: "#7c8796",
                       fontWeight: 500,
                     }}
@@ -782,8 +820,8 @@ export default function ForeignTradePage() {
                 </div>
                 <div
                   style={{
-                    width: 25,
-                    height: 25,
+                    width: 30,
+                    height: 30,
                     borderRadius: "50%",
                     backgroundColor: "#ffc000",
                     marginLeft: 15,
@@ -803,7 +841,7 @@ export default function ForeignTradePage() {
                   <div
                     style={{
                       fontWeight: "bold",
-                      fontSize: "18px",
+                      fontSize: "22px",
                       color: "#111",
                     }}
                   >
@@ -811,7 +849,7 @@ export default function ForeignTradePage() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "16px",
                       color: "#7c8796",
                       fontWeight: 500,
                     }}
@@ -821,8 +859,8 @@ export default function ForeignTradePage() {
                 </div>
                 <div
                   style={{
-                    width: 25,
-                    height: 25,
+                    width: 30,
+                    height: 30,
                     borderRadius: "50%",
                     backgroundColor: "#91969b",
                     marginLeft: 15,
@@ -844,7 +882,7 @@ export default function ForeignTradePage() {
             <h2
               style={{
                 textAlign: "center",
-                fontSize: "32px",
+                fontSize: "40px",
                 color: "#111",
                 margin: "0 0 10px",
               }}
@@ -857,6 +895,7 @@ export default function ForeignTradePage() {
                 color: "#666",
                 textAlign: "center",
                 paddingBottom: "50px",
+                fontSize: "18px",
               }}
             >
               Premium series display
@@ -883,7 +922,7 @@ export default function ForeignTradePage() {
               >
                 <span
                   style={{
-                    fontSize: "24px",
+                    fontSize: "32px",
                     fontWeight: "bold",
                     color: "#111",
                   }}
@@ -893,7 +932,7 @@ export default function ForeignTradePage() {
                 <div
                   style={{
                     fontWeight: 500,
-                    fontSize: "14px",
+                    fontSize: "18px",
                     color: "#7c8796",
                     margin: "10px 0",
                   }}
@@ -903,7 +942,7 @@ export default function ForeignTradePage() {
                 <span
                   style={{
                     fontWeight: 500,
-                    fontSize: "14px",
+                    fontSize: "18px",
                     color: "#7c8796",
                   }}
                 >
@@ -985,7 +1024,7 @@ export default function ForeignTradePage() {
                 <div
                   style={{
                     fontWeight: 500,
-                    fontSize: "14px",
+                    fontSize: "18px",
                     color: "#7c8796",
                     margin: "10px 0",
                   }}
@@ -995,7 +1034,7 @@ export default function ForeignTradePage() {
                 <span
                   style={{
                     fontWeight: 500,
-                    fontSize: "14px",
+                    fontSize: "18px",
                     color: "#7c8796",
                   }}
                 >
@@ -1052,7 +1091,7 @@ export default function ForeignTradePage() {
             <div style={{ margin: "70px 0 40px" }}>
               <span
                 style={{
-                  fontSize: "24px",
+                  fontSize: "32px",
                   fontWeight: "bold",
                   color: "#111",
                   display: "block",
@@ -1063,7 +1102,7 @@ export default function ForeignTradePage() {
               <div
                 style={{
                   fontWeight: 500,
-                  fontSize: "14px",
+                  fontSize: "18px",
                   color: "#7c8796",
                   margin: "10px 0",
                 }}
@@ -1085,7 +1124,7 @@ export default function ForeignTradePage() {
             <div style={{ margin: "70px 0 40px" }}>
               <span
                 style={{
-                  fontSize: "24px",
+                  fontSize: "32px",
                   fontWeight: "bold",
                   color: "#111",
                   display: "block",
@@ -1096,7 +1135,7 @@ export default function ForeignTradePage() {
               <div
                 style={{
                   fontWeight: 500,
-                  fontSize: "14px",
+                  fontSize: "18px",
                   color: "#7c8796",
                   margin: "10px 0",
                 }}
@@ -1123,6 +1162,7 @@ export default function ForeignTradePage() {
                       fontWeight: "bold",
                       marginTop: "15px",
                       color: "#111",
+                      fontSize: "20px",
                     }}
                   >
                     Mini Jumbo Roll
@@ -1140,6 +1180,7 @@ export default function ForeignTradePage() {
                       fontWeight: "bold",
                       marginTop: "15px",
                       color: "#111",
+                      fontSize: "20px",
                     }}
                   >
                     Center Pull Bath Tissue
@@ -1172,7 +1213,7 @@ export default function ForeignTradePage() {
             <div style={{ margin: "70px 0 40px" }}>
               <span
                 style={{
-                  fontSize: "24px",
+                  fontSize: "32px",
                   fontWeight: "bold",
                   color: "#111",
                   display: "block",
@@ -1183,7 +1224,7 @@ export default function ForeignTradePage() {
               <div
                 style={{
                   fontWeight: 500,
-                  fontSize: "14px",
+                  fontSize: "18px",
                   color: "#7c8796",
                   margin: "10px 0",
                 }}

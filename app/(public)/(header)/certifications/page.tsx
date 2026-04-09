@@ -92,14 +92,14 @@ export default function CertificationsPage() {
             <div style={{ textAlign: "center", paddingBottom: "50px" }}>
               <h2
                 style={{
-                  fontSize: "32px",
+                  fontSize: "40px",
                   color: "#111",
                   marginBottom: "16px",
                 }}
               >
                 Authoritative Certifications
               </h2>
-              <p style={{ fontWeight: 500, color: "#666", fontSize: "16px" }}>
+              <p style={{ fontWeight: 500, color: "#666", fontSize: "20px" }}>
                 FSC Forest Certification, Virgin Bamboo Pulp Certification, True
                 Natural Color
               </p>
@@ -120,7 +120,7 @@ export default function CertificationsPage() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={cert.img}
-                    width="200"
+                    width="240"
                     alt={cert.name}
                     style={{ display: "block", marginBottom: "16px" }}
                   />
@@ -137,7 +137,7 @@ export default function CertificationsPage() {
         <div style={{ marginBottom: "100px" }}>
           <ScrollReveal direction="up">
             <div style={{ textAlign: "center", paddingBottom: "50px" }}>
-              <h2 style={{ fontSize: "32px", color: "#111", margin: 0 }}>
+              <h2 style={{ fontSize: "40px", color: "#111", margin: 0 }}>
                 Registered Trademarks
               </h2>
             </div>
@@ -191,7 +191,7 @@ export default function CertificationsPage() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={patent.img}
-                    width="200"
+                    width="240"
                     alt={`Patent ${i + 1}`}
                     style={{ display: "block" }}
                   />

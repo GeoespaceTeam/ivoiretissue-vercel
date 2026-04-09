@@ -171,19 +171,23 @@ export default function Footer() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start", // 让二维码和文字一起左对齐
+                alignItems: "flex-start",
               }}
             >
               <img
                 src="/images/qr-code.png"
                 alt="QR Code"
-                width={100}
-                height={100}
+                width={130} /* 👈 从 100 放大到 130，等比拉伸 */
+                height={130} /* 👈 从 100 放大到 130 */
                 style={{ display: "block" }}
               />
               <div
                 className={s.qrLabel}
-                style={{ paddingTop: "5px", opacity: 0.8, fontSize: "14px" }}
+                style={{
+                  paddingTop: "8px",
+                  opacity: 0.8,
+                  fontSize: "20px",
+                }} /* 👈 字体从 14px 放大到 16px，间距稍微加点 */
               >
                 Follow us
               </div>
@@ -201,10 +205,11 @@ export default function Footer() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            fontSize: "12px",
+            fontSize: "16px" /* 👈 把原来写死的 12px 直接改成 16px！ */,
             maxWidth: "1200px",
             margin: "0 auto",
-            padding: "15px 20px",
+            padding:
+              "20px 24px" /* 👈 字变大了，上下 padding 从 15px 改到 20px 看着更透气 */,
           }}
         >
           {/* Left — 对应目标网站左下角版权信息 */}
