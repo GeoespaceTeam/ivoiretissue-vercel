@@ -43,7 +43,7 @@ export default function Footer() {
         <ScrollReveal delay={100}>
           <div className={s.navCol}>
             <h2>IVOIRE Family</h2>
-            <Link href="/company-idea">Brand Concept</Link>
+            <Link href="/brand-concept">Brand Concept</Link>
             <Link href="/theme-customization">Theme Customization</Link>
           </div>
         </ScrollReveal>

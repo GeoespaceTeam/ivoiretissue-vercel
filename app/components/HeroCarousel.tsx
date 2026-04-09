@@ -25,17 +25,17 @@ type Slide =
 
 // TODO: Replace with actual assets in /public/
 // Use images to match dongshi exactly, or videos for Ivoire Tissue content
-// const slides: Slide[] = [
-//   { id: 1, type: "video", src: "/videos/hero-1.mov" },
-//   { id: 2, type: "video", src: "/videos/hero-2.mov" },
-//   { id: 3, type: "video", src: "/videos/hero-3.mov" },
-// ];
-// 替换为你目标网页（东实）的三张原版轮播海报
 const slides: Slide[] = [
-  { id: 1, type: "image", src: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner3.png", alt: "DONSEA Banner 1" },
-  { id: 2, type: "image", src: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner.png", alt: "DONSEA Banner 2" },
-  { id: 3, type: "image", src: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner1.png", alt: "DONSEA Banner 3" },
+  { id: 1, type: "video", src: "/videos/hero-1.mov" },
+  { id: 2, type: "video", src: "/videos/hero-2.mov" },
+  { id: 3, type: "video", src: "/videos/hero-3.mov" },
 ];
+// 替换为你目标网页（东实）的三张原版轮播海报
+// const slides: Slide[] = [
+//   { id: 1, type: "image", src: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner3.png", alt: "DONSEA Banner 1" },
+//   { id: 2, type: "image", src: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner.png", alt: "DONSEA Banner 2" },
+//   { id: 3, type: "image", src: "https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/banner1.png", alt: "DONSEA Banner 3" },
+// ];
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);

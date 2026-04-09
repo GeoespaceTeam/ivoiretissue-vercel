@@ -33,7 +33,7 @@ const navItems = [
     label: "Ivoire Family",
     href: "/brand-concept", // 点击主菜单默认去品牌理念
     children: [
-      { label: "Brand Concept", href: "/company-idea" }, // 独立页面 1
+      { label: "Brand Concept", href: "/brand-concept" }, // 独立页面 1
       { label: "Theme Customization", href: "/theme-customization" }, // 独立页面 2
     ],
   },

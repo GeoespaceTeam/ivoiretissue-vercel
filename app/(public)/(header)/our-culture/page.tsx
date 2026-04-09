@@ -5,53 +5,103 @@ import ScrollReveal from "../../../components/ScrollReveal";
 // ============================================================
 // DATA: Corporate Culture & Department Policies
 // ============================================================
+// const CORE_CULTURE = [
+//   {
+//     label: "Mission:",
+//     text: "Provide premium, innovative, and exclusive services while highlighting customer value.",
+//   },
+//   {
+//     label: "Vision:",
+//     text: "To be a sincere and loving enterprise that employees are proud of, customers are satisfied with, and society respects.",
+//   },
+//   {
+//     label: "Values:",
+//     text: "Integrity, Dedication, Innovation, Responsibility, Compassion, and Excellence.",
+//   },
+// ];
+
+// const DEPARTMENT_POLICIES = [
+//   {
+//     dept: "Innovation Committee Policy",
+//     desc: "Problem-oriented, systematic planning, and management practice. Continuously implement PDCA to enhance individual innovative thinking and the management literacy of the core team.",
+//   },
+//   {
+//     dept: "Marketing Dept Policy",
+//     desc: "Build a community business model based on mutual understanding and trust. Leverage resources and innovate services to meet customer needs, achieving quantifiable business growth and brand reputation.",
+//   },
+//   {
+//     dept: "Foreign Trade Dept Policy",
+//     desc: "Build a community business model based on mutual understanding and trust globally. Leverage resources and innovate services to meet customer needs, achieving quantifiable global business growth.",
+//   },
+//   {
+//     dept: "Supply Chain Dept Policy",
+//     desc: "Inspire company-wide participation in continuous improvement. Focus on 3S, eliminate waste, and build a rapid response system to achieve small-batch, diversified, and just-in-time fulfillment.",
+//   },
+//   {
+//     dept: "Enterprise Management Dept Policy",
+//     desc: "Continuously drive changes in organizational functions, processes, and value management. Activate individuals and the organization to achieve a collaborative and mutually beneficial growth atmosphere.",
+//   },
+//   {
+//     dept: "Finance Dept Policy",
+//     desc: "Provide accurate data support for business management through standardized financial operations, ensuring the sustainable and healthy development of the company (Timely, Accurate, Firm, Friendly).",
+//   },
+//   {
+//     dept: "Quality & R&D Dept Policy",
+//     desc: "Understand new technologies, processes, and materials in the industry. Combine market demands with internal and external intelligence to transform business opportunities into product value, relying on the ISO9001 system for stable quality.",
+//   },
+//   {
+//     dept: "Logistics Dept Policy",
+//     desc: "Through 3S on-site and data management, empower the delivery process, create service value, and enhance customer satisfaction.",
+//   },
+// ];
+
+
+// ============================================================
+// DATA: Corporate Culture & Department Policies (Ivoire Tissue Edition)
+// ============================================================
 const CORE_CULTURE = [
   {
     label: "Mission:",
-    text: "Provide premium, innovative, and exclusive services while highlighting customer value.",
+    text: "To lead North America's transition to sustainable hygiene solutions by providing premium, eco-friendly bamboo tissue products that protect our forests.",
   },
   {
     label: "Vision:",
-    text: "To be a sincere and loving enterprise that employees are proud of, customers are satisfied with, and society respects.",
+    text: "To become the premier choice for sustainable tissue products in Canada, built on the heritage of African entrepreneurship and Canadian technological excellence.",
   },
   {
     label: "Values:",
-    text: "Integrity, Dedication, Innovation, Responsibility, Compassion, and Excellence.",
+    text: "Sustainability, Innovation, Integrity, Cultural Resilience, and Excellence in Quality.",
   },
 ];
 
 const DEPARTMENT_POLICIES = [
   {
-    dept: "Innovation Committee Policy",
-    desc: "Problem-oriented, systematic planning, and management practice. Continuously implement PDCA to enhance individual innovative thinking and the management literacy of the core team.",
+    dept: "Sustainability & Innovation Policy",
+    desc: "Ivoire Tissue is dedicated to the 'Zero-Deforestation' goal. We continuously optimize our 100% bamboo-fiber processing technology to ensure every roll of tissue sets a new standard for environmental impact and softness.",
   },
   {
-    dept: "Marketing Dept Policy",
-    desc: "Build a community business model based on mutual understanding and trust. Leverage resources and innovate services to meet customer needs, achieving quantifiable business growth and brand reputation.",
+    dept: "Manufacturing & Quality Control",
+    desc: "Our Saint-Eustache facility operates under strict ISO guidelines. We combine automated precision with rigorous human oversight to ensure that every product leaving our plant exceeds customer expectations for strength and purity.",
   },
   {
-    dept: "Foreign Trade Dept Policy",
-    desc: "Build a community business model based on mutual understanding and trust globally. Leverage resources and innovate services to meet customer needs, achieving quantifiable global business growth.",
+    dept: "B2B & Distribution Policy",
+    desc: "Building lasting partnerships with Canadian retailers and businesses through transparency and reliability. We leverage our Montreal-adjacent hub to provide just-in-time delivery and flexible wholesale solutions.",
   },
   {
-    dept: "Supply Chain Dept Policy",
-    desc: "Inspire company-wide participation in continuous improvement. Focus on 3S, eliminate waste, and build a rapid response system to achieve small-batch, diversified, and just-in-time fulfillment.",
+    dept: "Supply Chain & Ethical Sourcing",
+    desc: "We participate in continuous improvement across our global supply chain. From FSC-certified bamboo forests to local logistics, we eliminate waste and ensure every partner adheres to our strict ethical labor standards.",
   },
   {
-    dept: "Enterprise Management Dept Policy",
-    desc: "Continuously drive changes in organizational functions, processes, and value management. Activate individuals and the organization to achieve a collaborative and mutually beneficial growth atmosphere.",
+    dept: "Enterprise & Value Management",
+    desc: "Fostering a workplace that celebrates diversity and African-Canadian heritage. We activate individual potential within our team to create a collaborative, mutually beneficial growth atmosphere in Quebec.",
   },
   {
-    dept: "Finance Dept Policy",
-    desc: "Provide accurate data support for business management through standardized financial operations, ensuring the sustainable and healthy development of the company (Timely, Accurate, Firm, Friendly).",
+    dept: "Finance & Sustainability Investment",
+    desc: "Ensuring long-term healthy development by reinvesting in renewable energy and green manufacturing. We provide accurate data support to maintain a 'Firm, Transparent, and Friendly' financial operation.",
   },
   {
-    dept: "Quality & R&D Dept Policy",
-    desc: "Understand new technologies, processes, and materials in the industry. Combine market demands with internal and external intelligence to transform business opportunities into product value, relying on the ISO9001 system for stable quality.",
-  },
-  {
-    dept: "Logistics Dept Policy",
-    desc: "Through 3S on-site and data management, empower the delivery process, create service value, and enhance customer satisfaction.",
+    dept: "Community & Ecological Impact",
+    desc: "Empowering the Saint-Eustache and Greater Montreal communities through ecological awareness and sustainable local jobs, transforming environmental responsibility into community value.",
   },
 ];
 
@@ -107,7 +157,7 @@ export default function OurCulturePage() {
                   marginBottom: "24px",
                 }}
               >
-                DONSEA Cultural Practice
+                Ivoire Cultural Practice
               </div>
 
               {CORE_CULTURE.map((item, index) => (
@@ -138,8 +188,9 @@ export default function OurCulturePage() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/culture.png"
-                alt="DONSEA Culture"
+                // src="https://ds-1305104220.cos.ap-chongqing.myqcloud.com/dongshi_pc/culture.png"
+                src="/images/ourculturebg.png"
+                alt="Ivoire Culture"
                 width="600"
                 height="300"
                 style={{
