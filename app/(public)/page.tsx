@@ -1237,7 +1237,8 @@ export default function HomePage() {
           </div>
           <div>
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/home-OEM-ODM.png"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/home-OEM-ODM.png"
+              src="/images/product-bamboo.jpg"
               alt="OEM"
               className="hm-oem-img"
             />

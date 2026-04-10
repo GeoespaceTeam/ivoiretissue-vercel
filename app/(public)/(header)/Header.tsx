@@ -336,7 +336,7 @@ export default function Header() {
           --global-content-edge-padding: 20px;
           --global-primary-nav-font-family: 'Poppins', sans-serif;
         }
-        #masthead { position: sticky; z-index: 1100; background: #fff; width: 100%; }
+        #masthead { position: sticky; top: 0; z-index: 1100; background: #fff; width: 100%; }
         .site-main-header-wrap .site-header-row-container-inner { background: var(--global-palette1); transition: all 0.3s; }
         .site-main-header-inner-wrap { min-height: 80px; display: flex; align-items: center; justify-content: space-between; }
         .site-container { max-width: var(--global-content-width); margin: 0 auto; padding: 0 var(--global-content-edge-padding); width: 100%; }
