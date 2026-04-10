@@ -1,6 +1,6 @@
 import Header from "./(header)/Header";
 import Footer from "./(footer)/Footer";
-
+import FloatingWidget from "../components/FloatingWidget"; // 👈 引入组件
 // ============================================================
 // PUBLIC LAYOUT
 // Header is solid white (always), 64px tall, fixed.
@@ -19,6 +19,8 @@ export default function PublicLayout({
       <main className="flex-1 w-full pt-[64px]">{children}</main>
 
       <Footer />
+      {/* 👈 挂在根布局，它就会出现在所有页面的右下角 */}
+      <FloatingWidget />
     </div>
   );
 }

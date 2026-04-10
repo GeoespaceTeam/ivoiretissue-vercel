@@ -266,11 +266,11 @@ export default function DevelopmentHistoryPage() {
                 maxWidth: "100%",
                 objectFit: "contain",
               }}
-              alt="DONSEA Paper Building"
+              alt="Ivoiretissue Building"
             />
             <div style={{ flex: "1 1 500px" }}>
               <h2 style={{ fontSize: "36px", color: "#111", margin: 0 }}>
-                DONSEA PAPER
+                Ivoiretissue
               </h2>
               <h2
                 style={{
