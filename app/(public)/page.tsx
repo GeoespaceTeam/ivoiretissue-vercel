@@ -820,7 +820,7 @@ export default function HomePage() {
   return (
     <main
       style={{
-        paddingTop: "80px",
+        paddingTop: "0px",
         width: "100%",
         overflowX: "hidden",
         fontFamily: "Poppins, -apple-system, sans-serif",
