@@ -270,27 +270,52 @@ const categories = [
 export default function ProductsPage() {
   return (
     <main
-      style={{ backgroundColor: "#fff", fontFamily: "Poppins, sans-serif" }}
+      style={{
+        backgroundColor: "#fff",
+        fontFamily: "Poppins, sans-serif",
+        paddingTop: "0px",
+      }}
     >
       <style
         dangerouslySetInnerHTML={{
           __html: `
         .pd-hero { height: 400px; background: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/banner-product-1-1.jpg') center/cover; display: flex; align-items: center; color: #fff; }
-        .pd-grid-section { padding: 80px 0; background: #F7FAFC url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/bg-icon-2.png') center/cover no-repeat fixed; }
-        .pd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1300px; margin: 0 auto; padding: 0 20px; }
-        .pd-card { background: #fff; border: 3px dashed #00a496; border-radius: 500px; aspect-ratio: 1/1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-decoration: none; transition: 0.3s; }
+        .pd-grid-section { padding: 20px 0; background: #F7FAFC url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/bg-icon-2.png') center/cover no-repeat fixed; }
+        .pd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 96%; margin: 0 auto; padding: 0 20px; }
+        .pd-card { background: #fff; border: 3px dashed #00a496; border-radius: 500px; aspect-ratio: 1/1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 15px; text-decoration: none; transition: 0.3s; }
         .pd-card:hover { background: #00a496; border-color: #fff; transform: translateY(-5px); }
-        .pd-card img { width: 65%; margin-bottom: 15px; }
-        .pd-card h4 { color: #08394a; font-size: 18px; text-align: center; }
+        .pd-card img { width: 58%; margin-bottom: 15px; }
+        .pd-card h4 { color: #08394a; font-size: 17px; text-align: center; word-wrap: break-word; /* 强制长单词换行 */}
         .pd-card:hover h4 { color: #fff; }
         @media (max-width: 1024px) { .pd-grid { grid-template-columns: repeat(2, 1fr); } }
       `,
         }}
       />
       <section className="pd-hero">
-        <div style={{ paddingLeft: "10%" }}>
-          <h1>Our Products</h1>
-          <p>100% Sustainable Solutions</p>
+        <div style={{ paddingLeft: "8%" }}>
+          <h1
+            style={{
+              margin: "0 0 15px 0",
+              fontSize: "72px" /* 👈 从 46px 暴增到 72px */,
+              fontWeight: 800 /* 👈 加超粗体 */,
+              letterSpacing: "2px" /* 👈 稍微拉开字间距，更大气 */,
+              textShadow:
+                "2px 2px 10px rgba(0,0,0,0.4)" /* 👈 加点阴影，防止背景图太亮看不清字 */,
+            }}
+          >
+            Our Products
+          </h1>
+          <p
+            style={{
+              margin: 0,
+              fontSize: "28px" /* 👈 从 20px 放大到 28px */,
+              fontWeight: 500,
+              letterSpacing: "1px",
+              textShadow: "1px 1px 8px rgba(0,0,0,0.4)",
+            }}
+          >
+            100% Sustainable Solutions
+          </p>
         </div>
       </section>
       <section className="pd-grid-section">

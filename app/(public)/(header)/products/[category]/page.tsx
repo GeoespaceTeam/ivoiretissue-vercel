@@ -171,27 +171,66 @@ export default async function CategoryPage({
   const products = productsDatabase[category];
 
   return (
-    <div className="product-grid">
-      {products.map((product: any) => (
-        <Link
-          key={product.id}
-          href={`/products/${category}/${product.id}`}
-          className="product-card"
-        >
-          <div className="product-image-wrapper">
-            <Image
-              src={product.img}
-              alt={product.title}
-              width={600}
-              height={500}
-              className="product-image"
-            />
-          </div>
-          <div className="product-info">
-            <h2 className="product-title">{product.title}</h2>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <>
+      {/* 👇 插入这段 style 代码，强行让右侧一行排 4 个，缩小间隙 👇 */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        .product-grid {
+          display: grid !important;
+          grid-template-columns: repeat(4, 1fr) !important;
+          gap: 20px !important;
+          width: 100% !important;
+          margin-top: 0px !important;    /* 👈 强行干掉顶部的外部空隙 */
+          padding-top: 0px !important;   /* 👈 强行干掉顶部的内部空隙 */
+          margin-bottom: 0px !important; /* 👈 强行干掉底部的外部空隙 */
+        }
+          /* 👇 修改：调整底部信息区域的内边距和垂直居中 👇 */
+        .product-info {
+          padding: 20px 24px; /* 👈 左右 padding 加大到 24px，让文字远离左侧边缘 */
+          text-align: left;   /* 👈 确保文字左对齐 */
+          background: #fff;
+          display: flex;
+          align-items: center; /* 👈 核心：让文字在 Y轴（垂直方向）绝对居中 */
+          flex-grow: 1;        /* 👈 核心：让白色区域自动撑满底部，配合居中使用 */
+        }
+
+        /* 👇 修改：放大字体并优化行高 👇 */
+        .product-title {
+          font-size: 18px;     /* 👈 字体从 15px 放大到 18px */
+          font-weight: 600;
+          color: #333;
+          margin: 0;
+          line-height: 1.4;    /* 👈 稍微拉开一点行高，长名字换行时更好看 */
+          transition: color 0.3s;
+        }
+        @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+      `,
+        }}
+      />
+      {/* 👆 插入结束 👆 */}
+      <div className="product-grid">
+        {products.map((product: any) => (
+          <Link
+            key={product.id}
+            href={`/products/${category}/${product.id}`}
+            className="product-card"
+          >
+            <div className="product-image-wrapper">
+              <Image
+                src={product.img}
+                alt={product.title}
+                width={600}
+                height={500}
+                className="product-image"
+              />
+            </div>
+            <div className="product-info">
+              <h2 className="product-title">{product.title}</h2>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }

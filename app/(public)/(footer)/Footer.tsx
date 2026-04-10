@@ -271,6 +271,32 @@ const MapMarkerIcon = () => (
   </svg>
 );
 
+// 👇 新增以下这 4 个社交图标 👇
+const FacebookIcon = () => (
+  <svg viewBox="0 0 320 512" width="20" height="20" fill="currentColor">
+    <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+  </svg>
+);
+
+const XTwitterIcon = () => (
+  <svg viewBox="0 0 512 512" width="20" height="20" fill="currentColor">
+    <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.6 318.1 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+  </svg>
+);
+
+const YouTubeIcon = () => (
+  <svg viewBox="0 0 576 512" width="20" height="20" fill="currentColor">
+    <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+    <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
+  </svg>
+);
+// 👆 新增结束 👆
+
 // ============================================================
 // COMPONENT
 // ============================================================
@@ -364,11 +390,49 @@ export default function Footer() {
           margin: 60px auto 0;
           padding-top: 25px;
           border-top: 1px solid rgba(255, 255, 255, 0.15);
-          text-align: center;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           font-size: 14px;
           opacity: 0.9;
+          flex-wrap: wrap;
+          gap: 15px;
         }
 
+/* 👇 新增：社交媒体和底部法律链接的样式 👇 */
+        .iv-social-icons {
+          display: flex;
+          gap: 15px;
+          margin-top: 25px;
+        }
+        .iv-social-icons a {
+          color: #fff;
+          transition: transform 0.3s ease, color 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .iv-social-icons a:hover {
+          color: #33ffcc;
+          transform: translateY(-3px);
+        }
+        .iv-footer-legal-links {
+          display: flex;
+          gap: 20px;
+          margin-top: 10px;
+        }
+        .iv-footer-legal-links a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+        .iv-footer-legal-links a:hover {
+          color: #33ffcc;
+          text-decoration: underline;
+        }
+        /* 👆 新增样式结束 👆 */
+
+       
         /* --- Responsive Design --- */
         @media (max-width: 1024px) {
           .iv-footer-container {
@@ -466,8 +530,8 @@ export default function Footer() {
               <div
                 style={{ display: "flex", flexDirection: "column", gap: "6px" }}
               >
-                <span>Gen: +1 (514) 971-8238</span>
-                <span>Sales: +1 (514) 291-8063</span>
+                <span>Sales: +1 (514) 971-8238</span>
+                {/* <span>Sales: +1 (514) 291-8063</span> */}
               </div>
             </li>
             <li>
@@ -486,6 +550,42 @@ export default function Footer() {
               </span>
             </li>
           </ul>
+          {/* 👇 新增：在这里插入社交媒体图标 👇 */}
+          <div className="iv-social-icons">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <FacebookIcon />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+            >
+              <XTwitterIcon />
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=Cw_H_hXJ3SA&t=15s"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <YouTubeIcon />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon />
+            </a>
+          </div>
+          {/* 👆 新增结束 👆 */}
         </div>
         {/* Column 4: About Us */}
         <div className="iv-footer-col">
@@ -503,6 +603,12 @@ export default function Footer() {
       {/* Bottom Copyright */}
       <div className="iv-footer-bottom">
         <p>Ivoire Tissue Paper™️ | Copyright © 2026. All Rights Reserved.</p>
+        {/* 👇 新增：右侧的隐私政策和使用条款 👇 */}
+        <div className="iv-footer-legal-links">
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <Link href="/terms-of-use">Terms of Use</Link>
+        </div>
+        {/* 👆 新增结束 👆 */}
       </div>
     </footer>
   );

@@ -10,7 +10,7 @@ export default function CategoryBanner() {
 
   return (
     // 1. 最外层容器保持 container 样式
-    <div className="container mx-auto px-4 mb-8">
+    <div className="w-full mb-0">
       {/* 👇 2. 核心修改：创建一个强力控制高度的“外壳 div” 👇
         - 'relative': 必需，因为里面的 Image 要用 'fill'。
         - 'w-full': 占满宽度。

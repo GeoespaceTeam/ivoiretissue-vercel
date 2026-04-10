@@ -332,7 +332,7 @@ export default function Header() {
           --global-palette4: #2D3748; 
           --global-palette8: #f8f9fa; 
           --global-palette9: #ffffff; 
-          --global-content-width: 1200px;
+          --global-content-width: 1440px;
           --global-content-edge-padding: 20px;
           --global-primary-nav-font-family: 'Poppins', sans-serif;
         }

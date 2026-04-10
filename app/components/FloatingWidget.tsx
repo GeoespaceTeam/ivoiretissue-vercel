@@ -83,7 +83,7 @@ export default function FloatingWidget() {
       <div className="iv-floating-container">
         {/* 1. WhatsApp 气泡 */}
         <a
-          href="https://wa.me/15149718238"
+          href="https://wa.me/15146888238"
           target="_blank"
           rel="noopener noreferrer"
           className="iv-float-bubble bubble-whatsapp"
