@@ -475,20 +475,23 @@
 // }
 
 "use client";
-import React from "react";
+import React, { use,useState } from "react"; // 👈 1. 引入 React 的 use 钩子
 import { notFound } from "next/navigation";
 import { productsDatabase } from "@/app/lib/productsDatabase";
 import Link from "next/link";
 
 export default function ProductDetailPage({
+  // 👈 2. 把 async 删掉！
   params,
 }: {
-  params: { category: string; id: string };
+  params: Promise<{ category: string; id: string }>;
 }) {
-  const { category, id } = params;
+  const { category, id } = use(params); // 👈 3. 把 await 换成 use()
   const categoryData = productsDatabase[category];
   const product = categoryData?.find((p: any) => p.id === id);
+  const [isModalOpen, setIsModalOpen] = useState(false); // 控制弹窗显示
   if (!product) notFound();
+  // 弹窗提示函数
 
   return (
     <main
@@ -505,8 +508,81 @@ export default function ProductDetailPage({
         .specs-table td:first-child { font-weight: 700; background: rgba(255,255,255,0.05); width: 35%; }
         .feature-list { list-style: none; padding: 0; margin-top: 30px; }
         .feature-list li { display: flex; gap: 10px; margin-bottom: 10px; color: #fff; }
-        .icon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 50px; text-align: center; color: #fff; }
-        .icon-box img { width: 60px; height: 60px; }
+        /* 1. 增强底部四个图标的显眼度 */
+        .icon-grid { 
+          display: grid; 
+          grid-template-columns: repeat(4, 1fr); 
+          gap: 20px; 
+          margin-top: 50px; 
+          position: relative; 
+          z-index: 2;
+        }
+        .icon-box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          color: #fff;
+        }
+        .icon-wrapper {
+          width: 80px;
+          height: 80px;
+          background: rgba(255, 255, 255, 0.9); /* 白色半透明背景 */
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          transition: transform 0.3s ease;
+        }
+        .icon-box:hover .icon-wrapper { transform: translateY(-5px); }
+        .icon-wrapper img { width: 45px !important; height: 45px !important; }
+        .icon-box span { font-weight: 700; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+
+        /* 2. 新增购买按钮样式 */
+        .buy-btn {
+          margin-top: 25px;
+          background: #ffb400; /* 亮眼的金黄色，吸引点击 */
+          color: #00302b;
+          border: none;
+          padding: 15px 40px;
+          font-size: 18px;
+          font-weight: 800;
+          border-radius: 50px;
+          cursor: pointer;
+          text-transform: uppercase;
+          transition: all 0.3s;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .buy-btn:hover { background: #fff; transform: scale(1.05); }
+
+        /* ── Modal 整体背景（带模糊效果） ── */
+        .modal-overlay {
+          position: fixed; inset: 0; 
+          background: rgba(0, 0, 0, 0.7); 
+          backdrop-filter: blur(5px); 
+          display: flex; align-items: center; justify-content: center; 
+          z-index: 9999;
+        }
+        /* ── Modal 核心卡片 ── */
+        .modal-card {
+          background: #fff; padding: 40px; border-radius: 20px; 
+          max-width: 450px; width: 90%; text-align: center; 
+          box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+          animation: modalScale 0.3s ease-out;
+        }
+        @keyframes modalScale {
+          from { transform: scale(0.9); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+        }
+        .modal-card h3 { color: #004e46; font-size: 24px; margin-bottom: 15px; }
+        .modal-card p { color: #666; line-height: 1.6; margin-bottom: 25px; }
+        .modal-close-btn {
+          background: #00a496; color: #fff; border: none; 
+          padding: 12px 35px; border-radius: 50px; font-weight: 700;
+          cursor: pointer; transition: 0.3s;
+        }
+        .modal-close-btn:hover { background: #008075; transform: translateY(-2px); }
       `,
         }}
       />
@@ -515,6 +591,7 @@ export default function ProductDetailPage({
         <div className="detail-hero-overlay"></div>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
           <div className="grid-2">
+            {/* 左侧：图片 + 挪过来的特性列表 */}
             <div>
               <img
                 src={product.img}
@@ -523,13 +600,59 @@ export default function ProductDetailPage({
                   width: "100%",
                   borderRadius: "12px",
                   background: "#fff",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
                 }}
               />
+              {/* 特性列表现在在这里，填补空白 */}
+              <div
+                style={{
+                  marginTop: "30px",
+                  background: "rgba(0,0,0,0.2)",
+                  padding: "20px",
+                  borderRadius: "12px",
+                }}
+              >
+                <h3
+                  style={{
+                    color: "#00dba0",
+                    marginBottom: "15px",
+                    fontSize: "20px",
+                  }}
+                >
+                  Core Features
+                </h3>
+                <ul className="feature-list" style={{ marginTop: 0 }}>
+                  {product.features.map((f: string, i: number) => (
+                    <li
+                      key={i}
+                      style={{ fontSize: "16px", marginBottom: "8px" }}
+                    >
+                      <span style={{ color: "#00dba0" }}>✔</span> {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div>
-              <h1 style={{ fontSize: "36px", marginBottom: "20px" }}>
+
+            {/* 右侧：标题 + 规格表 + 购买按钮 */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <h1
+                style={{
+                  fontSize: "42px",
+                  fontWeight: 800,
+                  marginBottom: "25px",
+                  textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                }}
+              >
                 {product.title}
               </h1>
+
               <table className="specs-table">
                 <tbody>
                   {Object.entries(product.specs).map(([k, v]: any) => (
@@ -540,33 +663,32 @@ export default function ProductDetailPage({
                   ))}
                 </tbody>
               </table>
-              <ul className="feature-list">
-                {product.features.map((f: string, i: number) => (
-                  <li key={i}>
-                    <span style={{ color: "#00dba0" }}>✔</span> {f}
-                  </li>
-                ))}
-              </ul>
+
+              {/* 新增购买按钮 */}
+              <button className="buy-btn" onClick={() => setIsModalOpen(true)}>
+                Buy Now / Inquiry
+              </button>
             </div>
           </div>
 
+          {/* 底部四个图标：现在更显眼了 */}
           <div className="icon-grid">
-            <div className="icon-box">
-              <img src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/icon-1-1.png" />
-              <span>Sheets</span>
-            </div>
-            <div className="icon-box">
-              <img src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/icon-1-2.png" />
-              <span>Layers</span>
-            </div>
-            <div className="icon-box">
-              <img src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/icon-1-3.png" />
-              <span>Packing</span>
-            </div>
-            <div className="icon-box">
-              <img src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/icon-1-4.png" />
-              <span>Material</span>
-            </div>
+            {[
+              { img: "icon-1-1.png", label: "Sheets" },
+              { img: "icon-1-2.png", label: "Layers" },
+              { img: "icon-1-3.png", label: "Packing" },
+              { img: "icon-1-4.png", label: "Material" },
+            ].map((item, idx) => (
+              <div className="icon-box" key={idx}>
+                <div className="icon-wrapper">
+                  <img
+                    src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/${item.img}`}
+                    alt={item.label}
+                  />
+                </div>
+                <span>{item.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -602,6 +724,30 @@ export default function ProductDetailPage({
           />
         </div>
       </section>
+      {/* ── 漂亮的 Modal 弹窗 ── */}
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+            <div style={{ fontSize: "50px", marginBottom: "20px" }}>🚧</div>
+            <h3>Coming Soon!</h3>
+            <p>
+              Our online store is currently under construction to provide you
+              with a better shopping experience.
+              <br />
+              <br />
+              In the meantime, please contact us through the{" "}
+              <strong>Inquiry form</strong> or <strong>WhatsApp</strong> for
+              orders!
+            </p>
+            <button
+              className="modal-close-btn"
+              onClick={() => setIsModalOpen(false)}
+            >
+              Got it!
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
