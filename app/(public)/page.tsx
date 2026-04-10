@@ -1250,7 +1250,8 @@ export default function HomePage() {
         <div className="hm-container hm-why-grid">
           <div>
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/why-1-683x1024.jpg"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/why-1-683x1024.jpg"
+              src="/images/don-bamboo.png"
               alt="Bamboo Forest"
               className="hm-why-tall-img"
             />
