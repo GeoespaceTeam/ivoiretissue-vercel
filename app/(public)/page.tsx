@@ -755,12 +755,20 @@ const products = [
   },
 ];
 
+// const stats = [
+//   { num: "4+", label: "Years Experience" },
+//   { num: "120+", label: "Employees" },
+//   { num: "2,000+", label: "Square Meters" },
+//   { num: "1,600+", label: "Tons Monthly Capacity" },
+//   { num: "NA", label: "Countries Market" },
+// ];
+
 const stats = [
   { num: "4+", label: "Years Experience" },
-  { num: "120+", label: "Employees" },
+  { num: "20+", label: "Employees" },
   { num: "2,000+", label: "Square Meters" },
   { num: "1,600+", label: "Tons Monthly Capacity" },
-  { num: "NA", label: "Countries Market" },
+  { num: "2", label: "Countries Market" },
 ];
 
 const powerIcons = [
@@ -775,27 +783,27 @@ const powerIcons = [
 const whyChoose = [
   {
     icon: "5",
-    title: "Stable industrial supply chain",
+    title: "Eco-Innovation (Focus: Bamboo-Fiber / 100% Biodegradable)",
     desc: "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
   },
   {
     icon: "1",
-    title: "Continuous construction of new production lines",
+    title: "Certifications (FSC Certified Source / ISO Standards)",
     desc: "New production lines are continuously being built to provide strong delivery guarantee.",
   },
   {
-    icon: "4",
-    title: "Quality traceability",
+    icon: "5",
+    title: "Global Logistics (Port of Montreal Hub / Fast NA Delivery)",
     desc: "The root cause of quality problems can be traced back to the order batch.",
   },
   {
-    icon: "8",
-    title: "Cooperate with shipping companies",
+    icon: "7-1",
+    title: "Custom Solutions (B2B Private Label / Wholesale Support)",
     desc: "We have direct customer contracts with shipping companies, providing stable logistics.",
   },
   {
     icon: "7-1",
-    title: "Professional service",
+    title: "Green Energy (1,600 GWh Annual / Renewable Powered)",
     desc: "Propose systematic solutions to customer needs – professional R&D team.",
   },
 ];
@@ -986,10 +994,12 @@ export default function HomePage() {
             <div className="hm-about-text">
               <h2>ABOUT IVOIRE TISSUE</h2>
               <p>
-                Established in Montreal, Canada, Ivoire Tissue Paper integrates
-                R&D, production, and sales. With professional quality and
-                innovative development, we have grown into a comprehensive
-                enterprise engaged in premium bamboo tissue solutions.
+                Established in 2022 in Montreal, Ivoire Tissue Paper is a
+                pioneering Canadian company dedicated to producing high-quality
+                tissue paper using sustainable bamboo resources. By merging
+                African entrepreneurial heritage with Canadian technological
+                excellence, we offer eco-friendly alternatives to traditional
+                paper products.
               </p>
               <div className="hm-certs mb-6">
                 <img

@@ -462,8 +462,13 @@ export default function Footer() {
           <ul className="iv-footer-list">
             <li>
               <PhoneIcon />
-              {/* 替换为之前的加拿大热线 */}
-              <span>+1 (514) 971-8238</span>
+              {/* 修复：显示双电话 */}
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "6px" }}
+              >
+                <span>Gen: +1 (514) 971-8238</span>
+                <span>Sales: +1 (514) 291-8063</span>
+              </div>
             </li>
             <li>
               <EmailIcon />
@@ -476,14 +481,12 @@ export default function Footer() {
             </li>
             <li>
               <MapMarkerIcon />
-              {/* 替换为蒙特利尔工厂地址 */}
               <span>
                 222 Rue Poirier, #30, Saint-Eustache, QC J7R 6B1, Canada
               </span>
             </li>
           </ul>
         </div>
-
         {/* Column 4: About Us */}
         <div className="iv-footer-col">
           <h3>ABOUT US</h3>

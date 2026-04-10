@@ -489,12 +489,21 @@ export default function ContactUsPage() {
             <div className="cu-info-col">
               <h1>Contact us</h1>
               <ul className="cu-contact-list">
+                {/* 1. 修复：双热线 */}
                 <li className="cu-contact-item">
-                  <PhoneIcon />
-                  <span>
-                    Phone & WhatsApp:{" "}
-                    <a href="tel:+15149718238">+1 (514) 971-8238</a>
-                  </span>
+                  <div style={{ marginTop: "4px" }}>
+                    <PhoneIcon />
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <span>
+                      General Inquiry:{" "}
+                      <a href="tel:+15149718238">+1 (514) 971-8238</a>
+                    </span>
+                    <span>
+                      Sales & Support:{" "}
+                      <a href="tel:+15142918063">+1 (514) 291-8063</a>
+                    </span>
+                  </div>
                 </li>
                 <li className="cu-contact-item">
                   <MailIcon />
@@ -516,6 +525,36 @@ export default function ContactUsPage() {
                     Address: 222 Rue Poirier, #30, Saint-Eustache, QC J7R 6B1,
                     Canada
                   </span>
+                </li>
+
+                {/* 2. 修复：增加营业时间 */}
+                <li
+                  className="cu-contact-item"
+                  style={{ alignItems: "flex-start" }}
+                >
+                  <div style={{ marginTop: "4px" }}>
+                    {/* 时钟图标 */}
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#00dba0"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <span style={{ fontWeight: 700, color: "#fff" }}>
+                      Operating Hours:
+                    </span>
+                    <span>Monday - Friday: 8:30 AM - 5:00 PM</span>
+                    <span>Saturday - Sunday: Closed</span>
+                  </div>
                 </li>
               </ul>
               <div className="cu-divider"></div>
