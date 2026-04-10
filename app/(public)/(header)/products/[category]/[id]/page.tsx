@@ -491,7 +491,7 @@ export default function ProductDetailPage({
   const product = categoryData?.find((p: any) => p.id === id);
   const [isModalOpen, setIsModalOpen] = useState(false); // 控制弹窗显示
   if (!product) notFound();
-  // 弹窗提示函数
+  // 弹窗提示函数 sd
 
   return (
     <main
