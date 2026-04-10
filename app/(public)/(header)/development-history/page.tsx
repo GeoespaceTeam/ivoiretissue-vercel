@@ -55,15 +55,15 @@ const TIMELINE_DATA = [
   },
   {
     year: "2017",
-    desc: "Bamboo pulp tissue paper was sold to the UK, Germany, US, Singapore, and Australia. It was also the first year of DONSEA's innovation and enterprise transformation.",
+    desc: "Bamboo pulp tissue paper was sold to the UK, Germany, US, Singapore, and Australia. It was also the first year of ivoire's innovation and enterprise transformation.",
   },
   {
     year: "2018",
-    desc: '"Return to the original intention, Rebuild DONSEA." Accelerated innovation and formulated the "2019 DONSEA Business Plan".',
+    desc: '"Return to the original intention, Rebuild ivoire." Accelerated innovation and formulated the "2019 ivoire Business Plan".',
   },
   {
     year: "2019",
-    desc: 'Fully implemented and improved the "2019 DONSEA Business Plan", adjusted the business structure, and built a 3.0 enterprise.',
+    desc: 'Fully implemented and improved the "2019 ivoire Business Plan", adjusted the business structure, and built a 3.0 enterprise.',
   },
   {
     year: "2020",
@@ -220,7 +220,7 @@ export default function DevelopmentHistoryPage() {
       >
         <div style={{ color: "rgb(255, 255, 255)" }}>
           <CharReveal
-            text="About DONSEA"
+            text="About Ivoiretissue"
             as="h1"
             style={{
               color: "rgb(255, 255, 255)",

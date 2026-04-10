@@ -672,7 +672,16 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
+
+type Slide = { id: number; type: string; src: string };
+
+const slides: Slide[] = [
+  { id: 1, type: "video", src: "/videos/hero-1.mov" },
+  { id: 2, type: "video", src: "/videos/hero-2.mov" },
+  { id: 3, type: "video", src: "/videos/hero-3.mov" },
+];
 // ============================================================
 // 📌 核心 SVG 图标
 // ============================================================
@@ -817,6 +826,23 @@ const exhibitionImages = [
 // 🚀 PAGE COMPONENT
 // ============================================================
 export default function HomePage() {
+  // 👇 插入轮播控制逻辑 👇
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // 自动轮播（每6秒切换一次）
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const goToSlide = (index: number) => setCurrentSlide(index);
+  // 👆 逻辑插入结束 👆
+  
   return (
     <main
       style={{
@@ -843,10 +869,39 @@ export default function HomePage() {
         }
 
         /* 1. Hero */
-        .hm-hero { background-color: var(--c-dark-green); padding: 120px 20px; text-align: center; color: #fff; }
-        .hm-hero h1 { font-size: 60px; font-weight: 800; margin: 0 0 10px; line-height: 1.2; text-transform: uppercase; }
-        .hm-hero h1 span { color: var(--c-brand-green); }
-        .hm-hero p { font-size: 18px; margin: 0 0 40px; opacity: 0.9; }
+        // .hm-hero { background-color: var(--c-dark-green); padding: 120px 20px; text-align: center; color: #fff; }
+        // .hm-hero h1 { font-size: 60px; font-weight: 800; margin: 0 0 10px; line-height: 1.2; text-transform: uppercase; }
+        // .hm-hero h1 span { color: var(--c-brand-green); }
+        // .hm-hero p { font-size: 18px; margin: 0 0 40px; opacity: 0.9; }
+
+        /* 👇 1. Hero 视频轮播专属样式 👇 */
+        .hm-hero-carousel { position: relative; height: 90vh; min-height: 600px; width: 100%; overflow: hidden; background: #000; }
+        .hm-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease-in-out; z-index: 1; }
+        .hm-slide.active { opacity: 1; z-index: 2; }
+        .hm-slide video { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* 统一的前景遮罩和文字层，确保文字清晰 */
+       /* 加上 justify-content: center 让大盒子水平居中 */
+.hm-slide-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.4); display: flex; align-items: center; justify-content: center; z-index: 3; }
+
+/* 删掉 padding-left，换成 text-align: center 让内部文字居中 */
+.hm-hero-content { position: relative; color: #fff; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px; }
+        
+        /* 左右切换箭头 */
+        .hm-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 20px; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .hm-nav-btn:hover { background: var(--c-brand-green); }
+        .hm-nav-prev { left: 30px; }
+        .hm-nav-next { right: 30px; }
+        
+        /* 底部指示小圆点 */
+        .hm-dots { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
+        .hm-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); border: 2px solid transparent; cursor: pointer; transition: 0.3s; padding: 0; }
+        .hm-dot.active { background: transparent; border-color: var(--c-brand-green); transform: scale(1.3); }
+        
+        @media (max-width: 768px) {
+          .hm-nav-btn { display: none; } /* 手机端隐藏箭头，只留圆点 */
+        }
+        /* 👆 CSS 替换结束 👆 */
         
         .hm-btn { display: inline-block; background: var(--c-brand-green); color: #fff; text-decoration: none; padding: 16px 40px; border-radius: 50px; font-size: 18px; font-weight: 700; text-transform: uppercase; transition: all 0.3s; border: 2px solid var(--c-brand-green); }
         .hm-btn:hover { background: transparent; color: var(--c-brand-green); }
@@ -957,26 +1012,95 @@ export default function HomePage() {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="hm-hero">
-        <div className="hm-container">
-          <h5>Ivoire Tissue</h5>
-          <h1>
-            BAMBOO TISSUE PAPER <br />
-            <span>MANUFACTURER</span>
-          </h1>
-          <p>
-            Bamboo Toilet Paper | Kitchen Paper | Facial Tissue | Pocket Tissue
-            | Hand Towel | Mini Jumbo Rolls
-            <br />
-            The carbon footprint of our bamboo tissue paper is 65% lower than
-            traditional wood-pulp paper.
-          </p>
-          <Link href="/products" className="hm-btn">
-            Explore Our Products
-          </Link>
+      {/* 1. HERO VIDEO CAROUSEL SECTION */}
+      <section className="hm-hero-carousel">
+        {/* 背景视频层：循环渲染你提供的 slides */}
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`hm-slide ${index === currentSlide ? "active" : ""}`}
+          >
+            <video autoPlay loop muted playsInline>
+              {/* 因为是 .mov 格式，最好不写 type="video/mp4"，让浏览器自动识别 */}
+              <source src={slide.src} />
+            </video>
+          </div>
+        ))}
+
+        {/* 统一的前景文字层：固定在视频上方 */}
+        <div className="hm-slide-overlay">
+          <div className="hm-hero-content">
+            <h5
+              style={{
+                fontSize: "22px",
+                letterSpacing: "2px",
+                marginBottom: "15px",
+                color: "#00dba0",
+                fontWeight: 600,
+                textTransform: "uppercase",
+              }}
+            >
+              Ivoire Tissue
+            </h5>
+            <h1
+              style={{
+                margin: "0 0 15px 0",
+                fontSize: "72px",
+                fontWeight: 800,
+                letterSpacing: "2px",
+                textShadow: "2px 2px 10px rgba(0,0,0,0.4)",
+              }}
+            >
+              BAMBOO TISSUE PAPER <br />
+              <span style={{ color: "var(--c-brand-green)" }}>
+                MANUFACTURER
+              </span>
+            </h1>
+            <p
+              style={{
+                margin: "0 0 40px 0",
+                fontSize: "28px",
+                fontWeight: 500,
+                letterSpacing: "1px",
+                textShadow: "1px 1px 8px rgba(0,0,0,0.4)",
+              }}
+            >
+              100% Sustainable Solutions
+            </p>
+            <Link href="/products" className="hm-btn">
+              Explore Our Products
+            </Link>
+          </div>
+        </div>
+
+        {/* 左右手动切换按钮 */}
+        <button
+          className="hm-nav-btn hm-nav-prev"
+          onClick={prevSlide}
+          aria-label="Previous Slide"
+        >
+          &#10094;
+        </button>
+        <button
+          className="hm-nav-btn hm-nav-next"
+          onClick={nextSlide}
+          aria-label="Next Slide"
+        >
+          &#10095;
+        </button>
+
+        {/* 底部小圆点 */}
+        <div className="hm-dots">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`hm-dot ${index === currentSlide ? "active" : ""}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
-
       {/* 2. ABOUT US & STATS */}
       <section className="hm-about-section">
         <div className="hm-container">
@@ -985,7 +1109,7 @@ export default function HomePage() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/tbmRA7Buo0c?feature=oembed"
+                src="https://ivoiretissue.com/wp-content/uploads/2024/03/media_20240331_235304_7521214834847688587.mp4"
                 title="Ivoire Tissue"
                 frameBorder="0"
                 allowFullScreen

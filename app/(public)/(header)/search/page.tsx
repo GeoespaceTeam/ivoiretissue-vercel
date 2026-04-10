@@ -200,7 +200,7 @@ function SearchResultsContent() {
           font-family: 'Poppins', sans-serif;
         }
         .search-title span {
-          color: #00a496; /* Donsea 标志性绿色 */
+          color: #00a496; 
           font-weight: 700;
         }
 

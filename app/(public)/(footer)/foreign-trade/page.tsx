@@ -188,7 +188,7 @@ export default function ForeignTradePage() {
                   lineHeight: 1.8,
                 }}
               >
-                The company currently has two factories, Yubei Donsea and
+                The company currently has two factories, Ivoire and
                 Yongchuan ECO, covering an area of 35,200 square meters, with
                 about 260 employees, with a monthly output of 2,380 tons and a
                 monthly output of about 2.38 million US dollars. We are
