@@ -791,12 +791,12 @@ const powerIcons = [
 
 const whyChoose = [
   {
-    icon: "5",
+    icon: "1",
     title: "Eco-Innovation (Focus: Bamboo-Fiber / 100% Biodegradable)",
     desc: "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
   },
   {
-    icon: "1",
+    icon: "3",
     title: "Certifications (FSC Certified Source / ISO Standards)",
     desc: "New production lines are continuously being built to provide strong delivery guarantee.",
   },
@@ -806,12 +806,12 @@ const whyChoose = [
     desc: "The root cause of quality problems can be traced back to the order batch.",
   },
   {
-    icon: "7-1",
+    icon: "2",
     title: "Custom Solutions (B2B Private Label / Wholesale Support)",
     desc: "We have direct customer contracts with shipping companies, providing stable logistics.",
   },
   {
-    icon: "7-1",
+    icon: "4",
     title: "Green Energy (1,600 GWh Annual / Renewable Powered)",
     desc: "Propose systematic solutions to customer needs – professional R&D team.",
   },
@@ -1263,7 +1263,8 @@ export default function HomePage() {
               {whyChoose.map((item, i) => (
                 <div key={i} className="hm-why-box">
                   <img
-                    src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/Why-Choose-Donsea-${item.icon}.jpg`}
+                    // src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/Why-Choose-Donsea-${item.icon}.jpg`}
+                    src={`/images/icon-${item.icon}.png`}
                     alt="Icon"
                   />
                   <h4>{item.title}</h4>

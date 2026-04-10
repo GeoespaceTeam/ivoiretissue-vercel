@@ -160,7 +160,7 @@ const advantageData = [
   {
     id: "01",
     title: "Stable Industrial Supply Chain",
-    icon: "5",
+    icon: "1",
     imgSrc:
       "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-1.jpg",
     desc: [
@@ -171,7 +171,7 @@ const advantageData = [
   {
     id: "02",
     title: "Construction of New Lines",
-    icon: "7",
+    icon: "2",
     imgSrc:
       "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-4.jpg",
     desc: [
@@ -181,7 +181,7 @@ const advantageData = [
   {
     id: "03",
     title: "Quality Traceability",
-    icon: "8",
+    icon: "3",
     imgSrc:
       "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-8.jpg",
     desc: [
@@ -192,7 +192,7 @@ const advantageData = [
   {
     id: "04",
     title: "Cooperate With Shipping Companies",
-    icon: "8",
+    icon: "4",
     imgSrc:
       "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-2.jpg",
     desc: [
@@ -202,7 +202,7 @@ const advantageData = [
   {
     id: "05",
     title: "Professional Service",
-    icon: "7-1",
+    icon: "5",
     imgSrc:
       "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-3.jpg",
     desc: [
@@ -388,7 +388,8 @@ export default function AboutUsPage() {
               </div>
               <div className="item-text-box">
                 <img
-                  src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/Why-Choose-Donsea-${item.icon}.jpg`}
+                  // src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/Why-Choose-Donsea-${item.icon}.jpg`}
+                  src={`/images/icon-${item.icon}.png`}
                   alt="icon"
                   className="item-icon"
                 />
