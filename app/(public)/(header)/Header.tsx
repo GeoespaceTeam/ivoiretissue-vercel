@@ -459,9 +459,9 @@ export default function Header() {
                           <div className="site-branding">
                             <Link className="brand has-logo-image" href="/">
                               <img
-                                width="425"
-                                height="100"
-                                src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/logo-1.png"
+                                width="100"
+                                height="60"
+                                src="/images/logo.png"
                                 alt="Ivoiretissue Co., Ltd."
                               />
                             </Link>
