@@ -145,7 +145,7 @@ export default function FactoryProductionLinePage() {
           padding: 100px 20px; 
         }
         .fac-bottom-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.85); }
-        .fac-bottom-grid { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .fac-bottom-grid { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch; }
 
         /* FAQ 手风琴 */
         .fac-faq-container h2 { color: #fff; font-size: 36px; font-weight: 700; margin-bottom: 30px; }
@@ -377,12 +377,12 @@ export default function FactoryProductionLinePage() {
           {/* 右侧：表单 */}
           <div className="fac-form-container">
             <div className="fac-form-card">
-              <h2 style={{ marginBottom: "15px" }}>Get In Touch</h2>
+              <h2 style={{ marginBottom: "30px" }}>Get In Touch</h2>
               <p
                 style={{
                   color: "#555",
-                  fontSize: "15px",
-                  lineHeight: "1.6",
+                  fontSize: "24px",
+                  lineHeight: "1.8",
                   marginBottom: "35px",
                 }}
               >
