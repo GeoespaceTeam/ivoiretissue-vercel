@@ -349,15 +349,15 @@ export default function AboutUsPage() {
           <div className="au-profile-text">
             <h2>Company Profile</h2>
             <p>
-              <strong>Ivoire Tissue Paper</strong> was established in 2001, with
-              more than 24 years of professional quality and innovative
+              <strong>Ivoire Tissue Paper</strong> was established in 2022, with
+              more than 4 years of professional quality and innovative
               development, integrating R&D, production, and sales together.
               Ivoire tissue has grown into a comprehensive enterprise engaged in
               premium bamboo tissue products.
             </p>
             <p>
-              Ivoire Tissue covers an area of 35,200 square meters, employing
-              about 260 people. We are a professional bamboo paper manufacturer,
+              Ivoire Tissue covers an area of 3,000 square meters, employing
+              5 people. We are a professional bamboo paper manufacturer,
               dedicated to producing high-grade products including bamboo toilet
               paper, facial tissue, and paper towels.
             </p>

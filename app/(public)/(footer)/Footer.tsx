@@ -553,23 +553,23 @@ export default function Footer() {
           {/* 👇 新增：在这里插入社交媒体图标 👇 */}
           <div className="iv-social-icons">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/ivoiretissue/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
             >
               <FacebookIcon />
             </a>
-            <a
+            {/* <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
             >
               <XTwitterIcon />
-            </a>
+            </a> */}
             <a
-              href="https://www.youtube.com/watch?v=Cw_H_hXJ3SA&t=15s"
+              href="https://www.youtube.com/@ivoiretissue"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"

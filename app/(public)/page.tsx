@@ -908,12 +908,28 @@ export default function HomePage() {
 
         /* 2. About & Stats */
         .hm-about-section { padding: 80px 0; background: #fff; }
-        .hm-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 60px; }
+       .hm-about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; align-items: center; margin-bottom: 60px; }
         .hm-about-vid { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .hm-about-text h2 { font-size: 42px; color: var(--c-dark-green); font-weight: 800; margin: 0 0 20px; text-transform: uppercase; }
-        .hm-about-text p { font-size: 16px; color: var(--c-text-dark); line-height: 1.8; margin-bottom: 30px; }
+        .hm-about-text h2 { font-size: 46px; color: var(--c-dark-green); font-weight: 800; margin: 0 0 20px; text-transform: uppercase; }
+        .hm-about-text p { font-size: 18px; color: var(--c-text-dark); line-height: 1.8; margin-bottom: 20px; }
+        
+        /* 👇 新增：把Logo和按钮包在一起横向排列 👇 */
+        /* 👇 修改：改为垂直排列（column），这样Logo在上面，按钮在下面，且整体居中 👇 */
+.hm-certs-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; margin-top: 30px; width: 100%; }
+
+/* Logo 保持横向居中排列 */
+.hm-certs { display: flex; gap: 25px; align-items: center; justify-content: center; width: 100%; }
+
+/* 👇 新增：专门为这个区块内的 Learn More 按钮设置超大样式 👇 */
+.hm-certs-wrap .hm-btn {
+    padding: 18px 50px !important; /* 👈 更大的内边距让按钮更丰满 */
+    font-size: 20px !important; /* 👈 放大文字 */
+    margin: 0 auto; /* 确保自身居中 */
+}
+        /* 👇 修改：Logo高度从50px飙升到75px 👇 */
+        .hm-certs img { height: 70px; object-fit: contain; }
         .hm-certs { display: flex; gap: 20px; align-items: center; }
-        .hm-certs img { height: 50px; object-fit: contain; }
+        .hm-certs img { height: 100px; object-fit: contain; }
 
         .hm-stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; text-align: center; border-top: 1px solid #eee; padding-top: 50px; }
         .hm-stat-num { font-size: 40px; font-weight: 800; color: var(--c-brand-green); margin-bottom: 5px; }
@@ -1125,31 +1141,39 @@ export default function HomePage() {
                 excellence, we offer eco-friendly alternatives to traditional
                 paper products.
               </p>
-              <div className="hm-certs mb-6">
-                <img
-                  src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/fsc.png"
-                  alt="FSC"
-                />
-                <img
-                  src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/iso.png"
-                  alt="ISO"
-                />
-                <img
-                  src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/fda.png"
-                  alt="FDA"
-                />
-                <img
-                  src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/bsci.png"
-                  alt="BSCI"
-                />
+              {/* 👇 把 Logo 和 Button 包在一个弹性盒子里，并排显示，榨干空间 👇 */}
+              <div className="hm-certs-wrap">
+                <div className="hm-certs">
+                  <img
+                    src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/fsc.png"
+                    alt="FSC"
+                  />
+                  <img
+                    src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/iso.png"
+                    alt="ISO"
+                  />
+                  <img
+                    src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/fda.png"
+                    alt="FDA"
+                  />
+                  <img
+                    src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/bsci.png"
+                    alt="BSCI"
+                  />
+                </div>
+                <Link
+                  href="/about-us"
+                  className="hm-btn"
+                  style={{
+                    padding: "12px 24px",
+                    fontSize: "15px",
+                    margin: 0,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Learn More
+                </Link>
               </div>
-              <Link
-                href="/about-us"
-                className="hm-btn"
-                style={{ padding: "12px 30px", fontSize: "14px" }}
-              >
-                Learn More
-              </Link>
             </div>
           </div>
 
