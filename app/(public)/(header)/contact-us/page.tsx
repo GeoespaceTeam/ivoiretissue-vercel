@@ -504,13 +504,13 @@ export default function ContactUsPage() {
                   </div>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <span>
-                      General Inquiry:{" "}
+                      Sales & Support:{" "}
                       <a href="tel:+15149718238">+1 (514) 971-8238</a>
                     </span>
-                    <span>
+                    {/* <span>
                       Sales & Support:{" "}
                       <a href="tel:+15142918063">+1 (514) 291-8063</a>
-                    </span>
+                    </span> */}
                   </div>
                 </li>
                 <li className="cu-contact-item">
@@ -619,7 +619,7 @@ export default function ContactUsPage() {
                       href="mailto:info@ivoiretissue.com"
                       className="ivt-contact-value"
                     >
-                      info@ivoiretissue.com
+                      sales@ivoiretissue.com
                     </a>
                   </div>
                 </li>
@@ -632,7 +632,7 @@ export default function ContactUsPage() {
                   <div>
                     <span className="ivt-contact-label">WhatsApp / Call</span>
                     <a href="tel:+15149718238" className="ivt-contact-value">
-                      +1 (514) 971-8238
+                      +1 (514) 688-8238
                     </a>
                   </div>
                 </li>

@@ -336,7 +336,7 @@ export default function AboutUsPage() {
           <div className="au-hero-img">
             <img
               // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/外贸部团队照-1-1024x380.png"
-              src = "/images/contact-us-hero.png"
+              src="/images/contact-us-hero.png"
               alt="Ivoire Team"
             />
           </div>
@@ -521,7 +521,7 @@ export default function AboutUsPage() {
                     href="mailto:info@ivoiretissue.com"
                     className="ivt-contact-value"
                   >
-                    info@ivoiretissue.com
+                    sales@ivoiretissue.com
                   </a>
                 </div>
               </li>
@@ -536,7 +536,7 @@ export default function AboutUsPage() {
                 <div>
                   <span className="ivt-contact-label">WhatsApp / Call</span>
                   <a href="tel:+1234567890" className="ivt-contact-value">
-                    +1 (234) 567-8900
+                    +1 (514) 688-8238
                   </a>
                 </div>
               </li>

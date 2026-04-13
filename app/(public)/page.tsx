@@ -1411,7 +1411,7 @@ export default function HomePage() {
                     href="mailto:info@ivoiretissue.com"
                     className="ivt-contact-value"
                   >
-                    info@ivoiretissue.com
+                    sales@ivoiretissue.com
                   </a>
                 </div>
               </li>
@@ -1427,7 +1427,7 @@ export default function HomePage() {
                   <span className="ivt-contact-label">WhatsApp / Call</span>
                   {/* 👇 把这里换成你们真实的电话 👇 */}
                   <a href="tel:+1234567890" className="ivt-contact-value">
-                    +1 (234) 567-8900
+                    +1 (514) 688-8238
                   </a>
                 </div>
               </li>
@@ -1446,7 +1446,7 @@ export default function HomePage() {
                     className="ivt-contact-value"
                     style={{ cursor: "default" }}
                   >
-                    Montreal, Quebec, Canada
+                    222 Rue Poirier, Saint-Eustache, QC
                   </span>
                 </div>
               </li>

@@ -352,7 +352,7 @@ export default function Header() {
           font-family: var(--global-primary-nav-font-family); text-transform: uppercase; text-decoration: none;
           display: flex; align-items: center; height: 100%; transition: all 0.2s;
         }
-        .main-navigation .primary-menu-container > ul > li > a:hover { color: var(--global-palette2); }
+        .main-navigation .primary-menu-container > ul > li > a:hover { color: var(--global-palette9); }
         .nav-drop-title-wrap { display: flex; align-items: center; gap: 4px; }
 
         .header-navigation ul ul.sub-menu { 

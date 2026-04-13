@@ -279,7 +279,7 @@ export default function FAQPage() {
                         href="mailto:info@ivoiretissue.com"
                         className="ivt-contact-value"
                       >
-                        info@ivoiretissue.com
+                        sales@ivoiretissue.com
                       </a>
                     </div>
                   </li>
@@ -292,7 +292,7 @@ export default function FAQPage() {
                     <div>
                       <span className="ivt-contact-label">WhatsApp / Call</span>
                       <a href="tel:+15149718238" className="ivt-contact-value">
-                        +1 (514) 971-8238
+                        +1 (514) 688-8238
                       </a>
                     </div>
                   </li>
