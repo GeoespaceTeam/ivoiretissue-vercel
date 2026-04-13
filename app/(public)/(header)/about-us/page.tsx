@@ -293,7 +293,7 @@ export default function AboutUsPage() {
           background: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg') center/cover no-repeat fixed; 
         }
         .au-faq-overlay { position: absolute; inset: 0; background: #00302b; opacity: 0.35; z-index: 1; }
-        .au-faq-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 60% 40%; gap: 60px; align-items: start; }
+        .au-faq-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start; }
         
         .faq-item { background: rgba(255,255,255,0.92); margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
         .faq-item.active { background: #00a496; }
@@ -301,6 +301,14 @@ export default function AboutUsPage() {
         .faq-content { padding: 30px; background: rgba(0,164,150,0.33); color: #fff; line-height: 1.8; font-size: 16px; }
 
         .form-card { background: rgba(255, 255, 255, 0.65); padding: 50px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        /* 新增直连卡片样式 */
+        .ivt-direct-contact { list-style: none; padding: 0; margin: 0; }
+        .ivt-direct-contact li { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+        .ivt-icon-circle { background: #00a496; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,164,150,0.3); }
+        .ivt-icon-circle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .ivt-contact-label { display: block; font-size: 14px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .ivt-contact-value { font-size: 20px; font-weight: 700; color: #004e46; text-decoration: none; transition: color 0.3s; word-break: break-word; }
+        .ivt-contact-value:hover { color: #00a496; }
         .input-style { width: 100%; padding: 20px; border-radius: 30px; border: 1px solid #a0aec0; margin-bottom: 20px; outline: none; background: #fff; font-size: 16px; }
         .submit-btn { width: 100%; background: #00a496; color: #fff; border: none; padding: 15px; border-radius: 50px; font-weight: 700; font-size: 18px; cursor: pointer; transition: 0.3s; }
         .submit-btn:hover { background: #00dba0; }
@@ -327,7 +335,8 @@ export default function AboutUsPage() {
           </div>
           <div className="au-hero-img">
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/外贸部团队照-1-1024x380.png"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/外贸部团队照-1-1024x380.png"
+              src = "/images/contact-us-hero.png"
               alt="Ivoire Team"
             />
           </div>
@@ -341,7 +350,7 @@ export default function AboutUsPage() {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/UpJmi37Klbg?feature=oembed"
+              src="https://www.youtube.com/embed/Cw_H_hXJ3SA?feature=oembed"
               frameBorder="0"
               allowFullScreen
             ></iframe>
@@ -356,10 +365,10 @@ export default function AboutUsPage() {
               premium bamboo tissue products.
             </p>
             <p>
-              Ivoire Tissue covers an area of 3,000 square meters, employing
-              5 people. We are a professional bamboo paper manufacturer,
-              dedicated to producing high-grade products including bamboo toilet
-              paper, facial tissue, and paper towels.
+              Ivoire Tissue covers an area of 3,000 square meters, employing 5
+              people. We are a professional bamboo paper manufacturer, dedicated
+              to producing high-grade products including bamboo toilet paper,
+              facial tissue, and paper towels.
             </p>
           </div>
         </div>
@@ -461,38 +470,96 @@ export default function AboutUsPage() {
           </div>
 
           {/* Form */}
-          <div className="form-card">
+          {/* 直连信息卡片 (替换旧 Form) */}
+          <div
+            className="form-card"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
             <h2
               style={{
                 color: "#004e46",
                 fontSize: "32px",
-                marginBottom: "30px",
+                marginBottom: "15px",
+                fontWeight: 800,
               }}
             >
-              Submit A Request
+              Get In Touch
             </h2>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="text"
-                className="input-style"
-                placeholder="Your Name"
-              />
-              <input
-                type="email"
-                className="input-style"
-                placeholder="Your Email"
-              />
-              <textarea
-                className="input-style"
-                style={{ height: "120px", borderRadius: "20px" }}
-                placeholder="How can we help you?"
-              ></textarea>
-              <div style={{ textAlign: "center" }}>
-                <button type="submit" className="submit-btn">
-                  Submit
-                </button>
-              </div>
-            </form>
+            <p
+              style={{
+                color: "#444",
+                fontSize: "16px",
+                lineHeight: "1.6",
+                margin: "0 0 35px 0",
+              }}
+            >
+              We value direct communication. To help us provide an accurate
+              quote quickly, please include your{" "}
+              <strong>
+                product of interest, estimated order quantity, and any custom
+                OEM requirements
+              </strong>{" "}
+              in your email. Our Montreal team will get back to you promptly.
+            </p>
+
+            <ul className="ivt-direct-contact">
+              {/* Email */}
+              <li>
+                <div className="ivt-icon-circle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span className="ivt-contact-label">Email Us</span>
+                  <a
+                    href="mailto:info@ivoiretissue.com"
+                    className="ivt-contact-value"
+                  >
+                    info@ivoiretissue.com
+                  </a>
+                </div>
+              </li>
+
+              {/* Phone / WhatsApp */}
+              <li>
+                <div className="ivt-icon-circle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <span className="ivt-contact-label">WhatsApp / Call</span>
+                  <a href="tel:+1234567890" className="ivt-contact-value">
+                    +1 (234) 567-8900
+                  </a>
+                </div>
+              </li>
+
+              {/* Location */}
+              <li style={{ marginBottom: 0 }}>
+                <div className="ivt-icon-circle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <span className="ivt-contact-label">Headquarters</span>
+                  <span
+                    className="ivt-contact-value"
+                    style={{ cursor: "default", fontSize: "18px" }}
+                  >
+                    222 Rue Poirier, Saint-Eustache, QC
+                  </span>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

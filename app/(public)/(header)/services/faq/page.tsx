@@ -104,11 +104,11 @@ export default function FAQPage() {
           position: relative;
           z-index: 2;
           display: grid;
-          grid-template-columns: 60% 40%; /* 仿照源码比例 */
+          /* 👇 将 60% 40% 改为 1.5fr 1fr，完美解决截断问题 👇 */
+          grid-template-columns: 1.5fr 1fr; 
           gap: 60px;
           align-items: start;
         }
-
         /* 手风琴样式修复 */
         .faq-title { font-size: 50px; font-weight: 700; color: #ffffff; margin-bottom: 40px; text-transform: uppercase; }
         .faq-item { margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
@@ -174,6 +174,15 @@ export default function FAQPage() {
         }
         .submit-btn:hover { background: #00dba0; }
 
+        /* 新增直连卡片样式 */
+        .ivt-direct-contact { list-style: none; padding: 0; margin: 0; }
+        .ivt-direct-contact li { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+        .ivt-icon-circle { background: #00a496; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,164,150,0.3); }
+        .ivt-icon-circle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .ivt-contact-label { display: block; font-size: 14px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .ivt-contact-value { font-size: 20px; font-weight: 700; color: #004e46; text-decoration: none; transition: color 0.3s; word-break: break-word; }
+        .ivt-contact-value:hover { color: #00a496; }
+        
         @media (max-width: 1024px) {
           .faq-main-grid { grid-template-columns: 1fr; }
           .faq-outer-section { padding: 60px 0; background-attachment: scroll; }
@@ -216,48 +225,117 @@ export default function FAQPage() {
               </div>
             </div>
 
-            {/* 右侧：Submit Card */}
-            <div className="form-card">
-              <h2>Submit A Request</h2>
-              <form onSubmit={(e) => e.preventDefault()}>
-                <div className="input-group">
-                  <label>Name *</label>
-                  <input
-                    type="text"
-                    className="input-field"
-                    placeholder="Your Name"
-                    required
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Phone</label>
-                  <input
-                    type="tel"
-                    className="input-field"
-                    placeholder="+1 (514) 123-4567"
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Email *</label>
-                  <input
-                    type="email"
-                    className="input-field"
-                    placeholder="Your Email"
-                    required
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Message</label>
-                  <textarea
-                    className="input-field"
-                    style={{ height: "120px", borderRadius: "20px" }}
-                    placeholder="How can we help you?"
-                  ></textarea>
-                </div>
-                <button type="submit" className="submit-btn">
-                  Submit
-                </button>
-              </form>
+            {/* 右侧：联系卡片 + 底部图片填充空隙 */}
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "40px" }}
+            >
+              <div
+                className="form-card"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+              >
+                <h2
+                  style={{
+                    color: "#004e46",
+                    fontSize: "32px",
+                    marginBottom: "15px",
+                    fontWeight: 800,
+                  }}
+                >
+                  Get In Touch
+                </h2>
+                <p
+                  style={{
+                    color: "#444",
+                    fontSize: "16px",
+                    lineHeight: "1.6",
+                    margin: "0 0 35px 0",
+                  }}
+                >
+                  We value direct communication. To help us provide an accurate
+                  quote quickly, please include your{" "}
+                  <strong>
+                    product of interest, estimated order quantity, and any
+                    custom OEM requirements
+                  </strong>{" "}
+                  in your email. Our Montreal team will get back to you
+                  promptly.
+                </p>
+
+                <ul className="ivt-direct-contact">
+                  <li>
+                    <div className="ivt-icon-circle">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="ivt-contact-label">Email Us</span>
+                      <a
+                        href="mailto:info@ivoiretissue.com"
+                        className="ivt-contact-value"
+                      >
+                        info@ivoiretissue.com
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="ivt-icon-circle">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="ivt-contact-label">WhatsApp / Call</span>
+                      <a href="tel:+15149718238" className="ivt-contact-value">
+                        +1 (514) 971-8238
+                      </a>
+                    </div>
+                  </li>
+                  <li style={{ marginBottom: 0 }}>
+                    <div className="ivt-icon-circle">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="ivt-contact-label">Headquarters</span>
+                      <span
+                        className="ivt-contact-value"
+                        style={{ cursor: "default", fontSize: "18px" }}
+                      >
+                        222 Rue Poirier, Saint-Eustache, QC
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* 👇 新增的图片区块，填补右侧下方空白 👇 */}
+              <div
+                style={{
+                  width: "100%",
+                  borderRadius: "30px",
+                  overflow: "hidden",
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
+                }}
+              >
+                <img
+                  src="/images/about.png" /* 👈 记得换成你想要的图，比如你们的工厂图或者竹林图 */
+                  alt="Ivoire Tissue Environment"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -721,46 +721,71 @@ const CheckCircle = () => (
 // ============================================================
 // 📌 页面数据 (Ivoire Tissue)
 // ============================================================
+// const products = [
+//   {
+//     title: "Bamboo Toilet Paper",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Toilet-paper-new-1.png",
+//     link: "/products/bamboo-toilet-paper",
+//   },
+//   {
+//     title: "Bamboo Kitchen Paper",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Kitchen-Paper-2.png",
+//     link: "/products/bamboo-kitchen-paper",
+//   },
+//   {
+//     title: "Bamboo Facial Tissue",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Bamboo-facial-tissue-new-1.png",
+//     link: "/products/bamboo-facial-tissue",
+//   },
+//   {
+//     title: "Soft Pack Facial Tissue",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Soft-Pack-Facial-Tissue-1.png",
+//     link: "/products/soft-pack-facial-tissue",
+//   },
+//   {
+//     title: "N-Fold Hand Towel",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/N-Fold-1.png",
+//     link: "/products/n-fold-hand-towel",
+//   },
+//   {
+//     title: "Hand Paper Towel",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Hand-Paper-Towel-2.png",
+//     link: "/products/hand-paper-towel",
+//   },
+//   {
+//     title: "Central Pull Tissue Paper",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/all-1.png",
+//     link: "/products/central-pull-tissue-paper",
+//   },
+//   {
+//     title: "Mini Jumbo Toilet Rolls",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Mini-Jumbo-Roll.png",
+//     link: "/products/mini-jumbo-toilet-rolls",
+//   },
+// ];
+
 const products = [
   {
-    title: "Bamboo Toilet Paper",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Toilet-paper-new-1.png",
-    link: "/products/bamboo-toilet-paper",
+    title: "Bamboo Products",
+    img: "/images/bambooproducts.png",
+    link: "/products/bamboo",
   },
   {
-    title: "Bamboo Kitchen Paper",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Kitchen-Paper-2.png",
-    link: "/products/bamboo-kitchen-paper",
+    title: "Virgin Pulp Products",
+    img: "/images/virginproducts.png",
+    link: "/products/virgin",
   },
   {
-    title: "Bamboo Facial Tissue",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Bamboo-facial-tissue-new-1.png",
-    link: "/products/bamboo-facial-tissue",
+    title: "Recycle Products",
+    // img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/N-Fold-1.png",
+    img: "/images/recycleproducts.png",
+    link: "/products/recycle",
   },
   {
-    title: "Soft Pack Facial Tissue",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Soft-Pack-Facial-Tissue-1.png",
-    link: "/products/soft-pack-facial-tissue",
-  },
-  {
-    title: "N-Fold Hand Towel",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/N-Fold-1.png",
-    link: "/products/n-fold-hand-towel",
-  },
-  {
-    title: "Hand Paper Towel",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Hand-Paper-Towel-2.png",
-    link: "/products/hand-paper-towel",
-  },
-  {
-    title: "Central Pull Tissue Paper",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/all-1.png",
-    link: "/products/central-pull-tissue-paper",
-  },
-  {
-    title: "Mini Jumbo Toilet Rolls",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Mini-Jumbo-Roll.png",
-    link: "/products/mini-jumbo-toilet-rolls",
+    title: "Mixed Wood Products",
+    // img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Hand-Paper-Towel-2.png",
+    img: "/images/mixedproducts.png",
+    link: "/products/mixed",
   },
 ];
 
@@ -941,7 +966,7 @@ export default function HomePage() {
         .hm-prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
         .hm-prod-card { background: #fff; border: 4px dashed var(--c-brand-green); border-radius: 500px; aspect-ratio: 1/1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; cursor: pointer; transition: all 0.3s; text-decoration: none; }
         .hm-prod-card:hover { background: var(--c-brand-green); border-color: #fff; }
-        .hm-prod-card img { width: 60%; height: auto; margin-bottom: 20px; transition: transform 0.5s; }
+        .hm-prod-card img { width: 60%; height: 120px; object-fit: contain; margin-bottom: 20px; transition: transform 0.5s; }
         .hm-prod-card:hover img { transform: scale(1.1); }
         .hm-prod-title { font-size: 18px; font-weight: 800; color: var(--c-dark-green); margin: 0 0 10px; transition: color 0.3s; }
         .hm-prod-card:hover .hm-prod-title { color: #fff; }
@@ -1006,6 +1031,16 @@ export default function HomePage() {
         .hm-submit:hover { background: var(--c-hover-green); }
 
         .hm-contact-text h2 { font-size: 56px; font-weight: 800; color: #fff; line-height: 1.2; margin: 0; text-transform: uppercase; }
+
+
+        /* ── 新增：直连信息卡片样式 ── */
+        .ivt-direct-contact { list-style: none; padding: 0; margin: 0; }
+        .ivt-direct-contact li { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+        .ivt-icon-circle { background: var(--c-brand-green); color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,164,150,0.3); }
+        .ivt-icon-circle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .ivt-contact-label { display: block; font-size: 14px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .ivt-contact-value { font-size: 20px; font-weight: 700; color: var(--c-dark-green); text-decoration: none; transition: color 0.3s; }
+        .ivt-contact-value:hover { color: var(--c-brand-green); }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -1273,10 +1308,10 @@ export default function HomePage() {
       {/* 6. WHY CHOOSE US */}
       <section className="hm-why">
         <div className="hm-container hm-why-grid">
-          <div>
+          <div style={{ height: "100%" }}>
             <img
               // src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/why-1-683x1024.jpg"
-              src="/images/don-bamboo.png"
+              src="/images/ivoire-bamboo.png"
               alt="Bamboo Forest"
               className="hm-why-tall-img"
             />
@@ -1306,7 +1341,8 @@ export default function HomePage() {
         <div className="hm-container">
           <h2 className="hm-sec-title">Production Flow</h2>
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Production-Flow.png"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Production-Flow.png"
+            src="/images/productionFlow.png"
             alt="Production Flow"
           />
         </div>
@@ -1344,37 +1380,77 @@ export default function HomePage() {
         <div className="hm-contact-overlay"></div>
         <div className="hm-container hm-contact-container">
           <div className="hm-form">
-            <h3>Submit A Request</h3>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <label>Name *</label>
-              <input
-                type="text"
-                className="hm-input"
-                placeholder="Your Name"
-                required
-              />
+            <h3 style={{ marginBottom: "10px" }}>Get In Touch</h3>
+            <p
+              style={{
+                color: "#555",
+                fontSize: "16px",
+                lineHeight: "1.6",
+                marginBottom: "40px",
+              }}
+            >
+              We value direct communication. To help us provide an accurate
+              quote quickly, please include your product of interest, estimated
+              order quantity, and any custom OEM/Private Label requirements in
+              your email. Our Montreal team will get back to you promptly.
+            </p>
 
-              <label>Phone</label>
-              <input type="tel" className="hm-input" placeholder="Your Phone" />
+            <ul className="ivt-direct-contact">
+              {/* Email */}
+              <li>
+                <div className="ivt-icon-circle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span className="ivt-contact-label">Email Us</span>
+                  {/* 👇 把这里换成你们真实的邮箱 👇 */}
+                  <a
+                    href="mailto:info@ivoiretissue.com"
+                    className="ivt-contact-value"
+                  >
+                    info@ivoiretissue.com
+                  </a>
+                </div>
+              </li>
 
-              <label>Email *</label>
-              <input
-                type="email"
-                className="hm-input"
-                placeholder="Your Email"
-                required
-              />
+              {/* WhatsApp / Phone */}
+              <li>
+                <div className="ivt-icon-circle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <span className="ivt-contact-label">WhatsApp / Call</span>
+                  {/* 👇 把这里换成你们真实的电话 👇 */}
+                  <a href="tel:+1234567890" className="ivt-contact-value">
+                    +1 (234) 567-8900
+                  </a>
+                </div>
+              </li>
 
-              <label>Message</label>
-              <textarea
-                className="hm-textarea"
-                placeholder="How can we help you?"
-              ></textarea>
-
-              <button type="submit" className="hm-submit">
-                Submit
-              </button>
-            </form>
+              {/* Headquarters */}
+              <li>
+                <div className="ivt-icon-circle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <span className="ivt-contact-label">Headquarters</span>
+                  <span
+                    className="ivt-contact-value"
+                    style={{ cursor: "default" }}
+                  >
+                    Montreal, Quebec, Canada
+                  </span>
+                </div>
+              </li>
+            </ul>
           </div>
           <div className="hm-contact-text">
             <h2>

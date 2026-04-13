@@ -224,49 +224,73 @@
 import React from "react";
 import Link from "next/link";
 
+// const categories = [
+//   {
+//     title: "Bamboo Toilet Paper",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Toilet-paper-new-1-1.png",
+//     link: "/products/bamboo",
+//   },
+//   {
+//     title: "Bamboo Kitchen Paper",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Kitchen-Paper-2.png",
+//     link: "/products/bamboo",
+//   },
+//   {
+//     title: "Bamboo Facial Tissue",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Bamboo-facial-tissue-new-1.png",
+//     link: "/products/bamboo",
+//   },
+//   {
+//     title: "Soft Pack Facial Tissue",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Soft-Pack-Facial-Tissue-1.png",
+//     link: "/products/virgin",
+//   },
+//   {
+//     title: "N-Fold Hand Towel",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/N-Fold-1.png",
+//     link: "/products/recycle",
+//   },
+//   {
+//     title: "Hand Paper Towel",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Hand-Paper-Towel-2.png",
+//     link: "/products/mixed",
+//   },
+//   {
+//     title: "Central Pull Tissue",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Central-Pull-Tissue-Paper.png",
+//     link: "/products/bamboo",
+//   },
+//   {
+//     title: "Mini Jumbo Rolls",
+//     img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Mini-Jumbo-Roll.png",
+//     link: "/products/bamboo",
+//   },
+// ];
+
+
 const categories = [
   {
-    title: "Bamboo Toilet Paper",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Toilet-paper-new-1-1.png",
+    title: "Bamboo Products",
+    img: "/images/bambooproducts.png", // 👈 使用你今天上传的那个竹子产品图
     link: "/products/bamboo",
   },
   {
-    title: "Bamboo Kitchen Paper",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Kitchen-Paper-2.png",
-    link: "/products/bamboo",
-  },
-  {
-    title: "Bamboo Facial Tissue",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Bamboo-facial-tissue-new-1.png",
-    link: "/products/bamboo",
-  },
-  {
-    title: "Soft Pack Facial Tissue",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Soft-Pack-Facial-Tissue-1.png",
+    title: "Virgin Pulp Products",
+    img: "/images/virginproducts.png", // 👈 原浆纸示意图
     link: "/products/virgin",
   },
   {
-    title: "N-Fold Hand Towel",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/N-Fold-1.png",
+    title: "Recycle Products",
+    img: "/images/recycleproducts.png", // 👈 环保回收纸示意图
     link: "/products/recycle",
   },
   {
-    title: "Hand Paper Towel",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Hand-Paper-Towel-2.png",
+    title: "Mixed Wood Products",
+    // img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Hand-Paper-Towel-2.png", // 👈 混合木浆纸示意图
+    img: "/images/mixedproducts.png",
     link: "/products/mixed",
   },
-  {
-    title: "Central Pull Tissue",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Central-Pull-Tissue-Paper.png",
-    link: "/products/bamboo",
-  },
-  {
-    title: "Mini Jumbo Rolls",
-    img: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Mini-Jumbo-Roll.png",
-    link: "/products/bamboo",
-  },
 ];
-
 export default function ProductsPage() {
   return (
     <main
@@ -284,7 +308,7 @@ export default function ProductsPage() {
         .pd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 96%; margin: 0 auto; padding: 0 20px; }
         .pd-card { background: #fff; border: 3px dashed #00a496; border-radius: 500px; aspect-ratio: 1/1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 15px; text-decoration: none; transition: 0.3s; }
         .pd-card:hover { background: #00a496; border-color: #fff; transform: translateY(-5px); }
-        .pd-card img { width: 58%; margin-bottom: 15px; }
+        .pd-card img { width: 58%; height: 120px; object-fit: contain; margin-bottom: 15px; }
         .pd-card h4 { color: #08394a; font-size: 17px; text-align: center; word-wrap: break-word; /* 强制长单词换行 */}
         .pd-card:hover h4 { color: #fff; }
         @media (max-width: 1024px) { .pd-grid { grid-template-columns: repeat(2, 1fr); } }
