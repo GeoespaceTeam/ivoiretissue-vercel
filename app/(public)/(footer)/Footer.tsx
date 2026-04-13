@@ -577,7 +577,7 @@ export default function Footer() {
               <YouTubeIcon />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/ivoiretissue/posts/?feedView=all"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

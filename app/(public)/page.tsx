@@ -774,8 +774,8 @@ const products = [
 
 const stats = [
   { num: "4+", label: "Years Experience" },
-  { num: "20+", label: "Employees" },
-  { num: "2,000+", label: "Square Meters" },
+  { num: "5", label: "Employees" },
+  { num: "3,000+", label: "Square Meters" },
   { num: "1,600+", label: "Tons Monthly Capacity" },
   { num: "2", label: "Countries Market" },
 ];
