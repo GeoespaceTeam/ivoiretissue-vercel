@@ -139,7 +139,7 @@ export default function FactoryProductionLinePage() {
         /* 5. FAQ & Contact (背景深色区域) */
         .fac-bottom-section { 
           position: relative; 
-          background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg'); 
+          background-image: url('/images/factoryline-faq.png'); 
           background-size: cover; 
           background-position: center; 
           padding: 100px 20px; 
@@ -213,7 +213,7 @@ export default function FactoryProductionLinePage() {
 
       {/* 1. 顶部工艺图 */}
       <img
-        src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Production-Flow.png"
+        src="/images/productionFlow.png"
         alt="Production Flow"
         className="fac-hero-img"
       />

@@ -200,7 +200,7 @@ export default function TermsOfUsePage() {
             Our legal team is here to help you understand your rights.
           </p>
           <a
-            href="mailto:admin@ivoiretissue.com"
+            href="mailto:sales@ivoiretissue.comm"
             style={{
               color: "#00a698",
               fontWeight: 700,
@@ -209,7 +209,7 @@ export default function TermsOfUsePage() {
               borderBottom: "1px solid #00a698",
             }}
           >
-            admin@ivoiretissue.com
+            sales@ivoiretissue.comm
           </a>
         </ScrollReveal>
       </section>

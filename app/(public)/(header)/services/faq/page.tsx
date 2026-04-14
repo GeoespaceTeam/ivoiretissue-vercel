@@ -91,7 +91,7 @@ export default function FAQPage() {
         .faq-outer-section {
           position: relative;
           padding: 100px 0;
-          background: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg') center/cover no-repeat fixed;
+          background: url('/images/faq-hero.jpeg') center/cover no-repeat fixed;
         }
         .faq-overlay {
           position: absolute;

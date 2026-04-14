@@ -59,10 +59,10 @@ const POLICIES = [
             <p>
               <strong>Email:</strong>{" "}
               <a
-                href="mailto:admin@ivoiretissue.com"
+                href="mailto:sales@ivoiretissue.comm"
                 style={{ color: "#00a698", textDecoration: "none" }}
               >
-                admin@ivoiretissue.com
+                sales@ivoiretissue.comm
               </a>
             </p>
             <p>

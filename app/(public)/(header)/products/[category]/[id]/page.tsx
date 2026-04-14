@@ -1,701 +1,590 @@
-// import Image from "next/image";
-// import Link from "next/link";
+// "use client";
+// import React, { use,useState } from "react"; // 👈 1. 引入 React 的 use 钩子
 // import { notFound } from "next/navigation";
 // import { productsDatabase } from "@/app/lib/productsDatabase";
-// import ScrollReveal from "@/app/components/ScrollReveal";
-// import ContactForm from "@/app/components/ContactForm";
+// import Link from "next/link";
 
-// // ============================================================
-// // PRODUCT DETAIL PAGE
-// // Pixel-perfect replication of ivoiretissue.com Elementor layout
-// //
-// // CSS strategy:
-// //   - All styles inline or in <style> tag at top
-// //   - ScrollReveal for enter animations
-// //   - No separate .module.css file
-// //
-// // Sections:
-// //   1. Category breadcrumb
-// //   2. Product hero (img left + info right)
-// //   3. Description tab (product img + specs table + detail img)
-// //   4. About Ivoiretissue
-// //   5. Our Factory (justified grid)
-// //   6. Submit a Request (form + bg panel)
-// // ============================================================
-
-// // Factory images from ivoiretissue.com (used as placeholder until local assets ready)
-// const FACTORY_IMGS = [
-//   "https://ivoiretissue.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-03-at-00.28.58-300x169.jpeg",
-//   "https://ivoiretissue.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-03-at-00.12.38-300x205.jpeg",
-//   "https://ivoiretissue.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-03-at-00.05.20-300x226.jpeg",
-//   "https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-04-01-at-00.36.37-300x180.jpeg",
-//   "https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-04-01-at-00.45.31-300x154.jpeg",
-//   "https://ivoiretissue.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-04-01-at-00.59.41-300x204.jpeg",
-//   "https://ivoiretissue.com/wp-content/uploads/2024/03/IMG_1208-300x225.jpg",
-//   "https://ivoiretissue.com/wp-content/uploads/2024/03/shutterstock_120745927-1-300x200.jpg",
-// ];
-
-// // ── Hover & complex styles that can't be inline ──
-// const CSS = `
-//   /* ── Category tag ── */
-//   .ivt-category-tag {
-//     display: inline-flex;
-//     align-items: center;
-//     gap: 6px;
-//     color: #00a698;
-//     font-size: 12px;
-//     font-weight: 700;
-//     letter-spacing: 2px;
-//     text-transform: uppercase;
-//   }
-
-//   /* ── Features list ── */
-//   .ivt-features li {
-//     display: flex;
-//     align-items: flex-start;
-//     gap: 8px;
-//     color: #555;
-//     font-size: 15px;
-//     line-height: 1.6;
-//     margin-bottom: 12px;
-//   }
-//   .ivt-features li .bullet {
-//     color: #00a698;
-//     font-weight: 700;
-//     flex-shrink: 0;
-//     margin-top: 2px;
-//   }
-
-//   /* ── Quote box ── */
-//   .ivt-quote-box {
-//     background: #f9f9f9;
-//     padding: 24px;
-//     border-radius: 8px;
-//     border: 1px solid #f0f0f0;
-//     max-width: 420px;
-//     margin-top: 32px;
-//   }
-//   .ivt-quote-box p {
-//     font-size: 13px;
-//     color: #999;
-//     font-weight: 500;
-//     margin-bottom: 14px;
-//   }
-//   .ivt-quote-btn {
-//     display: inline-block;
-//     background: #00a698;
-//     color: #fff;
-//     padding: 11px 40px;
-//     border-radius: 6px;
-//     font-size: 14px;
-//     font-weight: 700;
-//     cursor: pointer;
-//     border: none;
-//     transition: background 0.25s;
-//     text-decoration: none;
-//   }
-//   .ivt-quote-btn:hover { background: #008f83; color: #fff; }
-
-//   /* ── Description tab header ── */
-//   .ivt-tab-header {
-//     display: inline-block;
-//     border-bottom: 4px solid #00a698;
-//     padding-bottom: 8px;
-//     margin-bottom: 32px;
-//     font-size: 18px;
-//     font-weight: 700;
-//     color: #333;
-//   }
-
-//   /* ── Specs table ── */
-//   .ivt-specs-table {
-//     width: 100%;
-//     border-collapse: collapse;
-//     border-radius: 12px;
-//     overflow: hidden;
-//     border: 1px solid #e8e8e8;
-//     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-//   }
-//   .ivt-specs-table tr {
-//     border-bottom: 1px solid #f0f0f0;
-//     transition: background 0.2s;
-//   }
-//   .ivt-specs-table tr:last-child { border-bottom: none; }
-//   .ivt-specs-table tr:hover { background: #f9f9f9; }
-//   .ivt-specs-table td {
-//     padding: 14px 18px;
-//     font-size: 14px;
-//     vertical-align: top;
-//   }
-//   .ivt-specs-table td:first-child {
-//     font-weight: 700;
-//     color: #444;
-//     background: rgba(249,249,249,0.7);
-//     width: 30%;
-//     border-right: 1px solid #e8e8e8;
-//   }
-//   .ivt-specs-table td:last-child { color: #666; }
-
-//   /* ── About section heading ── */
-//   .ivt-section-heading {
-//     font-size: 28px;
-//     font-weight: 700;
-//     color: #333;
-//     margin-bottom: 20px;
-//   }
-
-//   /* ── Factory grid ── */
-//   .ivt-factory-grid {
-//     display: grid;
-//     grid-template-columns: repeat(4, 1fr);
-//     gap: 10px;
-//   }
-//   .ivt-factory-item {
-//     position: relative;
-//     aspect-ratio: 4/3;
-//     border-radius: 8px;
-//     overflow: hidden;
-//     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-//   }
-//   .ivt-factory-item img {
-//     width: 100%;
-//     height: 100%;
-//     object-fit: cover;
-//     display: block;
-//     transition: transform 0.5s ease;
-//   }
-//   .ivt-factory-item:hover img { transform: scale(1.08); }
-//   .ivt-factory-overlay {
-//     position: absolute;
-//     inset: 0;
-//     background: rgba(0,166,152,0);
-//     transition: background 0.3s;
-//   }
-//   .ivt-factory-item:hover .ivt-factory-overlay {
-//     background: rgba(0,166,152,0.15);
-//   }
-
-//   /* ── Request form section ── */
-//   .ivt-request-grid {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     min-height: 500px;
-//     border-radius: 0;
-//     overflow: hidden;
-//   }
-//   .ivt-request-left {
-//     padding: 60px 48px;
-//     background: #fff;
-//   }
-//   .ivt-request-right {
-//     background: #f5f5f5;
-//   }
-
-//   /* ── Responsive ── */
-//   @media (max-width: 1024px) {
-//     .ivt-factory-grid { grid-template-columns: repeat(2, 1fr); }
-//     .ivt-request-grid { grid-template-columns: 1fr; }
-//     .ivt-request-right { display: none; }
-//   }
-//   @media (max-width: 768px) {
-//     .ivt-product-row { flex-direction: column !important; }
-//     .ivt-product-left,
-//     .ivt-product-right {
-//       flex: 0 0 100% !important;
-//       max-width: 100% !important;
-//     }
-//     .ivt-quote-box { max-width: 100%; }
-//     .ivt-request-left { padding: 40px 24px; }
-//   }
-//   @media (max-width: 480px) {
-//     .ivt-factory-grid { grid-template-columns: repeat(2, 1fr); }
-//   }
-// `;
-
-// export default async function ProductDetailPage({
+// export default function ProductDetailPage({
+//   // 👈 2. 把 async 删掉！
 //   params,
 // }: {
 //   params: Promise<{ category: string; id: string }>;
 // }) {
-//   const { category, id } = await params;
-// const categoryDescriptions: Record<string, string> = {
-//   bamboo:
-//     "Using bamboo for paper products offers several benefits. bamboo is an incredibly fast-growing plant, making it highly renewable compared to traditional wood pulp used in paper products. Bamboo cultivation requires minimal water, pesticides, and fertilizers compared to other crops, reducing the environmental footprint associated with paper production. Additionally, bamboo cultivation can help prevent soil erosion and promote biodiversity. Bamboo fibers are naturally soft and strong, making them suitable for use in toilet paper, towel paper, and napkins. Overall, the use of bamboo for toilet paper, towel paper, and napkins provides an environmentally friendly and sustainable alternative to conventional paper products, offering numerous benefits for both consumers and the planet.",
-//   virgin:
-//     "Virgin paper products refer to paper items that are made from 100% new materials, typically bamboo pulp obtained directly from bamboo. These materials have not been previously used or recycled. Virgin paper is commonly used in a variety of applications such as printing, writing, packaging, and tissue products. The process of making virgin paper involves harvesting trees, chipping the wood into small pieces, and then processing it into pulp through mechanical or chemical means. This pulp is then bleached and refined before being formed into sheets of paper. Virgin bamboo paper products are known for their high quality, smooth texture, and bright appearance. They are often preferred for applications where a pristine, uniform appearance is desired, such as in high-quality printing and packaging.",
-//   recycle:
-//     "Recycled paper products are made from materials that have been previously used and then processed to create new paper. These materials typically include post-consumer waste such as old newspapers, magazines, cardboard, and office paper. Recycling these materials helps divert them from landfills and reduces the demand for virgin wood pulp, thereby conserving natural resources and reducing environmental impact. Recycled paper products can vary in quality depending on the type and amount of recycled content used, as well as the processing techniques employed. Some recycled papers may have visible specks or imperfections due to the presence of recycled fibers, while others can achieve a high level of brightness and smoothness comparable to virgin paper.",
-//   mixed:
-//     "Mixed paper products refer to a category of paper that includes a mixture of different types of paper and paperboard materials. Unlike virgin paper, which is made from 100% new wood pulp, and recycled paper, which is made from post-consumer waste, mixed paper products may contain a combination of both virgin and recycled fibers. Mixed paper products are often collected from households, businesses, and recycling centers as part of municipal recycling programs. After collection, these materials undergo sorting and processing to separate them into different grades based on their quality and composition.",
-// };
+//   const { category, id } = use(params); // 👈 3. 把 await 换成 use()
 //   const categoryData = productsDatabase[category];
-//   if (!categoryData) notFound();
-
-//   const product = categoryData.find((p: any) => p.id === id);
+//   const product = categoryData?.find((p: any) => p.id === id);
+//   const [isModalOpen, setIsModalOpen] = useState(false); // 控制弹窗显示
 //   if (!product) notFound();
+//   // 弹窗提示函数 sd
 
 //   return (
-//     <div style={{ background: "#fff", minHeight: "100vh" }}>
-//       <style dangerouslySetInnerHTML={{ __html: CSS }} />
+//     <main
+//       style={{ backgroundColor: "#fff", fontFamily: "Poppins, sans-serif" }}
+//     >
+//       <style
+//         dangerouslySetInnerHTML={{
+//           __html: `
+//         .detail-hero { background: #1A202C url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/banner-5.jpg') center/cover no-repeat fixed; padding: 100px 0; color: #fff; position: relative; }
+//         .detail-hero-overlay { position: absolute; inset: 0; background: #00302b; opacity: 0.4; }
+//         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; position: relative; z-index: 2; }
+//         .specs-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+//         .specs-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+//         .specs-table td:first-child { font-weight: 700; background: rgba(255,255,255,0.05); width: 35%; }
+//         .feature-list { list-style: none; padding: 0; margin-top: 30px; }
+//         .feature-list li { display: flex; gap: 10px; margin-bottom: 10px; color: #fff; }
+//         /* 1. 增强底部四个图标的显眼度 */
+//         .icon-grid {
+//           display: grid;
+//           grid-template-columns: repeat(4, 1fr);
+//           gap: 20px;
+//           margin-top: 50px;
+//           position: relative;
+//           z-index: 2;
+//         }
+//         .icon-box {
+//           display: flex;
+//           flex-direction: column;
+//           align-items: center;
+//           gap: 10px;
+//           color: #fff;
+//         }
+//         .icon-wrapper {
+//           width: 80px;
+//           height: 80px;
+//           background: rgba(255, 255, 255, 0.9); /* 白色半透明背景 */
+//           border-radius: 50%;
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+//           transition: transform 0.3s ease;
+//         }
+//         .icon-box:hover .icon-wrapper { transform: translateY(-5px); }
+//         .icon-wrapper img { width: 45px !important; height: 45px !important; }
+//         .icon-box span { font-weight: 700; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
 
-//       {/* ════════════════════════════════════════════════════
-//           1. CATEGORY TAG
-//              Elementor: small teal label above product title
-//           ════════════════════════════════════════════════════ */}
-//       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px 0" }}>
-//         <ScrollReveal direction="up">
-//           <div className="ivt-category-tag">
-//             {/* Tags icon — Elementor: e-fas-tags svg */}
-//             <svg
-//               width="13"
-//               height="13"
-//               viewBox="0 0 640 512"
-//               fill="currentColor"
-//             >
-//               <path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z" />
-//             </svg>
-//             {category.toUpperCase()} PRODUCTS
-//           </div>
-//         </ScrollReveal>
-//       </div>
+//         /* 2. 新增购买按钮样式 */
+//         .buy-btn {
+//           margin-top: 25px;
+//           background: #ffb400; /* 亮眼的金黄色，吸引点击 */
+//           color: #00302b;
+//           border: none;
+//           padding: 15px 40px;
+//           font-size: 18px;
+//           font-weight: 800;
+//           border-radius: 50px;
+//           cursor: pointer;
+//           text-transform: uppercase;
+//           transition: all 0.3s;
+//           box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+//         }
+//         .buy-btn:hover { background: #fff; transform: scale(1.05); }
 
-//       {/* ════════════════════════════════════════════════════
-//           2. PRODUCT HERO
-//              Elementor: two-column flex container
-//              Left (flex-1): image with rounded border
-//              Right (flex-1): title + features + quote box
-//           ════════════════════════════════════════════════════ */}
-//       <section
-//         style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px 64px" }}
-//       >
-//         <div
-//           className="ivt-product-row"
-//           style={{
-//             display: "flex",
-//             gap: 48,
-//             alignItems: "flex-start",
-//             flexWrap: "wrap",
-//           }}
-//         >
-//           {/* ── Left: product image ── */}
-//           <ScrollReveal
-//             direction="right"
-//             className="ivt-product-left"
-//             style={{ flex: 1, minWidth: 0 }}
-//           >
-//             <div
-//               style={{
-//                 position: "relative",
-//                 aspectRatio: "4/3",
-//                 borderRadius: 8,
-//                 overflow: "hidden",
-//                 border: "1px solid #f0f0f0",
-//                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-//               }}
-//             >
-//               <Image
+//         /* ── Modal 整体背景（带模糊效果） ── */
+//         .modal-overlay {
+//           position: fixed; inset: 0;
+//           background: rgba(0, 0, 0, 0.7);
+//           backdrop-filter: blur(5px);
+//           display: flex; align-items: center; justify-content: center;
+//           z-index: 9999;
+//         }
+//         /* ── Modal 核心卡片 ── */
+//         .modal-card {
+//           background: #fff; padding: 40px; border-radius: 20px;
+//           max-width: 450px; width: 90%; text-align: center;
+//           box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+//           animation: modalScale 0.3s ease-out;
+//         }
+//         @keyframes modalScale {
+//           from { transform: scale(0.9); opacity: 0; }
+//           to { transform: scale(1); opacity: 1; }
+//         }
+//         .modal-card h3 { color: #004e46; font-size: 24px; margin-bottom: 15px; }
+//         .modal-card p { color: #666; line-height: 1.6; margin-bottom: 25px; }
+//         .modal-close-btn {
+//           background: #00a496; color: #fff; border: none;
+//           padding: 12px 35px; border-radius: 50px; font-weight: 700;
+//           cursor: pointer; transition: 0.3s;
+//         }
+//         .modal-close-btn:hover { background: #008075; transform: translateY(-2px); }
+//       `,
+//         }}
+//       />
+
+//       <section className="detail-hero">
+//         <div className="detail-hero-overlay"></div>
+//         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
+//           <div className="grid-2">
+//             {/* 左侧：图片 + 挪过来的特性列表 */}
+//             <div>
+//               <img
 //                 src={product.img}
 //                 alt={product.title}
-//                 fill
-//                 style={{ objectFit: "cover" }}
-//                 priority
+//                 style={{
+//                   width: "100%",
+//                   borderRadius: "12px",
+//                   background: "#fff",
+//                   boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+//                 }}
 //               />
+//               {/* 特性列表现在在这里，填补空白 */}
+//               <div
+//                 style={{
+//                   marginTop: "30px",
+//                   background: "rgba(0,0,0,0.2)",
+//                   padding: "20px",
+//                   borderRadius: "12px",
+//                 }}
+//               >
+//                 <h3
+//                   style={{
+//                     color: "#00dba0",
+//                     marginBottom: "15px",
+//                     fontSize: "20px",
+//                   }}
+//                 >
+//                   Core Features
+//                 </h3>
+//                 <ul className="feature-list" style={{ marginTop: 0 }}>
+//                   {product.features.map((f: string, i: number) => (
+//                     <li
+//                       key={i}
+//                       style={{ fontSize: "16px", marginBottom: "8px" }}
+//                     >
+//                       <span style={{ color: "#00dba0" }}>✔</span> {f}
+//                     </li>
+//                   ))}
+//                 </ul>
+//               </div>
 //             </div>
-//           </ScrollReveal>
 
-//           {/* ── Right: product info ── */}
-//           <ScrollReveal
-//             direction="left"
-//             delay={100}
-//             className="ivt-product-right"
-//             style={{
-//               flex: 1,
-//               minWidth: 0,
-//               display: "flex",
-//               flexDirection: "column",
-//               justifyContent: "center",
-//             }}
-//           >
-//             {/* Title — Elementor: h2, elementor-size-default */}
-//             <h1
+//             {/* 右侧：标题 + 规格表 + 购买按钮 */}
+//             <div
 //               style={{
-//                 fontSize: 32,
-//                 fontWeight: 700,
-//                 color: "#333",
-//                 marginBottom: 24,
-//                 lineHeight: 1.3,
+//                 display: "flex",
+//                 flexDirection: "column",
+//                 justifyContent: "center",
 //               }}
 //             >
-//               {product.title}
-//             </h1>
+//               <h1
+//                 style={{
+//                   fontSize: "42px",
+//                   fontWeight: 800,
+//                   marginBottom: "25px",
+//                   textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+//                 }}
+//               >
+//                 {product.title}
+//               </h1>
 
-//             {/* Features list — Elementor: wp-block-list */}
-//             <ul
-//               className="ivt-features"
-//               style={{ listStyle: "none", padding: 0, margin: "0 0 8px 0" }}
-//             >
-//               {product.features.map((feature: string, i: number) => (
-//                 <li key={i}>
-//                   <span className="bullet">•</span>
-//                   {feature}
-//                 </li>
-//               ))}
-//             </ul>
+//               <table className="specs-table">
+//                 <tbody>
+//                   {Object.entries(product.specs).map(([k, v]: any) => (
+//                     <tr key={k}>
+//                       <td>{k}</td>
+//                       <td>{v}</td>
+//                     </tr>
+//                   ))}
+//                 </tbody>
+//               </table>
 
-//             {/* Quote box — Elementor: inner container with label + button */}
-//             <div className="ivt-quote-box">
-//               <p>For product pricing, customization, or other inquiries:</p>
-//               <Link href="/contact-us" className="ivt-quote-btn">
-//                 Get a Quote
-//               </Link>
+//               {/* 新增购买按钮 */}
+//               <button className="buy-btn" onClick={() => setIsModalOpen(true)}>
+//                 Buy Now / Inquiry
+//               </button>
 //             </div>
-//           </ScrollReveal>
-//         </div>
-//       </section>
-
-//       {/* ════════════════════════════════════════════════════
-//           3. DESCRIPTION TAB
-//              Elementor: n-tabs widget (single tab "Description")
-//              Content: product detail image + specs table + another image
-//           ════════════════════════════════════════════════════ */}
-//       <section
-//         style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px 72px" }}
-//       >
-//         <ScrollReveal direction="up">
-//           {/* Tab header — Elementor: e-n-tab-title-text */}
-//           <div style={{ borderBottom: "1px solid #f0f0f0", marginBottom: 32 }}>
-//             <div className="ivt-tab-header">Description</div>
 //           </div>
-//         </ScrollReveal>
 
-//         <ScrollReveal direction="up" delay={80}>
-//           {/* Specs table — Elementor: table inside text-editor widget */}
-//           <div
-//             style={{
-//               overflowX: "auto",
-//               borderRadius: 12,
-//               border: "1px solid #e8e8e8",
-//               boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
-//             }}
-//           >
-//             <table className="ivt-specs-table">
-//               <tbody>
-//                 {Object.entries(product.specs).map(([key, value]: any) => (
-//                   <tr key={key}>
-//                     <td>{key}</td>
-//                     <td>{value}</td>
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </table>
-//           </div>
-//         </ScrollReveal>
-//       </section>
-
-//       {/* ════════════════════════════════════════════════════
-//           4. CATEGORY KNOWLEDGE (Replaced from original site)
-//           ════════════════════════════════════════════════════ */}
-//       <section
-//         style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px 24px" }}
-//       >
-//         <ScrollReveal direction="up">
-//           {/* 动态标题：显示材质名称 */}
-//           <h2 className="ivt-section-heading">
-//             {category.charAt(0).toUpperCase() + category.slice(1)} Products
-//           </h2>
-//           {/* 动态文案：根据类别从字典抓取对应的长文 */}
-//           <p
-//             style={{
-//               color: "#666",
-//               lineHeight: 1.85,
-//               maxWidth: 1000,
-//               fontSize: 15,
-//               marginBottom: 56,
-//             }}
-//           >
-//             {categoryDescriptions[category] ||
-//               "Learn more about our premium sustainable paper solutions."}
-//           </p>
-//         </ScrollReveal>
-
-//         {/* ════════════════════════════════════════════════════
-//             5. OUR FACTORY
-//                Elementor: e-gallery-justified — 2 rows × 4 items
-//                Each item: background-image div + overlay
-//             ════════════════════════════════════════════════════ */}
-//         <ScrollReveal direction="up" delay={40}>
-//           <h2 className="ivt-section-heading">Our Factory</h2>
-//         </ScrollReveal>
-
-//         <div className="ivt-factory-grid" style={{ marginBottom: 72 }}>
-//           {FACTORY_IMGS.map((src, i) => (
-//             <ScrollReveal key={i} delay={i * 60} direction="up">
-//               <div className="ivt-factory-item">
-//                 {/* eslint-disable-next-line @next/next/no-img-element */}
-//                 <img src={src} alt={`Factory ${i + 1}`} loading="lazy" />
-//                 <div className="ivt-factory-overlay" />
+//           {/* 底部四个图标：现在更显眼了 */}
+//           <div className="icon-grid">
+//             {[
+//               { img: "icon-1-1.png", label: "Sheets" },
+//               { img: "icon-1-2.png", label: "Layers" },
+//               { img: "icon-1-3.png", label: "Packing" },
+//               { img: "icon-1-4.png", label: "Material" },
+//             ].map((item, idx) => (
+//               <div className="icon-box" key={idx}>
+//                 <div className="icon-wrapper">
+//                   <img
+//                     src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/${item.img}`}
+//                     alt={item.label}
+//                   />
+//                 </div>
+//                 <span>{item.label}</span>
 //               </div>
-//             </ScrollReveal>
-//           ))}
+//             ))}
+//           </div>
 //         </div>
 //       </section>
 
-//       {/* ════════════════════════════════════════════════════
-//           6. SUBMIT A REQUEST
-//              Elementor: two-column container
-//              Left (background: classic): heading + form
-//              Right: empty panel (bg color)
-//           ════════════════════════════════════════════════════ */}
-//       <section style={{ background: "#f9f9f9", borderTop: "1px solid #eee" }}>
+//       {/* 底部工厂展示 */}
+//       <section style={{ padding: "80px 0", textAlign: "center" }}>
+//         <h2 style={{ color: "#004e46", marginBottom: "40px" }}>
+//           Our Production Excellence
+//         </h2>
 //         <div
-//           className="ivt-request-grid"
-//           style={{ maxWidth: 1200, margin: "0 auto" }}
+//           style={{
+//             display: "grid",
+//             gridTemplateColumns: "repeat(4, 1fr)",
+//             gap: "10px",
+//             padding: "0 20px",
+//           }}
 //         >
-//           {/* Left: form */}
-//           <ScrollReveal direction="right" className="ivt-request-left">
-//             <h2 className="ivt-section-heading" style={{ marginBottom: 28 }}>
-//               Submit a Request
-//             </h2>
-//             <ContactForm />
-//           </ScrollReveal>
-
-//           {/* Right: decorative panel — Elementor: empty e-con with background */}
-//           <div
-//             className="ivt-request-right"
-//             style={{
-//               backgroundImage: "url(/images/contact-bg.jpg)",
-//               backgroundSize: "cover",
-//               backgroundPosition: "center",
-//             }}
+//           <img
+//             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-3.jpg"
+//             style={{ width: "100%" }}
+//           />
+//           <img
+//             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-1.jpg"
+//             style={{ width: "100%" }}
+//           />
+//           <img
+//             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-4.jpg"
+//             style={{ width: "100%" }}
+//           />
+//           <img
+//             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-2.jpg"
+//             style={{ width: "100%" }}
 //           />
 //         </div>
 //       </section>
-//     </div>
+//       {/* ── 漂亮的 Modal 弹窗 ── */}
+//       {isModalOpen && (
+//         <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+//           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+//             <div style={{ fontSize: "50px", marginBottom: "20px" }}>🚧</div>
+//             <h3>Coming Soon!</h3>
+//             <p>
+//               Our online store is currently under construction to provide you
+//               with a better shopping experience.
+//               <br />
+//               <br />
+//               In the meantime, please contact us through the{" "}
+//               <strong>Inquiry form</strong> or <strong>WhatsApp</strong> for
+//               orders!
+//             </p>
+//             <button
+//               className="modal-close-btn"
+//               onClick={() => setIsModalOpen(false)}
+//             >
+//               Got it!
+//             </button>
+//           </div>
+//         </div>
+//       )}
+//     </main>
 //   );
 // }
 
 "use client";
-import React, { use,useState } from "react"; // 👈 1. 引入 React 的 use 钩子
+import React, { use, useState } from "react";
 import { notFound } from "next/navigation";
 import { productsDatabase } from "@/app/lib/productsDatabase";
 import Link from "next/link";
 
 export default function ProductDetailPage({
-  // 👈 2. 把 async 删掉！
   params,
 }: {
   params: Promise<{ category: string; id: string }>;
 }) {
-  const { category, id } = use(params); // 👈 3. 把 await 换成 use()
+  const { category, id } = use(params);
   const categoryData = productsDatabase[category];
   const product = categoryData?.find((p: any) => p.id === id);
-  const [isModalOpen, setIsModalOpen] = useState(false); // 控制弹窗显示
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   if (!product) notFound();
-  // 弹窗提示函数 sd
+
+  // 💡 如果数据库里还没加 terms，我们先给个默认占位，防止报错。
+  // 你之后在 database 里给每个产品配上专属的 terms 即可。
+  const tradeTerms = product.terms || [
+    { label: "Samples", value: "Provided for free (customer pays freight)." },
+    {
+      label: "Customize",
+      value:
+        "Material, GSM, Layer, Sheet size, Sheets, Weight, Packing can be customized.",
+    },
+    {
+      label: "MOQ",
+      value: "40HQ container (Customized) / No limit (Standard).",
+    },
+    {
+      label: "Lead Time",
+      value: "25 work days (Customized) / 7-10 days (Standard).",
+    },
+  ];
 
   return (
     <main
-      style={{ backgroundColor: "#fff", fontFamily: "Poppins, sans-serif" }}
+      style={{ backgroundColor: "#f4f7f6", fontFamily: "Poppins, sans-serif" }}
     >
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        .detail-hero { background: #1A202C url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/banner-5.jpg') center/cover no-repeat fixed; padding: 100px 0; color: #fff; position: relative; }
-        .detail-hero-overlay { position: absolute; inset: 0; background: #00302b; opacity: 0.4; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; position: relative; z-index: 2; }
-        .specs-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
-        .specs-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .specs-table td:first-child { font-weight: 700; background: rgba(255,255,255,0.05); width: 35%; }
-        .feature-list { list-style: none; padding: 0; margin-top: 30px; }
-        .feature-list li { display: flex; gap: 10px; margin-bottom: 10px; color: #fff; }
-        /* 1. 增强底部四个图标的显眼度 */
-        .icon-grid { 
-          display: grid; 
-          grid-template-columns: repeat(4, 1fr); 
-          gap: 20px; 
-          margin-top: 50px; 
+        /* ── 1. Hero 视觉区 (精简数据，主打冲击力) ── */
+        .detail-hero { 
+          background: #1A202C url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/banner-5.jpg') center/cover no-repeat; 
+          padding: 80px 0 160px; /* 底部留出巨大空间给悬浮卡片 */
+          color: #fff; 
           position: relative; 
-          z-index: 2;
         }
-        .icon-box {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          color: #fff;
-        }
-        .icon-wrapper {
-          width: 80px;
-          height: 80px;
-          background: rgba(255, 255, 255, 0.9); /* 白色半透明背景 */
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-          transition: transform 0.3s ease;
-        }
-        .icon-box:hover .icon-wrapper { transform: translateY(-5px); }
-        .icon-wrapper img { width: 45px !important; height: 45px !important; }
-        .icon-box span { font-weight: 700; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .detail-hero-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.7); }
+        .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        
+        .hero-img-wrap img { width: 100%; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); background: #fff; }
+        
+        .hero-info h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); line-height: 1.2; }
+        
+        /* 顶部图标区域改版 */
+        .hero-icons { display: flex; gap: 20px; margin-bottom: 40px; }
+        .hero-icon-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2); }
+        .hero-icon-item img { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+        .hero-icon-item span { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* 2. 新增购买按钮样式 */
         .buy-btn {
-          margin-top: 25px;
-          background: #ffb400; /* 亮眼的金黄色，吸引点击 */
-          color: #00302b;
-          border: none;
-          padding: 15px 40px;
-          font-size: 18px;
-          font-weight: 800;
-          border-radius: 50px;
-          cursor: pointer;
-          text-transform: uppercase;
-          transition: all 0.3s;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+          background: #ffb400; color: #00302b; border: none; padding: 18px 50px; 
+          font-size: 18px; font-weight: 800; border-radius: 50px; cursor: pointer; 
+          text-transform: uppercase; transition: all 0.3s; box-shadow: 0 10px 25px rgba(255, 180, 0, 0.4);
         }
-        .buy-btn:hover { background: #fff; transform: scale(1.05); }
+        .buy-btn:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4); }
 
-        /* ── Modal 整体背景（带模糊效果） ── */
+        /* ── 2. 数据悬浮大卡片 (解决密集数据排版) ── */
+        .data-card-wrapper {
+          max-width: 1200px; margin: -100px auto 80px; padding: 0 20px; position: relative; z-index: 10;
+        }
+        .data-card {
+          background: #fff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+          padding: 50px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px;
+        }
+        
+        .section-subtitle { color: #00a496; font-size: 22px; font-weight: 800; margin-bottom: 25px; text-transform: uppercase; display: flex; align-items: center; gap: 10px;}
+        
+        /* 左侧：Specs 表格 + Features */
+        .clean-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        .clean-table tr { border-bottom: 1px solid #eee; }
+        .clean-table td { padding: 16px 12px; font-size: 15px; color: #444; }
+        .clean-table td:first-child { font-weight: 700; color: #111; width: 35%; background: #fcfcfc; }
+        
+        .feature-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: #555; font-weight: 500; }
+        .check-icon { color: #00a496; font-weight: bold; }
+
+        /* 右侧：B2B Trade Info 卡片化 */
+        .trade-terms-container { display: flex; flex-direction: column; gap: 20px; }
+        .trade-term-box {
+          background: #f8faf9; border-left: 4px solid #00a496; padding: 20px; border-radius: 0 8px 8px 0;
+          transition: transform 0.3s;
+        }
+        .trade-term-box:hover { transform: translateX(5px); background: #f0f6f5; }
+        .trade-term-title { font-size: 13px; color: #888; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px;}
+        .trade-term-desc { font-size: 16px; color: #222; font-weight: 600; line-height: 1.5; }
+
+        /* ── Modal 整体背景 ── */
         .modal-overlay {
-          position: fixed; inset: 0; 
-          background: rgba(0, 0, 0, 0.7); 
-          backdrop-filter: blur(5px); 
-          display: flex; align-items: center; justify-content: center; 
-          z-index: 9999;
+          position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); 
+          display: flex; align-items: center; justify-content: center; z-index: 9999;
         }
-        /* ── Modal 核心卡片 ── */
         .modal-card {
-          background: #fff; padding: 40px; border-radius: 20px; 
-          max-width: 450px; width: 90%; text-align: center; 
-          box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-          animation: modalScale 0.3s ease-out;
+          background: #fff; padding: 40px; border-radius: 20px; max-width: 450px; width: 90%; text-align: center; 
+          box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: modalScale 0.3s ease-out;
         }
-        @keyframes modalScale {
-          from { transform: scale(0.9); opacity: 0; }
-          to { transform: scale(1); opacity: 1; }
-        }
+        @keyframes modalScale { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .modal-card h3 { color: #004e46; font-size: 24px; margin-bottom: 15px; }
         .modal-card p { color: #666; line-height: 1.6; margin-bottom: 25px; }
         .modal-close-btn {
-          background: #00a496; color: #fff; border: none; 
-          padding: 12px 35px; border-radius: 50px; font-weight: 700;
+          background: #00a496; color: #fff; border: none; padding: 12px 35px; border-radius: 50px; font-weight: 700;
           cursor: pointer; transition: 0.3s;
         }
         .modal-close-btn:hover { background: #008075; transform: translateY(-2px); }
+
+        /* Responsive */
+        @media(max-width: 1024px) {
+          .hero-grid, .data-card { grid-template-columns: 1fr; gap: 40px; }
+          .hero-img-wrap { max-width: 600px; margin: 0 auto; }
+          .data-card { padding: 30px; }
+        }
+        @media(max-width: 640px) {
+          .hero-info h1 { font-size: 36px; }
+          .hero-icons { flex-direction: column; gap: 10px; }
+          .feature-list { grid-template-columns: 1fr; }
+        }
       `,
         }}
       />
 
+      {/* 1. HERO 视觉区 */}
       <section className="detail-hero">
         <div className="detail-hero-overlay"></div>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
-          <div className="grid-2">
-            {/* 左侧：图片 + 挪过来的特性列表 */}
-            <div>
-              <img
-                src={product.img}
-                alt={product.title}
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  background: "#fff",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-                }}
-              />
-              {/* 特性列表现在在这里，填补空白 */}
-              <div
-                style={{
-                  marginTop: "30px",
-                  background: "rgba(0,0,0,0.2)",
-                  padding: "20px",
-                  borderRadius: "12px",
-                }}
-              >
-                <h3
-                  style={{
-                    color: "#00dba0",
-                    marginBottom: "15px",
-                    fontSize: "20px",
-                  }}
-                >
-                  Core Features
-                </h3>
-                <ul className="feature-list" style={{ marginTop: 0 }}>
-                  {product.features.map((f: string, i: number) => (
-                    <li
-                      key={i}
-                      style={{ fontSize: "16px", marginBottom: "8px" }}
-                    >
-                      <span style={{ color: "#00dba0" }}>✔</span> {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="hero-container">
+          <div className="hero-grid">
+            {/* 左：大图 */}
+            <div className="hero-img-wrap">
+              <img src={product.img} alt={product.title} />
             </div>
 
-            {/* 右侧：标题 + 规格表 + 购买按钮 */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-              }}
-            >
-              <h1
+            {/* 右：标题 + 核心标识 + 按钮 */}
+            <div className="hero-info">
+              <span
                 style={{
-                  fontSize: "42px",
-                  fontWeight: 800,
-                  marginBottom: "25px",
-                  textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                  color: "#00dba0",
+                  fontWeight: 700,
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: "15px",
                 }}
               >
-                {product.title}
-              </h1>
+                Premium Tissue Series
+              </span>
+              <h1>{product.title}</h1>
 
-              <table className="specs-table">
-                <tbody>
-                  {Object.entries(product.specs).map(([k, v]: any) => (
-                    <tr key={k}>
-                      <td>{k}</td>
-                      <td>{v}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              {/* 四个图标移到这里，增强第一眼印象 */}
+              <div className="hero-icons">
+                <div className="hero-icon-item">
+                  <img
+                    src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/icon-1-1.png"
+                    alt="Sheets"
+                  />
+                  <span>{product.specs.Sheets || "Custom"}</span>
+                </div>
+                <div className="hero-icon-item">
+                  <img
+                    src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/icon-1-2.png"
+                    alt="Layers"
+                  />
+                  <span>{product.specs.Layer || "Multi-ply"}</span>
+                </div>
+                <div className="hero-icon-item">
+                  <img
+                    src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/icon-1-4.png"
+                    alt="Material"
+                  />
+                  <span>Eco-Friendly</span>
+                </div>
+              </div>
 
-              {/* 新增购买按钮 */}
               <button className="buy-btn" onClick={() => setIsModalOpen(true)}>
-                Buy Now / Inquiry
+                Get A Quote Now
               </button>
             </div>
-          </div>
-
-          {/* 底部四个图标：现在更显眼了 */}
-          <div className="icon-grid">
-            {[
-              { img: "icon-1-1.png", label: "Sheets" },
-              { img: "icon-1-2.png", label: "Layers" },
-              { img: "icon-1-3.png", label: "Packing" },
-              { img: "icon-1-4.png", label: "Material" },
-            ].map((item, idx) => (
-              <div className="icon-box" key={idx}>
-                <div className="icon-wrapper">
-                  <img
-                    src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/${item.img}`}
-                    alt={item.label}
-                  />
-                </div>
-                <span>{item.label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* 底部工厂展示 */}
-      <section style={{ padding: "80px 0", textAlign: "center" }}>
-        <h2 style={{ color: "#004e46", marginBottom: "40px" }}>
+      {/* 2. 数据悬浮大卡片 */}
+      <section className="data-card-wrapper">
+        <div className="data-card">
+          {/* 左侧：物理规格与特征 */}
+          <div>
+            <h3 className="section-subtitle">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+              Technical Specifications
+            </h3>
+
+            <table className="clean-table">
+              <tbody>
+                {Object.entries(product.specs).map(([k, v]: any) => (
+                  <tr key={k}>
+                    <td>{k}</td>
+                    <td>{v}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <h3 className="section-subtitle" style={{ marginTop: "40px" }}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              Core Features
+            </h3>
+            <ul className="feature-list">
+              {product.features.map((f: string, i: number) => (
+                <li key={i}>
+                  <span className="check-icon">✔</span> {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 右侧：B2B 商业条款 */}
+          <div>
+            <h3 className="section-subtitle">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              Trade & Purchase Info
+            </h3>
+            <div className="trade-terms-container">
+              {tradeTerms.map((term: any, idx: number) => (
+                <div key={idx} className="trade-term-box">
+                  <div className="trade-term-title">{term.label}</div>
+                  <div className="trade-term-desc">{term.value}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* 提示块 */}
+            <div
+              style={{
+                marginTop: "30px",
+                padding: "15px",
+                background: "#fffaf0",
+                border: "1px dashed #eeddcc",
+                borderRadius: "8px",
+                fontSize: "14px",
+                color: "#666",
+              }}
+            >
+              <strong>Note:</strong> Pricing depends on order volume and
+              customization level. Please contact our team for a precise
+              quotation.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. 底部工厂展示 (保留原样) */}
+      <section style={{ padding: "0 0 80px 0", textAlign: "center" }}>
+        <h2
+          style={{
+            color: "#004e46",
+            marginBottom: "40px",
+            fontSize: "32px",
+            fontWeight: 800,
+          }}
+        >
           Our Production Excellence
         </h2>
         <div
@@ -704,26 +593,29 @@ export default function ProductDetailPage({
             gridTemplateColumns: "repeat(4, 1fr)",
             gap: "10px",
             padding: "0 20px",
+            maxWidth: "1400px",
+            margin: "0 auto",
           }}
         >
           <img
             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-3.jpg"
-            style={{ width: "100%" }}
+            style={{ width: "100%", borderRadius: "8px" }}
           />
           <img
             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-1.jpg"
-            style={{ width: "100%" }}
+            style={{ width: "100%", borderRadius: "8px" }}
           />
           <img
             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-4.jpg"
-            style={{ width: "100%" }}
+            style={{ width: "100%", borderRadius: "8px" }}
           />
           <img
             src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/Factory-2.jpg"
-            style={{ width: "100%" }}
+            style={{ width: "100%", borderRadius: "8px" }}
           />
         </div>
       </section>
+
       {/* ── 漂亮的 Modal 弹窗 ── */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
@@ -731,13 +623,11 @@ export default function ProductDetailPage({
             <div style={{ fontSize: "50px", marginBottom: "20px" }}>🚧</div>
             <h3>Coming Soon!</h3>
             <p>
-              Our online store is currently under construction to provide you
-              with a better shopping experience.
+              Our online store is currently under construction.
               <br />
               <br />
-              In the meantime, please contact us through the{" "}
-              <strong>Inquiry form</strong> or <strong>WhatsApp</strong> for
-              orders!
+              Please contact us through the <strong>Contact Us</strong> page or{" "}
+              <strong>WhatsApp</strong> for orders!
             </p>
             <button
               className="modal-close-btn"

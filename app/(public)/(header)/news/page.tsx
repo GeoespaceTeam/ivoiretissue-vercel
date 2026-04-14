@@ -32,7 +32,7 @@ export default function NewsPage() {
           __html: `
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .news-hero {
-          background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/boo-bg-3.png');
+          // background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/boo-bg-3.png');
           background-size: auto; background-position: center center; background-attachment: fixed;
           background-repeat: no-repeat; background-color: rgba(255,255,255,0.50);
           padding: 80px 0; text-align: center;

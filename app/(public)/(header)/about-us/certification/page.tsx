@@ -123,7 +123,7 @@ export default function CertificationPage() {
         /* 1. Hero Section */
         .cert-hero { 
           position: relative; 
-          background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg-7.jpg'); 
+          background-image: url('/images/certification-hero.png'); 
           background-size: cover; 
           background-position: center; 
           padding: 80px 0; 
@@ -169,7 +169,7 @@ export default function CertificationPage() {
         /* 4. Bottom FAQ & Contact */
         .fac-bottom-section { 
           position: relative; 
-          background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg'); 
+          background-image: url('/images/certification-faq.png'); 
           background-size: cover; 
           background-position: center; 
           padding: 100px 20px; 

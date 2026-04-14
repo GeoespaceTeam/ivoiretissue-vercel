@@ -253,7 +253,7 @@ export default function AboutUsPage() {
         
         /* 1. Hero Section - 30/70 比例还原 */
         .au-hero { 
-          background: #f0f8f3 url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/boo-bg-3.png') 50% 25% no-repeat; 
+          background: #f0f8f3 url('/images/about-hero.png') 50% 25% no-repeat; 
           background-size: cover; 
           padding: 60px 0; 
         }
@@ -274,7 +274,7 @@ export default function AboutUsPage() {
         .au-profile-text p { color: #575757; font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
 
         /* 3. Why Choose Us - Zig-Zag 布局还原 */
-        .au-why { background: #f0f8f3 url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/未标题-3-1.png') center/cover no-repeat; padding: 100px 0; }
+        .au-why { background: #f0f8f3 url('/imag') center/cover no-repeat; padding: 100px 0; }
         .au-why-header { text-align: center; margin-bottom: 80px; }
         .au-why-header h2 { font-size: 45px; color: #111; font-weight: 700; text-transform: uppercase; }
         .au-why-header p { font-size: 22px; color: #323232; font-weight: 600; margin-top: 10px; }
@@ -290,7 +290,7 @@ export default function AboutUsPage() {
         /* 4. FAQ & Form - 使用 bg.jpg 统一背景 */
         .au-faq-section { 
           position: relative; padding: 120px 0; 
-          background: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg') center/cover no-repeat fixed; 
+          background: url('/images/about-us-faq.png') center/cover no-repeat fixed; 
         }
         .au-faq-overlay { position: absolute; inset: 0; background: #00302b; opacity: 0.35; z-index: 1; }
         .au-faq-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start; }

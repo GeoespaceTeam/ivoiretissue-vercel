@@ -384,7 +384,7 @@ export default function ContactUsPage() {
         .cu-outer-wrap { 
           position: relative; 
           padding: 80px 0; 
-          background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/contact-bg-1.jpg');
+          background-image:url("/images/contact-us-first.png");
           background-size: cover;
           background-position: center;
           background-attachment: fixed; /* 视差效果 */

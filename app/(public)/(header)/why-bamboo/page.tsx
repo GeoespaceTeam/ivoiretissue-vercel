@@ -88,7 +88,7 @@ export default function WhyBambooPage() {
         .wb-hero {
           position: relative;
           height: 450px;
-          background: url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/contact-bg-2.jpg') center/cover no-repeat;
+          background: url('/images/why-bamboo-hero.png') center/cover no-repeat;
           display: flex;
           align-items: center;
           color: #fff;
@@ -99,7 +99,7 @@ export default function WhyBambooPage() {
         /* 2. Advantage Section - 带有水印 boo-bg-4.png */
         .wb-advantage {
           padding: 100px 0;
-          background: #ecfdf5 url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/boo-bg-4.png') 44% 66% no-repeat fixed;
+          // background: #ecfdf5 url('https://www.cndonseapaper.com/wp-content/uploads/2025/04/boo-bg-4.png') 44% 66% no-repeat fixed;
         }
         .wb-adv-grid { display: grid; grid-template-columns: 45% 55%; gap: 60px; align-items: start; }
         .wb-adv-title { font-size: 40px; font-weight: 700; color: #004e46; margin-bottom: 30px; }
@@ -132,7 +132,7 @@ export default function WhyBambooPage() {
         /* 4. FAQ Section */
         .wb-faq-section {
           position: relative; padding: 100px 0;
-          background: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg') center/cover no-repeat;
+          background: url('/images/why-bamboo-faq.png') center/cover no-repeat;
         }
         .wb-overlay { position: absolute; inset: 0; background: #00302b; opacity: 0.35; z-index: 1; }
         .wb-faq-grid { position: relative; z-index: 10; display: grid; grid-template-columns: 60% 40%; gap: 60px; }

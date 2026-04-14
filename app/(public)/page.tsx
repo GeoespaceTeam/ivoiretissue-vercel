@@ -1017,7 +1017,7 @@ export default function HomePage() {
         .hm-exhib-card-title { background: var(--c-dark-green); color: #fff; padding: 15px; font-weight: 700; }
 
         /* 9. Contact (Bamboo Background + Glassmorphism) */
-        .hm-contact { position: relative; padding: 100px 0; background-color: var(--c-dark-green); background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg'); background-size: cover; background-position: center; }
+        .hm-contact { position: relative; padding: 100px 0; background-color: var(--c-dark-green); background-image: url('/images/about-us-faq.png'); background-size: cover; background-position: center; }
         .hm-contact-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.4); }
         .hm-contact-container { position: relative; z-index: 10; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         
