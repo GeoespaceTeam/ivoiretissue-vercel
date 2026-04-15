@@ -6,28 +6,28 @@ import React, { useState } from "react";
 const videos = [
   {
     title: "Production Line",
-    src: "https://www.youtube.com/embed/Unop6aekL1M",
+    src: "https://www.youtube.com/embed/GoVJN3JYxRY",
   },
   {
     title: "Paper Towel Cutting Production Line",
-    src: "https://www.youtube.com/embed/FkO4kFba1k4",
+    src: "https://www.youtube.com/embed/fSTSqsCb1wQ",
   },
   {
     title: "Paper Towel Production And Packaging Line",
-    src: "https://www.youtube.com/embed/Jbw4Ur_6BSQ",
+    src: "https://www.youtube.com/embed/Flf8dQKgL54",
   },
-  {
-    title: "Roll Rubbing Equipment Cutting",
-    src: "https://www.youtube.com/embed/-C6KF2j65vg",
-  },
-  {
-    title: "Heat Shrink Film Packaging Line",
-    src: "https://www.youtube.com/embed/5YWwLpFFrPg",
-  },
-  {
-    title: "Automatic Line Production",
-    src: "https://www.youtube.com/embed/4sL490OAQko",
-  },
+  // {
+  //   title: "Roll Rubbing Equipment Cutting",
+  //   src: "https://www.youtube.com/embed/-C6KF2j65vg",
+  // },
+  // {
+  //   title: "Heat Shrink Film Packaging Line",
+  //   src: "https://www.youtube.com/embed/5YWwLpFFrPg",
+  // },
+  // {
+  //   title: "Automatic Line Production",
+  //   src: "https://www.youtube.com/embed/4sL490OAQko",
+  // },
 ];
 
 // --- 2. FAQ 数据 (已全面替换为 Ivoire Tissue 官方数据) ---
