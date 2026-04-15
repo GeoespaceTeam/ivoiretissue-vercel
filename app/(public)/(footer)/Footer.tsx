@@ -511,6 +511,14 @@ export default function Footer() {
                 FAQ
               </Link>
             </li>
+            {/* 👇 新增的 Careers 链接 👇 */}
+            <li>
+              <ChevronRight />
+              <Link href="/career" className="iv-footer-link">
+                Careers
+              </Link>
+            </li>
+            {/* 👆 新增结束 👆 */}
             <li>
               <ChevronRight />
               <Link href="/contact-us" className="iv-footer-link">

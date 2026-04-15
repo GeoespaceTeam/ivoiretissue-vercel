@@ -301,7 +301,7 @@ const powerIcons = [
           </div>
           <div>
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/WHY-BAMBOO.jpg"
+              src="/images/market-canada.jpg"
               alt="Bamboo Product"
               className="wb-img-square"
             />
