@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-
+import {
+  LuSprout,
+  LuWind,
+  LuScaling,
+  LuDroplet,
+  LuRecycle,
+  LuCloud,
+} from "react-icons/lu";
 // ============================================================
 // 📌 精准 SVG 图标
 // ============================================================
@@ -45,15 +52,22 @@ const ChevronDown = ({ isOpen }: { isOpen: boolean }) => (
 export default function WhyBambooPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const powerIcons = [
-    { id: "10", title: "Grows up to 3 feet a day." },
-    { id: "12", title: "Releases 30% more oxygen." },
-    { id: "13", title: "Uses less land due to density." },
-    { id: "14", title: "Requires 30% less water." },
-    { id: "15", title: "Entirely renewable." },
-    { id: "16", title: "Absorbs 12 tonnes of CO2 per year." },
-  ];
-
+  // const powerIcons = [
+  //   { id: "10", title: "Grows up to 3 feet a day." },
+  //   { id: "12", title: "Releases 30% more oxygen." },
+  //   { id: "13", title: "Uses less land due to density." },
+  //   { id: "14", title: "Requires 30% less water." },
+  //   { id: "15", title: "Entirely renewable." },
+  //   { id: "16", title: "Absorbs 12 tonnes of CO2 per year." },
+  // ];
+const powerIcons = [
+  { id: "1", icon: LuSprout, title: "Grows up to 3 feet a day." },
+  { id: "2", icon: LuWind, title: "Releases 30% more oxygen." },
+  { id: "3", icon: LuScaling, title: "Uses less land due to density." },
+  { id: "4", icon: LuDroplet, title: "Requires 30% less water." },
+  { id: "5", icon: LuRecycle, title: "Entirely renewable." },
+  { id: "6", icon: LuCloud, title: "Absorbs 12 tonnes of CO2 per year." },
+];
   const faqs = [
     {
       q: "Q1: Do you use 100% virgin bamboo pulp for tissue paper ?",
@@ -214,7 +228,7 @@ export default function WhyBambooPage() {
             </div>
 
             {/* 右侧：图标网格 */}
-            <div className="wb-icon-grid">
+            {/* <div className="wb-icon-grid">
               {powerIcons.map((icon) => (
                 <div key={icon.id} className="wb-icon-item">
                   <img
@@ -224,6 +238,32 @@ export default function WhyBambooPage() {
                   <h5>{icon.title}</h5>
                 </div>
               ))}
+            </div> */}
+            {/* 右侧：图标网格 */}
+            <div className="wb-icon-grid">
+              {powerIcons.map((item) => {
+                const IconComponent = item.icon; // 提取组件
+                return (
+                  <div key={item.id} className="wb-icon-item">
+                    {/* 用 div 替代 img，保持 100x100 的占位，内部绝对居中 */}
+                    <div
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        margin: "0 auto 15px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#00a496", // 使用品牌主题绿
+                        fontSize: "65px", // 图标实际大小
+                      }}
+                    >
+                      <IconComponent strokeWidth={1.5} />
+                    </div>
+                    <h5>{item.title}</h5>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

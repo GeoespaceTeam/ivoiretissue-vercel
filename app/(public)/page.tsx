@@ -822,13 +822,21 @@ const stats = [
   { num: "2", label: "Countries Market" },
 ];
 
+// const powerIcons = [
+//   { img: "10", title: "Grows up to 3 feet a day." },
+//   { img: "12", title: "Releases 30% more oxygen." },
+//   { img: "13", title: "Uses less land due to density." },
+//   { img: "14", title: "Requires 30% less water." },
+//   { img: "15", title: "Entirely renewable." },
+//   { img: "16", title: "Absorbs 12 tonnes of CO2 per year." },
+// ];
 const powerIcons = [
-  { img: "10", title: "Grows up to 3 feet a day." },
-  { img: "12", title: "Releases 30% more oxygen." },
-  { img: "13", title: "Uses less land due to density." },
-  { img: "14", title: "Requires 30% less water." },
-  { img: "15", title: "Entirely renewable." },
-  { img: "16", title: "Absorbs 12 tonnes of CO2 per year." },
+  { icon: LuSprout, title: "Grows up to 3 feet a day." },
+  { icon: LuWind, title: "Releases 30% more oxygen." },
+  { icon: LuScaling, title: "Uses less land due to density." },
+  { icon: LuDroplet, title: "Requires 30% less water." },
+  { icon: LuRecycle, title: "Entirely renewable." },
+  { icon: LuCloud, title: "Absorbs 12 tonnes of CO2 per year." },
 ];
 
 // const whyChoose = [
@@ -858,7 +866,14 @@ const powerIcons = [
 //     desc: "Propose systematic solutions to customer needs – professional R&D team.",
 //   },
 // ];
-
+import {
+  LuSprout,
+  LuWind,
+  LuScaling,
+  LuDroplet,
+  LuRecycle,
+  LuCloud,
+} from "react-icons/lu";
 
 const whyChoose = [
   {
@@ -1320,7 +1335,7 @@ export default function HomePage() {
             Bamboo is the largest species of grass, offering unparalleled
             environmental benefits.
           </p>
-          <div className="hm-power-grid">
+          {/* <div className="hm-power-grid">
             {powerIcons.map((icon, i) => (
               <div key={i} className="hm-power-item">
                 <img
@@ -1330,6 +1345,30 @@ export default function HomePage() {
                 <h5>{icon.title}</h5>
               </div>
             ))}
+          </div> */}
+          <div className="hm-power-grid">
+            {powerIcons.map((item, i) => {
+              const IconComponent = item.icon; // 取出对应的组件
+              return (
+                <div key={i} className="hm-power-item">
+                  {/* 直接渲染 SVG 图标，取代 img 标签 */}
+                  <div
+                    style={{
+                      fontSize: "65px", // 控制图标大小，原来 img 是 80px，这里给 65px 视觉上刚好
+                      color: "#33ffcc", // 给个高亮品牌绿，你也可以改成纯白 "#ffffff"
+                      marginBottom: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <IconComponent strokeWidth={1.5} />{" "}
+                    {/* strokeWidth 控制线条粗细，1.5 显得很高级 */}
+                  </div>
+                  <h5>{item.title}</h5>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
