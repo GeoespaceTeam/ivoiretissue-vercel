@@ -124,16 +124,26 @@ export default function FactoryProductionLinePage() {
         .fac-workshop-right p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px; font-weight: 600; }
         .fac-workshop-right img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        /* 4. 工厂图片瀑布流 (Gallery) */
+/* 4. 工厂图片瀑布流 (Gallery) */
         .fac-gallery { padding: 60px 20px; max-width: 1400px; margin: 0 auto; }
-        .fac-gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
-        .fac-gallery img:hover { transform: scale(1.02); }
         
-        .fac-gallery-grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 60px; }
-        .fac-gallery-grid-8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 60px; }
+        /* 基础图片样式：删掉 height: 100%，解放高度控制权 */
+        .fac-gallery img { width: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; display: block; }
+        .fac-gallery img:hover { transform: scale(1.02); z-index: 2; position: relative; }
         
-        .fac-gallery-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
-        .fac-gallery-split-left img { height: 100%; min-height: 400px; }
+        /* 上方 4 图：强制统一裁切成 16:9 的横版电影比例 */
+        .fac-gallery-grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px; }
+        .fac-gallery-grid-4 img { aspect-ratio: 16 / 9; }
+        
+        /* 中间 8 图：强制统一裁切成 4:3 的经典相框比例 */
+        .fac-gallery-grid-8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
+        .fac-gallery-grid-8 img { aspect-ratio: 4 / 3; }
+        
+        /* 下方分栏魔法：右边用 4:3 撑起高度，左边用 height: 100% 自动跟随拉伸对齐 */
+        .fac-gallery-split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .fac-gallery-split-right { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .fac-gallery-split-right img { aspect-ratio: 4 / 3; }
+        .fac-gallery-split-left img { height: 100%; aspect-ratio: auto; }
         .fac-gallery-split-right { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
         /* 5. FAQ & Contact (背景深色区域) */
@@ -255,7 +265,8 @@ export default function FactoryProductionLinePage() {
               North America.
             </p>
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-1-1.jpg"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-1-1.jpg"
+              src="/images/factoryProductionLine/1.jpg"
               alt="Workshop Overview"
             />
           </div>
@@ -267,19 +278,23 @@ export default function FactoryProductionLinePage() {
         {/* 上方 4 图网格 */}
         <div className="fac-gallery-grid-4">
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-5-1.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-5-1.jpg"
+            src="/images/factoryProductionLine/2.png"
             alt="Workshop"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-4-1.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-4-1.jpg"
+            src="/images/factoryProductionLine/3.jpg"
             alt="Workshop"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-26.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-26.jpg"
+            src="/images/factoryProductionLine/4.png"
             alt="Workshop"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-7.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-7.jpg"
+            src="/images/factoryProductionLine/5.png"
             alt="Workshop"
           />
         </div>
@@ -287,35 +302,43 @@ export default function FactoryProductionLinePage() {
         {/* 中间 8 图网格 */}
         <div className="fac-gallery-grid-8">
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/1-2.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/1-2.jpg"
+            src="/images/factoryProductionLine/6.png"
             alt="Workshop detail"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/Factory-12.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/Factory-12.jpg"
+            src="/images/factoryProductionLine/7.jpg"
             alt="Workshop detail"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/Factory-1.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/Factory-1.jpg"
+            src="/images/factoryProductionLine/8.png"
             alt="Workshop detail"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-8-1.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-8-1.jpg"
+            src="/images/factoryProductionLine/9.jpg"
             alt="Workshop detail"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-5.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-5.jpg"
+            src="/images/factoryProductionLine/10.png"
             alt="Workshop detail"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-6.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-6.jpg"
+            src="/images/factoryProductionLine/11.png"
             alt="Workshop detail"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-21.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-21.jpg"
+            src="/images/factoryProductionLine/12.jpg"
             alt="Workshop detail"
           />
           <img
-            src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-22.jpg"
+            // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-22.jpg"
+            src="/images/factoryProductionLine/13.jpg"
             alt="Workshop detail"
           />
         </div>
@@ -324,25 +347,30 @@ export default function FactoryProductionLinePage() {
         <div className="fac-gallery-split">
           <div className="fac-gallery-split-left">
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-20.jpg"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-20.jpg"
+              src="/images/factoryProductionLine/14.jpg"
               alt="Large Workshop View"
             />
           </div>
           <div className="fac-gallery-split-right">
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/1-1.jpg"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/1-1.jpg"
+              src="/images/factoryProductionLine/15.jpg"
               alt="Detail"
             />
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/1-4.jpg"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/02/1-4.jpg"
+              src="/images/factoryProductionLine/16.jpg"
               alt="Detail"
             />
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-23.jpg"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-23.jpg"
+              src="/images/factoryProductionLine/17.jpg"
               alt="Detail"
             />
             <img
-              src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-25.jpg"
+              // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Workshop-NEW-25.jpg"
+              src="/images/factoryProductionLine/18.jpg"
               alt="Detail"
             />
           </div>
