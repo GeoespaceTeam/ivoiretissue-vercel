@@ -263,6 +263,7 @@ const staticPages = [
   { title: "Why Bamboo", url: "/why-bamboo", type: "Page" },
   { title: "FAQ", url: "/services/faq", type: "Page" },
   { title: "Contact Us", url: "/contact-us", type: "Page" },
+  { title: "Careers", url: "/career", type: "Page" }, // 👈 新增这行
   { title: "All Products", url: "/products", type: "Category" },
   { title: "Bamboo Products", url: "/products/bamboo", type: "Category" },
   { title: "Virgin Pulp Products", url: "/products/virgin", type: "Category" },
@@ -568,6 +569,9 @@ export default function Header() {
                                   <Link href="/services/faq">FAQ</Link>
                                 </li>
                                 <li>
+                                  <Link href="/career">Careers</Link>
+                                </li>
+                                <li>
                                   <Link href="/contact-us">Contact Us</Link>
                                 </li>
                               </ul>
@@ -750,6 +754,9 @@ export default function Header() {
                 </li>
                 <li>
                   <Link href="/services/faq">FAQ</Link>
+                </li>
+                <li>
+                  <Link href="/career">Careers</Link>
                 </li>
                 <li>
                   <Link href="/contact-us">Contact Us</Link>

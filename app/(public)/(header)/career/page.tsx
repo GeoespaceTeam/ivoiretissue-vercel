@@ -156,11 +156,11 @@ export default function CareerPage() {
           </h1>
           <p
             style={{
-              fontSize: "18px",
+              fontSize: "28px",
               marginTop: "20px",
-              maxWidth: "700px",
-              opacity: 0.9,
-              lineHeight: 1.6,
+              maxWidth: "900px",
+              opacity: 1,
+              lineHeight: 1.8,
             }}
           >
             Join a team where sustainability and innovation meet. We are looking
@@ -225,7 +225,7 @@ export default function CareerPage() {
                 <span
                   style={{
                     color: "#00a698",
-                    fontSize: "14px",
+                    fontSize: "26px",
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "1px",
@@ -235,7 +235,7 @@ export default function CareerPage() {
                 </span>
                 <h3
                   style={{
-                    fontSize: "22px",
+                    fontSize: "24px",
                     margin: "15px 0",
                     color: "#111",
                     fontWeight: 700,
@@ -245,7 +245,7 @@ export default function CareerPage() {
                 </h3>
                 <p
                   style={{
-                    fontSize: "15px",
+                    fontSize: "18px",
                     color: "#666",
                     lineHeight: 1.6,
                     marginBottom: "25px",
@@ -260,7 +260,7 @@ export default function CareerPage() {
                 >
                   <h4
                     style={{
-                      fontSize: "14px",
+                      fontSize: "20px",
                       fontWeight: 700,
                       marginBottom: "10px",
                       color: "#333",
@@ -272,7 +272,7 @@ export default function CareerPage() {
                     style={{
                       paddingLeft: "18px",
                       margin: 0,
-                      fontSize: "14px",
+                      fontSize: "18px",
                       color: "#777",
                       lineHeight: 1.6,
                     }}
@@ -288,6 +288,7 @@ export default function CareerPage() {
                         color: "#00a698",
                         fontWeight: 500,
                         marginTop: "10px",
+                        fontSize: "20px"
                       }}
                     >
                       And more...
@@ -296,7 +297,7 @@ export default function CareerPage() {
                 </div>
 
                 <Link
-                  href="mailto:rh@ivoiretissue.com"
+                  href="mailto:sales@ivoiretissue.com"
                   style={{
                     marginTop: "30px",
                     display: "inline-block",
@@ -307,7 +308,7 @@ export default function CareerPage() {
                     borderRadius: "4px",
                     textAlign: "center",
                     fontWeight: 600,
-                    fontSize: "14px",
+                    fontSize: "20px",
                     transition: "background 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
@@ -334,15 +335,15 @@ export default function CareerPage() {
         }}
       >
         <ScrollReveal direction="up">
-          <h2 style={{ fontSize: "28px", color: "#111", fontWeight: 700 }}>
+          <h2 style={{ fontSize: "36px", color: "#111", fontWeight: 700 }}>
             Didn't find the right role?
           </h2>
-          <p style={{ color: "#666", marginTop: "15px", fontSize: "16px" }}>
+          <p style={{ color: "#666", marginTop: "15px", fontSize: "24px" }}>
             We are always looking for great talent. Send your spontaneous
             application to:
           </p>
           <a
-            href="mailto:rh@ivoiretissue.com"
+            href="mailto:sales@ivoiretissue.com"
             style={{
               display: "inline-block",
               marginTop: "25px",
@@ -353,7 +354,7 @@ export default function CareerPage() {
               borderBottom: "2px solid #00a698",
             }}
           >
-            rh@ivoiretissue.com
+            sales@ivoiretissue.com
           </a>
         </ScrollReveal>
       </div>
