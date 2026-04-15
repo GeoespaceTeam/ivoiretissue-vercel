@@ -115,7 +115,10 @@
 "use client";
 
 import React, { useState } from "react";
-
+import { GiBamboo } from "react-icons/gi";
+import { MdFactory } from "react-icons/md";
+import { BsShieldFillCheck } from "react-icons/bs";
+import { FaShip, FaUsers } from "react-icons/fa";
 // ============================================================
 // 📌 精准图标 (统一使用官方品牌绿 #00a496)
 // ============================================================
@@ -156,11 +159,61 @@ const ChevronDown = ({ isOpen }: { isOpen: boolean }) => (
 // ============================================================
 // 📌 数据源
 // ============================================================
+// const advantageData = [
+//   {
+//     id: "01",
+//     title: "Stable Industrial Supply Chain",
+//     icon: "1",
+//     imgSrc: "/images/about-us-step1.png",
+//     desc: [
+//       "Forest – Pulp – Paper – Processing – Shipping",
+//       "Relying on our complete industrial chain, we provide high-quality competitive prices and a stable supply.",
+//     ],
+//   },
+//   {
+//     id: "02",
+//     title: "Construction of New Lines",
+//     icon: "2",
+//     imgSrc: "/images/about-us-step2.png",
+//     desc: [
+//       "New production lines are continuously being built to provide strong delivery guarantee. Total production lines: 20.",
+//     ],
+//   },
+//   {
+//     id: "03",
+//     title: "Quality Traceability",
+//     icon: "3",
+//     imgSrc: "/images/about-us-step3.png",
+//     desc: [
+//       "The root cause of quality problems can be traced back to the order batch.",
+//       "Quality is guaranteed and continuously optimized.",
+//     ],
+//   },
+//   {
+//     id: "04",
+//     title: "Cooperate With Shipping Companies",
+//     icon: "4",
+//     imgSrc: "/images/about-us-step4.png",
+//     desc: [
+//       "Direct contracts with shipping companies eliminate middle agents, providing stable logistics prices.",
+//     ],
+//   },
+//   {
+//     id: "05",
+//     title: "Professional Service",
+//     icon: "5",
+//     imgSrc: "/images/about-us-step5.png",
+//     desc: [
+//       "Systematic solutions, professional R&D team, timely response and expert communication services.",
+//     ],
+//   },
+// ];
+
 const advantageData = [
   {
     id: "01",
     title: "Stable Industrial Supply Chain",
-    icon: "1",
+    icon: GiBamboo, // 👈 替换 1
     imgSrc: "/images/about-us-step1.png",
     desc: [
       "Forest – Pulp – Paper – Processing – Shipping",
@@ -170,7 +223,7 @@ const advantageData = [
   {
     id: "02",
     title: "Construction of New Lines",
-    icon: "2",
+    icon: MdFactory, // 👈 替换 2
     imgSrc: "/images/about-us-step2.png",
     desc: [
       "New production lines are continuously being built to provide strong delivery guarantee. Total production lines: 20.",
@@ -179,7 +232,7 @@ const advantageData = [
   {
     id: "03",
     title: "Quality Traceability",
-    icon: "3",
+    icon: BsShieldFillCheck, // 👈 替换 3
     imgSrc: "/images/about-us-step3.png",
     desc: [
       "The root cause of quality problems can be traced back to the order batch.",
@@ -189,7 +242,7 @@ const advantageData = [
   {
     id: "04",
     title: "Cooperate With Shipping Companies",
-    icon: "4",
+    icon: FaShip, // 👈 替换 4
     imgSrc: "/images/about-us-step4.png",
     desc: [
       "Direct contracts with shipping companies eliminate middle agents, providing stable logistics prices.",
@@ -198,7 +251,7 @@ const advantageData = [
   {
     id: "05",
     title: "Professional Service",
-    icon: "5",
+    icon: FaUsers, // 👈 替换 5
     imgSrc: "/images/about-us-step5.png",
     desc: [
       "Systematic solutions, professional R&D team, timely response and expert communication services.",
@@ -390,13 +443,34 @@ export default function AboutUsPage() {
                 />
                 <div className="img-label">-- {item.id} --</div>
               </div>
-              <div className="item-text-box">
+              {/* <div className="item-text-box">
                 <img
                   // src={`https://www.cndonseapaper.com/wp-content/uploads/2025/03/Why-Choose-Donsea-${item.icon}.jpg`}
                   src={`/images/icon-${item.icon}.png`}
                   alt="icon"
                   className="item-icon"
                 />
+                <h3>{item.title}</h3> */}
+              <div className="item-text-box">
+                {/* 👇 用 React Icons 渲染，完美匹配原先 70px 的尺寸和圆角 👇 */}
+                <div
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    backgroundColor: "#00a496", // 品牌绿背景
+                    borderRadius: "20px", // 和原版 CSS 保持一致的圆角
+                    marginBottom: "25px", // 和原版 CSS 保持一致的底部间距
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#ffffff", // 白色图标
+                    fontSize: "40px", // 图标大小
+                    boxShadow: "0 4px 12px rgba(0, 164, 150, 0.25)", // 高级微阴影
+                  }}
+                >
+                  {/* 提取出大写的组件变量才能在 JSX 中渲染 */}
+                  {React.createElement(item.icon)}
+                </div>
                 <h3>{item.title}</h3>
                 <div
                   style={{

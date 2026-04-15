@@ -698,6 +698,10 @@ const slides = [
 // ============================================================
 // 📌 核心 SVG 图标
 // ============================================================
+import { GiBamboo } from "react-icons/gi"; // 竹子
+import { MdFactory } from "react-icons/md"; // 工厂/企业
+import { BsShieldFillCheck } from "react-icons/bs"; // 盾牌认证
+import { FaShip, FaUsers } from "react-icons/fa"; // 轮船、团队
 const SearchIcon = () => (
   <svg
     width="16"
@@ -827,33 +831,63 @@ const powerIcons = [
   { img: "16", title: "Absorbs 12 tonnes of CO2 per year." },
 ];
 
+// const whyChoose = [
+//   {
+//     icon: "1",
+//     title: "Eco-Innovation (Focus: Bamboo-Fiber / 100% Biodegradable)",
+//     desc: "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
+//   },
+//   {
+//     icon: "3",
+//     title: "Certifications (FSC Certified Source / ISO Standards)",
+//     desc: "New production lines are continuously being built to provide strong delivery guarantee.",
+//   },
+//   {
+//     icon: "5",
+//     title: "Global Logistics (Port of Montreal Hub / Fast NA Delivery)",
+//     desc: "The root cause of quality problems can be traced back to the order batch.",
+//   },
+//   {
+//     icon: "2",
+//     title: "Custom Solutions (B2B Private Label / Wholesale Support)",
+//     desc: "We have direct customer contracts with shipping companies, providing stable logistics.",
+//   },
+//   {
+//     icon: "4",
+//     title: "Green Energy (1,600 GWh Annual / Renewable Powered)",
+//     desc: "Propose systematic solutions to customer needs – professional R&D team.",
+//   },
+// ];
+
+
 const whyChoose = [
   {
-    icon: "1",
+    icon: GiBamboo, // 替换原本的 "1" (竹子)
     title: "Eco-Innovation (Focus: Bamboo-Fiber / 100% Biodegradable)",
     desc: "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
   },
   {
-    icon: "3",
+    icon: BsShieldFillCheck, // 替换原本的 "3" (盾牌)
     title: "Certifications (FSC Certified Source / ISO Standards)",
     desc: "New production lines are continuously being built to provide strong delivery guarantee.",
   },
   {
-    icon: "5",
+    icon: FaShip, // 替换原本的 "5" (轮船)
     title: "Global Logistics (Port of Montreal Hub / Fast NA Delivery)",
     desc: "The root cause of quality problems can be traced back to the order batch.",
   },
   {
-    icon: "2",
+    icon: MdFactory, // 替换原本的 "2" (工厂/建筑)
     title: "Custom Solutions (B2B Private Label / Wholesale Support)",
     desc: "We have direct customer contracts with shipping companies, providing stable logistics.",
   },
   {
-    icon: "4",
+    icon: FaUsers, // 替换原本的 "4" (团队)
     title: "Green Energy (1,600 GWh Annual / Renewable Powered)",
     desc: "Propose systematic solutions to customer needs – professional R&D team.",
   },
 ];
+
 // 把这段代码补在 products 数组附近即可
 const exhibitionImages = [
   { src: "https://www.cndonseapaper.com/wp-content/uploads/2025/03/Exhibition-8.jpg", title: "Interclean Beijing In 2021" },
@@ -1356,7 +1390,7 @@ export default function HomePage() {
           <div className="hm-why-content">
             <h2>Why Choose Ivoire Tissue</h2>
             <p>Plant and protect the log close to the skin</p>
-            <div className="hm-why-items">
+            {/* <div className="hm-why-items">
               {whyChoose.map((item, i) => (
                 <div key={i} className="hm-why-box">
                   <img
@@ -1368,6 +1402,34 @@ export default function HomePage() {
                   <p>{item.desc}</p>
                 </div>
               ))}
+            </div> */}
+            <div className="hm-why-items">
+              {whyChoose.map((item, i) => {
+                const IconComponent = item.icon; // 取出对应的图标组件
+                return (
+                  <div key={i} className="hm-why-box">
+                    {/* 👇 用 CSS 画出绿色背景框，放入白色图标 👇 */}
+                    <div
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        backgroundColor: "var(--c-brand-green)", // 使用你的品牌绿
+                        borderRadius: "12px", // 保持和原图一致的圆角
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#ffffff", // 图标颜色为纯白
+                        fontSize: "36px", // 控制图标的大小
+                        boxShadow: "0 4px 10px rgba(0, 164, 150, 0.2)", // 加一点微弱的高级阴影
+                      }}
+                    >
+                      <IconComponent />
+                    </div>
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
