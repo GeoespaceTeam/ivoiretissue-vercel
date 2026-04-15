@@ -161,8 +161,7 @@ const advantageData = [
     id: "01",
     title: "Stable Industrial Supply Chain",
     icon: "1",
-    imgSrc:
-      "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-1.jpg",
+    imgSrc: "/images/about-us-step1.png",
     desc: [
       "Forest – Pulp – Paper – Processing – Shipping",
       "Relying on our complete industrial chain, we provide high-quality competitive prices and a stable supply.",
@@ -172,8 +171,7 @@ const advantageData = [
     id: "02",
     title: "Construction of New Lines",
     icon: "2",
-    imgSrc:
-      "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-4.jpg",
+    imgSrc: "/images/about-us-step2.png",
     desc: [
       "New production lines are continuously being built to provide strong delivery guarantee. Total production lines: 20.",
     ],
@@ -182,8 +180,7 @@ const advantageData = [
     id: "03",
     title: "Quality Traceability",
     icon: "3",
-    imgSrc:
-      "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-8.jpg",
+    imgSrc: "/images/about-us-step3.png",
     desc: [
       "The root cause of quality problems can be traced back to the order batch.",
       "Quality is guaranteed and continuously optimized.",
@@ -193,8 +190,7 @@ const advantageData = [
     id: "04",
     title: "Cooperate With Shipping Companies",
     icon: "4",
-    imgSrc:
-      "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-2.jpg",
+    imgSrc: "/images/about-us-step4.png",
     desc: [
       "Direct contracts with shipping companies eliminate middle agents, providing stable logistics prices.",
     ],
@@ -203,8 +199,7 @@ const advantageData = [
     id: "05",
     title: "Professional Service",
     icon: "5",
-    imgSrc:
-      "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Why-Choose-3.jpg",
+    imgSrc: "/images/about-us-step5.png",
     desc: [
       "Systematic solutions, professional R&D team, timely response and expert communication services.",
     ],

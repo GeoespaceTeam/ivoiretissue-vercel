@@ -2,7 +2,7 @@ export const newsDatabase: Record<string, any> = {
   "1": {
     title: "Why 3 Ply Bamboo Toilet Paper is the Superior Eco-Friendly Choice in 2026",
     date: "04/09/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/04/eco-friendly-bamboo-toilet-paper-roll.jpg",
+    mainImg: "/images/ample-kitchen-roll.jpg",
     toc: [
       { id: "why-toilet-paper-made-from-bamboo-is-outperforming-wood-pulp-in-2026", text: "Why Toilet Paper Made From Bamboo is Outperforming Wood Pulp" },
       { id: "how-is-bamboo-toilet-paper-made-without-harsh-chemicals", text: "How is Bamboo Toilet Paper Made Without Harsh Chemicals?" },
@@ -45,7 +45,7 @@ export const newsDatabase: Record<string, any> = {
   "2": {
     title: "Bamboo vs. Wood Pulp in Facial Tissue Manufacturing",
     date: "04/07/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2025/05/Bamboo-Facial-Tissues.jpg",
+    mainImg: "/images/bambooproducts.png",
     toc: [
       { id: "understanding-bamboomaterialin-facial-tissue-manufacturing", text: "Understanding Bamboo Material" },
       { id: "understanding-wood-pulpmaterialin-facial-tissue-manufacturing", text: "Understanding Wood Pulp Material" },
@@ -96,7 +96,7 @@ export const newsDatabase: Record<string, any> = {
   "3": {
     title: "Kitchen Paper Towels vs. Reusable Cleaning Cloths: The Ivoire Perspective",
     date: "04/01/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/03/Kitchen-Paper-Towels-and-Reusable-Cloths.jpg",
+     mainImg: "/images/category-banner.jpg",
     toc: [
       { id: "understanding-kitchen-paper-towels", text: "Understanding Kitchen Paper Towels" },
       { id: "understanding-reusable-cleaning-cloths", text: "Understanding Reusable Cleaning Cloths" },
@@ -141,7 +141,7 @@ export const newsDatabase: Record<string, any> = {
   "4": {
     title: "Private Label vs. Branded Toilet Paper: Wholesale Solutions by Ivoire",
     date: "03/24/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2025/02/BAMBOOM-Dissolvable-Toilet-Paper-1.jpg",
+      mainImg: "/images/commercial-facial-tissue.jpg",
     toc: [
       { id: "understanding-private-label-toilet-paper", text: "Understanding Private Label Toilet Paper" },
       { id: "understanding-branded-toilet-paper", text: "Understanding Branded Toilet Paper" },
@@ -179,7 +179,7 @@ export const newsDatabase: Record<string, any> = {
   "5": {
     title: "Private Label vs. OEM in Tissue Paper Manufacturing: Ivoire's B2B Edge",
     date: "03/17/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/03/Bamboo-Private-Label-Toilet-Paper.jpg",
+     mainImg: "/images/culture_bg.png",
     toc: [
       { id: "understanding-private-label-tissue-paper-manufacturing", text: "Understanding Private Label" },
       { id: "understanding-oem-tissue-paper-manufacturing", text: "Understanding OEM" },
@@ -216,7 +216,7 @@ export const newsDatabase: Record<string, any> = {
   "6": {
     title: "Ivoire's Hypoallergenic Bamboo Toilet Paper: PFAS-Free & TCF Standard",
     date: "03/17/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/03/Hypoallergenic-Bamboo-Toilet-Paper.jpg",
+      mainImg: "/images/hand-paper-towel-1.jpg",
     toc: [
       { id: "what-does-pfas-free-mean", text: "What Does PFAS-Free Mean?" },
       { id: "the-tcf-process", text: "The TCF Process at Ivoire" },
@@ -239,7 +239,7 @@ export const newsDatabase: Record<string, any> = {
   "7": {
     title: "Biodegradable vs. Traditional Toilet Paper: The Sustainable Choice",
     date: "03/10/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/03/Bamboo-Toilet-Paper-Rolls.jpg",
+    mainImg: "/images/hand-paper-towel.jpg",
     toc: [
       { id: "what-is-biodegradable-toilet-paper", text: "What is Biodegradable Toilet Paper" },
       { id: "understanding-traditional-toilet-paper", text: "Understanding Traditional Toilet Paper" },
@@ -273,7 +273,7 @@ export const newsDatabase: Record<string, any> = {
   "8": {
     title: "Ivoire Bamboo Facial Tissue for Sensitive Skin: Unbleached Care",
     date: "03/09/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/03/Bamboo-Facial-Tissue-for-Sensitive-Skin1-768x1024.jpg",
+    mainImg: "/images/home-faq.png",
     toc: [
       { id: "bamboo-kun", text: "Bamboo Kun and Natural Antimicrobial Efficacy" },
       { id: "structural-analysis", text: "Structural Analysis: Fiber Length" },
@@ -299,7 +299,7 @@ export const newsDatabase: Record<string, any> = {
   "9": {
     title: "Heavy-Duty Kitchen Solutions: Ivoire Bamboo Towels",
     date: "03/03/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Liangzhu-Kitchen-Roll.jpg",
+     mainImg: "/images/lunch-napkins.jpg",
     toc: [
       { id: "what-are-reusable-bamboo-kitchen-towels", text: "What are Reusable Bamboo Kitchen Towels" },
       { id: "what-are-disposable-bamboo-kitchen-towels", text: "What are Disposable Bamboo Kitchen Towels" },
@@ -330,7 +330,7 @@ export const newsDatabase: Record<string, any> = {
   "10": {
     title: "The Rise of Lint-Free Toilet Paper: Ivoire's 2026 Innovation",
     date: "03/02/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/03/toilet-paper-that-doesnt-shed.jpg",
+    mainImg: "/images/market-asia.jpg",
     toc: [
       { id: "the-2026-market-landscape", text: "The 2026 Market Landscape" },
       { id: "consumer-demand", text: "Consumer Demand: Moving Beyond Cost" },
@@ -356,7 +356,7 @@ export const newsDatabase: Record<string, any> = {
   "11": {
     title: "Why Ivoire Bamboo Toilet Paper is the Ultimate Green Choice",
     date: "02/24/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/02/unbleached-bamboo-tissue-paper.jpg",
+    mainImg: "/images/mixedproducts.png",
     toc: [
       { id: "understanding-bamboo-toilet-paper", text: "Understanding Ivoire Bamboo Tissue" },
       { id: "environmental-benefits", text: "Environmental Benefits" },
@@ -386,7 +386,7 @@ export const newsDatabase: Record<string, any> = {
   "12": {
     title: "Ivoire's Engineering: Making Bamboo Paper Soft, Safe, and Flushable",
     date: "02/09/2026",
-    mainImg: "https://www.cndonseapaper.com/wp-content/uploads/2026/02/soft-bamboo-toilet-paper.jpg",
+    mainImg: "/images/plastic-free-kitchen-paper-towel.jpg",
     toc: [
       { id: "why-did-bamboo-toilet-paper-feel-hard-before", text: "Overcoming Bamboo's Stiff Reputation" },
       { id: "how-2026-bamboo-toilet-paper-became-soft", text: "Ivoire's Softness Technology" },

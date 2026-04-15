@@ -677,10 +677,23 @@ import { useState, useEffect } from "react";
 
 type Slide = { id: number; type: string; src: string };
 
-const slides: Slide[] = [
-  { id: 1, type: "video", src: "/videos/hero-1.mov" },
-  { id: 2, type: "video", src: "/videos/hero-2.mov" },
-  { id: 3, type: "video", src: "/videos/hero-3.mov" },
+const slides = [
+  {
+    id: 1,
+    type: "youtube",
+    // 注意：loop=1 在 YouTube 里必须配合 playlist=当前视频ID 才能生效
+    src: "https://www.youtube.com/embed/Unop6aekL1M?autoplay=1&mute=1&controls=0&loop=1&playlist=NBseykhGtkI&playsinline=1",
+  },
+  // {
+  //   id: 2,
+  //   type: "youtube",
+  //   src: "https://www.youtube.com/embed/FkO4kFba1k4?autoplay=1&mute=1&controls=0&loop=1&playlist=FkO4kFba1k4&playsinline=1",
+  // },
+  // {
+  //   id: 3,
+  //   type: "youtube",
+  //   src: "https://www.youtube.com/embed/Jbw4Ur_6BSQ?autoplay=1&mute=1&controls=0&loop=1&playlist=Jbw4Ur_6BSQ&playsinline=1",
+  // },
 ];
 // ============================================================
 // 📌 核心 SVG 图标
@@ -854,8 +867,10 @@ export default function HomePage() {
   // 👇 插入轮播控制逻辑 👇
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // 自动轮播（每6秒切换一次）
+  // 自动轮播（仅当 slides 大于 1 时才开启）
   useEffect(() => {
+    if (slides.length <= 1) return; // 如果只有一个视频，直接退出，不设定时器
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
@@ -867,7 +882,7 @@ export default function HomePage() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   const goToSlide = (index: number) => setCurrentSlide(index);
   // 👆 逻辑插入结束 👆
-  
+
   return (
     <main
       style={{
@@ -1071,10 +1086,27 @@ export default function HomePage() {
             key={slide.id}
             className={`hm-slide ${index === currentSlide ? "active" : ""}`}
           >
-            <video autoPlay loop muted playsInline>
-              {/* 因为是 .mov 格式，最好不写 type="video/mp4"，让浏览器自动识别 */}
-              <source src={slide.src} />
-            </video>
+            {/* 👇 换成 iframe，并加入 pointer-events: none 防止误触 👇 */}
+            <iframe
+              src={slide.src}
+              title={`YouTube video ${index}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                // 👇 核心去黑边魔法 👇
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: "100vw",
+                height: "56.25vw" /* 强行锁定 16:9 比例 (9 / 16 = 0.5625) */,
+                minHeight: "100vh",
+                minWidth: "177.77vh" /* 强行锁定 16:9 比例 (16 / 9 = 1.7777) */,
+                transform: "translate(-50%, -50%)",
+                pointerEvents: "none", // 防止鼠标误触暂停
+                border: "none",
+              }}
+            ></iframe>
           </div>
         ))}
 
@@ -1124,33 +1156,38 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* 左右手动切换按钮 */}
-        <button
-          className="hm-nav-btn hm-nav-prev"
-          onClick={prevSlide}
-          aria-label="Previous Slide"
-        >
-          &#10094;
-        </button>
-        <button
-          className="hm-nav-btn hm-nav-next"
-          onClick={nextSlide}
-          aria-label="Next Slide"
-        >
-          &#10095;
-        </button>
-
-        {/* 底部小圆点 */}
-        <div className="hm-dots">
-          {slides.map((_, index) => (
+        {/* 当 slides 大于 1 个时，才渲染左右切换和指示圆点 */}
+        {slides.length > 1 && (
+          <>
+            {/* 左右手动切换按钮 */}
             <button
-              key={index}
-              className={`hm-dot ${index === currentSlide ? "active" : ""}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+              className="hm-nav-btn hm-nav-prev"
+              onClick={prevSlide}
+              aria-label="Previous Slide"
+            >
+              &#10094;
+            </button>
+            <button
+              className="hm-nav-btn hm-nav-next"
+              onClick={nextSlide}
+              aria-label="Next Slide"
+            >
+              &#10095;
+            </button>
+
+            {/* 底部小圆点 */}
+            <div className="hm-dots">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  className={`hm-dot ${index === currentSlide ? "active" : ""}`}
+                  onClick={() => goToSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </section>
       {/* 2. ABOUT US & STATS */}
       <section className="hm-about-section">

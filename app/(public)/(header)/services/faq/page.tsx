@@ -107,10 +107,10 @@ export default function FAQPage() {
           /* 👇 将 60% 40% 改为 1.5fr 1fr，完美解决截断问题 👇 */
           grid-template-columns: 1.5fr 1fr; 
           gap: 60px;
-          align-items: start;
+          align-items: stretch; /* 👈 关键魔法：强制拉伸等高 */
         }
         /* 手风琴样式修复 */
-        .faq-title { font-size: 50px; font-weight: 700; color: #ffffff; margin-bottom: 40px; text-transform: uppercase; }
+       .faq-title { font-size: 50px; font-weight: 700; color: #ffffff !important; margin-bottom: 40px; text-transform: uppercase; }
         .faq-item { margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
         .faq-btn {
           width: 100%;
@@ -140,12 +140,16 @@ export default function FAQPage() {
           border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* 表单样式修复 */
+        /* 3. 让卡片撑满高度，并且优雅地分配内部空间 */
         .form-card {
-          background-color: rgba(255, 255, 255, 0.61);
+          background-color: rgba(255, 255, 255, 0.85); /* 稍微提高一点不透明度，质感更好 */
           padding: 50px;
-          border-radius: 30px;
+          border-radius: 20px;
           box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+          height: 100%; /* 👈 撑满被网格拉伸的高度 */
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; /* 👈 魔法排版：上面内容靠顶，下面内容靠底，吃掉所有尴尬空白 */
         }
         .form-card h2 { font-size: 32px; font-weight: 700; color: #004e46; margin-bottom: 30px; }
         .input-group { margin-bottom: 20px; }
@@ -191,15 +195,16 @@ export default function FAQPage() {
       `,
         }}
       />
-
-      {/* 1. FAQ & FORM SECTION (带有完整背景图和遮罩) */}
+      、{/* 1. FAQ & FORM SECTION (带有完整背景图和遮罩) */}
       <section className="faq-outer-section">
         <div className="faq-overlay"></div>
         <div className="container">
+          {/* 💡 改动 1：把 FAQ 标题移到 Grid 外面，这样 Q1 才能和右边的卡片顶部完美齐平！ */}
+          <h1 className="faq-title">FAQ</h1>
+
           <div className="faq-main-grid">
             {/* 左侧：FAQ Accordion */}
             <div>
-              <h1 className="faq-title">FAQ</h1>
               <div className="faq-list">
                 {faqs.map((faq, index) => {
                   const isOpen = openIndex === index;
@@ -225,46 +230,41 @@ export default function FAQPage() {
               </div>
             </div>
 
-            {/* 右侧：联系卡片 + 底部图片填充空隙 */}
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "40px" }}
-            >
-              <div
-                className="form-card"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <h2
-                  style={{
-                    color: "#004e46",
-                    fontSize: "32px",
-                    marginBottom: "15px",
-                    fontWeight: 800,
-                  }}
-                >
-                  Get In Touch
-                </h2>
-                <p
-                  style={{
-                    color: "#444",
-                    fontSize: "16px",
-                    lineHeight: "1.6",
-                    margin: "0 0 35px 0",
-                  }}
-                >
-                  We value direct communication. To help us provide an accurate
-                  quote quickly, please include your{" "}
-                  <strong>
-                    product of interest, estimated order quantity, and any
-                    custom OEM requirements
-                  </strong>{" "}
-                  in your email. Our Montreal team will get back to you
-                  promptly.
-                </p>
+            {/* 右侧：联系卡片 */}
+            <div>
+              <div className="form-card">
+                {/* 💡 改动 2：用一个 div 把标题和描述包起来。这样它们会一起贴在卡片顶部 */}
+                <div>
+                  <h2
+                    style={{
+                      color: "#004e46",
+                      fontSize: "32px",
+                      marginBottom: "15px",
+                      fontWeight: 800,
+                    }}
+                  >
+                    Get In Touch
+                  </h2>
+                  <p
+                    style={{
+                      color: "#444",
+                      fontSize: "20px",
+                      lineHeight: "2.1",
+                      margin: "0 0 35px 0",
+                    }}
+                  >
+                    We value direct communication. To help us provide an
+                    accurate quote quickly, please include your{" "}
+                    <strong>
+                      product of interest, estimated order quantity, and any
+                      custom OEM requirements
+                    </strong>{" "}
+                    in your email. Our Montreal team will get back to you
+                    promptly.
+                  </p>
+                </div>
 
+                {/* 下方的联系方式会自动被挤到卡片最底部，实现上下对齐且不留大片空白 */}
                 <ul className="ivt-direct-contact">
                   <li>
                     <div className="ivt-icon-circle">
@@ -276,7 +276,7 @@ export default function FAQPage() {
                     <div>
                       <span className="ivt-contact-label">Email Us</span>
                       <a
-                        href="mailto:info@ivoiretissue.com"
+                        href="mailto:sales@ivoiretissue.com"
                         className="ivt-contact-value"
                       >
                         sales@ivoiretissue.com
@@ -291,7 +291,7 @@ export default function FAQPage() {
                     </div>
                     <div>
                       <span className="ivt-contact-label">WhatsApp / Call</span>
-                      <a href="tel:+15149718238" className="ivt-contact-value">
+                      <a href="tel:+15146888238" className="ivt-contact-value">
                         +1 (514) 688-8238
                       </a>
                     </div>
@@ -315,32 +315,10 @@ export default function FAQPage() {
                   </li>
                 </ul>
               </div>
-
-              {/* 👇 新增的图片区块，填补右侧下方空白 👇 */}
-              <div
-                style={{
-                  width: "100%",
-                  borderRadius: "30px",
-                  overflow: "hidden",
-                  boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
-                }}
-              >
-                <img
-                  src="/images/about.png" /* 👈 记得换成你想要的图，比如你们的工厂图或者竹林图 */
-                  alt="Ivoire Tissue Environment"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
-                />
-              </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* 2. GOOGLE MAP (核心修复：直接使用圣厄斯塔什经纬度) */}
       <section
         style={{ width: "100%", height: "500px", backgroundColor: "#eee" }}
