@@ -971,8 +971,8 @@ export default function HomePage() {
         
         /* 统一的前景遮罩和文字层，确保文字清晰 */
        /* 加上 justify-content: center 让大盒子水平居中 */
-.hm-slide-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.4); display: flex; align-items: center; justify-content: center; z-index: 3; }
-
+/* 找到这一行 */
+.hm-slide-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.15); display: flex; align-items: center; justify-content: center; z-index: 3; }
 /* 删掉 padding-left，换成 text-align: center 让内部文字居中 */
 .hm-hero-content { position: relative; color: #fff; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px; }
         
@@ -1154,6 +1154,7 @@ export default function HomePage() {
                 transform: "translate(-50%, -50%)",
                 pointerEvents: "none", // 防止鼠标误触暂停
                 border: "none",
+                filter: "brightness(1.3)",
               }}
             ></iframe>
           </div>
