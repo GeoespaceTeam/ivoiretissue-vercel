@@ -68,20 +68,25 @@ const powerIcons = [
   { id: "5", icon: LuRecycle, title: "Entirely renewable." },
   { id: "6", icon: LuCloud, title: "Absorbs 12 tonnes of CO2 per year." },
 ];
-  const faqs = [
-    {
-      q: "Q1: Do you use 100% virgin bamboo pulp for tissue paper ?",
-      a: "Yes, Ivoire Tissue use FSC 100% virgin bamboo pulp , no recycled or wood pulp .",
-    },
-    {
-      q: "Q2: Can you do our private label for the tissue paper products ?",
-      a: "Yes, Ivoire Tissue can do your private label , your logo , your brand on the package of the products .",
-    },
-    {
-      q: "Q3: Is Bamboo toilet paper soft or not ?",
-      a: "a. 100% virgin bamboo pulp toilet paper is rather soft and water-absorbing.\nb. Bamboo is highly water absorbent, able to take up three times its weight in water.\nc. Bamboo grows without fertilizers or pesticides , as a result, plantations can easily be kept organic.",
-    },
-  ];
+ const faqs = [
+   {
+     q: "Q1: Do you use 100% virgin bamboo pulp for tissue paper?",
+     a: "Yes, Ivoire Tissue uses FSC 100% virgin bamboo pulp, no recycled or wood pulp mixed in our premium lines.",
+   },
+   {
+     q: "Q2: Can you do our private label for the tissue paper products?",
+     a: "Yes, Ivoire Tissue can do your private label, including your logo and brand on the package of the products.",
+   },
+   {
+     q: "Q3: Is Bamboo toilet paper soft or not?",
+     a: "a. 100% virgin bamboo pulp toilet paper is rather soft and water-absorbing.\nb. Bamboo is highly water absorbent, able to take up three times its weight in water.\nc. Bamboo grows without fertilizers or pesticides, ensuring a natural, skin-friendly touch.",
+   },
+   {
+     q: "Q4: Are your bamboo products fully biodegradable?",
+     a: "Absolutely. Our bamboo tissue is 100% biodegradable and dissolves rapidly in water, making it extremely safe for all plumbing and septic systems while protecting the environment.",
+   },
+
+ ];
 
   return (
     <main
@@ -143,21 +148,46 @@ const powerIcons = [
         .wb-list-item svg { stroke: #fff; }
         .wb-img-square { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 20px; }
 
-        /* 4. FAQ Section */
+        /* 4. FAQ Section 完美复刻截图样式 */
         .wb-faq-section {
           position: relative; padding: 100px 0;
           background: url('/images/why-bamboo-faq.png') center/cover no-repeat;
         }
-        .wb-overlay { position: absolute; inset: 0; background: #00302b; opacity: 0.35; z-index: 1; }
-        .wb-faq-grid { position: relative; z-index: 10; display: grid; grid-template-columns: 60% 40%; gap: 60px; }
+        .wb-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.85); z-index: 1; }
+        .wb-faq-grid { position: relative; z-index: 10; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: start; }
         
-        .faq-box { background: rgba(255,255,255,0.92); margin-bottom: 12px; border-radius: 4px; overflow: hidden; }
+        .faq-box { background: #f0f4f2; margin-bottom: 15px; border-radius: 6px; overflow: hidden; transition: 0.3s; }
         .faq-box.active { background: #00a496; }
-        .faq-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; width: 100%; border: none; text-align: left; background: none; }
-        .faq-content { padding: 30px; background: rgba(0,164,150,0.33); color: #fff; line-height: 1.8; }
+        .faq-header { 
+          padding: 22px 25px; display: flex; justify-content: space-between; align-items: center; 
+          cursor: pointer; width: 100%; border: none; text-align: left; background: transparent; 
+        }
+        .faq-header-text { font-size: 17px; font-weight: 700; color: #111; transition: 0.3s; }
+        .faq-box.active .faq-header-text { color: #fff; }
+        .faq-content { padding: 0 25px 25px; color: #fff; line-height: 1.7; font-size: 15px; white-space: pre-line; }
 
-        .form-card { background: rgba(255,255,255,0.65); padding: 40px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-        .input-style { width: 100%; padding: 18px 25px; border-radius: 30px; border: 1px solid #a0aec0; margin-bottom: 20px; outline: none; background: #fff; }
+        /* 5. Get In Touch 卡片样式 */
+        .git-card { 
+          background: rgba(226, 232, 229, 0.95); 
+          backdrop-filter: blur(10px);
+          padding: 45px; 
+          border-radius: 24px; 
+          box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+        }
+        .git-card h2 { font-size: 32px; color: #00a496; font-weight: 800; margin-bottom: 20px; }
+        .git-card p { color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 35px; }
+
+        .ivt-direct-contact { list-style: none; padding: 0; margin: 0; }
+        .ivt-direct-contact li { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+        .ivt-icon-circle { 
+          background: #00a496; color: #fff; width: 50px; height: 50px; border-radius: 50%; 
+          display: flex; align-items: center; justify-content: center; flex-shrink: 0; 
+          box-shadow: 0 4px 10px rgba(0,164,150,0.3); 
+        }
+        .ivt-icon-circle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .ivt-contact-label { display: block; font-size: 12px; color: #666; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .ivt-contact-value { font-size: 18px; font-weight: 700; color: #004e46; text-decoration: none; transition: color 0.3s; }
+        .ivt-contact-value:hover { color: #00a496; }
 
         @media (max-width: 1024px) {
           .wb-adv-grid, .wb-green-card, .wb-faq-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -309,19 +339,20 @@ const powerIcons = [
         </div>
       </section>
 
-      {/* 4. FAQ & FORM (复用官方背景图逻辑) */}
+      {/* 4. FAQ & GET IN TOUCH (复刻截图风格) */}
       <section className="wb-faq-section">
         <div className="wb-overlay"></div>
         <div className="wb-container">
           <div className="wb-faq-grid">
-            {/* FAQ Accordion */}
-            <div style={{ marginTop: "-40px" }}>
+            {/* 左侧：FAQ Accordion */}
+            <div style={{ marginTop: "-20px" }}>
               <h2
                 style={{
                   color: "#fff",
                   fontSize: "45px",
-                  fontWeight: 700,
+                  fontWeight: 800,
                   marginBottom: "40px",
+                  letterSpacing: "1px",
                 }}
               >
                 FAQ
@@ -337,14 +368,7 @@ const powerIcons = [
                       setOpenIndex(openIndex === index ? null : index)
                     }
                   >
-                    <span
-                      style={{
-                        color: openIndex === index ? "#fff" : "#1A202C",
-                        fontSize: "18px",
-                      }}
-                    >
-                      {faq.q}
-                    </span>
+                    <span className="faq-header-text">{faq.q}</span>
                     <ChevronDown isOpen={openIndex === index} />
                   </button>
                   {openIndex === index && (
@@ -354,91 +378,29 @@ const powerIcons = [
               ))}
             </div>
 
-            {/* Get In Touch 信息卡片 (替换原来的 Submit Request) */}
-            <div className="form-card" style={{ padding: "40px" }}>
-              <h2
-                style={{
-                  color: "#00a496",
-                  fontSize: "32px",
-                  marginBottom: "30px",
-                  fontWeight: 800,
-                }}
-              >
-                Get In Touch
-              </h2>
-              <p
-                style={{
-                  color: "#555",
-                  fontSize: "18px",
-                  lineHeight: "1.6",
-                  marginBottom: "40px",
-                }}
-              >
+            {/* 右侧：Get In Touch 卡片 */}
+            <div className="git-card">
+              <h2>Get In Touch</h2>
+              <p>
                 We value direct communication. To help us provide an accurate
                 quote quickly, please include your product requirements in your
                 inquiry. Our Montreal team will get back to you promptly.
               </p>
 
-              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              <ul className="ivt-direct-contact">
                 {/* Email */}
-                <li
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "20px",
-                    marginBottom: "30px",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: "#00a496",
-                      color: "#fff",
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      boxShadow: "0 4px 10px rgba(0,164,150,0.3)",
-                    }}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
+                <li>
+                  <div className="ivt-icon-circle">
+                    <svg viewBox="0 0 24 24">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                       <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                   </div>
                   <div>
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "14px",
-                        color: "#666",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        letterSpacing: "1px",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      Email Us
-                    </span>
+                    <span className="ivt-contact-label">Email Us</span>
                     <a
                       href="mailto:sales@ivoiretissue.com"
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: 700,
-                        color: "#004e46",
-                        textDecoration: "none",
-                      }}
+                      className="ivt-contact-value"
                     >
                       sales@ivoiretissue.com
                     </a>
@@ -446,121 +408,33 @@ const powerIcons = [
                 </li>
 
                 {/* WhatsApp / Phone */}
-                <li
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "20px",
-                    marginBottom: "30px",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: "#00a496",
-                      color: "#fff",
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      boxShadow: "0 4px 10px rgba(0,164,150,0.3)",
-                    }}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
+                <li>
+                  <div className="ivt-icon-circle">
+                    <svg viewBox="0 0 24 24">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                   </div>
                   <div>
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "14px",
-                        color: "#666",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        letterSpacing: "1px",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      WhatsApp / Call
-                    </span>
-                    <a
-                      href="tel:+15146888238"
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: 700,
-                        color: "#004e46",
-                        textDecoration: "none",
-                      }}
-                    >
+                    <span className="ivt-contact-label">WhatsApp / Call</span>
+                    <a href="tel:+15146888238" className="ivt-contact-value">
                       +1 (514) 688-8238
                     </a>
                   </div>
                 </li>
 
                 {/* Headquarters */}
-                <li
-                  style={{ display: "flex", alignItems: "center", gap: "20px" }}
-                >
-                  <div
-                    style={{
-                      background: "#00a496",
-                      color: "#fff",
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      boxShadow: "0 4px 10px rgba(0,164,150,0.3)",
-                    }}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
+                <li style={{ marginBottom: 0 }}>
+                  <div className="ivt-icon-circle">
+                    <svg viewBox="0 0 24 24">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   </div>
                   <div>
+                    <span className="ivt-contact-label">Headquarters</span>
                     <span
-                      style={{
-                        display: "block",
-                        fontSize: "14px",
-                        color: "#666",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        letterSpacing: "1px",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      Headquarters
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: 700,
-                        color: "#004e46",
-                      }}
+                      className="ivt-contact-value"
+                      style={{ cursor: "default" }}
                     >
                       222 Rue Poirier, Saint-Eustache, QC
                     </span>
