@@ -13,7 +13,7 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>Three issues have come to a head in the global consumer market by 2026, when it comes to products like disposable paper goods. As more fingers are pointed at conventional wood pulp as a source of environmental degradation, <strong>Ivoire Tissue</strong> has pioneered a better path. Based in Montreal, we have championed <a href="/products/bamboo-toilet-paper"><strong>bamboo toilet paper</strong></a> for its rapid growth and minimal ecological footprint. This piece explores the mechanical preparation, environmental implications, and superior performance of our premium bamboo tissues.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/04/eco-friendly-bamboo-toilet-paper-roll.jpg" alt="eco-friendly bamboo toilet paper roll" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/1.jpg" alt="eco-friendly bamboo toilet paper roll" /></figure></div>
       <h2 id="why-toilet-paper-made-from-bamboo-is-outperforming-wood-pulp-in-2026"><strong>Why Toilet Paper Made From Bamboo is Outperforming Wood Pulp in 2026</strong></h2>
       <p>One can appreciate the recent growth of Ivoire Tissue's products by examining the growth period of bamboo. Typically, bamboo grows to its full height and fiber density in 3-5 years, unlike North American softwoods that take decades to mature.</p>
       <p>Bamboo maintains a high percentage of silica and possesses long vascular elements, giving Ivoire Tissue paper a very high level of tensile strength. With our sustainable forest management and FSC protocols, the plant is not destroyed when cut, allowing for ongoing yearly carbon collection.</p>
@@ -26,7 +26,7 @@ export const newsDatabase: Record<string, any> = {
         <li><strong>Refining:</strong> The pulp passes through disc refiners that mechanically "fray" the fiber ends for extra softness.</li>
         <li><strong>Formation and Drying:</strong> The refined slurry is sprayed onto a high-speed moving mesh and dried at our cutting-edge facility.</li>
       </ul>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/04/how-is-bamboo-toilet-paper-made.jpg" alt="how is bamboo toilet paper made" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/2.jpg" alt="how is bamboo toilet paper made" /></figure></div>
       <h2 id="the-health-benefits-of-switching-to-unbleached-bamboo-toilet-paper"><strong>The Health Benefits of Switching to Unbleached Bamboo Toilet Paper</strong></h2>
       <p>Ivoire Tissue's unbleached line captures a significant portion of the North American market for 2026. The main driver is the total exclusion of elemental chlorine and bleach. This provides our Canadian and global end-users with a product that is completely safe for fragile skin health.</p>
       <h2 id="why-3-ply-bamboo-toilet-paper-offers-better-value"><strong>Why 3 Ply Bamboo Toilet Paper Offers Better Value</strong></h2>
@@ -35,7 +35,7 @@ export const newsDatabase: Record<string, any> = {
         <li><strong>Tensile Strength:</strong> Bamboo fibers are naturally strong, ensuring Ivoire's paper does not disintegrate during use.</li>
         <li><strong>Resource Efficiency:</strong> Consumers use fewer sheets per task when using our premium 3-ply product compared to standard 2-ply.</li>
       </ul>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/04/3-ply-bamboo-toilet-paper-roll.jpg" alt="3-ply bamboo toilet paper roll" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/3.jpg" alt="3-ply bamboo toilet paper roll" /></figure></div>
       <h2 id="the-full-life-cycle-of-truly-ecofriendly-bamboo-toilet-paper"><strong>The Full Life Cycle of Truly Eco-Friendly Bamboo Toilet Paper</strong></h2>
       <figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td>Feature</td><td>Virgin Wood Pulp</td><td>Recycled Paper</td><td>Ivoire Bamboo Pulp</td></tr><tr><td>Growth Cycle</td><td>20–50 Years</td><td>N/A</td><td>3–5 Years</td></tr><tr><td>Water Usage</td><td>High</td><td>Medium</td><td>Low (Closed-loop)</td></tr><tr><td>Chemical Input</td><td>High (Bleaching)</td><td>High (De-inking)</td><td>Low (Unbleached)</td></tr><tr><td>Biodegradability</td><td>Standard</td><td>Variable</td><td>Rapid</td></tr></tbody></table></figure>
       <h2 id="market-trends-and-2026-consumer-standards"><strong>Market Trends and 2026 Consumer Standards</strong></h2>
@@ -55,10 +55,10 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>Canada is famous for its vast forests, and wood pulp has always formed the primary raw material for facial tissue manufacturing here. However, recognizing the environmental toll, <strong>Ivoire Tissue</strong> was established in 2022 to introduce bamboo as a superior, eco-friendly substitute. This analysis highlights why our bamboo tissues outperform traditional materials.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/toilet-paper-manufacturing-process.jpg" alt="Facial tissue manufacturing" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/4.jpg" alt="Facial tissue manufacturing" /></figure></div>
       <h2 id="understanding-bamboomaterialin-facial-tissue-manufacturing"><strong>Understanding Bamboo Material in Facial Tissue Manufacturing</strong></h2>
       <p>At Ivoire Tissue's facilities, bamboo has completely taken over. Its quick renewability, natural attributes, and increasing interest from North American consumers make it the ultimate manufacturing material.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2025/06/production-of-bamboo-tissue.jpg" alt="production of bamboo tissue" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/5.jpg" alt="production of bamboo tissue" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>High Renewability and Fast Growth</strong>: Bamboo reaches maturity in three to five years, regenerating without replanting.</li>
@@ -73,7 +73,7 @@ export const newsDatabase: Record<string, any> = {
       </ul>
       <h2 id="understanding-wood-pulpmaterialin-facial-tissue-manufacturing"><strong>Understanding Wood Pulp Material in Facial Tissue Manufacturing</strong></h2>
       <p>Currently, wood pulp remains the backbone of the global industry. While its processing techniques are established, its long-term ecological cost is no longer acceptable to modern brands.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2025/11/Wood-Pulp-Facial-Tissue.jpg" alt="Wood Pulp Facial Tissue" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/6.jpg" alt="Wood Pulp Facial Tissue" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>Proven Performance</strong>: Offers a balanced combination of softness and absorbency.</li>
@@ -106,10 +106,10 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>In the modern Canadian household, efficiency and cleanliness are essential. Kitchen paper towels and reusable cloths are the most used tools. As <strong>Ivoire Tissue</strong> redefines kitchen hygiene with sustainable bamboo, we analyze the differences in cost, environmental suitability, and performance.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Kitchen-Paper-Towels-vs.-Reusable-Cleaning-Cloths.jpg" alt="Kitchen Paper Towels vs. Reusable Cleaning Cloths" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/7.jpg" alt="Kitchen Paper Towels vs. Reusable Cleaning Cloths" /></figure></div>
       <h2 id="understanding-kitchen-paper-towels"><strong>Understanding Kitchen Paper Towels</strong></h2>
       <p>Typically made of wood pulp, traditional disposable kitchen paper towels are convenient but wasteful. However, Ivoire Tissue's Bamboo Kitchen Towels change this narrative by combining disposable convenience with biodegradable sustainability.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2025/09/Kitchen-Paper-Towel.jpg" alt="Kitchen Paper Towel" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/8.jpg" alt="Kitchen Paper Towel" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>High Convenience</strong>: Ready to use at any time for immediate spills.</li>
@@ -123,7 +123,7 @@ export const newsDatabase: Record<string, any> = {
       </ul>
       <h2 id="understanding-reusable-cleaning-cloths"><strong>Understanding Reusable Cleaning Cloths</strong></h2>
       <p>Reusable cloths (cotton or microfiber) are laundered and reused, making them a staple for deep home cleaning.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Reusable-Cleaning-Cloths.jpg" alt="Reusable Cleaning Cloths" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/9.jpg" alt="Reusable Cleaning Cloths" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>Cost-Effectiveness</strong>: Can be reused multiple times, reducing overall spend.</li>
@@ -153,7 +153,7 @@ export const newsDatabase: Record<string, any> = {
       <p>When B2B buyers look for wholesale tissue products, they must decide between stocking established brands or investing in Private Label lines. As a leading manufacturer in Quebec, <strong>Ivoire Tissue</strong> provides custom B2B solutions for both avenues.</p>
       <h2 id="understanding-private-label-toilet-paper"><strong>Understanding Private Label Toilet Paper</strong></h2>
       <p>Private label toilet paper signifies products manufactured by experts like Ivoire Tissue, but sold under the branding of supermarkets, hotels, or retail chains.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Private-Label-Toilet-Paper-1.jpg" alt="Private Label Toilet Paper" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/10.jpg" alt="Private Label Toilet Paper" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>Costing</strong>: Private labels capture better margins as they avoid massive corporate advertising budgets.</li>
@@ -161,7 +161,7 @@ export const newsDatabase: Record<string, any> = {
       </ul>
       <h2 id="understanding-branded-toilet-paper"><strong>Understanding Branded Toilet Paper</strong></h2>
       <p>Branded toilet paper (including Ivoire Tissue's own flagship line) carries the weight of a recognized company focused heavily on R&D and consumer trust.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Branded-Toilet-Paper.jpg" alt="Branded Toilet Paper" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><iimg src="/images/newsImg/11.jpg" alt="Branded Toilet Paper" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>Brand Trust</strong>: Consumers recognize and trust the Ivoire name for eco-innovation and African heritage.</li>
@@ -191,7 +191,7 @@ export const newsDatabase: Record<string, any> = {
       <p>The tissue paper industry is highly competitive. Many North American companies rely on contract manufacturing—specifically Private Label and OEM—to expand their offerings. Located near the Port of Montreal Hub, <strong>Ivoire Tissue</strong> stands as a premier partner for both models.</p>
       <h2 id="understanding-private-label-tissue-paper-manufacturing"><strong>Understanding Private Label Tissue Paper Manufacturing</strong></h2>
       <p>In this model, Ivoire Tissue provides pre-developed, premium bamboo product options—including ply structures, sheet sizes, and packaging. The purchasing company selects from our proven eco-innovations and applies its own brand name.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Private-Label-Toilet-Paper-Manufacturer.jpg" alt="Private Label Tissue Paper Manufacturer" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/12.jpg" alt="Private Label Tissue Paper Manufacturer" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>Speed to Market</strong>: Launch quickly using Ivoire's established FSC-certified supply chain.</li>
@@ -199,7 +199,7 @@ export const newsDatabase: Record<string, any> = {
       </ul>
       <h2 id="understanding-oem-tissue-paper-manufacturing"><strong>Understanding OEM Tissue Paper Manufacturing</strong></h2>
       <p>OEM (Original Equipment Manufacturer) involves Ivoire Tissue producing items based entirely on a brand owner's unique specifications, from custom embossing to proprietary packaging structures.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2025/10/Different-Types-of-Tissue-Paper.jpg" alt="Different Types of Tissue Paper" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/13.jpg" alt="Different Types of Tissue Paper" /></figure></div>
       <p><strong>Advantages</strong></p>
       <ul>
         <li><strong>High Customization</strong>: Dictate the exact softness, absorbency, and roll density.</li>
@@ -227,7 +227,7 @@ export const newsDatabase: Record<string, any> = {
       <p>The worldwide tissue paper industry is experiencing a technological shift towards chemical safety. At <strong>Ivoire Tissue</strong>, we believe hygiene shouldn't come at the cost of health. Our focus on eliminating PFAS and utilizing TCF (Totally Chlorine-Free) processing sets a new Canadian standard.</p>
       <h2 id="what-does-pfas-free-mean"><strong>What Does PFAS-Free Mean?</strong></h2>
       <p>PFAS ("forever chemicals") were historically used in paper manufacturing to improve moisture resistance. Ivoire Tissue guarantees a 100% PFAS-free production cycle at our Montreal-based facilities, ensuring zero harmful synthetic chemicals touch your skin or enter the water supply.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Hypoallergenic-Bamboo-Toilet-Paper.jpg" alt="Hypoallergenic Bamboo Toilet Paper" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/14.jpg" alt="Hypoallergenic Bamboo Toilet Paper" /></figure></div>
       <h2 id="the-tcf-process"><strong>The TCF Process at Ivoire</strong></h2>
       <p>TCF stands for Totally Chlorine-Free. Traditional processing uses elemental chlorine, leaving trace dioxins. Ivoire utilizes advanced hydrogen peroxide techniques and proudly offers completely unbleached alternatives. This maintains a pristine, safe profile suitable for pediatric and sensitive care.</p>
       <h2 id="why-hypoallergenic-matters"><strong>Why Hypoallergenic Matters</strong></h2>
@@ -249,7 +249,7 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>Toilet paper is a daily necessity, but its ecological impact varies wildly. As consumers seek sustainable products, the comparison between 100% biodegradable options (like <strong>Ivoire Tissue</strong>) and traditional paper is crucial.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2025/09/Recycled-Toilet-Paper-Supplier.jpg" alt="Toilet Paper Supplier" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/15.jpg" alt="Toilet Paper Supplier" /></figure></div>
       <h2 id="what-is-biodegradable-toilet-paper"><strong>What is Biodegradable Toilet Paper</strong></h2>
       <p>Ivoire's biodegradable toilet paper disintegrates rapidly in water. Made entirely of renewable bamboo fibers rather than wood pulp, it is manufactured with unbleached processes. It retains extreme softness while being exceptionally safe for septic tanks and city plumbing.</p>
       <ul>
@@ -283,7 +283,7 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>The personal care industry is shifting towards bio-based materials. <strong>Ivoire Tissue</strong> is proud to lead this charge in Canada with our bamboo facial tissue—the ultimate solution for skin health and environmental stewardship.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-large"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Bamboo-Facial-Tissue-for-Sensitive-Skin1-768x1024.jpg" alt="Bamboo Facial Tissue for Sensitive Skin" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-large"><img src="/images/newsImg/16.jpg" alt="Bamboo Facial Tissue for Sensitive Skin" /></figure></div>
       <h2 id="bamboo-kun"><strong>Bamboo Kun and Natural Antimicrobial Efficacy</strong></h2>
       <p>Bamboo possesses a natural biological defense system containing "Bamboo Kun." The antimicrobial properties of Ivoire's high-quality bamboo fibers remain intact during our gentle processing, providing a naturally hygienic facial tissue.</p>
       <h2 id="structural-analysis"><strong>Structural Analysis: Fiber Length</strong></h2>
@@ -309,7 +309,7 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>As Canadian consumers shift towards sustainable alternatives, <strong>Ivoire Tissue</strong> provides premium bamboo kitchen towels designed to tackle the toughest messes while remaining gentle on the earth.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/Liangzhu-Kitchen-Roll.jpg" alt="Bamboo Kitchen Roll" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/17.jpg" alt="Bamboo Kitchen Roll" /></figure></div>
       <h2 id="what-are-reusable-bamboo-kitchen-towels"><strong>What are Reusable Bamboo Kitchen Towels</strong></h2>
       <p>While heavy-duty reusable options exist for long-term washing (50-100 uses), they require constant maintenance and laundering, which consumes hot water and detergent.</p>
       <ul>
@@ -318,7 +318,7 @@ export const newsDatabase: Record<string, any> = {
       </ul>
       <h2 id="what-are-disposable-bamboo-kitchen-towels"><strong>What are Disposable Bamboo Kitchen Towels</strong></h2>
       <p>Ivoire's disposable bamboo kitchen towels offer the perfect balance. Made from strong bamboo pulp, they absorb heavy spills instantly and can be composted after a single, hygienic use.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/Disposable-Bamboo-Kitchen-Towels-1.jpg" alt="Disposable Bamboo Kitchen Towels" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/18.jpg" alt="Disposable Bamboo Kitchen Towels" /></figure></div>
       <h2 id="a-comparison"><strong>A Comparison</strong></h2>
       <figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>Category</strong></td><td><strong>Reusable Cloths</strong></td><td><strong>Ivoire Bamboo Kitchen Towels</strong></td></tr><tr><td><strong>Usage Style</strong></td><td>Requires frequent hot washing</td><td>Use and compost (100% Biodegradable)</td></tr><tr><td><strong>Hygiene</strong></td><td>Can trap food bacteria</td><td>Pristine and clean every time</td></tr></tbody></table></figure>
       <h2 id="key-factors"><strong>Key Factors to Consider</strong></h2>
@@ -340,7 +340,7 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>In 2026, the global toilet paper industry is moving from standard commodities to upscale personal care. <strong>Ivoire Tissue</strong> is at the forefront of this, delivering high absorbency, hypoallergenic, and non-shedding bamboo products from our Quebec facility.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/03/toilet-paper-that-doesnt-shed.jpg" alt="toilet paper that doesn't shed" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/19.jpg" alt="toilet paper that doesn't shed" /></figure></div>
       <h2 id="the-2026-market-landscape"><strong>The 2026 Market Landscape</strong></h2>
       <p>With the global market demanding higher quality, Ivoire Tissue provides B2B wholesale buyers with performance-oriented products that impress the end consumer.</p>
       <h2 id="consumer-demand"><strong>Consumer Demand: Moving Beyond Cost</strong></h2>
@@ -366,7 +366,7 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>Sustainability is our core responsibility. As a proudly Canadian company, <strong>Ivoire Tissue</strong> was founded to provide a definitive answer to the question: "Is bamboo toilet paper truly better for the environment?" The answer is a resounding yes.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/02/unbleached-bamboo-tissue-paper.jpg" alt="unbleached bamboo tissue paper" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/20.jpg" alt="unbleached bamboo tissue paper" /></figure></div>
       <h2 id="understanding-bamboo-toilet-paper"><strong>Understanding Ivoire Bamboo Tissue</strong></h2>
       <p>We utilize 100% FSC-certified bamboo pulp. Bamboo grows at an incredible pace, maturing in just 3-5 years, saving ancient forests that take decades to grow.</p>
       <h2 id="environmental-benefits"><strong>Environmental Benefits</strong></h2>
@@ -395,7 +395,7 @@ export const newsDatabase: Record<string, any> = {
     ],
     content: `
       <p>Bamboo toilet paper used to carry a reputation for being stiff. In 2026, <strong>Ivoire Tissue</strong> has completely shattered that perception. Through advanced fiber engineering at our state-of-the-art facility, we produce genuinely soft and luxurious bamboo paper.</p>
-      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="https://www.cndonseapaper.com/wp-content/uploads/2026/02/soft-bamboo-toilet-paper.jpg" alt="soft bamboo toilet paper" /></figure></div>
+      <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/21.jpg" alt="soft bamboo toilet paper" /></figure></div>
       <h2 id="why-did-bamboo-toilet-paper-feel-hard-before"><strong>Overcoming Bamboo's Stiff Reputation</strong></h2>
       <p>Naturally, bamboo fiber is longer and stronger than wood pulp. While this gives it amazing strength, early manufacturing methods resulted in a flat, dense sheet.</p>
       <h2 id="how-2026-bamboo-toilet-paper-became-soft"><strong>Ivoire's Softness Technology</strong></h2>
