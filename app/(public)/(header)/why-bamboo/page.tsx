@@ -354,50 +354,219 @@ const powerIcons = [
               ))}
             </div>
 
-            {/* Submit Request */}
-            <div className="form-card">
+            {/* Get In Touch 信息卡片 (替换原来的 Submit Request) */}
+            <div className="form-card" style={{ padding: "40px" }}>
               <h2
                 style={{
-                  color: "#004e46",
+                  color: "#00a496",
                   fontSize: "32px",
                   marginBottom: "30px",
+                  fontWeight: 800,
                 }}
               >
-                Submit A Request
+                Get In Touch
               </h2>
-              <form onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="text"
-                  className="input-style"
-                  placeholder="Your Name"
-                />
-                <input
-                  type="email"
-                  className="input-style"
-                  placeholder="Your Email"
-                />
-                <textarea
-                  className="input-style"
-                  style={{ height: "120px", borderRadius: "20px" }}
-                  placeholder="Message"
-                ></textarea>
-                <div style={{ textAlign: "center" }}>
-                  <button
-                    type="submit"
+              <p
+                style={{
+                  color: "#555",
+                  fontSize: "18px",
+                  lineHeight: "1.6",
+                  marginBottom: "40px",
+                }}
+              >
+                We value direct communication. To help us provide an accurate
+                quote quickly, please include your product requirements in your
+                inquiry. Our Montreal team will get back to you promptly.
+              </p>
+
+              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                {/* Email */}
+                <li
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                    marginBottom: "30px",
+                  }}
+                >
+                  <div
                     style={{
                       background: "#00a496",
                       color: "#fff",
-                      border: "none",
-                      padding: "15px 50px",
-                      borderRadius: "50px",
-                      fontWeight: 700,
-                      cursor: "pointer",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      boxShadow: "0 4px 10px rgba(0,164,150,0.3)",
                     }}
                   >
-                    Submit
-                  </button>
-                </div>
-              </form>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "14px",
+                        color: "#666",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
+                        marginBottom: "4px",
+                      }}
+                    >
+                      Email Us
+                    </span>
+                    <a
+                      href="mailto:sales@ivoiretissue.com"
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: 700,
+                        color: "#004e46",
+                        textDecoration: "none",
+                      }}
+                    >
+                      sales@ivoiretissue.com
+                    </a>
+                  </div>
+                </li>
+
+                {/* WhatsApp / Phone */}
+                <li
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                    marginBottom: "30px",
+                  }}
+                >
+                  <div
+                    style={{
+                      background: "#00a496",
+                      color: "#fff",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      boxShadow: "0 4px 10px rgba(0,164,150,0.3)",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "14px",
+                        color: "#666",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
+                        marginBottom: "4px",
+                      }}
+                    >
+                      WhatsApp / Call
+                    </span>
+                    <a
+                      href="tel:+15146888238"
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: 700,
+                        color: "#004e46",
+                        textDecoration: "none",
+                      }}
+                    >
+                      +1 (514) 688-8238
+                    </a>
+                  </div>
+                </li>
+
+                {/* Headquarters */}
+                <li
+                  style={{ display: "flex", alignItems: "center", gap: "20px" }}
+                >
+                  <div
+                    style={{
+                      background: "#00a496",
+                      color: "#fff",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      boxShadow: "0 4px 10px rgba(0,164,150,0.3)",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "14px",
+                        color: "#666",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
+                        marginBottom: "4px",
+                      }}
+                    >
+                      Headquarters
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: 700,
+                        color: "#004e46",
+                      }}
+                    >
+                      222 Rue Poirier, Saint-Eustache, QC
+                    </span>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
