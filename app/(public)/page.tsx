@@ -674,16 +674,34 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+
 type Slide = { id: number; type: string; src: string };
 
-const slides: Slide[] = [
-  { id: 1, type: "video", src: "/videos/hero-1.mov" },
-  { id: 2, type: "video", src: "/videos/hero-2.mov" },
-  { id: 3, type: "video", src: "/videos/hero-3.mov" },
+const slides = [
+  {
+    id: 1,
+    type: "youtube",
+    // 注意：loop=1 在 YouTube 里必须配合 playlist=当前视频ID 才能生效
+    src: "https://www.youtube.com/embed/Unop6aekL1M?autoplay=1&mute=1&controls=0&loop=1&playlist=NBseykhGtkI&playsinline=1",
+  },
+  // {
+  //   id: 2,
+  //   type: "youtube",
+  //   src: "https://www.youtube.com/embed/FkO4kFba1k4?autoplay=1&mute=1&controls=0&loop=1&playlist=FkO4kFba1k4&playsinline=1",
+  // },
+  // {
+  //   id: 3,
+  //   type: "youtube",
+  //   src: "https://www.youtube.com/embed/Jbw4Ur_6BSQ?autoplay=1&mute=1&controls=0&loop=1&playlist=Jbw4Ur_6BSQ&playsinline=1",
+  // },
 ];
 // ============================================================
 // 📌 核心 SVG 图标
 // ============================================================
+import { GiBamboo } from "react-icons/gi"; // 竹子
+import { MdFactory } from "react-icons/md"; // 工厂/企业
+import { BsShieldFillCheck } from "react-icons/bs"; // 盾牌认证
+import { FaShip, FaUsers } from "react-icons/fa"; // 轮船、团队
 const SearchIcon = () => (
   <svg
     width="16"
@@ -804,48 +822,88 @@ const stats = [
   { num: "2", label: "Countries Market" },
 ];
 
+// const powerIcons = [
+//   { img: "10", title: "Grows up to 3 feet a day." },
+//   { img: "12", title: "Releases 30% more oxygen." },
+//   { img: "13", title: "Uses less land due to density." },
+//   { img: "14", title: "Requires 30% less water." },
+//   { img: "15", title: "Entirely renewable." },
+//   { img: "16", title: "Absorbs 12 tonnes of CO2 per year." },
+// ];
 const powerIcons = [
-  { img: "10", title: "Grows up to 3 feet a day." },
-  { img: "12", title: "Releases 30% more oxygen." },
-  { img: "13", title: "Uses less land due to density." },
-  { img: "14", title: "Requires 30% less water." },
-  { img: "15", title: "Entirely renewable." },
-  { img: "16", title: "Absorbs 12 tonnes of CO2 per year." },
+  { icon: LuSprout, title: "Grows up to 3 feet a day." },
+  { icon: LuWind, title: "Releases 30% more oxygen." },
+  { icon: LuScaling, title: "Uses less land due to density." },
+  { icon: LuDroplet, title: "Requires 30% less water." },
+  { icon: LuRecycle, title: "Entirely renewable." },
+  { icon: LuCloud, title: "Absorbs 12 tonnes of CO2 per year." },
 ];
+
+// const whyChoose = [
+//   {
+//     icon: "1",
+//     title: "Eco-Innovation (Focus: Bamboo-Fiber / 100% Biodegradable)",
+//     desc: "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
+//   },
+//   {
+//     icon: "3",
+//     title: "Certifications (FSC Certified Source / ISO Standards)",
+//     desc: "New production lines are continuously being built to provide strong delivery guarantee.",
+//   },
+//   {
+//     icon: "5",
+//     title: "Global Logistics (Port of Montreal Hub / Fast NA Delivery)",
+//     desc: "The root cause of quality problems can be traced back to the order batch.",
+//   },
+//   {
+//     icon: "2",
+//     title: "Custom Solutions (B2B Private Label / Wholesale Support)",
+//     desc: "We have direct customer contracts with shipping companies, providing stable logistics.",
+//   },
+//   {
+//     icon: "4",
+//     title: "Green Energy (1,600 GWh Annual / Renewable Powered)",
+//     desc: "Propose systematic solutions to customer needs – professional R&D team.",
+//   },
+// ];
+import {
+  LuSprout,
+  LuWind,
+  LuScaling,
+  LuDroplet,
+  LuRecycle,
+  LuCloud,
+} from "react-icons/lu";
 
 const whyChoose = [
   {
-    icon: "1",
+    icon: GiBamboo, // 替换原本的 "1" (竹子)
     title: "Eco-Innovation (Focus: Bamboo-Fiber / 100% Biodegradable)",
     desc: "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
   },
   {
-    icon: "3",
+    icon: BsShieldFillCheck, // 替换原本的 "3" (盾牌)
     title: "Certifications (FSC Certified Source / ISO Standards)",
     desc: "New production lines are continuously being built to provide strong delivery guarantee.",
   },
   {
-    icon: "5",
+    icon: FaShip, // 替换原本的 "5" (轮船)
     title: "Global Logistics (Port of Montreal Hub / Fast NA Delivery)",
     desc: "The root cause of quality problems can be traced back to the order batch.",
   },
   {
-    icon: "2",
+    icon: MdFactory, // 替换原本的 "2" (工厂/建筑)
     title: "Custom Solutions (B2B Private Label / Wholesale Support)",
     desc: "We have direct customer contracts with shipping companies, providing stable logistics.",
   },
   {
-    icon: "4",
+    icon: FaUsers, // 替换原本的 "4" (团队)
     title: "Green Energy (1,600 GWh Annual / Renewable Powered)",
     desc: "Propose systematic solutions to customer needs – professional R&D team.",
   },
 ];
+
 // 把这段代码补在 products 数组附近即可
-// const exhibitionImages = [
-//   { src: "https://www.cndonseapaper.com/wp-content/uploads/2025/03/Exhibition-8.jpg", title: "Interclean Beijing In 2021" },
-//   { src: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Exhibition-new-7.jpg", title: "CIDPEX IN 2024" },
-//   { src: "https://www.cndonseapaper.com/wp-content/uploads/2025/04/Exhibition-new-3.jpg", title: "Tissue World in America" },
-// ];
 const exhibitionImages = [
   {
     src: "/images/exhibition/1.jpg",
@@ -867,8 +925,10 @@ export default function HomePage() {
   // 👇 插入轮播控制逻辑 👇
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // 自动轮播（每6秒切换一次）
+  // 自动轮播（仅当 slides 大于 1 时才开启）
   useEffect(() => {
+    if (slides.length <= 1) return; // 如果只有一个视频，直接退出，不设定时器
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
@@ -920,8 +980,8 @@ export default function HomePage() {
         
         /* 统一的前景遮罩和文字层，确保文字清晰 */
        /* 加上 justify-content: center 让大盒子水平居中 */
-.hm-slide-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.4); display: flex; align-items: center; justify-content: center; z-index: 3; }
-
+/* 找到这一行 */
+.hm-slide-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.15); display: flex; align-items: center; justify-content: center; z-index: 3; }
 /* 删掉 padding-left，换成 text-align: center 让内部文字居中 */
 .hm-hero-content { position: relative; color: #fff; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px; }
         
@@ -1030,7 +1090,7 @@ export default function HomePage() {
         .hm-exhib-card-title { background: var(--c-dark-green); color: #fff; padding: 15px; font-weight: 700; }
 
         /* 9. Contact (Bamboo Background + Glassmorphism) */
-        .hm-contact { position: relative; padding: 100px 0; background-color: var(--c-dark-green); background-image: url('https://www.cndonseapaper.com/wp-content/uploads/2025/03/bg.jpg'); background-size: cover; background-position: center; }
+        .hm-contact { position: relative; padding: 100px 0; background-color: var(--c-dark-green); background-image: url('/images/about-us-faq.png'); background-size: cover; background-position: center; }
         .hm-contact-overlay { position: absolute; inset: 0; background: rgba(0, 48, 43, 0.4); }
         .hm-contact-container { position: relative; z-index: 10; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         
@@ -1084,10 +1144,28 @@ export default function HomePage() {
             key={slide.id}
             className={`hm-slide ${index === currentSlide ? "active" : ""}`}
           >
-            <video autoPlay loop muted playsInline>
-              {/* 因为是 .mov 格式，最好不写 type="video/mp4"，让浏览器自动识别 */}
-              <source src={slide.src} />
-            </video>
+            {/* 👇 换成 iframe，并加入 pointer-events: none 防止误触 👇 */}
+            <iframe
+              src={slide.src}
+              title={`YouTube video ${index}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                // 👇 核心去黑边魔法 👇
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: "100vw",
+                height: "56.25vw" /* 强行锁定 16:9 比例 (9 / 16 = 0.5625) */,
+                minHeight: "100vh",
+                minWidth: "177.77vh" /* 强行锁定 16:9 比例 (16 / 9 = 1.7777) */,
+                transform: "translate(-50%, -50%)",
+                pointerEvents: "none", // 防止鼠标误触暂停
+                border: "none",
+                filter: "brightness(1.3)",
+              }}
+            ></iframe>
           </div>
         ))}
 
@@ -1137,33 +1215,38 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* 左右手动切换按钮 */}
-        <button
-          className="hm-nav-btn hm-nav-prev"
-          onClick={prevSlide}
-          aria-label="Previous Slide"
-        >
-          &#10094;
-        </button>
-        <button
-          className="hm-nav-btn hm-nav-next"
-          onClick={nextSlide}
-          aria-label="Next Slide"
-        >
-          &#10095;
-        </button>
-
-        {/* 底部小圆点 */}
-        <div className="hm-dots">
-          {slides.map((_, index) => (
+        {/* 当 slides 大于 1 个时，才渲染左右切换和指示圆点 */}
+        {slides.length > 1 && (
+          <>
+            {/* 左右手动切换按钮 */}
             <button
-              key={index}
-              className={`hm-dot ${index === currentSlide ? "active" : ""}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+              className="hm-nav-btn hm-nav-prev"
+              onClick={prevSlide}
+              aria-label="Previous Slide"
+            >
+              &#10094;
+            </button>
+            <button
+              className="hm-nav-btn hm-nav-next"
+              onClick={nextSlide}
+              aria-label="Next Slide"
+            >
+              &#10095;
+            </button>
+
+            {/* 底部小圆点 */}
+            <div className="hm-dots">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  className={`hm-dot ${index === currentSlide ? "active" : ""}`}
+                  onClick={() => goToSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </section>
       {/* 2. ABOUT US & STATS */}
       <section className="hm-about-section">
@@ -1262,7 +1345,7 @@ export default function HomePage() {
             Bamboo is the largest species of grass, offering unparalleled
             environmental benefits.
           </p>
-          <div className="hm-power-grid">
+          {/* <div className="hm-power-grid">
             {powerIcons.map((icon, i) => (
               <div key={i} className="hm-power-item">
                 <img
@@ -1272,6 +1355,30 @@ export default function HomePage() {
                 <h5>{icon.title}</h5>
               </div>
             ))}
+          </div> */}
+          <div className="hm-power-grid">
+            {powerIcons.map((item, i) => {
+              const IconComponent = item.icon; // 取出对应的组件
+              return (
+                <div key={i} className="hm-power-item">
+                  {/* 直接渲染 SVG 图标，取代 img 标签 */}
+                  <div
+                    style={{
+                      fontSize: "65px", // 控制图标大小，原来 img 是 80px，这里给 65px 视觉上刚好
+                      color: "#33ffcc", // 给个高亮品牌绿，你也可以改成纯白 "#ffffff"
+                      marginBottom: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <IconComponent strokeWidth={1.5} />{" "}
+                    {/* strokeWidth 控制线条粗细，1.5 显得很高级 */}
+                  </div>
+                  <h5>{item.title}</h5>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1332,7 +1439,7 @@ export default function HomePage() {
           <div className="hm-why-content">
             <h2>Why Choose Ivoire Tissue</h2>
             <p>Plant and protect the log close to the skin</p>
-            <div className="hm-why-items">
+            {/* <div className="hm-why-items">
               {whyChoose.map((item, i) => (
                 <div key={i} className="hm-why-box">
                   <img
@@ -1344,6 +1451,34 @@ export default function HomePage() {
                   <p>{item.desc}</p>
                 </div>
               ))}
+            </div> */}
+            <div className="hm-why-items">
+              {whyChoose.map((item, i) => {
+                const IconComponent = item.icon; // 取出对应的图标组件
+                return (
+                  <div key={i} className="hm-why-box">
+                    {/* 👇 用 CSS 画出绿色背景框，放入白色图标 👇 */}
+                    <div
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        backgroundColor: "var(--c-brand-green)", // 使用你的品牌绿
+                        borderRadius: "12px", // 保持和原图一致的圆角
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#ffffff", // 图标颜色为纯白
+                        fontSize: "36px", // 控制图标的大小
+                        boxShadow: "0 4px 10px rgba(0, 164, 150, 0.2)", // 加一点微弱的高级阴影
+                      }}
+                    >
+                      <IconComponent />
+                    </div>
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -1424,7 +1559,7 @@ export default function HomePage() {
                     href="mailto:info@ivoiretissue.com"
                     className="ivt-contact-value"
                   >
-                    info@ivoiretissue.com
+                    sales@ivoiretissue.com
                   </a>
                 </div>
               </li>
@@ -1440,7 +1575,7 @@ export default function HomePage() {
                   <span className="ivt-contact-label">WhatsApp / Call</span>
                   {/* 👇 把这里换成你们真实的电话 👇 */}
                   <a href="tel:+1234567890" className="ivt-contact-value">
-                    +1 (234) 567-8900
+                    +1 (514) 688-8238
                   </a>
                 </div>
               </li>
@@ -1459,7 +1594,7 @@ export default function HomePage() {
                     className="ivt-contact-value"
                     style={{ cursor: "default" }}
                   >
-                    Montreal, Quebec, Canada
+                    222 Rue Poirier, Saint-Eustache, QC
                   </span>
                 </div>
               </li>
