@@ -259,7 +259,7 @@ const staticPages = [
     url: "/about-us/factory-production-line",
     type: "Page",
   },
-  { title: "Certification", url: "/about-us/certification", type: "Page" },
+  // { title: "Certification", url: "/about-us/certification", type: "Page" },
   { title: "Why Bamboo", url: "/why-bamboo", type: "Page" },
   { title: "FAQ", url: "/services/faq", type: "Page" },
   { title: "Contact Us", url: "/contact-us", type: "Page" },
@@ -551,11 +551,11 @@ export default function Header() {
                                         Factory & Production Line
                                       </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                       <Link href="/about-us/certification">
                                         Certification
                                       </Link>
-                                    </li>
+                                    </li> */}
                                   </ul>
                                 </li>
 
@@ -741,9 +741,9 @@ export default function Header() {
                         Factory & Production Line
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link href="/about-us/certification">Certification</Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </li>
                 <li>
