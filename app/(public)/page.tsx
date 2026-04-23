@@ -914,7 +914,7 @@ const exhibitionImages = [
     title: "Market Insight: Tissue Mill Operations",
   },
   {
-    src: "/images/exhibition/3.jpg",
+    src: "/images/exhibition/4.jpg",
     title: "Future Strategies for Tissue Industry",
   },
 ];
