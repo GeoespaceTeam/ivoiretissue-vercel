@@ -1253,14 +1253,17 @@ export default function HomePage() {
         <div className="hm-container">
           <div className="hm-about-grid">
             <div className="hm-about-vid">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://ivoiretissue.com/wp-content/uploads/2024/03/media_20240331_235304_7521214834847688587.mp4"
-                title="Ivoire Tissue"
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
+              <div className="hm-about-vid">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/abNreLOQmF0"
+                  title="Ivoire Tissue"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
             <div className="hm-about-text">
               <h2>ABOUT IVOIRE TISSUE</h2>
