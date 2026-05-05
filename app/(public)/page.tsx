@@ -877,28 +877,33 @@ import {
 
 const whyChoose = [
   {
-    icon: GiBamboo, // 替换原本的 "1" (竹子)
-    title: "Eco-Innovation (Focus: Bamboo-Fiber / 100% Biodegradable)",
+    icon: GiBamboo,
+    title: "Eco-Innovation",
+    sub: "Focus: Bamboo-Fiber / 100% Biodegradable", // 去掉括号，放进 sub
     desc: "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
   },
   {
-    icon: BsShieldFillCheck, // 替换原本的 "3" (盾牌)
-    title: "Certifications (FSC Certified Source / ISO Standards)",
+    icon: BsShieldFillCheck,
+    title: "Certifications",
+    sub: "FSC Certified Source / ISO Standards",
     desc: "New production lines are continuously being built to provide strong delivery guarantee.",
   },
   {
-    icon: FaShip, // 替换原本的 "5" (轮船)
-    title: "Global Logistics (Port of Montreal Hub / Fast NA Delivery)",
+    icon: FaShip,
+    title: "Global Logistics",
+    sub: "Port of Montreal Hub / Fast NA Delivery",
     desc: "The root cause of quality problems can be traced back to the order batch.",
   },
   {
-    icon: MdFactory, // 替换原本的 "2" (工厂/建筑)
-    title: "Custom Solutions (B2B Private Label / Wholesale Support)",
+    icon: MdFactory,
+    title: "Custom Solutions",
+    sub: "B2B Private Label / Wholesale Support",
     desc: "We have direct customer contracts with shipping companies, providing stable logistics.",
   },
   {
-    icon: FaUsers, // 替换原本的 "4" (团队)
-    title: "Green Energy (1,600 GWh Annual / Renewable Powered)",
+    icon: FaUsers,
+    title: "Green Energy",
+    sub: "1,600 GWh Annual / Renewable Powered",
     desc: "Propose systematic solutions to customer needs – professional R&D team.",
   },
 ];
@@ -1074,7 +1079,30 @@ export default function HomePage() {
         .hm-why-items { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .hm-why-box { display: flex; flex-direction: column; gap: 15px; }
         .hm-why-box img { width: 60px; border-radius: 12px; }
-        .hm-why-box h4 { font-size: 20px; font-weight: 800; color: var(--c-dark-green); margin: 0; }
+      .hm-why-box h4 { 
+  font-size: 20px; 
+  font-weight: 800; 
+  color: var(--c-dark-green); 
+  margin: 0; 
+  /* 强制单行且不折行 */
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  display: block;
+}
+
+/* 新增副标题样式 */
+.hm-why-sub {
+  font-size: 15px; /* 稍微比标题小一点，更显高级 */
+  font-weight: 600;
+  color: var(--c-brand-green);
+  display: block;
+  margin-top: 2px;
+  /* 同样强制单行 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
         .hm-why-box p { font-size: 14px; color: #555; line-height: 1.6; margin: 0; }
 
         /* 7. Production Flow */
@@ -1434,7 +1462,7 @@ export default function HomePage() {
           <div style={{ height: "100%" }}>
             <img
               // src="https://www.cndonseapaper.com/wp-content/uploads/2025/03/why-1-683x1024.jpg"
-              src="/images/ivoire-bamboo.png"
+              src="/images/newsImg/3.jpg"
               alt="Bamboo Forest"
               className="hm-why-tall-img"
             />
@@ -1457,27 +1485,32 @@ export default function HomePage() {
             </div> */}
             <div className="hm-why-items">
               {whyChoose.map((item, i) => {
-                const IconComponent = item.icon; // 取出对应的图标组件
+                const IconComponent = item.icon;
                 return (
                   <div key={i} className="hm-why-box">
-                    {/* 👇 用 CSS 画出绿色背景框，放入白色图标 👇 */}
                     <div
                       style={{
                         width: "60px",
                         height: "60px",
-                        backgroundColor: "var(--c-brand-green)", // 使用你的品牌绿
-                        borderRadius: "12px", // 保持和原图一致的圆角
+                        backgroundColor: "var(--c-brand-green)",
+                        borderRadius: "12px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        color: "#ffffff", // 图标颜色为纯白
-                        fontSize: "36px", // 控制图标的大小
-                        boxShadow: "0 4px 10px rgba(0, 164, 150, 0.2)", // 加一点微弱的高级阴影
+                        color: "#ffffff",
+                        fontSize: "36px",
+                        boxShadow: "0 4px 10px rgba(0, 164, 150, 0.2)",
                       }}
                     >
                       <IconComponent />
                     </div>
-                    <h4>{item.title}</h4>
+
+                    {/* 修改后的标题区域 */}
+                    <div style={{ width: "100%", overflow: "hidden" }}>
+                      <h4>{item.title}</h4>
+                      <span className="hm-why-sub">{item.sub}</span>
+                    </div>
+
                     <p>{item.desc}</p>
                   </div>
                 );
