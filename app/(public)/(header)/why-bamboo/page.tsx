@@ -365,7 +365,7 @@ const powerIcons = [
           </div>
           <div>
             <img
-              src="/images/newsImg/2.jpg"
+              src="/images/newsImg/23.jpg"
               alt="Bamboo Product"
               className="wb-img-square"
             />
