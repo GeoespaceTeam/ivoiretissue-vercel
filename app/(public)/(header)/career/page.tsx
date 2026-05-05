@@ -227,7 +227,7 @@ export default function CareerPage() {
         style={{
           height: "500px",
           backgroundImage:
-            'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://ivoiretissue.com/wp-content/uploads/2024/03/bamboo-1-scaled.jpeg")',
+            'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/black-canada.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
@@ -240,13 +240,13 @@ export default function CareerPage() {
         }}
       >
         <ScrollReveal direction="up">
-          <Image
+          {/* <Image
             src="https://ivoiretissue.com/wp-content/uploads/2024/03/We-are-hiring-1.png"
             alt="We are hiring"
             width={400}
             height={80}
             style={{ marginBottom: "30px", filter: "brightness(0) invert(1)" }}
-          />
+          /> */}
           <h1
             style={{
               fontSize: "48px",
@@ -261,8 +261,12 @@ export default function CareerPage() {
             style={{
               fontSize: "24px",
               marginTop: "20px",
-              maxWidth: "900px",
+              /* 1. 将 maxWidth 从 900px 扩大，例如 1100px 或更高，给文字足够的空间排成两行 */
+              maxWidth: "1100px",
               lineHeight: 1.8,
+              margin: "20px auto 0", // 确保水平居中
+              /* 2. 可选：稍微缩小一点字号（例如 22px），能更稳妥地保证在两行内 */
+              // fontSize: "22px",
             }}
           >
             Join a team where sustainability and innovation meet. We are looking
