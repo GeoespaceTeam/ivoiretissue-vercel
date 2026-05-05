@@ -2,7 +2,7 @@ export const newsDatabase: Record<string, any> = {
   "1": {
     title: "Why 3 Ply Bamboo Toilet Paper is the Superior Eco-Friendly Choice in 2026",
     date: "04/09/2026",
-    mainImg: "/images/ample-kitchen-roll.jpg",
+    mainImg: "/images/virgin-dissolvable-toilet-paper.jpg",
     toc: [
       { id: "why-toilet-paper-made-from-bamboo-is-outperforming-wood-pulp-in-2026", text: "Why Toilet Paper Made From Bamboo is Outperforming Wood Pulp" },
       { id: "how-is-bamboo-toilet-paper-made-without-harsh-chemicals", text: "How is Bamboo Toilet Paper Made Without Harsh Chemicals?" },
@@ -45,7 +45,7 @@ export const newsDatabase: Record<string, any> = {
   "2": {
     title: "Bamboo vs. Wood Pulp in Facial Tissue Manufacturing",
     date: "04/07/2026",
-    mainImg: "/images/bambooproducts.png",
+    mainImg: "/images/ultra-soft-facial-tissue.jpg",
     toc: [
       { id: "understanding-bamboomaterialin-facial-tissue-manufacturing", text: "Understanding Bamboo Material" },
       { id: "understanding-wood-pulpmaterialin-facial-tissue-manufacturing", text: "Understanding Wood Pulp Material" },
@@ -96,7 +96,7 @@ export const newsDatabase: Record<string, any> = {
   "3": {
     title: "Kitchen Paper Towels vs. Reusable Cleaning Cloths: The Ivoire Perspective",
     date: "04/01/2026",
-     mainImg: "/images/category-banner.jpg",
+     mainImg: "/images/ample-kitchen-roll.jpg",
     toc: [
       { id: "understanding-kitchen-paper-towels", text: "Understanding Kitchen Paper Towels" },
       { id: "understanding-reusable-cleaning-cloths", text: "Understanding Reusable Cleaning Cloths" },
