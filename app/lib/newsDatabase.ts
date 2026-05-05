@@ -330,7 +330,7 @@ export const newsDatabase: Record<string, any> = {
   "10": {
     title: "The Rise of Lint-Free Toilet Paper: Ivoire's 2026 Innovation",
     date: "03/02/2026",
-    mainImg: "/images/market-asia.jpg",
+    mainImg: "/images/newsImg/22.jpg",
     toc: [
       { id: "the-2026-market-landscape", text: "The 2026 Market Landscape" },
       { id: "consumer-demand", text: "Consumer Demand: Moving Beyond Cost" },

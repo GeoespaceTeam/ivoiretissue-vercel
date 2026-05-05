@@ -104,17 +104,51 @@ const powerIcons = [
         .wb-container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
         
         /* 1. Hero Banner - 带有特定背景图和 4:1 比例感 */
-        .wb-hero {
-          position: relative;
-          height: 450px;
-          background: url('/images/why-bamboo-hero.png') center/cover no-repeat;
-          display: flex;
-          align-items: center;
-          color: #fff;
-        }
-        .wb-hero h1 { font-size: 50px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
-        .wb-hero p { font-size: 24px; font-weight: 400; max-width: 600px; }
+        /* 1. Hero Banner - 修改后的样式 */
+.wb-hero {
+  position: relative;
+  height: 450px;
+  background: url('/images/why-bamboo-hero.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 确保容器内容水平居中 */
+  color: #fff;
+  text-align: center;      /* 文字内部居中 */
+}
 
+.wb-hero .wb-container {
+  width: 100%;
+}
+
+.wb-hero h1 { 
+  font-size: 50px; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  margin-bottom: 10px;
+  
+  /* 强制单行 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 如果超出了会显示... */
+}
+
+.wb-hero p { 
+  font-size: 24px; 
+  font-weight: 400; 
+  margin: 0 auto;         /* 配合 text-align center */
+  max-width: 90%;         /* 限制宽度，防止紧贴屏幕边缘 */
+
+  /* 强制单行 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+/* 响应式调整：移动端缩小字号防止被截断太多 */
+@media (max-width: 768px) {
+  .wb-hero h1 { font-size: 32px; }
+  .wb-hero p { font-size: 16px; }
+}
         /* 2. Advantage Section - 带有水印 boo-bg-4.png */
         .wb-advantage {
           padding: 100px 0;
