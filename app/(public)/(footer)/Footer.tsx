@@ -333,10 +333,11 @@ export default function Footer() {
 
         /* --- Column 1: Logo & Certs --- */
         .iv-footer-logo img {
-          width: 300px; /* 原版比较大 */
+          width: 350px; /* 👈 改成和上面一致的数值 */
           height: auto;
           margin-bottom: 30px;
           display: block;
+          max-width: none; /* 加上这一行，防止被意外约束 */
         }
         .iv-footer-certs {
           display: flex;
