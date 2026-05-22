@@ -332,13 +332,7 @@ export default function Footer() {
         }
 
         /* --- Column 1: Logo & Certs --- */
-        .iv-footer-logo img {
-          width: 350px; /* 👈 改成和上面一致的数值 */
-          height: auto;
-          margin-bottom: 30px;
-          display: block;
-          max-width: none; /* 加上这一行，防止被意外约束 */
-        }
+       
         .iv-footer-certs {
           display: flex;
           gap: 15px;
@@ -454,18 +448,34 @@ export default function Footer() {
       <div className="iv-footer-container">
         {/* Column 1: Logo & Certifications */}
         <div className="iv-footer-col">
-          <Link href="/" className="iv-footer-logo">
+          <Link
+            href="/"
+            className="iv-footer-logo"
+            style={{
+              display: "block",
+              position: "relative", // 👈 核心1：作为绝对定位的基准
+              width: "100%", // 占满父列宽度
+              height: "200px", // 👈 核心2：锁定原有的高度，防止撑大容器
+              marginBottom: "30px",
+              overflow: "visible", // 👈 核心3：允许图片溢出
+            }}
+          >
             {/* ⚠️ 提示：因为底色是绿色，Logo 必须是白色/反白版本的 PNG！ */}
             <Image
               src="/images/logo.png"
               alt="Ivoire Tissue Logo"
-              width={400} // 这是一个基础尺寸建议
-              height={100} // 保持比例
+              width={400} // 基础尺寸建议大一点，保证清晰度
+              height={100}
+              priority
               style={{
-                width: "350px", // 👈 直接在这里控制你想要的宽度，比如 350px
-                height: "auto", // 必须设为 auto 以保持长宽比
+                position: "absolute", // 👈 核心4：脱离文档流，不占空间
+                top: "50%", // 👈 核心5：垂直居中开始
+                left: "50%", // 👈 核心6：水平居中开始
+                transform: "translate(-50%, -50%)", // 👈 核心7：完美拉回中心点
+                width: "550px", // 👈 这里设置你想要的超大宽度，随便试
+                height: "400px", // 保持比例
+                maxWidth: "none", // 取消限制
                 display: "block",
-                maxWidth: "none", // 强制覆盖掉可能的 CSS 限制
               }}
             />
           </Link>
