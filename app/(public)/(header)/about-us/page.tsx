@@ -426,7 +426,7 @@ export default function AboutUsPage() {
       <section className="au-why">
         <div className="container">
           <div className="au-why-header">
-            <h2>Why Choose Ivoire Tissue</h2>
+            <h2>Why Choose Ivoire</h2>
             <p>Plant and protect the log close to the skin</p>
           </div>
 
