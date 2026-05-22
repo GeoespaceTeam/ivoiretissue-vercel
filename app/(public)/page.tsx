@@ -1294,7 +1294,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="hm-about-text">
-              <h2>ABOUT IVOIRE TISSUE</h2>
+              <h2>ABOUT IVOIRE</h2>
               <p>
                 Established in 2022 in Montreal, Ivoire Tissue Paper is a
                 pioneering Canadian company dedicated to producing high-quality
@@ -1554,7 +1554,7 @@ export default function HomePage() {
             className="hm-btn"
             style={{ padding: "12px 30px", fontSize: "14px" }}
           >
-            About Ivoire Tissue
+            About Ivoire
           </Link>
         </div>
       </section>
