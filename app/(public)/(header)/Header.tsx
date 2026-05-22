@@ -343,7 +343,13 @@ export default function Header() {
         .site-container { max-width: var(--global-content-width); margin: 0 auto; padding: 0 var(--global-content-edge-padding); width: 100%; }
         .site-header-row { display: flex; justify-content: space-between; width: 100%; }
         .site-header-section { display: flex; align-items: center; }
-        .site-branding img { max-width: 200px; display: block; }
+        .site-branding img {
+  width: 240px;      /* 这里设置你想要的放大后的宽度 */
+  height: 60px;      /* 这里设置为与 Header 高度匹配的值 (稍微小一点留点边距) */
+  display: block;
+  object-fit: contain; /* 改为 contain，保持完整，或者用 cover 进行裁剪 */
+  object-position: center;
+}
         .kadence-svg-iconset svg { height: 1em; width: 1em; fill: currentColor; }
 
         .main-navigation .primary-menu-container > ul { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; height: 100%; }
@@ -460,10 +466,18 @@ export default function Header() {
                           <div className="site-branding">
                             <Link className="brand has-logo-image" href="/">
                               <img
-                                width="100"
+                                width="240"
                                 height="60"
                                 src="/images/logo.png"
                                 alt="Ivoiretissue Co., Ltd."
+                                style={{
+                                  width: "240px", // 保持你想要的宽度
+                                  height: "60px", // 保持高度
+                                  objectFit: "cover", // 保持裁剪
+                                  position: "relative", // 启用定位
+                                  top: "10px", // 👈 这个数值就是向下移动的距离，你可以试着改成 20px, 30px 等
+                                  display: "block",
+                                }}
                               />
                             </Link>
                           </div>
