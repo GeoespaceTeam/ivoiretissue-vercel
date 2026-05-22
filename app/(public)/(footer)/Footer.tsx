@@ -458,8 +458,14 @@ export default function Footer() {
             <Image
               src="/images/logo.png"
               alt="Ivoire Tissue Logo"
-              width={240}
-              height={60}
+              width={400} // 这是一个基础尺寸建议
+              height={100} // 保持比例
+              style={{
+                width: "350px", // 👈 直接在这里控制你想要的宽度，比如 350px
+                height: "auto", // 必须设为 auto 以保持长宽比
+                display: "block",
+                maxWidth: "none", // 强制覆盖掉可能的 CSS 限制
+              }}
             />
           </Link>
           <div className="iv-footer-certs">
