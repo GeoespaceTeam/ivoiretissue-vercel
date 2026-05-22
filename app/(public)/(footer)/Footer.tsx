@@ -333,7 +333,7 @@ export default function Footer() {
 
         /* --- Column 1: Logo & Certs --- */
         .iv-footer-logo img {
-          width: 240px; /* 原版比较大 */
+          width: 300px; /* 原版比较大 */
           height: auto;
           margin-bottom: 30px;
           display: block;
