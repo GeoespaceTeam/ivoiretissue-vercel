@@ -110,7 +110,7 @@
 //             <Link href="/" onClick={closeMobile}>
 //               <Image
 //                 src="/images/logo.png"
-//                 alt="Ivoire Tissue Paper"
+//                 alt="Ivoire"
 //                 width={160}
 //                 height={42}
 //                 priority

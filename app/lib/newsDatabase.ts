@@ -16,7 +16,7 @@ export const newsDatabase: Record<string, any> = {
       <div class="wp-block-image"><figure class="aligncenter size-full"><img src="/images/newsImg/1.jpg" alt="eco-friendly bamboo toilet paper roll" /></figure></div>
       <h2 id="why-toilet-paper-made-from-bamboo-is-outperforming-wood-pulp-in-2026"><strong>Why Toilet Paper Made From Bamboo is Outperforming Wood Pulp in 2026</strong></h2>
       <p>One can appreciate the recent growth of Ivoire Tissue's products by examining the growth period of bamboo. Typically, bamboo grows to its full height and fiber density in 3-5 years, unlike North American softwoods that take decades to mature.</p>
-      <p>Bamboo maintains a high percentage of silica and possesses long vascular elements, giving Ivoire Tissue paper a very high level of tensile strength. With our sustainable forest management and FSC protocols, the plant is not destroyed when cut, allowing for ongoing yearly carbon collection.</p>
+      <p>Bamboo maintains a high percentage of silica and possesses long vascular elements, giving Ivoire a very high level of tensile strength. With our sustainable forest management and FSC protocols, the plant is not destroyed when cut, allowing for ongoing yearly carbon collection.</p>
       <h2 id="how-is-bamboo-toilet-paper-made-without-harsh-chemicals"><strong>How is Bamboo Toilet Paper Made Without Harsh Chemicals?</strong></h2>
       <p>At Ivoire Tissue, there are various processes in converting bamboo to our soft and absorbent toilet paper, heavily utilizing our renewable energy facilities.</p>
       <ul>

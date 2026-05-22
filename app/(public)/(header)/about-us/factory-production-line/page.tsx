@@ -256,7 +256,7 @@ export default function FactoryProductionLinePage() {
           <div className="fac-workshop-right">
             <h2>Workshop</h2>
             <p>
-              <strong>Ivoire Tissue Paper</strong> was established in 2022,
+              <strong>Ivoire</strong> was established in 2022,
               integrating R&D, production, and sales together. Our
               state-of-the-art plant covers an area of over 2,000 square meters
               in Saint-Eustache, Quebec. Employing a dedicated local and

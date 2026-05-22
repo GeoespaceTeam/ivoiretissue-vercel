@@ -138,7 +138,7 @@ export default function CorporateResponsibilityPage() {
                 <div className="policy-block">
                   <h2>Corporate Policies</h2>
                   <p>
-                    Ivoire Tissue Paper company contributes to the economic
+                    Ivoire company contributes to the economic
                     development of the regions where it operates and exemplifies
                     its dedication to environmental protection, sustainable
                     fiber procurement, and robust business relationships with

@@ -6,7 +6,7 @@
 // export const metadata: Metadata = {
 //   title: "About Us – Ivoiretissue",
 //   description:
-//     "Learn about the history, mission, and location of Ivoire Tissue Paper.",
+//     "Learn about the history, mission, and location of Ivoire.",
 // };
 
 // export default function AboutUsPage() {
@@ -26,7 +26,7 @@
 //         imageSrc="/images/about-history.jpg" // 准备好图片后取消注释
 //       >
 //         <p>
-//           <strong>Ivoire Tissue Paper</strong> is a family-owned Canadian
+//           <strong>Ivoire</strong> is a family-owned Canadian
 //           enterprise born from a vision of resilience and sustainability. Our
 //           story began with our founders,
 //           <strong>Yves Andoh</strong> (Chairman) and{" "}
@@ -55,7 +55,7 @@
 //         imageSrc="/images/about-mission.jpg"
 //       >
 //         <p>
-//           Ivoire Tissue Paper is dedicated to promoting sustainability,
+//           Ivoire is dedicated to promoting sustainability,
 //           innovation, and quality in the paper industry. By utilizing bamboo as
 //           a renewable resource, the company aims to reduce environmental impact
 //           while providing high-quality alternatives to traditional paper
@@ -63,7 +63,7 @@
 //         </p>
 //         <p>
 //           By offering high-quality alternatives to traditional paper products,
-//           Ivoire Tissue Paper aims to inspire positive change within the paper
+//           Ivoire aims to inspire positive change within the paper
 //           industry and encourage more sustainable practices among consumers and
 //           businesses alike. Through their dedication to sustainability,
 //           innovation, and quality, they strive to make a meaningful contribution
@@ -87,7 +87,7 @@
 //           environmental sustainability.
 //         </p>
 //         <p>
-//           At Ivoire Tissue Paper, we pride ourselves on using bamboo—a rapidly
+//           At Ivoire, we pride ourselves on using bamboo—a rapidly
 //           renewable resource—as the primary material for our paper products.
 //           Bamboo’s exceptional strength and eco-friendly properties make it an
 //           ideal alternative to traditional paper sources. Our production
@@ -104,7 +104,7 @@
 //         <p>
 //           Visit us at 222 Rue Poirier to explore our range of bamboo tissue
 //           papers, napkins, and other sustainable paper solutions. Experience the
-//           difference of Ivoire Tissue Paper—where quality, innovation, and
+//           difference of Ivoire—where quality, innovation, and
 //           environmental consciousness converge.
 //         </p>
 //       </ContentSection>
@@ -406,7 +406,7 @@ export default function AboutUsPage() {
           <div className="au-profile-text">
             <h2>Company Profile</h2>
             <p>
-              <strong>Ivoire Tissue Paper</strong> was established in 2022, with
+              <strong>Ivoire</strong> was established in 2022, with
               more than 4 years of professional quality and innovative
               development, integrating R&D, production, and sales together.
               Ivoire tissue has grown into a comprehensive enterprise engaged in

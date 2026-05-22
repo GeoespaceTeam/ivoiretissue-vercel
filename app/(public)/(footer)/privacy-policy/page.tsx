@@ -78,7 +78,7 @@ const POLICIES = [
     title: "Environmental Policy",
     icon: <LeafIcon />,
     content:
-      "Ivoire Tissue Paper is committed to minimizing its environmental footprint by prioritizing sustainable practices throughout its operations. This includes sourcing raw materials responsibly, reducing energy consumption, minimizing waste generation, and implementing recycling initiatives. The company pledges to continually improve its environmental performance and comply with all relevant environmental regulations.",
+      "Ivoire is committed to minimizing its environmental footprint by prioritizing sustainable practices throughout its operations. This includes sourcing raw materials responsibly, reducing energy consumption, minimizing waste generation, and implementing recycling initiatives. The company pledges to continually improve its environmental performance and comply with all relevant environmental regulations.",
   },
   {
     title: "Quality Assurance",
@@ -96,7 +96,7 @@ const POLICIES = [
     title: "Health & Safety",
     icon: <ShieldIcon />,
     content:
-      "Ivoire Tissue Paper prioritizes the health and safety of its employees, customers, and the public. The company maintains a safe working environment by identifying and mitigating potential hazards, providing comprehensive training on safety procedures, and promoting a culture of accountability and responsibility.",
+      "Ivoire prioritizes the health and safety of its employees, customers, and the public. The company maintains a safe working environment by identifying and mitigating potential hazards, providing comprehensive training on safety procedures, and promoting a culture of accountability and responsibility.",
   },
   {
     title: "Community Engagement",
@@ -256,7 +256,7 @@ export default function PolicyPage() {
         }}
       >
         <p style={{ color: "#999", margin: 0, fontSize: "14px" }}>
-          Last updated: April 2026. These policies reflect Ivoire Tissue Paper’s
+          Last updated: April 2026. These policies reflect Ivoire’s
           ongoing commitment to corporate responsibility.
         </p>
       </div>

@@ -201,7 +201,7 @@
 //               quality and 21 years of innovative development, it has now grown
 //               into a comprehensive household paper enterprise integrating R&D,
 //               innovation, production, sales, and service. */}
-//               Established in 2022 in Montreal, Ivoire Tissue Paper is a
+//               Established in 2022 in Montreal, Ivoire is a
 //               pioneering Canadian company dedicated to producing high-quality
 //               tissue paper using sustainable bamboo resources. We offer
 //               eco-friendly alternatives to traditional paper products while
@@ -1296,7 +1296,7 @@ export default function HomePage() {
             <div className="hm-about-text">
               <h2>ABOUT IVOIRE</h2>
               <p>
-                Established in 2022 in Montreal, Ivoire Tissue Paper is a
+                Established in 2022 in Montreal, Ivoire is a
                 pioneering Canadian company dedicated to producing high-quality
                 tissue paper using sustainable bamboo resources. By merging
                 African entrepreneurial heritage with Canadian technological

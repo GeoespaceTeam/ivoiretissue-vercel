@@ -15,9 +15,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Ivoire Tissue Paper | Sustainable Bamboo Tissue Products",
+  title: "Ivoire | Sustainable Bamboo Tissue Products",
   description:
-    "Ivoire Tissue Paper is a pioneering Canadian company dedicated to producing high-quality tissue paper using sustainable bamboo resources.",
+    "Ivoire is a pioneering Canadian company dedicated to producing high-quality tissue paper using sustainable bamboo resources.",
   keywords:
     "bamboo tissue paper, sustainable paper, eco-friendly, Canadian paper manufacturer",
 };

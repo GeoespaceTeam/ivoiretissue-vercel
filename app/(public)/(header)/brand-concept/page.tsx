@@ -176,7 +176,7 @@ export default function IvoireFamilyPage() {
                   marginTop: "15px",
                 }}
               >
-                By embracing bamboo's rapid renewability, Ivoire Tissue Paper
+                By embracing bamboo's rapid renewability, Ivoire
                 offers top-notch quality while preserving our forest systems and
                 creating a sustainable environment for future generations.
               </p>

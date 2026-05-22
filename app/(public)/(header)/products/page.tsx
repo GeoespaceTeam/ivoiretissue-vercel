@@ -197,7 +197,7 @@
 //         <div className="pd-container">
 //           <h2 className="pd-title">All Paper Tissue</h2>
 //           <p className="pd-desc">
-//             Ivoire Tissue Paper integrates R&D, production, and sales together.
+//             Ivoire integrates R&D, production, and sales together.
 //             Main Products: Bamboo Toilet Paper, Bamboo Kitchen Towels, Bamboo
 //             Facial Tissue, Commercial Hand Paper Towels, Mini Jumbo Rolls, and
 //             more.

@@ -476,7 +476,7 @@ export default function ContactUsPage() {
             <div>
               <span className="cu-banner-tag">CONTACT US</span>
               <p className="cu-banner-desc">
-                Ivoire Tissue Paper focuses on environmental protection and
+                Ivoire focuses on environmental protection and
                 health. We utilize sustainable bamboo to provide you with paper
                 products that meet all areas of hygiene.
               </p>

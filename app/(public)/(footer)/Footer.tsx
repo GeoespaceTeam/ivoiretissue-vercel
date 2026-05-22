@@ -201,7 +201,7 @@
 //         >
 //           {/* Left — 对应目标网站左下角版权信息 */}
 //           <span>
-//             © 2026 Ivoire Tissue Paper Inc. All Rights Reserved.&nbsp;·&nbsp;
+//             © 2026 Ivoire Inc. All Rights Reserved.&nbsp;·&nbsp;
 //             <Link href="/policy" style={{ color: "#fff", opacity: 0.8 }}>
 //               Privacy Policy
 //             </Link>{" "}
@@ -627,7 +627,7 @@ export default function Footer() {
 
       {/* Bottom Copyright */}
       <div className="iv-footer-bottom">
-        <p>Ivoire Tissue Paper™️ | Copyright © 2026. All Rights Reserved.</p>
+        <p>Ivoire™️ | Copyright © 2026. All Rights Reserved.</p>
         {/* 👇 新增：右侧的隐私政策和使用条款 👇 */}
         <div className="iv-footer-legal-links">
           <Link href="/privacy-policy">Privacy Policy</Link>
