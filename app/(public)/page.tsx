@@ -668,7 +668,7 @@
 //   },
 // ] as const;
 "use client";
-
+import ScrollReveal from "../components/ScrollReveal";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -1296,12 +1296,11 @@ export default function HomePage() {
             <div className="hm-about-text">
               <h2>ABOUT IVOIRE</h2>
               <p>
-                Established in 2022 in Montreal, Ivoire is a
-                pioneering Canadian company dedicated to producing high-quality
-                tissue paper using sustainable bamboo resources. By merging
-                African entrepreneurial heritage with Canadian technological
-                excellence, we offer eco-friendly alternatives to traditional
-                paper products.
+                Established in 2022 in Montreal, Ivoire is a pioneering Canadian
+                company dedicated to producing high-quality tissue paper using
+                sustainable bamboo resources. By merging African entrepreneurial
+                heritage with Canadian technological excellence, we offer
+                eco-friendly alternatives to traditional paper products.
               </p>
               {/* 👇 把 Logo 和 Button 包在一个弹性盒子里，并排显示，榨干空间 👇 */}
               <div className="hm-certs-wrap">
@@ -1448,7 +1447,8 @@ export default function HomePage() {
           <div>
             <img
               // src="https://www.cndonseapaper.com/wp-content/uploads/2025/04/home-OEM-ODM.png"
-              src="/images/product-bamboo.jpg"
+              // src="/images/product-bamboo.jpg"
+              src="/images/pandabox/1.jpg"
               alt="OEM"
               className="hm-oem-img"
             />
@@ -1456,6 +1456,86 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ════════════════════════════════════════════════════
+    NEW SECTION: PRODUCT GALLERY (Pandabox Series)
+    ════════════════════════════════════════════════════ */}
+      <section style={{ padding: "80px 0", background: "#f8f9f9" }}>
+        <div className="hm-container">
+          <ScrollReveal direction="up">
+            <div style={{ textAlign: "center", marginBottom: "50px" }}>
+              <h2
+                style={{
+                  fontSize: "42px",
+                  fontWeight: "800",
+                  color: "var(--c-dark-green)",
+                  textTransform: "uppercase",
+                }}
+              >
+                Premium Bamboo Collection
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: "30px", // 👈 增加间距，避免边缘相撞
+              padding: "0 10px",
+            }}
+          >
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((num, i) => (
+              <ScrollReveal key={num} delay={i * 80} direction="up">
+                <div
+                  style={{
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    background: "#fff",
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
+                    transition: "transform 0.3s ease",
+                    cursor: "pointer",
+                    padding: "15px", // 👈 给卡片加内边距，让图片不贴边
+                  }}
+                  onMouseOver={(e) =>
+                    (e.currentTarget.style.transform = "translateY(-8px)")
+                  }
+                  onMouseOut={(e) =>
+                    (e.currentTarget.style.transform = "translateY(0)")
+                  }
+                >
+                  <div style={{ borderRadius: "10px", overflow: "hidden" }}>
+                    <img
+                      src={`/images/pandabox/${num}.jpg`}
+                      alt={`Product ${num}`}
+                      style={{
+                        width: "100%",
+                        aspectRatio: "1/1",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
+                    />
+                  </div>
+                  {/* 👈 添加标题区域 */}
+                  <div
+                    style={{ padding: "20px 5px 10px", textAlign: "center" }}
+                  >
+                    <h4
+                      style={{
+                        margin: 0,
+                        fontSize: "16px",
+                        color: "var(--c-text-dark)",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Panda Series - No.{num}
+                    </h4>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* 6. WHY CHOOSE US */}
       <section className="hm-why">
         <div className="hm-container hm-why-grid">
