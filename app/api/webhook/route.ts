@@ -35,14 +35,22 @@ export async function POST(req: Request) {
     const customerName = session.customer_details?.name || "Customer";
 
     try {
-      // 触发 Resend 给你老板发邮件
-     await resend.emails.send({
-        from: "Ivoire System <onboarding@resend.dev>",
-        to: "database@geoespace.ca", 
-        replyTo: customerEmail, // 👈 改成驼峰命名 replyTo
-        subject: `💰 New Payment Received: $${amountTotal} from ${customerName}`,
+     // 触发 Resend 发送邮件
+      await resend.emails.send({
+        // 💡 如果 GeoEspace 已经验证了域名，把下面换成类似系统邮箱，比如 noreply@geoespace.com
+        // 如果没验证，先保留 onboarding@resend.dev
+        from: "Ivoire System <onboarding@resend.dev>", 
+        to: "老板的邮箱@example.com", // 👈 换成老板的真实邮箱或者你用来演示的邮箱
+        replyTo: customerEmail, 
+        // 👇 标题加上醒目的测试标签
+        subject: `[TEST / 测试] 💰 New Payment Received: $${amountTotal} from ${customerName}`,
         html: `
-          <h2>New Order Paid via Stripe!</h2>
+          <div style="background-color: #fff3cd; color: #856404; padding: 15px; border: 1px solid #ffeeba; border-radius: 8px; margin-bottom: 25px;">
+            <h3 style="margin-top: 0;">⚠️ AUTOMATED TEST EMAIL / 测试邮件</h3>
+            <p style="margin-bottom: 0;">This is a test notification from the development environment. No real transaction has occurred. 这是一封开发环境的测试邮件，没有发生真实交易。</p>
+          </div>
+
+          <h2>New Order Paid via Stripe</h2>
           <hr />
           <h3>Customer Details:</h3>
           <p><strong>Name:</strong> ${customerName}</p>

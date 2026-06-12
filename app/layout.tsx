@@ -26,7 +26,8 @@ export const metadata: Metadata = {
     "Ivoire is a leading Canadian manufacturer of premium, eco-friendly bamboo tissue paper. We offer 100% sustainable retail products and custom OEM/ODM private label wholesale solutions.",
   // 👇 老板最爱看的环节：把所有能想到的长尾搜索词全部堆上去
   keywords:
-    "bamboo tissue paper, eco-friendly toilet paper, Canadian tissue manufacturer, sustainable paper products, OEM tissue manufacturing, ODM tissue supplier, private label tissue, wholesale bamboo tissue, biodegradable paper, Montreal tissue factory",
+    "bamboo tissue paper, eco-friendly toilet paper, Canadian tissue manufacturer, sustainable paper products, OEM tissue manufacturing, ODM tissue supplier, private label tissue, wholesale bamboo tissue, biodegradable paper, Montreal tissue factory, Quebec tissue supplier, Montreal wholesale tissue",
+  // 👆 结尾加了 Quebec 和 Montreal 的精准搜索词
 
   openGraph: {
     title: "Premium Bamboo Tissue Manufacturer & Supplier | Ivoire",
@@ -64,10 +65,31 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // 👇 1. 这是新增的：专门写给 Google 爬虫看的本地地址信息
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WholesaleStore",
+    name: "Ivoire Tissue",
+    url: "https://ivoiretissue.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Montreal",
+      addressRegion: "QC",
+      addressCountry: "CA",
+    },
+    areaServed: ["Quebec", "Montreal", "Canada"],
+  };
+
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${playfair.variable}`}>
         {children}
+
+        {/* 👇 2. 这是新增的：把上面的地址信息偷偷塞进网页里 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );
