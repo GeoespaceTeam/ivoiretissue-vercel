@@ -63,6 +63,21 @@ export async function POST(req: Request) {
           <p><em>Click "Reply" to this email to directly contact the customer (${customerEmail}).</em></p>
         `,
       });
+
+      // 2. 新增：给客户发送订单确认回执
+      await resend.emails.send({
+        from: "Ivoire Tissue <sales@geoespace.ca>",
+        to: customerEmail, // 👈 发给客户本人
+        subject: "Order Received - Ivoire Tissue",
+        html: `
+          <h2>Thank you for your order!</h2>
+          <p>Hi ${customerName},</p>
+          <p>We have successfully received your payment for <strong>${productName}</strong>.</p>
+          <p>Our team is reviewing your order details and will be in touch with you shortly.</p>
+          <br/>
+          <p>Best regards,<br/>The Ivoire Tissue Team</p>
+        `,
+      });
     } catch (error) {
       console.error("Resend Error:", error);
     }
