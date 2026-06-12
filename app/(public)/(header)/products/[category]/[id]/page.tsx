@@ -290,7 +290,41 @@ export default function ProductDetailPage({
   const { category, id } = use(params);
   const categoryData = productsDatabase[category];
   const product = categoryData?.find((p: any) => p.id === id);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 👇 替换掉原来的 isModalOpen，加入全新的计价和结账状态
+  const [quantity, setQuantity] = useState(1);
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
+
+  // 假设基础单价/定金是 500 美元 (实际开发中应该从 product 数据库读取)
+  const unitPrice = 500;
+  const totalPrice = unitPrice * quantity;
+
+  // 👇 向我们自己的后端请求 Stripe 结账链接
+  const handleCheckout = async () => {
+    setIsCheckoutLoading(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productId: product.id,
+          title: product.title,
+          priceInCents: totalPrice * 100, // Stripe 需要以分为单位
+          quantity: quantity,
+        }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url; // 跳转 Stripe
+      } else {
+        alert("Error creating checkout session.");
+      }
+    } catch (error) {
+      console.error("Checkout failed:", error);
+    } finally {
+      setIsCheckoutLoading(false);
+    }
+  };
 
   if (!product) notFound();
 
@@ -463,9 +497,70 @@ export default function ProductDetailPage({
                 </div>
               </div>
 
-              <button className="buy-btn" onClick={() => setIsModalOpen(true)}>
-                Get A Quote Now
-              </button>
+              {/* 👇 删掉旧的 button，换成这个全新的计价控制区 */}
+              <div
+                style={{
+                  background: "rgba(255,255,255,0.1)",
+                  padding: "20px",
+                  borderRadius: "12px",
+                  marginBottom: "20px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "15px",
+                    marginBottom: "15px",
+                  }}
+                >
+                  <span style={{ fontSize: "16px", fontWeight: 600 }}>
+                    Order Quantity:
+                  </span>
+                  <input
+                    type="number"
+                    min="1"
+                    value={quantity}
+                    onChange={(e) => setQuantity(Number(e.target.value) || 1)}
+                    style={{
+                      width: "80px",
+                      padding: "8px",
+                      borderRadius: "8px",
+                      border: "none",
+                      outline: "none",
+                      fontSize: "16px",
+                      textAlign: "center",
+                      color: "#333",
+                    }}
+                  />
+                  <span>Container(s)</span>
+                </div>
+
+                <div
+                  style={{
+                    fontSize: "28px",
+                    fontWeight: 800,
+                    color: "#00dba0",
+                    marginBottom: "15px",
+                  }}
+                >
+                  Total Deposit: ${totalPrice.toLocaleString()} USD
+                </div>
+
+                <button
+                  className="buy-btn"
+                  onClick={handleCheckout}
+                  disabled={isCheckoutLoading}
+                  style={{
+                    width: "100%",
+                    opacity: isCheckoutLoading ? 0.7 : 1,
+                  }}
+                >
+                  {isCheckoutLoading
+                    ? "Redirecting to Stripe..."
+                    : "Pay Securely with Stripe"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -617,7 +712,7 @@ export default function ProductDetailPage({
       </section>
 
       {/* ── 漂亮的 Modal 弹窗 ── */}
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
             <div style={{ fontSize: "50px", marginBottom: "20px" }}>🚧</div>
@@ -637,7 +732,7 @@ export default function ProductDetailPage({
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </main>
   );
 }
