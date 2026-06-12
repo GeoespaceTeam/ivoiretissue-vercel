@@ -526,11 +526,12 @@ export default function ProductDetailPage({
                       width: "80px",
                       padding: "8px",
                       borderRadius: "8px",
-                      border: "none",
+                      border: "1px solid #ccc", // 👈 加一个边框
                       outline: "none",
                       fontSize: "16px",
                       textAlign: "center",
-                      color: "#333",
+                      color: "#333", // 👈 文字颜色改成深色
+                      backgroundColor: "#ffffff", // 👈 强制给它一个纯白色底
                     }}
                   />
                   <span>Container(s)</span>
@@ -560,6 +561,36 @@ export default function ProductDetailPage({
                     ? "Redirecting to Stripe..."
                     : "Pay Securely with Stripe"}
                 </button>
+                {/* 👇 在这里加入支付测试说明 */}
+                <div
+                  style={{
+                    marginTop: "15px",
+                    padding: "12px",
+                    background: "rgba(255,255,255,0.05)",
+                    borderRadius: "8px",
+                    border: "1px dashed rgba(255,255,255,0.3)",
+                    fontSize: "13px",
+                    color: "#fff",
+                    textAlign: "center",
+                    lineHeight: "1.4",
+                  }}
+                >
+                  <strong>Note:</strong> Online payment is currently in testing
+                  mode.
+                  <br />
+                  For bulk orders or immediate purchase, please
+                  <a
+                    href="mailto:sales@ivoiretissue.com"
+                    style={{
+                      color: "#00dba0",
+                      textDecoration: "underline",
+                      marginLeft: "4px",
+                    }}
+                  >
+                    contact us via email
+                  </a>
+                  .
+                </div>
               </div>
             </div>
           </div>
