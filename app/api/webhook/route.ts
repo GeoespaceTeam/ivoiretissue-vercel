@@ -40,7 +40,7 @@ export async function POST(req: Request) {
         // 💡 如果 GeoEspace 已经验证了域名，把下面换成类似系统邮箱，比如 noreply@geoespace.com
         // 如果没验证，先保留 onboarding@resend.dev
         from: "Ivoire System <onboarding@resend.dev>", 
-        to: "老板的邮箱@example.com", // 👈 换成老板的真实邮箱或者你用来演示的邮箱
+        to: "database@geoespace.ca", // 👈 换成老板的真实邮箱或者你用来演示的邮箱
         replyTo: customerEmail, 
         // 👇 标题加上醒目的测试标签
         subject: `[TEST / 测试] 💰 New Payment Received: $${amountTotal} from ${customerName}`,
