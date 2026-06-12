@@ -43,11 +43,11 @@ export async function POST(req: Request) {
         to: "database@geoespace.ca", // 👈 换成老板的真实邮箱或者你用来演示的邮箱
         replyTo: customerEmail, 
         // 👇 标题加上醒目的测试标签
-        subject: `[TEST / 测试] 💰 New Payment Received: $${amountTotal} from ${customerName}`,
+        subject: `[TEST] 💰 New Payment Received: $${amountTotal} from ${customerName}`,
         html: `
           <div style="background-color: #fff3cd; color: #856404; padding: 15px; border: 1px solid #ffeeba; border-radius: 8px; margin-bottom: 25px;">
-            <h3 style="margin-top: 0;">⚠️ AUTOMATED TEST EMAIL / 测试邮件</h3>
-            <p style="margin-bottom: 0;">This is a test notification from the development environment. No real transaction has occurred. 这是一封开发环境的测试邮件，没有发生真实交易。</p>
+            <h3 style="margin-top: 0;">⚠️ AUTOMATED TEST EMAIL </h3>
+            <p style="margin-bottom: 0;">This is a test notification from the development environment. No real transaction has occurred.</p>
           </div>
 
           <h2>New Order Paid via Stripe</h2>
