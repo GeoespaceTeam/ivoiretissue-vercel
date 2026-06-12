@@ -38,7 +38,7 @@ export async function POST(req: Request) {
       // 触发 Resend 给你老板发邮件
      await resend.emails.send({
         from: "Ivoire System <onboarding@resend.dev>",
-        to: "sales@ivoiretissue.com", 
+        to: "database@geoespace.ca", 
         replyTo: customerEmail, // 👈 改成驼峰命名 replyTo
         subject: `💰 New Payment Received: $${amountTotal} from ${customerName}`,
         html: `
