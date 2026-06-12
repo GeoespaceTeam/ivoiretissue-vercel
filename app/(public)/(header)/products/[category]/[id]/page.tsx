@@ -587,7 +587,7 @@ export default function ProductDetailPage({
                       marginLeft: "4px",
                     }}
                   >
-                    contact us via email
+                    contact us via email sales@ivoiretissue.com
                   </a>
                   .
                 </div>
