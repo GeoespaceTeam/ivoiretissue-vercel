@@ -1,0 +1,150 @@
+{
+  "homeHeroBrand": "Ivoire Tissue",
+  "homeHeroTitle1": "PAPIER MOUCHOIR EN BAMBOU",
+  "homeHeroTitle2": "FABRICANT",
+  "homeHeroSubtitle": "Solutions 100 % durables",
+  "homeHeroButton": "Explorer nos produits",
+
+  "homeAboutTitle": "À PROPOS D’IVOIRE",
+  "homeAboutDesc": "Fondée en 2022 à Montréal, Ivoire est une entreprise canadienne pionnière spécialisée dans la production de papier tissu de haute qualité à partir de ressources durables en bambou. En combinant l’héritage entrepreneurial africain avec l’excellence technologique canadienne, nous offrons des alternatives écologiques aux produits de papier traditionnels.",
+  "homeAboutButton": "En savoir plus",
+
+  "homeStat1Label": "Années d’expérience",
+  "homeStat2Label": "Employés",
+  "homeStat3Label": "Mètres carrés",
+  "homeStat4Label": "Tonnes de capacité mensuelle",
+  "homeStat5Label": "Pays desservis",
+
+  "homeProductsTitle": "PRODUITS",
+  "homeProduct1Title": "Produits en bambou",
+  "homeProduct2Title": "Produits en pâte vierge",
+  "homeProduct3Title": "Produits recyclés",
+  "homeProduct4Title": "Produits en bois mixte",
+  "homeProductSeeMore": "Voir plus",
+
+  "homeBambooPowerTitle": "La puissance du bambou",
+  "homeBambooPowerDesc": "Le bambou est la plus grande espèce de graminée et offre des avantages environnementaux exceptionnels.",
+  "homeBambooPower1": "Pousse jusqu’à 3 pieds par jour.",
+  "homeBambooPower2": "Libère 30 % plus d’oxygène.",
+  "homeBambooPower3": "Utilise moins de terres grâce à sa densité.",
+  "homeBambooPower4": "Nécessite 30 % moins d’eau.",
+  "homeBambooPower5": "Entièrement renouvelable.",
+  "homeBambooPower6": "Absorbe 12 tonnes de CO₂ par an.",
+
+  "homeOemTitle": "OEM/ODM",
+  "homeOemSubtitle": "Personnalisez selon vos besoins !",
+  "homeOemPoint1": "Spécifications personnalisées, y compris les couches, les feuilles, le mandrin et le poids.",
+  "homeOemPoint2": "Un choix varié de gaufrages ou un développement personnalisé.",
+  "homeOemPoint3": "Emballage personnalisé selon votre design et votre méthode.",
+  "homeOemPoint4": "Production et expédition adaptées à vos besoins.",
+  "homeOemButton": "Nous contacter",
+
+  "homeGalleryTitle": "Collection premium en bambou",
+"homeGalleryItemPrefix": "Série Panda - No ",
+
+"homeWhyTitle": "Pourquoi choisir Ivoire",
+"homeWhySubtitle": "Planter et protéger la fibre au plus près de la peau",
+
+"homeWhy1Title": "Éco-innovation",
+"homeWhy1Sub": "Bambou-fibre / 100 % biodégradable",
+"homeWhy1Desc": "Forêt – pâte – papier – transformation – expédition. Nous nous appuyons sur une chaîne industrielle complète...",
+
+"homeWhy2Title": "Certifications",
+"homeWhy2Sub": "Source certifiée FSC / Normes ISO",
+"homeWhy2Desc": "De nouvelles lignes de production sont continuellement mises en place afin d’assurer une livraison fiable.",
+
+"homeWhy3Title": "Logistique mondiale",
+"homeWhy3Sub": "Hub du port de Montréal / Livraison rapide en Amérique du Nord",
+"homeWhy3Desc": "La cause des problèmes de qualité peut être retracée jusqu’au lot de commande.",
+
+"homeWhy4Title": "Solutions personnalisées",
+"homeWhy4Sub": "Marque privée B2B / Soutien de gros",
+"homeWhy4Desc": "Nous avons des contrats directs avec des compagnies maritimes, ce qui assure une logistique stable.",
+
+"homeWhy5Title": "Énergie verte",
+"homeWhy5Sub": "1 600 GWh par an / Alimenté par des énergies renouvelables",
+"homeWhy5Desc": "Nous proposons des solutions systématiques aux besoins des clients grâce à une équipe R&D professionnelle.",
+
+"homeProductionFlowTitle": "Flux de production",
+
+"homeExhibitionTitle": "Exposition",
+"homeExhibitionDesc": "Nous disposons d’un personnel expérimenté et professionnel dans la fabrication et la transformation du papier. Notre entreprise a conquis les marchés internationaux grâce à de multiples activités OEM pour de grandes marques mondiales.",
+"homeExhibition1Title": "Réseautage mondial",
+"homeExhibition2Title": "Aperçu du marché : opérations d’usines de papier tissu",
+"homeExhibition3Title": "Stratégies futures pour l’industrie du papier tissu",
+"homeExhibitionButton": "À propos d’Ivoire",
+
+"homeContactTitle": "Contactez-nous",
+"homeContactDesc": "Nous privilégions une communication directe. Afin de nous permettre de vous fournir rapidement un devis précis, veuillez indiquer dans votre courriel le produit qui vous intéresse, la quantité estimée de votre commande ainsi que toute exigence personnalisée OEM ou marque privée. Notre équipe de Montréal vous répondra rapidement.",
+"homeContactEmailLabel": "Écrivez-nous",
+"homeContactPhoneLabel": "WhatsApp / Appel",
+"homeContactAddressLabel": "Siège social",
+
+"homeContactSlogan1": "UN MORCEAU DE PAPIER,",
+"homeContactSlogan2": "UN CŒUR CHALEUREUX,",
+"homeContactSlogan3": "RENDRE LE MONDE",
+"homeContactSlogan4": "PLUS BEAU !",
+
+"homeSlidePrev": "Diapositive précédente",
+"homeSlideNext": "Diapositive suivante",
+"homeSlideGoTo": "Aller à la diapositive",
+
+"homeYoutubeTitle": "Ivoire Tissue",
+"homeProductionFlowAlt": "Flux de production",
+"homeBambooForestAlt": "Forêt de bambous",
+"homeOemImageAlt": "OEM",
+"homeProductAltPrefix": "Produit",
+
+"headerHome": "ACCUEIL",
+"headerProducts": "PRODUITS",
+"headerBambooProducts": "Produits en bambou",
+"headerVirginProducts": "Produits en pâte vierge",
+"headerRecycledProducts": "Produits recyclés",
+"headerMixedProducts": "Produits en bois mixte",
+"headerViewAllProducts": "Voir tous les produits",
+
+"headerAboutUs": "À PROPOS",
+"headerAboutIvoire": "À propos d’Ivoire Tissue",
+"headerFactoryProduction": "Usine et ligne de production",
+
+"headerWhyBamboo": "Pourquoi le bambou",
+"headerNews": "Actualités",
+"headerFaq": "FAQ",
+"headerCareers": "Carrières",
+"headerContactUs": "Contactez-nous",
+
+"headerOpenSearch": "Ouvrir la recherche",
+"headerCloseSearch": "Fermer la recherche",
+"headerSubmitSearch": "Lancer la recherche",
+"headerSearchFor": "Rechercher :",
+"headerSearchPlaceholder": "Rechercher …",
+"headerNoResultsPrefix": "Aucun résultat trouvé pour",
+
+"headerSearchTypePage": "Page",
+"headerSearchTypeCategory": "Catégorie",
+"headerSearchTypeNews": "Actualité",
+
+"headerMobileProductsMenu": "Sous-menu des produits",
+"headerMobileAboutMenu": "Sous-menu À propos",
+
+
+"footerQuickLinks": "LIENS RAPIDES",
+"footerContactUs": "CONTACTEZ-NOUS",
+"footerAboutUs": "À PROPOS",
+
+"footerLinkAbout": "À propos",
+"footerLinkProducts": "Produits",
+"footerLinkWhyBamboo": "Pourquoi le bambou",
+"footerLinkFaq": "FAQ",
+"footerLinkCareers": "Carrières",
+"footerLinkContact": "Contactez-nous",
+
+"footerSalesLabel": "Ventes",
+"footerAboutDesc": "Ivoire Tissue est une entreprise canadienne pionnière spécialisée dans la production de papier tissu de haute qualité à partir de ressources durables en bambou. Établie à Montréal, elle propose des alternatives écologiques aux produits de papier traditionnels tout en assurant une qualité et une performance élevées. Les services OEM et ODM sont les bienvenus.",
+
+"footerCopyright": "Ivoire™️ | Copyright © 2026. Tous droits réservés.",
+"footerPrivacyPolicy": "Politique de confidentialité",
+"footerTermsOfUse": "Conditions d’utilisation",
+
+"footerLogoAlt": "Logo Ivoire Tissue"
+}

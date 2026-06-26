@@ -1,247 +1,4 @@
-// "use client";
 
-// import { useState, useEffect } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import s from "./Header.module.css";
-
-// // ============================================================
-// // NAV — exact dongshi structure (6 items):
-// //
-// //   东实 item0  关于我们  (submenu) → About Us
-// //   东实 item1  东实家族  (submenu) → Ivoire Family
-// //   东实 item2  东实外贸  (link)    → Foreign Trade
-// //   东实 item3  线上商城  (link)    → Online Store
-// //   东实 item4  东实国际  (link)    → International  ← external
-// //   东实 item5  联系我们  (link)    → Contact Us
-// // ============================================================
-// const navItems = [
-//   // item0 — 关于我们 (submenu)
-//   {
-//     label: "Home",
-//     href: "/about-us",
-//     children: [
-//       { label: "Company Profile", href: "/about-us" },
-//       { label: "Development History", href: "/development-history" },
-//       { label: "Our Culture", href: "/our-culture" },
-//       { label: "Certifications", href: "/certifications" }, // 之前是 /about-us#certificate
-//     ],
-//   },
-
-//   // item1 — 东实家族 (submenu)
-//   {
-//     label: "Ivoire Family",
-//     href: "/brand-concept", // 点击主菜单默认去品牌理念
-//     children: [
-//       { label: "Brand Concept", href: "/brand-concept" }, // 独立页面 1
-//       { label: "Theme Customization", href: "/theme-customization" }, // 独立页面 2
-//     ],
-//   },
-
-//   // item2 — 东实外贸 (plain link)
-//   { label: "Foreign Trade", href: "foreign-trade" },
-
-//   // item3 — 线上商城 (plain link)
-//   // 目标网页的 header 里这只是一个点击跳转的单链接，不像 footer 拆了3个
-//   {
-//     label: "Our Products",
-//     href: "/products",
-//     children: [
-//       { label: "Bamboo Products", href: "/products/bamboo" },
-//       { label: "Virgin Products", href: "/products/virgin" },
-//       { label: "Recycle Products", href: "/products/recycle" },
-//       { label: "Mixed Products", href: "/products/mixed" },
-//     ],
-//   },
-
-//   // item4 — 东实国际 (external link)
-//   // {
-//   //   label: "International",
-//   //   href: "https://www.cndonseapaper.com/",
-//   //   external: true,
-//   // },
-
-//   // item4 — career
-//   {
-//     label: "Careers",
-//     href: "/career",
-
-//   },
-
-//   // item5 — 联系我们 (plain link)
-//   { label: "Contact Us & FAQs", href: "/contact-us" },
-// ] as const;
-// // ============================================================
-// // COMPONENT
-// // ============================================================
-// export default function Header() {
-//   const [scrolled, setScrolled] = useState(false);
-//   const [mobileOpen, setMobileOpen] = useState(false);
-//   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     const onScroll = () => setScrolled(window.scrollY > 10);
-//     window.addEventListener("scroll", onScroll, { passive: true });
-//     return () => window.removeEventListener("scroll", onScroll);
-//   }, []);
-
-//   useEffect(() => {
-//     document.body.style.overflow = mobileOpen ? "hidden" : "";
-//     return () => {
-//       document.body.style.overflow = "";
-//     };
-//   }, [mobileOpen]);
-
-//   const toggleMobileSub = (label: string) =>
-//     setExpandedMobile((prev) => (prev === label ? null : label));
-
-//   const closeMobile = () => {
-//     setMobileOpen(false);
-//     setExpandedMobile(null);
-//   };
-
-//   return (
-//     <>
-//       {/* ── Desktop header ── */}
-//       <header className={`${s.siteHeader} ${scrolled ? s.scrolled : ""}`}>
-//         <div className={s.inner}>
-//           {/* Logo — dongshi: header0-logo */}
-//           <div className={s.logo}>
-//             <Link href="/" onClick={closeMobile}>
-//               <Image
-//                 src="/images/logo.png"
-//                 alt="Ivoire"
-//                 width={160}
-//                 height={42}
-//                 priority
-//                 style={{ width: "auto", height: "42px" }}
-//               />
-//             </Link>
-//           </div>
-
-//           {/* Desktop nav — dongshi: header0-menu, ant-menu-horizontal */}
-//           <nav aria-label="Primary navigation">
-//             <ul className={s.desktopNav}>
-//               {navItems.map((item) =>
-//                 "children" in item ? (
-//                   /* Submenu item (item0, item1) */
-//                   <li key={item.label}>
-//                     <span className={s.navTrigger}>
-//                       {item.label}
-//                       <span className={s.arrow} aria-hidden>
-//                         ▾
-//                       </span>
-//                     </span>
-//                     <ul className={s.dropdown}>
-//                       {item.children.map((child) => (
-//                         <li key={child.label}>
-//                           <Link href={child.href}>{child.label}</Link>
-//                         </li>
-//                       ))}
-//                     </ul>
-//                   </li>
-//                 ) : "external" in item ? (
-//                   /* External link (item4) */
-//                   <li key={item.label}>
-//                     <a
-//                       href={item.href}
-//                       target="_blank"
-//                       rel="noopener noreferrer"
-//                     >
-//                       {item.label}
-//                     </a>
-//                   </li>
-//                 ) : (
-//                   /* Plain link (item2, item3, item5) */
-//                   <li key={item.label}>
-//                     <Link href={item.href}>{item.label}</Link>
-//                   </li>
-//                 ),
-//               )}
-//             </ul>
-//           </nav>
-
-//           {/* Mobile hamburger */}
-//           <button
-//             className={s.toggle}
-//             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-//             aria-expanded={mobileOpen}
-//             onClick={() => setMobileOpen((o) => !o)}
-//           >
-//             <span
-//               style={
-//                 mobileOpen
-//                   ? { transform: "rotate(45deg) translate(5px, 5px)" }
-//                   : undefined
-//               }
-//             />
-//             <span style={mobileOpen ? { opacity: 0 } : undefined} />
-//             <span
-//               style={
-//                 mobileOpen
-//                   ? { transform: "rotate(-45deg) translate(5px, -5px)" }
-//                   : undefined
-//               }
-//             />
-//           </button>
-//         </div>
-//       </header>
-
-//       {/* ── Mobile overlay ── */}
-//       <div
-//         className={`${s.overlay} ${mobileOpen ? s.open : ""}`}
-//         aria-hidden={!mobileOpen}
-//       >
-//         <ul className={s.mobileNav}>
-//           {navItems.map((item) =>
-//             "children" in item ? (
-//               <li key={item.label}>
-//                 <button
-//                   className={s.mobileTrigger}
-//                   onClick={() => toggleMobileSub(item.label)}
-//                   aria-expanded={expandedMobile === item.label}
-//                 >
-//                   <span>{item.label}</span>
-//                   <span>{expandedMobile === item.label ? "−" : "+"}</span>
-//                 </button>
-//                 {expandedMobile === item.label && (
-//                   <div className={s.mobileSubMenu}>
-//                     {item.children.map((child) => (
-//                       <Link
-//                         key={child.label}
-//                         href={child.href}
-//                         onClick={closeMobile}
-//                       >
-//                         {child.label}
-//                       </Link>
-//                     ))}
-//                   </div>
-//                 )}
-//               </li>
-//             ) : (
-//               <li key={item.label}>
-//                 {"external" in item ? (
-//                   <a
-//                     href={item.href}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     onClick={closeMobile}
-//                   >
-//                     {item.label}
-//                   </a>
-//                 ) : (
-//                   <Link href={item.href} onClick={closeMobile}>
-//                     {item.label}
-//                   </Link>
-//                 )}
-//               </li>
-//             ),
-//           )}
-//         </ul>
-//       </div>
-//     </>
-//   );
-// }
 
 "use client";
 
@@ -249,29 +6,36 @@ import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { newsDatabase } from "@/app/lib/newsDatabase";
+import { useTranslation } from "@/app/lib/useTranslation";
 
 // 搜索索引（静态页 + 新闻页 + 大类页）
-const staticPages = [
-  { title: "Home", url: "/", type: "Page" },
-  { title: "About Ivoiretissue", url: "/about-us", type: "Page" },
-  {
-    title: "Factory & Production Line",
-    url: "/about-us/factory-production-line",
-    type: "Page",
-  },
-  // { title: "Certification", url: "/about-us/certification", type: "Page" },
-  { title: "Why Bamboo", url: "/why-bamboo", type: "Page" },
-  { title: "FAQ", url: "/services/faq", type: "Page" },
-  { title: "Contact Us", url: "/contact-us", type: "Page" },
-  { title: "Careers", url: "/career", type: "Page" }, // 👈 新增这行
-  { title: "All Products", url: "/products", type: "Category" },
-  { title: "Bamboo Products", url: "/products/bamboo", type: "Category" },
-  { title: "Virgin Pulp Products", url: "/products/virgin", type: "Category" },
-  { title: "Recycled Products", url: "/products/recycle", type: "Category" },
-  { title: "Mixed Wood Products", url: "/products/mixed", type: "Category" },
-];
+// const staticPages = [
+//   { title: "Home", url: "/", type: "Page" },
+//   { title: "About Ivoiretissue", url: "/about-us", type: "Page" },
+//   {
+//     title: "Factory & Production Line",
+//     url: "/about-us/factory-production-line",
+//     type: "Page",
+//   },
+//   // { title: "Certification", url: "/about-us/certification", type: "Page" },
+//   { title: "Why Bamboo", url: "/why-bamboo", type: "Page" },
+//   { title: "FAQ", url: "/services/faq", type: "Page" },
+//   { title: "Contact Us", url: "/contact-us", type: "Page" },
+//   { title: "Careers", url: "/career", type: "Page" }, // 👈 新增这行
+//   { title: "All Products", url: "/products", type: "Category" },
+//   { title: "Bamboo Products", url: "/products/bamboo", type: "Category" },
+//   { title: "Virgin Pulp Products", url: "/products/virgin", type: "Category" },
+//   { title: "Recycled Products", url: "/products/recycle", type: "Category" },
+//   { title: "Mixed Wood Products", url: "/products/mixed", type: "Category" },
+// ];
 
 export default function Header() {
+  const { t, locale, setLocale } = useTranslation();
+
+  const toggleLanguage = () => {
+    setLocale(locale === "fr" ? "en" : "fr");
+  }
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -281,12 +45,73 @@ export default function Header() {
   const [expandedMobileMenus, setExpandedMobileMenus] = useState<
     Record<string, boolean>
   >({});
+  const staticPages = useMemo(
+    () => [
+      { title: t("headerHome"), url: "/", type: t("headerSearchTypePage") },
+      {
+        title: t("headerAboutIvoire"),
+        url: "/about-us",
+        type: t("headerSearchTypePage"),
+      },
+      {
+        title: t("headerFactoryProduction"),
+        url: "/about-us/factory-production-line",
+        type: t("headerSearchTypePage"),
+      },
+      {
+        title: t("headerWhyBamboo"),
+        url: "/why-bamboo",
+        type: t("headerSearchTypePage"),
+      },
+      {
+        title: t("headerFaq"),
+        url: "/services/faq",
+        type: t("headerSearchTypePage"),
+      },
+      {
+        title: t("headerContactUs"),
+        url: "/contact-us",
+        type: t("headerSearchTypePage"),
+      },
+      {
+        title: t("headerCareers"),
+        url: "/career",
+        type: t("headerSearchTypePage"),
+      },
+      {
+        title: t("headerViewAllProducts"),
+        url: "/products",
+        type: t("headerSearchTypeCategory"),
+      },
+      {
+        title: t("headerBambooProducts"),
+        url: "/products/bamboo",
+        type: t("headerSearchTypeCategory"),
+      },
+      {
+        title: t("headerVirginProducts"),
+        url: "/products/virgin",
+        type: t("headerSearchTypeCategory"),
+      },
+      {
+        title: t("headerRecycledProducts"),
+        url: "/products/recycle",
+        type: t("headerSearchTypeCategory"),
+      },
+      {
+        title: t("headerMixedProducts"),
+        url: "/products/mixed",
+        type: t("headerSearchTypeCategory"),
+      },
+    ],
+    [t],
+  );
 
   const searchIndex = useMemo(() => {
     const newsItems = Object.keys(newsDatabase).map((id) => ({
       title: newsDatabase[id].title,
       url: `/news/${id}`,
-      type: "News",
+      type: t("headerSearchTypeNews"),
     }));
     return [...staticPages, ...newsItems];
   }, []);
@@ -441,6 +266,30 @@ export default function Header() {
           #main-header { display: block; }
           #mobile-header { display: none; }
         }
+
+        .language-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.language-toggle:hover {
+  background: #ffffff;
+  color: var(--global-palette1);
+}
+
+.mobile-language-toggle {
+  padding: 7px 10px;
+  font-size: 12px;
+}
       `,
         }}
       />
@@ -491,7 +340,7 @@ export default function Header() {
                             <div className="primary-menu-container header-menu-container">
                               <ul id="primary-menu" className="menu">
                                 <li>
-                                  <Link href="/">HOME</Link>
+                                  <Link href="/">{t("headerHome")}</Link>
                                 </li>
 
                                 {/* 💡 修改点：PRODUCTS 下拉菜单精简为四个数据材质大类 */}
@@ -513,27 +362,27 @@ export default function Header() {
                                   <ul className="sub-menu">
                                     <li>
                                       <Link href="/products/bamboo">
-                                        Bamboo Products
+                                        {t("headerBambooProducts")}
                                       </Link>
                                     </li>
                                     <li>
                                       <Link href="/products/virgin">
-                                        Virgin Pulp Products
+                                        {t("headerVirginProducts")}
                                       </Link>
                                     </li>
                                     <li>
                                       <Link href="/products/recycle">
-                                        Recycled Products
+                                        {t("headerRecycledProducts")}
                                       </Link>
                                     </li>
                                     <li>
                                       <Link href="/products/mixed">
-                                        Mixed Wood Products
+                                        {t("headerMixedProducts")}
                                       </Link>
                                     </li>
                                     <li>
                                       <Link href="/products">
-                                        View All Products
+                                        {t("headerViewAllProducts")}
                                       </Link>
                                     </li>
                                   </ul>
@@ -542,7 +391,7 @@ export default function Header() {
                                 <li className="menu-item-has-children">
                                   <Link href="/about-us">
                                     <span className="nav-drop-title-wrap">
-                                      ABOUT US
+                                      {t("headerAboutUs")}
                                       <span className="kadence-svg-iconset svg-baseline">
                                         <svg
                                           viewBox="0 0 24 24"
@@ -557,12 +406,12 @@ export default function Header() {
                                   <ul className="sub-menu">
                                     <li>
                                       <Link href="/about-us">
-                                        About Ivoiretissue
+                                        {t("headerAboutIvoire")}
                                       </Link>
                                     </li>
                                     <li>
                                       <Link href="/about-us/factory-production-line">
-                                        Factory & Production Line
+                                        {t("headerFactoryProduction")}
                                       </Link>
                                     </li>
                                     {/* <li>
@@ -574,30 +423,51 @@ export default function Header() {
                                 </li>
 
                                 <li>
-                                  <Link href="/why-bamboo">Why Bamboo</Link>
+                                  <Link href="/why-bamboo">
+                                    {t("headerWhyBamboo")}
+                                  </Link>
                                 </li>
                                 <li>
-                                  <Link href="/news">News</Link>
+                                  <Link href="/news">{t("headerNews")}</Link>
                                 </li>
                                 <li>
-                                  <Link href="/services/faq">FAQ</Link>
+                                  <Link href="/services/faq">
+                                    {t("headerFaq")}
+                                  </Link>
                                 </li>
                                 <li>
-                                  <Link href="/career">Careers</Link>
+                                  <Link href="/career">
+                                    {t("headerCareers")}
+                                  </Link>
                                 </li>
                                 <li>
-                                  <Link href="/contact-us">Contact Us</Link>
+                                  <Link href="/contact-us">
+                                    {t("headerContactUs")}
+                                  </Link>
                                 </li>
                               </ul>
                             </div>
                           </nav>
                         </div>
-
+                        <div className="site-header-item">
+                          <button
+                            type="button"
+                            className="language-toggle"
+                            onClick={toggleLanguage}
+                            aria-label={
+                              locale === "fr"
+                                ? "Switch to English"
+                                : "Passer au français"
+                            }
+                          >
+                            {locale === "fr" ? "EN" : "FR"}
+                          </button>
+                        </div>
                         <div className="site-header-item">
                           <button
                             className="search-toggle-open"
                             onClick={() => setIsSearchOpen(true)}
-                            aria-label="Open Search"
+                            aria-label={t("headerOpenSearch")}
                           >
                             <span className="kadence-svg-iconset">
                               <svg viewBox="0 0 24 24" width="24" height="24">
@@ -640,6 +510,20 @@ export default function Header() {
                   </div>
 
                   <div className="site-header-main-section-right site-header-section">
+                    <div className="site-header-item">
+                      <button
+                        type="button"
+                        className="language-toggle"
+                        onClick={toggleLanguage}
+                        aria-label={
+                          locale === "fr"
+                            ? "Switch to English"
+                            : "Passer au français"
+                        }
+                      >
+                        {locale === "fr" ? "EN" : "FR"}
+                      </button>
+                    </div>
                     <div className="site-header-item">
                       <button
                         className="search-toggle-open"
@@ -692,13 +576,13 @@ export default function Header() {
             <nav className="mobile-navigation">
               <ul>
                 <li>
-                  <Link href="/">HOME</Link>
+                  <Link href="/">{t("headerHome")}</Link>
                 </li>
 
                 {/* 💡 修改点：手机端同步改为四大类别 */}
                 <li>
                   <div className="drawer-nav-drop-wrap">
-                    <Link href="/products">PRODUCTS</Link>
+                    <Link href="/products">{t("headerProducts")}</Link>
                     <button
                       className="drawer-sub-toggle"
                       onClick={() => toggleMobileMenu("products")}
@@ -714,25 +598,33 @@ export default function Header() {
                     className={`sub-menu ${expandedMobileMenus["products"] ? "active" : ""}`}
                   >
                     <li>
-                      <Link href="/products/bamboo">Bamboo Products</Link>
+                      <Link href="/products/bamboo">
+                        {t("headerBambooProducts")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/products/virgin">Virgin Pulp Products</Link>
+                      <Link href="/products/virgin">
+                        {t("headerVirginProducts")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/products/recycle">Recycled Products</Link>
+                      <Link href="/products/recycle">
+                        {t("headerRecycledProducts")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/products/mixed">Mixed Wood Products</Link>
+                      <Link href="/products/mixed">
+                        {t("headerMixedProducts")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/products">View All Products</Link>
+                      <Link href="/products">{t("headerViewAllProducts")}</Link>
                     </li>
                   </ul>
                 </li>
                 <li>
                   <div className="drawer-nav-drop-wrap">
-                    <Link href="/about-us">ABOUT US</Link>
+                    <Link href="/about-us">{t("headerAboutUs")}</Link>
                     <button
                       className="drawer-sub-toggle"
                       onClick={() => toggleMobileMenu("about")}
@@ -748,11 +640,11 @@ export default function Header() {
                     className={`sub-menu ${expandedMobileMenus["about"] ? "active" : ""}`}
                   >
                     <li>
-                      <Link href="/about-us">About Ivoiretissue</Link>
+                      <Link href="/about-us">{t("headerAboutIvoire")}</Link>
                     </li>
                     <li>
                       <Link href="/about-us/factory-production-line">
-                        Factory & Production Line
+                        {t("headerFactoryProduction")}
                       </Link>
                     </li>
                     {/* <li>
@@ -761,19 +653,19 @@ export default function Header() {
                   </ul>
                 </li>
                 <li>
-                  <Link href="/why-bamboo">Why Bamboo</Link>
+                  <Link href="/why-bamboo">{t("headerWhyBamboo")}</Link>
                 </li>
                 <li>
-                  <Link href="/news">News</Link>
+                  <Link href="/news">{t("headerNews")}</Link>
                 </li>
                 <li>
-                  <Link href="/services/faq">FAQ</Link>
+                  <Link href="/services/faq">{t("headerFaq")}</Link>
                 </li>
                 <li>
-                  <Link href="/career">Careers</Link>
+                  <Link href="/career">{t("headerCareers")}</Link>
                 </li>
                 <li>
-                  <Link href="/contact-us">Contact Us</Link>
+                  <Link href="/contact-us">{t("headerContactUs")}</Link>
                 </li>
               </ul>
             </nav>
@@ -794,7 +686,7 @@ export default function Header() {
             <button
               className="search-toggle-close"
               onClick={closeAll}
-              aria-label="Close search"
+              aria-label={t("headerCloseSearch")}
             >
               <svg
                 viewBox="0 0 24 24"
@@ -825,12 +717,12 @@ export default function Header() {
                     className="screen-reader-text"
                     style={{ display: "none" }}
                   >
-                    Search for:
+                    {t("headerSearchFor")}
                   </span>
                   <input
                     type="search"
                     className="search-field"
-                    placeholder="Search …"
+                    placeholder={t("headerSearchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     autoFocus={isSearchOpen}
@@ -840,7 +732,7 @@ export default function Header() {
                 <button
                   type="submit"
                   className="search-submit"
-                  aria-label="Submit Search"
+                  aria-label={t("headerSubmitSearch")}
                 >
                   <span className="kadence-search-icon-wrap">
                     <svg
@@ -871,7 +763,7 @@ export default function Header() {
                     ))
                   ) : (
                     <div className="no-results">
-                      No results found for "{searchQuery}"
+                      {t("headerNoResultsPrefix")} "{searchQuery}"
                     </div>
                   )}
                 </div>

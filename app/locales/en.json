@@ -1,0 +1,152 @@
+{
+  "homeHeroBrand": "Ivoire Tissue",
+  "homeHeroTitle1": "BAMBOO TISSUE PAPER",
+  "homeHeroTitle2": "MANUFACTURER",
+  "homeHeroSubtitle": "100% Sustainable Solutions",
+  "homeHeroButton": "Explore Our Products",
+
+  "homeAboutTitle": "ABOUT IVOIRE",
+  "homeAboutDesc": "Established in 2022 in Montreal, Ivoire is a pioneering Canadian company dedicated to producing high-quality tissue paper using sustainable bamboo resources. By merging African entrepreneurial heritage with Canadian technological excellence, we offer eco-friendly alternatives to traditional paper products.",
+  "homeAboutButton": "Learn More",
+
+  "homeStat1Label": "Years Experience",
+  "homeStat2Label": "Employees",
+  "homeStat3Label": "Square Meters",
+  "homeStat4Label": "Tons Monthly Capacity",
+  "homeStat5Label": "Countries Market",
+
+  "homeProductsTitle": "PRODUCTS",
+  "homeProduct1Title": "Bamboo Products",
+  "homeProduct2Title": "Virgin Pulp Products",
+  "homeProduct3Title": "Recycle Products",
+  "homeProduct4Title": "Mixed Wood Products",
+  "homeProductSeeMore": "See More",
+
+  "homeBambooPowerTitle": "The Power of Bamboo",
+  "homeBambooPowerDesc": "Bamboo is the largest species of grass, offering unparalleled environmental benefits.",
+  "homeBambooPower1": "Grows up to 3 feet a day.",
+  "homeBambooPower2": "Releases 30% more oxygen.",
+  "homeBambooPower3": "Uses less land due to density.",
+  "homeBambooPower4": "Requires 30% less water.",
+  "homeBambooPower5": "Entirely renewable.",
+  "homeBambooPower6": "Absorbs 12 tonnes of CO2 per year.",
+
+  "homeOemTitle": "OEM/ODM",
+  "homeOemSubtitle": "Customize Your Need!",
+  "homeOemPoint1": "Custom specifications including layers, sheets, core, and weight.",
+  "homeOemPoint2": "A variety of embossing for you to choose or custom development.",
+  "homeOemPoint3": "Custom packaging based on your design and method.",
+  "homeOemPoint4": "Tailored production and shipping arrangements.",
+  "homeOemButton": "Contact Us",
+
+  "homeGalleryTitle": "Premium Bamboo Collection",
+"homeGalleryItemPrefix": "Panda Series - No.",
+
+"homeWhyTitle": "Why Choose Ivoire",
+"homeWhySubtitle": "Plant and protect the log close to the skin",
+
+"homeWhy1Title": "Eco-Innovation",
+"homeWhy1Sub": "Focus: Bamboo-Fiber / 100% Biodegradable",
+"homeWhy1Desc": "Forest – pulp – paper – processing – shipping. Relying on our complete industrial chain...",
+
+"homeWhy2Title": "Certifications",
+"homeWhy2Sub": "FSC Certified Source / ISO Standards",
+"homeWhy2Desc": "New production lines are continuously being built to provide strong delivery guarantee.",
+
+"homeWhy3Title": "Global Logistics",
+"homeWhy3Sub": "Port of Montreal Hub / Fast NA Delivery",
+"homeWhy3Desc": "The root cause of quality problems can be traced back to the order batch.",
+
+"homeWhy4Title": "Custom Solutions",
+"homeWhy4Sub": "B2B Private Label / Wholesale Support",
+"homeWhy4Desc": "We have direct customer contracts with shipping companies, providing stable logistics.",
+
+"homeWhy5Title": "Green Energy",
+"homeWhy5Sub": "1,600 GWh Annual / Renewable Powered",
+"homeWhy5Desc": "Propose systematic solutions to customer needs – professional R&D team.",
+
+"homeProductionFlowTitle": "Production Flow",
+
+"homeExhibitionTitle": "Exhibition",
+"homeExhibitionDesc": "We have experienced and professional personnel in paper making and converting. Our company has won international markets with multiple OEM businesses for top brands globally.",
+"homeExhibition1Title": "Global Networking",
+"homeExhibition2Title": "Market Insight: Tissue Mill Operations",
+"homeExhibition3Title": "Future Strategies for Tissue Industry",
+"homeExhibitionButton": "About Ivoire",
+
+"homeContactTitle": "Get In Touch",
+"homeContactDesc": "We value direct communication. To help us provide an accurate quote quickly, please include your product of interest, estimated order quantity, and any custom OEM/Private Label requirements in your email. Our Montreal team will get back to you promptly.",
+"homeContactEmailLabel": "Email Us",
+"homeContactPhoneLabel": "WhatsApp / Call",
+"homeContactAddressLabel": "Headquarters",
+
+"homeContactSlogan1": "A PIECE OF PAPER,",
+"homeContactSlogan2": "A WARM HEART,",
+"homeContactSlogan3": "MAKE THE WORLD",
+"homeContactSlogan4": "MORE BEAUTIFUL!",
+
+"homeSlidePrev": "Previous Slide",
+"homeSlideNext": "Next Slide",
+"homeSlideGoTo": "Go to slide",
+
+"homeYoutubeTitle": "Ivoire Tissue",
+"homeProductionFlowAlt": "Production Flow",
+"homeBambooForestAlt": "Bamboo Forest",
+"homeOemImageAlt": "OEM",
+"homeProductAltPrefix": "Product",
+
+
+
+"headerHome": "HOME",
+"headerProducts": "PRODUCTS",
+"headerBambooProducts": "Bamboo Products",
+"headerVirginProducts": "Virgin Pulp Products",
+"headerRecycledProducts": "Recycled Products",
+"headerMixedProducts": "Mixed Wood Products",
+"headerViewAllProducts": "View All Products",
+
+"headerAboutUs": "ABOUT US",
+"headerAboutIvoire": "About Ivoiretissue",
+"headerFactoryProduction": "Factory & Production Line",
+
+"headerWhyBamboo": "Why Bamboo",
+"headerNews": "News",
+"headerFaq": "FAQ",
+"headerCareers": "Careers",
+"headerContactUs": "Contact Us",
+
+"headerOpenSearch": "Open Search",
+"headerCloseSearch": "Close search",
+"headerSubmitSearch": "Submit Search",
+"headerSearchFor": "Search for:",
+"headerSearchPlaceholder": "Search …",
+"headerNoResultsPrefix": "No results found for",
+
+"headerSearchTypePage": "Page",
+"headerSearchTypeCategory": "Category",
+"headerSearchTypeNews": "News",
+
+"headerMobileProductsMenu": "Products submenu",
+"headerMobileAboutMenu": "About submenu",
+
+
+"footerQuickLinks": "QUICK LINKS",
+"footerContactUs": "CONTACT US",
+"footerAboutUs": "ABOUT US",
+
+"footerLinkAbout": "About us",
+"footerLinkProducts": "Products",
+"footerLinkWhyBamboo": "Why Bamboo",
+"footerLinkFaq": "FAQ",
+"footerLinkCareers": "Careers",
+"footerLinkContact": "Contact Us",
+
+"footerSalesLabel": "Sales",
+"footerAboutDesc": "Ivoire Tissue is a pioneering Canadian company dedicated to producing high-quality tissue paper using sustainable bamboo resources. Established in Montreal, we offer eco-friendly alternatives to traditional paper products while ensuring top-notch quality and performance. OEM & ODM are warmly welcome.",
+
+"footerCopyright": "Ivoire™️ | Copyright © 2026. All Rights Reserved.",
+"footerPrivacyPolicy": "Privacy Policy",
+"footerTermsOfUse": "Terms of Use",
+
+"footerLogoAlt": "Ivoire Tissue Logo"
+}
